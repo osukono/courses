@@ -1,0 +1,74 @@
+@extends('layouts.admin')
+
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin.translations.editors', $language, $content) }}
+@endsection
+
+@section('toolbar')
+    <div class="btn-group" role="group" aria-label="Editors">
+        <a class="btn btn-info" href="#" data-toggle="modal" data-target="#usersModal">
+            @include('admin.components.svg.plus')
+        </a>
+    </div>
+@endsection
+
+@section('content')
+    @if($editors->count())
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roles</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($editors as $editor)
+                    <tr>
+                        <td>{{ $editor->name }}</td>
+                        <td>{{ $editor->roles->implode('name', ',') }}</td>
+                        <td class="text-right">
+                            <form class="mr-1"
+                                  action="{{ route('admin.translations.editors.remove', [$language, $content]) }}"
+                                  method="post">
+                                @csrf
+                                <input type="hidden" id="user_id" name="user_id" value="{{ $editor->id }}">
+                                <button type="submit" class="btn btn-link btn-sm">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    @endif
+
+    <div class="modal fade" id="usersModal" tabindex="-1" role="dialog" aria-labelledby="usersLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="usersLabel">Assign Editor</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editors-assign" action="{{ route('admin.translations.editors.assign', [$language, $content]) }}"
+                          method="post">
+                        @csrf
+                        @select(['name' => 'user_id', 'label' => 'Users', 'options' => $users])
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-info" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info"
+                            onclick="document.getElementById('editors-assign').submit();">
+                        Assign
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

@@ -1,0 +1,59 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=cyrillic&display=block');
+@import url('https://fonts.googleapis.com/css?family=Paytone+One&display=block');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//body { padding-bottom: 70px; }
+
+//.footer > .container {
+//    padding-right: 15px;
+//    padding-left: 15px;
+//}
+
+.navbar-brand {
+    color: #404040 !important;
+    font-family: 'Paytone One', sans-serif !important;
+}
+
+.nav-link {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .05rem;
+    text-transform: uppercase;
+}
+
+.navbar-brand:hover {
+    //color: #1F618D !important;
+}
+
+.readable {
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+//.btn-link {
+//    @each $name, $color in (success: $success, info: $info, warning: $warning, danger: $danger) {
+//        &.text-#{$name} {
+//            @include hover-focus {
+//                color: darken($color, 10%) !important;
+//            }
+//        }
+//    }
+//}
+
+.btn-upper {
+    font-weight: 500;
+    letter-spacing: .04rem;
+    text-decoration: none !important;
+    text-transform: uppercase;
+}
+
+//.btn-upper:hover {
+//    text-decoration: none;
+//}

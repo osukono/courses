@@ -1,0 +1,80 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900&subset=cyrillic');
+//@import url('https://fonts.googleapis.com/css?family=Karla:400');
+@import url('https://fonts.googleapis.com/css?family=Paytone+One&display=swap');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//@import '~malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
+
+//Froala
+//@import '~froala-editor/css/froala_editor.pkgd.css';
+//@import "~froala-editor/css/froala_style.min.css";
+
+@import "sidebar.css";
+
+.custom-file-label {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.label-btn {
+    pointer-events: none;
+}
+
+.border-2 {
+    border-width: 2px !important;
+}
+
+/*
+ * Breadcrumbs
+ */
+
+.breadcrumb {
+    background-color: $body-bg;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-item, .title {
+    font-size: 1.1rem;
+}
+
+/*
+ * Clickable row
+ */
+
+*[data-href] {
+    cursor: pointer;
+}
+
+/*
+ * Feather icons
+ */
+
+.feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-top;
+}
+
+.last-child-mb-0 :last-child {
+    margin-bottom: 0 !important;
+}
+
+.context {
+    color: #858585;
+}
+
+.translation {
+    color: #a38068;
+}
+
+.brand {
+    color: #404040;
+    font-family: 'Paytone One', sans-serif;
+}

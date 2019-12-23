@@ -1,0 +1,87 @@
+@extends('layouts.admin')
+
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin.content.show', $content) }}
+@endsection
+
+@section('toolbar')
+    <div class="d-flex">
+        <div class="btn-group" role="group">
+            @includeWhen(Auth::getUser()->can(\App\Library\Permissions::update_content), 'admin.components.menu.create', ['route' => route('admin.lessons.create', $content), 'title' => __('admin.menu.create.lesson')])
+            <div class="btn-group" role="group">
+                <button class="btn btn-info dropdown-toggle" type="button" id="more" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    @include('admin.components.svg.more-vertical')
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="more">
+                    @can(\App\Library\Permissions::assign_editors)
+                        <a class="dropdown-item" href="{{ route('admin.content.editors.index', $content) }}">
+                            Content Editors
+                        </a>
+                        <div class="dropdown-divider"></div>
+                    @endcan
+
+                    <h6 class="dropdown-header">Download</h6>
+                    <a class="dropdown-item" href="{{ route('admin.content.export', $content) }}">
+                        {{ $content->language }}
+                    </a>
+                    @role(\App\Library\Roles::admin)
+                    <a class="dropdown-item" href="{{ route('admin.content.export.json', $content) }}">Content</a>
+                    @endrole
+
+                    @role(\App\Library\Roles::admin)
+                    <div class="dropdown-divider"></div>
+                    <h6 class="dropdown-header">Import</h6>
+                    <button type="button" class="dropdown-item" onclick="$('#json').click();">Content</button>
+                    <form class="d-none" id="import" action="{{ route('admin.content.import.json', $content) }}"
+                          method="post" enctype="multipart/form-data" autocomplete="off">
+                        @csrf
+                        <input type="file" id="json" name="json" accept="application/json"
+                               onchange="$('#import').submit();">
+                    </form>
+                    @endrole
+
+                    @can(\App\Library\Permissions::delete_content)
+                        <div class="dropdown-divider"></div>
+                        <form class="d-none" id="delete" action="{{ route('admin.content.destroy', $content) }}"
+                              method="post">
+                            @method('delete')
+                            @csrf
+                        </form>
+                        <button class="dropdown-item" type="button"
+                                data-toggle="confirmation"
+                                data-btn-ok-label="{{ __('admin.form.delete') }}"
+                                data-title="{{ __('admin.form.delete_confirmation', ['object' => $content]) }}"
+                                data-form="delete">
+                            Delete
+                        </button>
+                    @endcan
+                    @can(\App\Library\Permissions::restore_content)
+                        <a class="dropdown-item" href="{{ route('admin.lessons.trash', $content) }}">Trash</a>
+                    @endcan
+                </div>
+            </div>
+
+            @can(\App\Library\Permissions::view_translations && $languages->isNotEmpty())
+                @include('admin.components.menu.translations', ['route' => 'admin.translations.content.show', 'arg' => $content])
+            @endcan
+        </div>
+    </div>
+@endsection
+
+@section('content')
+    @includeWhen($content->descirption, 'admin.components.description', ['description' => $content->description])
+
+    @if($lessons->count())
+        @include('admin.content.lessons.list')
+    @endif
+
+    @if (Session::has('job'))
+        @push('progress')
+            <job-status job-id="{{ Session::get('job') }}"
+                        job-status-url="{{ route('admin.jobs.status', Session::get('job')) }}"
+                        redirect-url="{{ route('admin.content.show', $content) }}"
+            ></job-status>
+        @endpush
+    @endif
+@endsection
