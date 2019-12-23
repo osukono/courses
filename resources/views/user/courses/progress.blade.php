@@ -5,10 +5,10 @@
                 @if($userCourse->demo && !$userCourse->course->free)
                     <span class="badge badge-info">{{ __('Demo') }}</span>
                 @endif
-                @if($userCourse->progress['lesson'] > $userCourse->course->latestContent->course_lessons_count)
-                    <span class="badge badge-info">{{ __('Finished') }}</span>
-                @endif
                 {{ $userCourse->course->language . ' ' . $userCourse->course->level }}
+                    @if($userCourse->progress['lesson'] > $userCourse->course->latestContent->course_lessons_count)
+                        <span class="badge badge-info ml-2">{{ __('Finished') }}</span>
+                    @endif
             </h5>
             <span>
                 @if($userCourse->progress['lesson'] <= $userCourse->course->latestContent->course_lessons_count)
@@ -16,7 +16,7 @@
                        class="btn btn-outline-primary ml-2">{{ __('Continue the course') }}</a>
                 @else
                     <a href="#" onclick="document.getElementById('reset-{{ $userCourse->course }}').submit();"
-                       class="btn btn-link btn-outline-primary">{{ __('Reset progress') }}</a>
+                       class="btn btn-outline-primary ml-2">{{ __('Reset progress') }}</a>
                     <form id="reset-{{ $userCourse->course }}" class="d-none"
                           action="{{ route('courses.progress.reset', $userCourse->course) }}" method="post">
                         @csrf
