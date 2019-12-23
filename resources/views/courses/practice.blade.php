@@ -8,7 +8,7 @@
             exercises="{{ json_encode($exercises) }}"
             progress-url="{{ route('courses.progress.update', [$course, $key]) }}"
             continue-url="{{ route('courses.practice', $course) }}"
-            storage-url="{{ Storage::url('') }}"
+            storage-url="{{ Storage::url('.') }}"
             localization="{{ json_encode($locale) }}"
         >
         </course-player>

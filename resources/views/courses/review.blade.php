@@ -5,7 +5,7 @@
         <course-player
             title="{{ $title }}"
             review="{{ json_encode($review) }}"
-            storage-url="{{ Storage::url('') }}"
+            storage-url="{{ Storage::url('.') }}"
             localization="{{ json_encode($locale) }}"
         >
         </course-player>
