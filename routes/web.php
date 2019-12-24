@@ -4,7 +4,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
 
     Route::get('/', 'WebController@index')->name('welcome');
 
-    Route::get('seed', 'WebController@seed')->name('seed');
+//    Route::get('seed', 'WebController@seed')->name('seed');
 
     Auth::routes();
 

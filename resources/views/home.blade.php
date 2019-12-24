@@ -3,7 +3,9 @@
 @section('content')
     @each('user.courses.progress', $userCourses, 'userCourse')
 
-    @if($courses->count())
-        @include('courses.list')
+    @if($userCourses->count() == 0)
+        <h3 class="text-center mt-4 mb-5 font-weight-normal">{{ __('A great point to start') }}</h3>
     @endif
+
+    @includeWhen($courses->count() > 0, 'courses.list')
 @endsection
