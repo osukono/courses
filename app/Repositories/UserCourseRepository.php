@@ -7,6 +7,7 @@ namespace App\Repositories;
 use App\Course;
 use App\User;
 use App\UserCourse;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
 class UserCourseRepository
@@ -29,6 +30,14 @@ class UserCourseRepository
     public static function find(Course $course, User $user)
     {
         return $course->userCourses()->where('user_id', $user->id)->first();
+    }
+
+    /**
+     * @return UserCourse|Builder
+     */
+    public static function all()
+    {
+        return UserCourse::query();
     }
 
     public static function create(Course $course, User $user)

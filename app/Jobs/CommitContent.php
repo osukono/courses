@@ -68,7 +68,7 @@ class CommitContent implements ShouldQueue
 
         ]);
 
-        $this->setProgressMax($this->content->lessons->count());
+        $this->setProgressMax($this->content->lessons->count() * 2);
 
         if (!$this->validateContent())
             return;
@@ -138,6 +138,8 @@ class CommitContent implements ShouldQueue
                         }
                     }
                 }
+
+                $this->incrementProgress();
             }
         }
 
