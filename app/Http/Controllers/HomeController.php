@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\CourseRepository;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Http\Request;
@@ -24,6 +25,9 @@ class HomeController extends Controller
                 },
             ])
             ->latest('updated_at')->get();
+
+        $data['courses'] = CourseRepository::all()->where('published', true)
+            ->whereNotIn('id', $data['userCourses']->pluck('course_id'))->get();
 
         $data['htmlTitle'] = __('web.html.title.home');
 

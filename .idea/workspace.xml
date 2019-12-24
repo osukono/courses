@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="" />
+    <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -226,7 +229,7 @@
       <workItem from="1575717678531" duration="21784000" />
       <workItem from="1575892957310" duration="26659000" />
       <workItem from="1576337467609" duration="40967000" />
-      <workItem from="1577135306248" duration="792000" />
+      <workItem from="1577135306248" duration="1406000" />
     </task>
     <servers />
   </component>
@@ -242,10 +245,11 @@
       <screen x="0" y="22" width="1440" height="798" />
     </state>
     <state x="458" y="175" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.22.1440.798@0.22.1440.798" timestamp="1575291287710" />
-    <state x="458" y="183" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575388396748">
-      <screen x="0" y="22" width="1440" height="798" />
+    <state x="458" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1577173486374">
+      <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="458" y="183" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.22.1440.798@0.22.1440.798" timestamp="1575388396748" />
+    <state x="458" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.797@0.23.1440.797" timestamp="1577173486374" />
     <state x="362" y="76" key="#phpunit.xml" timestamp="1575731015181">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
@@ -268,10 +272,10 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="374" y="183" width="761" height="476" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1576342953895" />
-    <state x="385" y="145" width="670" height="676" key="search.everywhere.popup" timestamp="1577004792884">
+    <state x="385" y="145" width="670" height="676" key="search.everywhere.popup" timestamp="1577173317787">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.22.1440.798@0.22.1440.798" timestamp="1575635459573" />
-    <state x="385" y="145" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1577004792884" />
+    <state x="385" y="145" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1577173317787" />
   </component>
 </project>
