@@ -15,7 +15,7 @@ return [
             'terms' => 'Terms of Service',
         ],
         'seo' => [
-            'keywords' => 'English grammar, English online, how to speak English, audio courses, practice English, English pronunciation, English tenses, English lessons'
+            'keywords' => 'English grammar, English online, how to speak English, audio courses, practice English, English pronunciation, English tenses, English lessons, English for beginners'
         ]
     ],
     'index' => [

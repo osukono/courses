@@ -65,6 +65,7 @@
                 practice: [],
 
                 progress: 0,
+                waiting: false,
 
                 audioSrc: '',
                 audioDuration: 0,
@@ -142,7 +143,8 @@
 
             resume: function () {
                 this.state = this.states.started;
-                this.next();
+                if (!this.waiting)
+                    this.next();
             },
 
             finishListening: function () {
@@ -190,13 +192,17 @@
                         break;
                     case this.actions.wait:
                         setTimeout(function () {
+                            this.waiting = false;
                             this.next();
                         }.bind(this), this.audioDuration * 1000 * command.coefficient);
+                        this.waiting = true;
                         break;
                     case this.actions.pause:
                         setTimeout(function () {
+                            this.waiting = false;
                             this.next();
                         }.bind(this), command.duration);
+                        this.waiting = true;
                         break;
                     case this.actions.clear:
                         this.sentences = [];
