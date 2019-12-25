@@ -121,6 +121,20 @@ class CourseController extends Controller
         return redirect()->route('home');
     }
 
+    public function examples(Course $course, $number)
+    {
+        abort_if($course->latestContent->courseLessons->max('number') < $number, 404);
+
+        $courseLesson = $course->latestContent->courseLessons()->where('number', $number)->first();
+
+        $data['course'] = $course;
+        $data['title'] = $courseLesson->title;
+        $data['exercises'] = $courseLesson->content['exercises'];
+        $data['htmlTitle'] = $course->language . ' ' . $course->level . ' / ' . $courseLesson->title;
+
+        return view('courses.examples')->with($data);
+    }
+
     private function getPlayerLocale()
     {
         return [

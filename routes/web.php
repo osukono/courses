@@ -3,6 +3,7 @@
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function () {
 
     Route::get('/', 'WebController@index')->name('welcome');
+    Route::get('courses/{course}/lesson-{number}', 'CourseController@examples')->name('courses.examples');
 
 //    Route::get('seed', 'WebController@seed')->name('seed');
 
