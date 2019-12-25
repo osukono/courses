@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="present simple, to be, action verbs, present continuous, there is, there are, possessive pronouns, object pronoun, can, past simple, regular verbs, irregular verbs, there was, there were, past continuous, some, any, future simple, be going to, comparative forms of adjectives, superlative of adjectives, adverbs, present perfect, question formation">
+    <meta name="keywords" content="{{ __('web.html.seo.keywords') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

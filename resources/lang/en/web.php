@@ -12,7 +12,10 @@ return [
             'index' => 'English Grammar in Use',
             'home' => 'My Courses',
             'privacy' => 'Privacy Policy',
-            'terms' => 'Terms of Service'
+            'terms' => 'Terms of Service',
+        ],
+        'seo' => [
+            'keywords' => 'English grammar, English online, how to speak English, audio courses, practice English, English pronunciation, English tenses, English lessons'
         ]
     ],
     'index' => [
