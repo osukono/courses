@@ -2,13 +2,16 @@
     <div class="card-body">
         <div class="card-title">
             <h5 class="d-inline">
-                @if($userCourse->demo && !$userCourse->course->free)
-                    <span class="badge badge-info">{{ __('Demo') }}</span>
-                @endif
                 {{ $userCourse->course->language . ' ' . $userCourse->course->level }}
-                    @if($userCourse->progress['lesson'] > $userCourse->course->latestContent->course_lessons_count)
-                        <span class="badge badge-info ml-2">{{ __('Finished') }}</span>
-                    @endif
+                @if($userCourse->demo && !$userCourse->course->free)
+                    <span class="badge badge-info ml-2">{{ __('Demo') }}</span>
+                @endif
+                @if($userCourse->course->free)
+                    <span class="badge badge-success ml-2">{{ __('Free') }}</span>
+                @endif
+                @if($userCourse->progress['lesson'] > $userCourse->course->latestContent->course_lessons_count)
+                    <span class="badge badge-info ml-2">{{ __('Finished') }}</span>
+                @endif
             </h5>
             <span>
                 @if($userCourse->progress['lesson'] <= $userCourse->course->latestContent->course_lessons_count)
@@ -32,7 +35,7 @@
                     <td class="py-3 lead">
                         <span class="align-middle mr-4">{{ $courseLesson->number }}</span>
                         <span class="align-middle mr-2">{{ $courseLesson->title }}</span>
-                        @if($userCourse->demo && $userCourse->course->demo_lessons >= $courseLesson->number)
+                        @if(!$userCourse->course->free && $userCourse->demo && $userCourse->course->demo_lessons >= $courseLesson->number)
                             <span class="align-middle badge badge-success">{{ __('Free') }}</span>
                         @endif
                     </td>

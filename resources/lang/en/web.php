@@ -9,7 +9,7 @@ return [
     ],
     'html' => [
         'title' => [
-            'index' => 'English Grammar Courses',
+            'index' => 'English Grammar in Use',
             'home' => 'My Courses',
             'privacy' => 'Privacy Policy',
             'terms' => 'Terms of Service'
