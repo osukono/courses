@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h4 class="text-center">{{ $course->language . ' ' . $course->level }}</h4>
-    <h5 class="mb-4 ml-3">{{ $title }}</h5>
+{{--    <h3 class="text-center mt-4 mb-5">{{ $course->language . ' ' . $course->level }}</h3>--}}
+    <h5 class="mb-4 ml-3">{{ $course->language . ' ' . $course->level . ' › ' . $title }}</h5>
 
     <div class="ml-md-5">
         @foreach($exercises as $exercise)
