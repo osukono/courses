@@ -9,7 +9,7 @@ return [
     ],
     'html' => [
         'title' => [
-            'index' => 'Practice English Grammar with Yummy Lingo',
+            'index' => 'Learn English with Yummy Lingo',
             'home' => 'My Courses',
             'privacy' => 'Privacy Policy',
             'terms' => 'Terms of Service',
