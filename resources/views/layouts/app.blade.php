@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Yummy Lingo') }}@isset($htmlTitle) - {{ $htmlTitle }}@endisset</title>
+    <title>{{ isset($htmlTitle) ? $htmlTitle : config('app.name', 'Yummy Lingo') }}</title>
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <script src="{{ mix('js/app.js') }}" async defer></script>
