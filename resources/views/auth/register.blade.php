@@ -58,7 +58,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-8 offset-md-2 small">
-                                {!! __('By clicking Sign Up, you agree to our <a href=":privacy">Privacy Policy</a> and <a href=":terms">Terms of Service</a>.', ['privacy' => route('privacy'), 'terms' => route('terms') ]) !!}
+                                {!! __('By clicking Sign Up, you agree to our <a href=":privacy">Privacy Policy</a>.', ['privacy' => route('privacy')]) !!}
                             </div>
                         </div>
 

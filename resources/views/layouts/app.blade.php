@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 <a href="{{ route('privacy') }}" class="ml-3 text-secondary">{{ __('Privacy Policy') }}</a>
-                <a href="{{ route('terms') }}" class="ml-3 text-secondary">{{ __('Terms of Service') }}</a>
+{{--                <a href="{{ route('terms') }}" class="ml-3 text-secondary">{{ __('Terms of Service') }}</a>--}}
                 {{--                <a href="#" id="complaint" onclick="$('#complaint').tooltip('show'); return false;" class="ml-3 text-secondary" title="{{ __("There isn't one you can complain to. Just practice.") }}">{{ __('Complain') }}</a>--}}
             </div>
         </div>
