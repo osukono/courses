@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/unsubscribe.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/examples.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/examples.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/examples.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/lesson.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/documents/privacy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documents/privacy.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +239,7 @@
       <workItem from="1575717678531" duration="21784000" />
       <workItem from="1575892957310" duration="26659000" />
       <workItem from="1576337467609" duration="40967000" />
-      <workItem from="1577135306248" duration="17967000" />
+      <workItem from="1577135306248" duration="21730000" />
     </task>
     <servers />
   </component>
@@ -261,11 +269,11 @@
     </state>
     <state x="482" y="244" key="NewPhpClassDialog/0.22.1440.798@0.22.1440.798" timestamp="1575388319743" />
     <state x="482" y="245" key="NewPhpClassDialog/0.23.1440.797@0.23.1440.797" timestamp="1576318494687" />
-    <state x="541" y="352" key="NewPhpFileDialog" timestamp="1577297179632">
+    <state x="541" y="352" key="NewPhpFileDialog" timestamp="1577430757751">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="541" y="351" key="NewPhpFileDialog/0.22.1440.798@0.22.1440.798" timestamp="1575633025242" />
-    <state x="541" y="352" key="NewPhpFileDialog/0.23.1440.797@0.23.1440.797" timestamp="1577297179632" />
+    <state x="541" y="352" key="NewPhpFileDialog/0.23.1440.797@0.23.1440.797" timestamp="1577430757751" />
     <state x="229" y="60" key="SettingsEditor" timestamp="1575304838703">
       <screen x="0" y="22" width="1440" height="798" />
     </state>
@@ -274,10 +282,10 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="374" y="183" width="761" height="476" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1576342953895" />
-    <state x="385" y="145" width="670" height="676" key="search.everywhere.popup" timestamp="1577379924502">
+    <state x="385" y="145" width="670" height="676" key="search.everywhere.popup" timestamp="1577430664599">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.22.1440.798@0.22.1440.798" timestamp="1575635459573" />
-    <state x="385" y="145" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1577379924502" />
+    <state x="385" y="145" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1577430664599" />
   </component>
 </project>

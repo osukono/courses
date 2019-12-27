@@ -49,16 +49,6 @@ class CourseController extends Controller
         $review = array_merge($review, $userCourse->course->repository()->getReview($userCourse->progress['lesson'] - 3, $userCourse->progress['part']));
         $review = array_merge($review, $userCourse->course->repository()->getReview($userCourse->progress['lesson'] - 1, $userCourse->progress['part']));
 
-//        if ($userCourse->progress['part'] == 1) {
-//            $review = array_merge($review, $userCourse->course->repository()->getReview($userCourse->progress['lesson'] - 4, 2));
-//            $review = array_merge($review, $userCourse->course->repository()->getReview($userCourse->progress['lesson'] - 2, 2));
-//            $review = array_merge($review, $userCourse->course->repository()->getReview($userCourse->progress['lesson'] - 1, 2));
-//        } else if ($userCourse->progress['part'] == 2) {
-//            $review = array_merge($review, $userCourse->course->repository()->getReview($userCourse->progress['lesson'] - 3, 1));
-//            $review = array_merge($review, $userCourse->course->repository()->getReview($userCourse->progress['lesson'] - 1, 1));
-//            $review = array_merge($review, $userCourse->course->repository()->getReview($userCourse->progress['lesson'], 1));
-//        }
-
         $data['exercises'] = $courseLesson->repository()->part($userCourse->progress['part']);
         $data['review'] = $review;
         $data['course'] = $course;
@@ -80,9 +70,10 @@ class CourseController extends Controller
         abort_if($userCourse == null, 404);
         abort_if($userCourse->demo && $userCourse->course->demo_lessons < $number, 404);
         abort_if($userCourse->progress['lesson'] <= $number, 404);
-        abort_if($course->latestContent->courseLessons->max('number') < $number, 404);
 
         $courseLesson = $course->latestContent->courseLessons()->where('number', $number)->first();
+
+        abort_if($courseLesson == null, 404);
 
         $data['review'] = $courseLesson->content['exercises'];
         $data['title'] = $courseLesson->title . ' › ' . __('Review');
@@ -121,18 +112,30 @@ class CourseController extends Controller
         return redirect()->route('home');
     }
 
-    public function examples(Course $course, $number)
+    public function show(Course $course)
     {
-        abort_if($course->latestContent->courseLessons->max('number') < $number, 404);
+        abort_unless($course->published, 404);
+
+        $data['course'] = $course;
+        $data['htmlTitle'] = $course->language . ' ' . $course->level;
+
+        return view('courses.show')->with($data);
+    }
+
+    public function showLesson(Course $course, $number)
+    {
+        abort_unless($course->published, 404);
 
         $courseLesson = $course->latestContent->courseLessons()->where('number', $number)->first();
 
-        $data['course'] = $course;
-        $data['title'] = $courseLesson->title;
-        $data['exercises'] = $courseLesson->content['exercises'];
-        $data['htmlTitle'] = $course->language . ' ' . $course->level . ' / ' . $courseLesson->title;
+        abort_if($courseLesson == null, 404);
 
-        return view('courses.examples')->with($data);
+        $data['course'] = $course;
+        $data['courseLesson'] = $courseLesson;
+        $data['exercises'] = $courseLesson->content['exercises'];
+        $data['htmlTitle'] = $course->language . ' ' . $course->level . ' › ' . $courseLesson->title;
+
+        return view('courses.lesson')->with($data);
     }
 
     private function getPlayerLocale()

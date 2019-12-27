@@ -18,7 +18,7 @@
                     <tr>
                         <td class="text-right">{{ $courseLesson->number . '. ' }}</td>
                         <td class="col-11">
-                            <a href="{{ route('courses.examples', [$course, $courseLesson->number]) }}">{{ $courseLesson->title }}</a>
+                            <a href="{{ route('courses.show.lesson', [$course, $courseLesson->number]) }}">{{ $courseLesson->title }}</a>
                         </td>
                     </tr>
                 @endforeach

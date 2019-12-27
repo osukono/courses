@@ -3,7 +3,8 @@
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function () {
 
     Route::get('/', 'WebController@index')->name('welcome');
-    Route::get('courses/{course}/lesson-{number}', 'CourseController@examples')->name('courses.examples');
+    Route::get('courses/{course}', 'CourseController@show')->name('courses.show');
+    Route::get('courses/{course}/lesson-{number}', 'CourseController@showLesson')->name('courses.show.lesson');
 
 //    Route::get('seed', 'WebController@seed')->name('seed');
 
@@ -18,6 +19,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
         Route::get('practice/{course}/lesson-{number}', 'CourseController@practiceLesson')->name('courses.practice.lesson');
         Route::post('courses/{course}/progress/reset', 'CourseController@resetProgress')->name('courses.progress.reset');
         Route::get('courses/{course}/progress/{key}', 'CourseController@updateProgress')->name('courses.progress.update');
+
+        Route::get('unsubscribe', 'UserController@unsubscribe')->name('user.unsubscribe');
     });
 
 });

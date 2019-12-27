@@ -23,5 +23,8 @@ return [
             '1' => '',
             '2' => ''
         ]
+    ],
+    'user' => [
+        'unsubscribed' => 'You have successfully unsubscribed from our email notifications.'
     ]
 ];

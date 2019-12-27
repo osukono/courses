@@ -33,7 +33,7 @@
     </p>
 
     <ul>
-        <li>Personal identification information (Name, email address, phone number, etc.)</li>
+        <li>Personal identification information (Name, email address)</li>
     </ul>
 
     <h3 id="howDoWeCollectYourData">How do we collect your data?</h3>
@@ -67,24 +67,19 @@
     <h3 id="howDoWeStoreYourData">How do we store your data?</h3>
 
     <p>
-        We securely store your data at [enter the location and describe security precautions taken].
+        We securely store your data at the database provided by <a href="https://aws.amazon.com/">Amazon Web Services</a>.
     </p>
 
     <p>
-        We will keep your [enter type of data] for [enter time period]. Once this time period has expired, we
-        will delete your data by [enter how you delete users’ data].
+        We will keep your data until you cancel your account. Once you cancel your account we will delete all
+        the records related to your account from our database.
     </p>
 
     <h3 id="marketing">Marketing</h3>
 
     <p>
-        We would like to send you information about products and services of ours that we think you might like,
-        as well as those of our partner companies.
+        We would like to send you information about products and services of ours that we think you might like.
     </p>
-
-    <ul>
-        <li>[List organizations that will receive data]</li>
-    </ul>
 
     <p>
         If you have agreed to receive marketing, you may always opt out at a later date.
@@ -96,7 +91,7 @@
     </p>
 
     <p>
-        If you no longer wish to be contacted for marketing purposes, please click here.
+        If you no longer wish to be contacted for marketing purposes, please <a href="{{ route('user.unsubscribe') }}">click here</a>.
     </p>
 
     <h3 id="whatAreYourDataProtectionRights">What are your data protection rights?</h3>
@@ -180,7 +175,7 @@
             Functionality – We use these cookies so that we recognize you on our website and remember your previously selected preferences. These could include what language you prefer and location you are in. A mix of first-party and third-party cookies are used.
         </li>
         <li>
-            Advertising – We use these cookies to collect information about your visit to our website, the content you viewed, the links you followed and information about your browser, device, and your IP address. We sometimes shares some limited aspects of this data with third parties for advertising purposes. We may also share online data collected through cookies with our advertising partners. This means that when you visit another website, you may be shown advertising based on your browsing patterns on our website.
+            Advertising – We use these cookies to collect information about your visit to our website, the content you viewed, the links you followed and information about your browser, device, and your IP address. We sometimes share some limited aspects of this data with third parties for advertising purposes. We may also share online data collected through cookies with our advertising partners. This means that when you visit another website, you may be shown advertising based on your browsing patterns on our website.
         </li>
     </ul>
 
@@ -199,7 +194,7 @@
     <h3 id="changesToOurPrivacyPolicy">Changes to our privacy policy</h3>
 
     <p>
-        We keep our privacy policy under regular review and place any updates on this web page. This privacy policy was last updated on 4 December 2019.
+        We keep our privacy policy under regular review and place any updates on this web page. This privacy policy was last updated on 27 December 2019.
     </p>
 
     <h3 id="howToContactUs">How to contact us</h3>
