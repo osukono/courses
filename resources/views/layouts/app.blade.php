@@ -76,7 +76,7 @@
 </header>
 
 <main role="main" class="pt-4 flex-shrink-0">
-    <div id="app" class="container">
+    <div id="app" class="container p-0">
         @yield('content')
     </div>
 </main>

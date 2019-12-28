@@ -9,11 +9,11 @@
                 @foreach($exercise['fields'] as $field)
                     <div>
                         @include('admin.components.audio.play', ['audio' => $field['audio']])
-                        <span>
+                        <span lang="{{ $course->language->code }}">
                         {!! \App\Library\Str::normalize($field['value']) !!}
                         </span>
                         @if($field['identifier'] == 'translation')
-                            <span class="text-muted">
+                            <span lang="{{ $course->translation->code }}" class="text-muted">
                                 – {!! \App\Library\Str::normalize($field['translation']['value']) !!}
                             </span>
                         @endif

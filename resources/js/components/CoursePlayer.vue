@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title mb-4" v-text="title"></h5>
-            <div class="mx-3 p-2" style="min-height: 8rem;">
+            <div class="mx-md-4 py-2" style="min-height: 8rem;">
                 <div v-for="sentence in sentences">
                     <span style="font-size: 1rem;" v-html="sentence"></span>
                 </div>
@@ -24,7 +24,7 @@
                     {{ this.locale['continue'] }}
                 </button>
             </div>
-            <audio ref="player" @canplay="audioCanPlay">
+            <audio ref="player" @canplay="audioCanPlay" @ended="audioEnded">
                 <source :src=audioSrc>
             </audio>
         </div>
@@ -37,6 +37,7 @@
 
         data() {
             return {
+                // audio: undefined,
                 locale: [],
                 state: '',
                 states: {
@@ -129,6 +130,11 @@
 
             audioCanPlay: function () {
                 this.audioDuration = this.$refs.player.duration;
+                // this.$refs.player.play();
+                this.next();
+            },
+
+            audioEnded: function () {
                 this.next();
             },
 
@@ -189,7 +195,7 @@
                         break;
                     case this.actions.play:
                         this.$refs.player.play();
-                        this.next();
+                        // this.next();
                         break;
                     case this.actions.wait:
                         setTimeout(function () {
@@ -233,7 +239,7 @@
             playAudio: function (commands, audio) {
                 commands.push({action: this.actions.load, audio: this.storageUrl + audio});
                 commands.push({action: this.actions.play});
-                commands.push({action: this.actions.wait, coefficient: 1.4});
+                commands.push({action: this.actions.wait, coefficient: 0.4});
             },
 
             addListening: function (exercise) {
@@ -261,10 +267,11 @@
                         this.playAudio(this.practice, field['translation']['audio']);
 
                         this.practice.push({action: this.actions.load, audio: this.storageUrl + field['audio']});
+                        // this.practice.push({action: this.actions.play});
                         this.practice.push({action: this.actions.wait, coefficient: 2});
                         this.showText(this.practice, field['value']);
                         this.practice.push({action: this.actions.play});
-                        this.practice.push({action: this.actions.wait, coefficient: 1.4});
+                        this.practice.push({action: this.actions.wait, coefficient: 0.4});
                     } else {
                         this.showText(this.practice, field['value']);
                         this.playAudio(this.practice, field['audio']);
@@ -338,8 +345,10 @@
 
             this.commands = this.listening;
 
-            let audio = this.audio = this.$el.querySelectorAll('audio')[0];
-            audio.volume = 1;
+            this.$refs.player.volume = 1;
+
+            // this.audio = this.$el.querySelectorAll('audio')[0];
+            // this.audio.volume = 1;
 
             this.state = 'mounted';
         }

@@ -91,7 +91,7 @@
     </p>
 
     <p>
-        If you no longer wish to be contacted for marketing purposes, please <a href="{{ route('user.unsubscribe') }}">click here</a>.
+        If you no longer wish to be contacted for marketing purposes, please <a rel="nofollow" href="{{ route('user.unsubscribe') }}">click here</a>.
     </p>
 
     <h3 id="whatAreYourDataProtectionRights">What are your data protection rights?</h3>
