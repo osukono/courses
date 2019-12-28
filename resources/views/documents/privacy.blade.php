@@ -67,7 +67,7 @@
     <h3 id="howDoWeStoreYourData">How do we store your data?</h3>
 
     <p>
-        We securely store your data at the database provided by <a href="https://aws.amazon.com/">Amazon Web Services</a>.
+        We securely store your data at the database provided by <a rel="external" href="https://aws.amazon.com/">Amazon Web Services</a>.
     </p>
 
     <p>
@@ -150,7 +150,7 @@
     </p>
 
     <p>
-        For further information, visit <a href="https://www.allaboutcookies.org/">allaboutcookies.org</a>.
+        For further information, visit <a rel="external" href="https://www.allaboutcookies.org/">allaboutcookies.org</a>.
     </p>
 
     <h3 id="howDoWeUseCookies">How do we use cookies?</h3>
@@ -213,7 +213,7 @@
         Should you wish to report a complaint or if you feel that we have not addressed your concern in a satisfactory manner, you may contact the Information Commissioner’s Office.
     </p>
 
-    <p>Web Address: <a href="https://ico.org.uk/">ico.org.uk</a></p>
+    <p>Web Address: <a rel="external" href="https://ico.org.uk/">ico.org.uk</a></p>
 
     <p>Wycliffe House, Water Ln, Wilmslow SK9 5AF, United Kingdom</p>
 

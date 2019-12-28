@@ -24,7 +24,8 @@
                     {{ this.locale['continue'] }}
                 </button>
             </div>
-            <audio ref="player" :src=audioSrc @canplay="audioCanPlay">
+            <audio ref="player" @canplay="audioCanPlay">
+                <source :src=audioSrc>
             </audio>
         </div>
     </div>

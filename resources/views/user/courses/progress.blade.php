@@ -13,7 +13,7 @@
                     <span class="badge badge-info ml-2">{{ __('Finished') }}</span>
                 @endif
             </h5>
-            <span>
+            <span class="align-content-end">
                 @if($userCourse->progress['lesson'] <= $userCourse->course->latestContent->course_lessons_count)
                     <a href="{{ route('courses.practice', $userCourse->course) }}"
                        class="btn btn-outline-primary ml-2">{{ __('Continue the course') }}</a>
@@ -39,7 +39,7 @@
                             <span class="align-middle badge badge-success">{{ __('Free') }}</span>
                         @endif
                     </td>
-                    <td class="text-right">
+                    <td class="text-right align-middle">
                         @if($courseLesson->number < $userCourse->progress['lesson'])
                             <a href="{{ route('courses.practice.lesson', [$userCourse->course, $courseLesson->number]) }}"
                                class="btn btn-outline-primary">{{ __('Repeat lesson') }}</a>
