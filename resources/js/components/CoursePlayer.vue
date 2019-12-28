@@ -338,6 +338,9 @@
 
             this.commands = this.listening;
 
+            let audio = this.audio = this.$el.querySelectorAll('audio')[0];
+            audio.volume = 1;
+
             this.state = 'mounted';
         }
     }
