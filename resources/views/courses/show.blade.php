@@ -14,7 +14,7 @@
         <h5>{{ __('Course topics') }}</h5>
         <div class="row ml-3">
             @foreach($course->latestContent->courseLessons->chunk(ceil($course->latestContent->courseLessons->count() / 2)) as $chunk)
-                <div class="col-12 col-lg-4 col-md-6">
+                <div class="col-12 col-lg-4 col-md-6 px-0">
                     <table class="table table-sm table-borderless mb-0">
                         <tbody>
                         @foreach($chunk as $courseLesson)
