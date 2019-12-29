@@ -314,8 +314,8 @@
             let review = this.review !== undefined ? JSON.parse(this.review) : [];
             let exercises = this.exercises !== undefined ? JSON.parse(this.exercises) : [];
 
-            this.preloadAudio(review);
-            this.preloadAudio(exercises);
+            // this.preloadAudio(review);
+            // this.preloadAudio(exercises);
 
             for (let x = 0; x < review.length; x++) {
                 this.addListening(review[x]);
