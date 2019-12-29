@@ -295,13 +295,13 @@
                 //https://stackoverflow.com/questions/31060642/preload-multiple-audio-files
                 for (let x = 0; x < array.length; x++) {
                     array[x]['fields'].forEach(async function (field) {
-                        let audio  = new Audio();
-                        audio.src = this.storageUrl + field['audio'];
+                        this.audio[field['audio']]  = new Audio();
+                        this.audio[field['audio']].src = this.storageUrl + field['audio'];
                         // this.audio[field['audio']] = await fetch(this.storageUrl + field['audio']).then(r => r.blob());
 
                         if (field['identifier'] === 'translation') {
-                            let audio = new Audio();
-                            audio.src = this.storageUrl + field['translation']['audio'];
+                            this.audio[field['audio']] = new Audio();
+                            this.audio[field['audio']].src = this.storageUrl + field['translation']['audio'];
                         }
                             // this.audio[field['translation']['audio']] = await fetch(this.storageUrl + field['translation']['audio']).then(r => r.blob());
                     }.bind(this));
