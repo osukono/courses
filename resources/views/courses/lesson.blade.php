@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    <h3 class="text-center mt-4 mb-5 font-weight-normal">{{ __('English Grammar in Use – :topic', ['level' => $course->level, 'topic' => $courseLesson->title]) }}</h3>
+
     <h5 class="mb-4 ml-3">{{ $course->language . ' ' . $course->level . ' › ' . $courseLesson->title }}</h5>
 
     <div class="ml-md-5">
