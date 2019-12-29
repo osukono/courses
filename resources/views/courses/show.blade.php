@@ -10,7 +10,7 @@
                    class="btn btn-outline-primary ml-2">{{ __('Practice') }}</a>
             </h5>
         </div>
-        <p class="card-text mx-3">{{ $course->description }}</p>
+        <p class="card-text mx-3" lang="{{ $course->translation->code }}">{{ $course->description }}</p>
         {{--<h5>{{ __('Course topics') }}</h5>
         <div class="row ml-3">
             @foreach($course->latestContent->courseLessons->chunk(ceil($course->latestContent->courseLessons->count() / 2)) as $chunk)

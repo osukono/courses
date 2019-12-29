@@ -10,7 +10,9 @@
       <change beforePath="$PROJECT_DIR$/public/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/CoursePlayer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CoursePlayer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/lesson.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/lesson.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -239,7 +241,7 @@
       <workItem from="1575717678531" duration="21784000" />
       <workItem from="1575892957310" duration="26659000" />
       <workItem from="1576337467609" duration="40967000" />
-      <workItem from="1577135306248" duration="29617000" />
+      <workItem from="1577135306248" duration="33328000" />
     </task>
     <servers />
   </component>

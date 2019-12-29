@@ -37,8 +37,8 @@
 
         data() {
             return {
-                // audio: undefined,
                 locale: [],
+                audio: [],
                 state: '',
                 states: {
                     mounted: 'mounted',
@@ -130,7 +130,6 @@
 
             audioCanPlay: function () {
                 this.audioDuration = this.$refs.player.duration;
-                // this.$refs.player.play();
                 this.next();
             },
 
@@ -195,7 +194,6 @@
                         break;
                     case this.actions.play:
                         this.$refs.player.play();
-                        // this.next();
                         break;
                     case this.actions.wait:
                         setTimeout(function () {
@@ -267,7 +265,6 @@
                         this.playAudio(this.practice, field['translation']['audio']);
 
                         this.practice.push({action: this.actions.load, audio: this.storageUrl + field['audio']});
-                        // this.practice.push({action: this.actions.play});
                         this.practice.push({action: this.actions.wait, coefficient: 2});
                         this.showText(this.practice, field['value']);
                         this.practice.push({action: this.actions.play});
@@ -292,6 +289,23 @@
                 }
 
                 return array;
+            },
+
+            preloadAudio: function (array) {
+                //https://stackoverflow.com/questions/31060642/preload-multiple-audio-files
+                for (let x = 0; x < array.length; x++) {
+                    array[x]['fields'].forEach(async function (field) {
+                        let audio  = new Audio();
+                        audio.src = this.storageUrl + field['audio'];
+                        // this.audio[field['audio']] = await fetch(this.storageUrl + field['audio']).then(r => r.blob());
+
+                        if (field['identifier'] === 'translation') {
+                            let audio = new Audio();
+                            audio.src = this.storageUrl + field['translation']['audio'];
+                        }
+                            // this.audio[field['translation']['audio']] = await fetch(this.storageUrl + field['translation']['audio']).then(r => r.blob());
+                    }.bind(this));
+                }
             }
         },
 
@@ -299,6 +313,9 @@
             this.locale = JSON.parse(this.localization);
             let review = this.review !== undefined ? JSON.parse(this.review) : [];
             let exercises = this.exercises !== undefined ? JSON.parse(this.exercises) : [];
+
+            this.preloadAudio(review);
+            this.preloadAudio(exercises);
 
             for (let x = 0; x < review.length; x++) {
                 this.addListening(review[x]);
@@ -346,9 +363,6 @@
             this.commands = this.listening;
 
             this.$refs.player.volume = 1;
-
-            // this.audio = this.$el.querySelectorAll('audio')[0];
-            // this.audio.volume = 1;
 
             this.state = 'mounted';
         }
