@@ -19,10 +19,7 @@ return [
         ]
     ],
     'index' => [
-        'description' => [
-            '1' => '',
-            '2' => ''
-        ]
+        'description' => ''
     ],
     'user' => [
         'unsubscribed' => 'You have successfully unsubscribed from our email notifications.'
