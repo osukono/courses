@@ -11,6 +11,7 @@
                 @foreach($exercise['fields'] as $field)
                     <div>
                         @include('admin.components.audio.play', ['audio' => $field['audio']])
+{{--                        @include('components.audio.play', ['audio' => $field['audio'], 'sentence' => \App\Library\Str::normalize($field['value']), 'lang' => $course->language->code])--}}
                         <span lang="{{ $course->language->code }}">
                         {!! \App\Library\Str::normalize($field['value']) !!}
                         </span>

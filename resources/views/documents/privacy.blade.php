@@ -138,7 +138,7 @@
     </p>
 
     <p>
-        Email us at: privacy@yummylingo.com
+        Email us at: privacy@mg.yummylingo.com
     </p>
 
     <h3 id="whatAreCookies">Cookies</h3>
@@ -194,7 +194,7 @@
     <h3 id="changesToOurPrivacyPolicy">Changes to our privacy policy</h3>
 
     <p>
-        We keep our privacy policy under regular review and place any updates on this web page. This privacy policy was last updated on 27 December 2019.
+        We keep our privacy policy under regular review and place any updates on this web page. This privacy policy was last updated on 30 December 2019.
     </p>
 
     <h3 id="howToContactUs">How to contact us</h3>
@@ -204,7 +204,7 @@
     </p>
 
     <p>
-        Email us at: privacy@yummylingo.com
+        Email us at: privacy@mg.yummylingo.com
     </p>
 
     <h3 id="howToContactTheAppropriateAuthorities">How to contact the appropriate authority</h3>
