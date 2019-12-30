@@ -43,7 +43,7 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            <a class="nav-link text-secondary" href="{{ route('home') }}">{{ __('My Courses') }}</a>
+                            <a class="nav-link text-primary" href="{{ route('home') }}">{{ __('My Courses') }}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-secondary" href="#"
