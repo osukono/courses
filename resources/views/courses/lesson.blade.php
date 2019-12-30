@@ -5,6 +5,8 @@
 
     <h5 class="mb-4 ml-3">
         {{ $course->language . ' ' . $course->level . ' › ' . $courseLesson->title }}
+{{--        <a rel="nofollow" href="{{ route('courses.practice', $course) }}"--}}
+{{--           class="btn btn-outline-primary ml-2">{{ __('Practice') }}</a>--}}
     </h5>
 
     <div class="ml-md-5">
