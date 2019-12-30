@@ -7,7 +7,7 @@
                     <span class="badge badge-success ml-2">{{ __('Free') }}</span>
                 @endif
                 <a rel="nofollow" href="{{ route('courses.practice', $course) }}"
-                   class="btn btn-outline-primary ml-2">{{ __('Practice') }}</a>
+                   class="btn btn-outline-primary ml-2">{{ __('web.course.practice') }}</a>
             </h5>
         </div>
         <p class="card-text mx-3" lang="{{ $course->translation->code }}">{{ $course->description }}</p>

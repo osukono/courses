@@ -23,5 +23,8 @@ return [
     ],
     'user' => [
         'unsubscribed' => 'You have successfully unsubscribed from our email notifications.'
+    ],
+    'course' => [
+        'practice' => 'Get started'
     ]
 ];
