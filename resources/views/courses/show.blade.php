@@ -1,14 +1,14 @@
 <div class="card mb-3 border-0">
     <div class="card-body">
         <div class="card-title">
-            <h5>
-                {{ $course->language . ' ' . $course->level }}
+            <h4>
+                <span>{{ $course->language . ' ' . $course->level }}</span>
                 @if($course->free)
-                    <span class="badge badge-success ml-2">{{ __('Free') }}</span>
+                    <span class="badge badge-pill badge-success ml-2">{{ __('Free') }}</span>
                 @endif
                 <a rel="nofollow" href="{{ route('courses.practice', $course) }}"
                    class="btn btn-outline-primary ml-2">{{ __('web.course.practice') }}</a>
-            </h5>
+            </h4>
         </div>
         <p class="card-text mx-3" lang="{{ $course->translation->code }}">{{ $course->description }}</p>
         <h5>{{ __('Course topics') }}</h5>

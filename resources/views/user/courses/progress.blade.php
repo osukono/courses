@@ -1,18 +1,18 @@
 <div class="card mb-3 border-0">
     <div class="card-body">
         <div class="card-title">
-            <h5 class="d-inline">
+            <h4 class="d-inline">
                 {{ $userCourse->course->language . ' ' . $userCourse->course->level }}
                 @if($userCourse->demo && !$userCourse->course->free)
-                    <span class="badge badge-info ml-2">{{ __('Demo') }}</span>
+                    <span class="badge badge-pill badge-info ml-2">{{ __('Demo') }}</span>
                 @endif
                 @if($userCourse->course->free)
-                    <span class="badge badge-success ml-2">{{ __('Free') }}</span>
+                    <span class="badge badge-pill badge-success ml-2">{{ __('Free') }}</span>
                 @endif
                 @if($userCourse->progress['lesson'] > $userCourse->course->latestContent->course_lessons_count)
-                    <span class="badge badge-info ml-2">{{ __('Finished') }}</span>
+                    <span class="badge badge-pill badge-info ml-2">{{ __('Finished') }}</span>
                 @endif
-            </h5>
+            </h4>
             <span class="align-content-end">
                 @if($userCourse->progress['lesson'] <= $userCourse->course->latestContent->course_lessons_count)
                     <a href="{{ route('courses.practice', $userCourse->course) }}"
