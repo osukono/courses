@@ -17,7 +17,7 @@
 <body class="d-flex flex-column h-100">
 <header>
     <nav class="navbar navbar-expand-md navbar-light bg-white">
-        <div class="container">
+        <div class="container mt-2">
             <a class="navbar-brand" href="{{ route('welcome') }}"><h3>{{ env('APP_NAME') }}</h3></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse"
