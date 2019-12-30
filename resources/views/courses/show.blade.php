@@ -1,17 +1,21 @@
 <div class="card mb-3 border-0">
     <div class="card-body">
         <div class="card-title">
-            <h4>
+            <h4 class="d-inline">
                 <span>{{ $course->language . ' ' . $course->level }}</span>
                 @if($course->free)
-                    <span class="badge badge-pill badge-success ml-2">{{ __('Free') }}</span>
+                    <span class="badge badge-pill badge-success ml-2 d-inline">{{ __('Free') }}</span>
                 @endif
-                <a rel="nofollow" href="{{ route('courses.practice', $course) }}"
-                   class="btn btn-outline-primary ml-2">{{ __('web.course.practice') }}</a>
             </h4>
+            <a rel="nofollow" href="{{ route('courses.practice', $course) }}"
+               class="btn btn-outline-primary ml-2 d-none d-md-inline-block">{{ __('web.course.practice') }}</a>
+        </div>
+        <div class="text-center d-md-none">
+            <a rel="nofollow" href="{{ route('courses.practice', $course) }}"
+               class="btn btn-lg btn-outline-primary my-3">{{ __('web.course.practice') }}</a>
         </div>
         <p class="card-text mx-3" lang="{{ $course->translation->code }}">{{ $course->description }}</p>
-        <h5>{{ __('Course topics') }}</h5>
+        <h5>{{ __('web.course.topics') }}</h5>
         <div class="row ml-3">
             @foreach($course->latestContent->courseLessons->chunk(ceil($course->latestContent->courseLessons->count() / 2)) as $chunk)
                 <div class="col-12 col-lg-4 col-md-6 px-0">

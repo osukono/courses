@@ -25,6 +25,7 @@ return [
         'unsubscribed' => 'You have successfully unsubscribed from our email notifications.'
     ],
     'course' => [
-        'practice' => 'Get started'
+        'practice' => 'Get started',
+        'topics' => 'In the course'
     ]
 ];

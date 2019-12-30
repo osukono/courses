@@ -13,19 +13,25 @@
                     <span class="badge badge-pill badge-info ml-2">{{ __('Finished') }}</span>
                 @endif
             </h4>
-            <span class="align-content-end">
-                @if($userCourse->progress['lesson'] <= $userCourse->course->latestContent->course_lessons_count)
-                    <a href="{{ route('courses.practice', $userCourse->course) }}"
-                       class="btn btn-outline-primary ml-2">{{ __('Continue the course') }}</a>
-                @else
+            @if($userCourse->progress['lesson'] <= $userCourse->course->latestContent->course_lessons_count)
+                <a href="{{ route('courses.practice', $userCourse->course) }}"
+                   class="btn btn-outline-primary ml-2 d-none d-md-inline-block">{{ __('Continue the course') }}</a>
+                <div class="text-center d-md-none">
+                    <a href="{{ route('courses.practice',  $userCourse->course) }}"
+                       class="btn btn-lg btn-outline-primary my-3">{{ __('Continue the course') }}</a>
+                </div>
+            @else
+                <a href="#" onclick="document.getElementById('reset-{{ $userCourse->course }}').submit();"
+                   class="btn btn-outline-primary ml-2 d-md-inline-block">{{ __('Reset progress') }}</a>
+                <div class="text-center d-md-none">
                     <a href="#" onclick="document.getElementById('reset-{{ $userCourse->course }}').submit();"
-                       class="btn btn-outline-primary ml-2">{{ __('Reset progress') }}</a>
-                    <form id="reset-{{ $userCourse->course }}" class="d-none"
-                          action="{{ route('courses.progress.reset', $userCourse->course) }}" method="post">
-                        @csrf
-                    </form>
-                @endif
-            </span>
+                       class="btn btn-lg btn-outline-primary my-3">{{ __('Reset progress') }}</a>
+                </div>
+                <form id="reset-{{ $userCourse->course }}" class="d-none"
+                      action="{{ route('courses.progress.reset', $userCourse->course) }}" method="post">
+                    @csrf
+                </form>
+            @endif
         </div>
 
         <table class="table mb-0">
