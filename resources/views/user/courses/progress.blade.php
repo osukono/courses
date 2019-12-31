@@ -42,7 +42,7 @@
                         <span class="align-middle mr-4">{{ $courseLesson->number }}</span>
                         <span class="align-middle mr-2">{{ $courseLesson->title }}</span>
                         @if(!$userCourse->course->free && $userCourse->demo && $userCourse->course->demo_lessons >= $courseLesson->number)
-                            <span class="align-middle badge badge-success">{{ __('Free') }}</span>
+                            <span class="align-middle badge badge-pill badge-success">{{ __('Free') }}</span>
                         @endif
                     </td>
                     <td class="text-right align-middle">
