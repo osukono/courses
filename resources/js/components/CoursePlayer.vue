@@ -23,6 +23,15 @@
                         class="btn btn-link btn-upper text-info">
                     {{ this.locale['continue'] }}
                 </button>
+                <div class="form-inline float-right">
+                    <transition name="fade">
+                        <input style="max-width: 100px" type="range" class="form-control-range"
+                               id="volume" :value="volume * 100" @input="changeVolume" @change="saveVolume" v-show="showVolume">
+                    </transition>
+                    <button class="btn btn-link text-info mr-1" @click="toggleVolume">
+                        <i data-feather="volume-2"></i>
+                    </button>
+                </div>
             </div>
             <audio ref="player" @canplay="audioCanPlay" @ended="audioEnded">
                 <source :src=audioSrc>
@@ -71,6 +80,10 @@
 
                 audioSrc: '',
                 audioDuration: 0,
+
+                showVolume: false,
+
+                volume: 0.7
             }
         },
 
@@ -81,6 +94,7 @@
             progressUrl: String,
             continueUrl: String,
             storageUrl: String,
+            settingsUrl: String,
             localization: String,
         },
 
@@ -97,6 +111,13 @@
                     case this.states.practiceFinished:
                         return this.locale['repeat'];
                 }
+            },
+            volumeLevel: function () {
+                if (this.volume === 0)
+                    return 'volume-x';
+                else if (this.volume <= 0.5)
+                    return 'volume-1';
+                else return 'volume-2';
             }
         },
 
@@ -126,6 +147,26 @@
 
             continueClicked: function () {
                 window.location.href = this.continueUrl;
+            },
+
+            toggleVolume: function () {
+                if (this.showVolume)
+                    this.saveSettings();
+                this.showVolume = !this.showVolume;
+            },
+
+            saveVolume: function () {
+                if (this.settingsUrl !== undefined) {
+                    axios.post(this.settingsUrl, {
+                        volume: this.volume
+                    });
+                }
+            },
+
+            changeVolume: function (event) {
+                this.volume = event.target.value / 100;
+                this.$refs.player.volume = this.volume;
+                // feather.replace();
             },
 
             audioCanPlay: function () {
@@ -296,7 +337,7 @@
                 //https://stackoverflow.com/questions/31060642/preload-multiple-audio-files
                 for (let x = 0; x < array.length; x++) {
                     array[x]['fields'].forEach(async function (field) {
-                        this.audio[field['audio']]  = new Audio();
+                        this.audio[field['audio']] = new Audio();
                         this.audio[field['audio']].src = this.storageUrl + field['audio'];
                         // this.audio[field['audio']] = await fetch(this.storageUrl + field['audio']).then(r => r.blob());
 
@@ -304,7 +345,7 @@
                             this.audio[field['audio']] = new Audio();
                             this.audio[field['audio']].src = this.storageUrl + field['translation']['audio'];
                         }
-                            // this.audio[field['translation']['audio']] = await fetch(this.storageUrl + field['translation']['audio']).then(r => r.blob());
+                        // this.audio[field['translation']['audio']] = await fetch(this.storageUrl + field['translation']['audio']).then(r => r.blob());
                     }.bind(this));
                 }
             }
@@ -363,7 +404,7 @@
 
             this.commands = this.listening;
 
-            this.$refs.player.volume = 1;
+            this.$refs.player.volume = 0.7;
 
             this.state = 'mounted';
         }
@@ -371,5 +412,11 @@
 </script>
 
 <style scoped>
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
 
+    .fade-enter, .fade-leave-to {
+        opacity: 0;
+    }
 </style>

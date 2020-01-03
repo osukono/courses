@@ -111,6 +111,11 @@
 </footer>
 
 @stack('scripts')
+{{--<script>--}}
+{{--    $(document).ready(function () {--}}
+{{--        feather.replace();--}}
+{{--    });--}}
+{{--// </script>--}}
 
 </body>
 </html>
