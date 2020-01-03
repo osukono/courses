@@ -130,8 +130,8 @@ class ContentRepository
                     continue;
 
                 foreach ($exercise['fields'] as $fieldKey => $field) {
-//                    if (isset($field['content']['value']))
-//                        $data .= Str::toPlainText($field['content']['value']) . PHP_EOL;
+                    if (isset($field['content']['value']))
+                        $data .= Str::toPlainText($field['content']['value']) . PHP_EOL;
 
                     if ($language != null && isset($field['translations'])) {
                         foreach ($field['translations'] as $translation)

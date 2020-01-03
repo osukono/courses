@@ -15,7 +15,7 @@
 <div id="app" class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar"  {{--class="border-right border-light"--}}>
-        <div class="sidebar-header text-center">
+        <div class="sidebar-header text-center mt-2">
             <a href="{{ route('welcome') }}"><h3 class="brand mb-0">{{ env('APP_NAME') }}</h3></a>
         </div>
 
