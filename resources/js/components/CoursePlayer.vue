@@ -150,8 +150,6 @@
             },
 
             toggleVolume: function () {
-                if (this.showVolume)
-                    this.saveSettings();
                 this.showVolume = !this.showVolume;
             },
 
