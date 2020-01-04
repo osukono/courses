@@ -28,7 +28,7 @@
                         <input style="max-width: 100px" type="range" class="form-control-range"
                                id="volume" :value="volume * 100" @input="changeVolume" @change="saveVolume" v-show="showVolume">
                     </transition>
-                    <button class="btn btn-link text-info mr-1" @click="toggleVolume">
+                    <button class="btn btn-link text-info mr-1" @click="showVolume = !showVolume">
                         <i data-feather="volume-2"></i>
                     </button>
                 </div>
@@ -149,10 +149,6 @@
                 window.location.href = this.continueUrl;
             },
 
-            toggleVolume: function () {
-                this.showVolume = !this.showVolume;
-            },
-
             saveVolume: function () {
                 if (this.settingsUrl !== undefined) {
                     axios.post(this.settingsUrl, {
@@ -164,7 +160,6 @@
             changeVolume: function (event) {
                 this.volume = event.target.value / 100;
                 this.$refs.player.volume = this.volume;
-                // feather.replace();
             },
 
             audioCanPlay: function () {

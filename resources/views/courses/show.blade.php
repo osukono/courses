@@ -23,10 +23,11 @@
                         <tbody>
                         @foreach($chunk as $courseLesson)
                             <tr>
-                                <td class="text-right" style="min-width: 30px">{{ $courseLesson->number . '. ' }}</td>
+                                {{--<td class="text-right" style="min-width: 30px">{{ $courseLesson->number . '. ' }}</td>
                                 <td class="col-11">
                                     <a href="{{ route('courses.show.lesson', [$course, $courseLesson->number]) }}">{{ $courseLesson->title }}</a>
-                                </td>
+                                </td>--}}
+                                <td>{{ $courseLesson->number . '. ' . $courseLesson->title }}</td>
                             </tr>
                         @endforeach
                         </tbody>
