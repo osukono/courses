@@ -47,6 +47,8 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User ordered()
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\UserCourse[] $userCourses
  * @property-read int|null $user_courses_count
+ * @property array $settings
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereSettings($value)
  */
 class User extends Authenticatable implements Identifiable
 {
@@ -60,6 +62,8 @@ class User extends Authenticatable implements Identifiable
      */
     protected $fillable = [
         'name', 'email', 'password',
+        'settings->speed',
+        'settings->volume'
     ];
 
     /**
@@ -78,6 +82,7 @@ class User extends Authenticatable implements Identifiable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'settings' => 'array',
     ];
 
     /**

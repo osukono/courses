@@ -37,7 +37,7 @@
                             <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                         </svg>
                     </button>
-                    <button class="btn btn-sm btn-link btn-upper text-info" @click="speedClicked"
+                    <button class="btn btn-sm btn-link btn-upper text-info" @click="switchSpeed"
                             v-text="speedLabel"></button>
                 </div>
             </div>
@@ -96,7 +96,7 @@
 
                 showVolume: false,
 
-                volume: 0.7,
+                volume: undefined,
                 speed: undefined,
             }
         },
@@ -110,6 +110,8 @@
             storageUrl: String,
             settingsUrl: String,
             localization: String,
+            propVolume: Number,
+            propSpeed: String,
         },
 
         computed: {
@@ -146,11 +148,11 @@
             speedMultiplier: function () {
                 switch (this.speed) {
                     case this.speeds.slower:
-                        return 1.3;
+                        return 1.35;
                     case this.speeds.normal:
                         return 1;
                     case this.speeds.faster:
-                        return 0.7;
+                        return 0.65;
                     default:
                         return 1;
                 }
@@ -185,21 +187,23 @@
                 window.location.href = this.continueUrl;
             },
 
-            speedClicked: function () {
-                this.switchSpeed();
-            },
-
             switchSpeed: function () {
                 switch (this.speed) {
                     case this.speeds.slower:
                         this.speed = this.speeds.normal;
-                        return;
+                        break;
                     case this.speeds.normal:
                         this.speed = this.speeds.faster;
-                        return;
+                        break;
                     case this.speeds.faster:
                         this.speed = this.speeds.slower;
-                        return;
+                        break;
+                }
+
+                if (this.settingsUrl !== undefined) {
+                    axios.post(this.settingsUrl, {
+                        speed: this.speed
+                    });
                 }
             },
 
@@ -451,9 +455,10 @@
 
             this.commands = this.listening;
 
-            this.$refs.player.volume = 0.7;
+            this.volume = (this.propVolume !== undefined) ? this.propVolume : 0.7;
+            this.$refs.player.volume = this.volume;
 
-            this.speed = this.speeds.normal;
+            this.speed = (this.propSpeed !== undefined) ? this.propSpeed : this.speeds.normal;
 
             this.state = 'mounted';
         }

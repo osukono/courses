@@ -9,6 +9,9 @@
             progress-url="{{ route('courses.progress.update', [$course, $key]) }}"
             continue-url="{{ route('courses.practice', $course) }}"
             storage-url="{{ Storage::url('.') }}"
+            settings-url="{{ route('user.settings.save') }}"
+            @isset(Auth::getUser()->settings['speed']) prop-speed="{{ Auth::getUser()->settings['speed'] }}" @endisset
+            @isset(Auth::getUser()->settings['volume']) prop-volume="{{ Auth::getUser()->settings['volume'] }}" @endisset
             localization="{{ json_encode($locale) }}"
         >
         </course-player>

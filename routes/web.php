@@ -21,6 +21,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
         Route::get('courses/{course}/progress/{key}', 'CourseController@updateProgress')->name('courses.progress.update');
 
         Route::get('unsubscribe', 'UserController@unsubscribe')->name('user.unsubscribe');
+
+        Route::post('user/settings/save', 'UserController@saveSettings')->name('user.settings.save');
     });
 
 });
