@@ -85,8 +85,12 @@
     <div class="container">
         <div class="row px-3">
             <div class="col-lg-auto text-lg-left text-center">
-                <span
-                    class="text-black-50">Copyright &copy; {{ now()->year }} Yummy Lingo. {{ __('All rights reserved.') }}</span>
+                <span class="text-black-50 text-nowrap">
+                    Copyright &copy; {{ now()->year }} Yummy Lingo.
+                </span>
+                <span class="text-black-50 text-nowrap">
+                    {{ __('All rights reserved.') }}
+                </span>
             </div>
             <div class="col-lg mt-lg-0 text-lg-right mt-2 text-center">
                 <div class="dropdown dropup d-inline">

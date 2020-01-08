@@ -6,6 +6,7 @@ use App\Repositories\LanguageRepository;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
@@ -14,8 +15,13 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property int $id
  * @property string $name
  * @property string $code
+ * @property string $slug
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $editors
+ * @property-read int|null $editors_count
+ * @property-read \App\TextToSpeechSettings $textToSpeechSettings
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Language findSimilarSlugs($attribute, $config, $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language ordered()
@@ -24,13 +30,9 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $editors
- * @property-read int|null $editors_count
- * @property string $slug
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language findSimilarSlugs($attribute, $config, $slug)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereSlug($value)
  */
 class Language extends Model
 {
@@ -47,6 +49,14 @@ class Language extends Model
     public function editors()
     {
         return $this->morphToMany(User::class, 'accessible');
+    }
+
+    /**
+     * @return HasOne|TextToSpeechSettings
+     */
+    public function textToSpeechSettings()
+    {
+        return $this->hasOne(TextToSpeechSettings::class);
     }
 
     /** @var LanguageRepository */

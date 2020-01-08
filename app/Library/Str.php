@@ -10,7 +10,6 @@ class Str
     {
         $str = Str::em_dashes($str);
         $str = Str::en_dashes($str);
-//        $str = Str::exaggeration($str);
         $str = Str::grammar($str);
 
         return $str;
@@ -47,18 +46,10 @@ class Str
         return preg_replace('/(.*?)(\[)(.*?)(])(.*?)/', '$1<strong>$3</strong>$5', $str);
     }
 
-//    public static function exaggeration($str)
-//    {
-//        return preg_replace('/(.*?)({)(.*?)(})(.*?)/', '$1<u>$3</u>$5', $str);
-//    }
-
     public static function toPlainText($str)
     {
-        $hyphen = '-';
-
         $str = preg_replace('/(\[)/', '', $str);
         $str = preg_replace('/(])/', '', $str);
-//        $str = preg_replace("/($hyphen{2})/", "$hyphen", $str);
 
         return $str;
     }

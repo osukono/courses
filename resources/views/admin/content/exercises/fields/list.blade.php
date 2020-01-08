@@ -26,6 +26,12 @@
                 @can(\App\Library\Permissions::update_content)
                     <td class="text-right">
                         <div class="text-nowrap">
+                            <a class="mr-2" href="#" onclick="event.preventDefault(); document.getElementById('field-{{ $exerciseField->id }}-synthesize').submit();">Synthesize Audio</a>
+                            <form id="field-{{ $exerciseField->id }}-synthesize" class="d-none"
+                                  action="{{ route('admin.exercise.fields.audio.synthesize', $exerciseField) }}" method="post">
+                                @method('patch')
+                                @csrf
+                            </form>
                             <a href="#"
                                data-toggle="confirmation"
                                data-btn-ok-label="{{ __('admin.form.delete') }}"

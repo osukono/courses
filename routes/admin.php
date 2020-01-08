@@ -78,6 +78,7 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         Route::middleware('permission:' . Permissions::update_content)->group(function () {
             Route::post('content/exercises/{exercise}/fields', 'ExerciseFieldController@store')->name('admin.exercise.fields.store');
             Route::patch('content/exercise/fields/{exerciseField}', 'ExerciseFieldController@update')->name('admin.exercise.fields.update');
+            Route::patch('content/exercise/fields/{exerciseField}/audio/synthesize', 'ExerciseFieldController@synthesizeAudio')->name('admin.exercise.fields.audio.synthesize');
             Route::patch('content/exercise/fields/{exerciseField}/audio/delete', 'ExerciseFieldController@deleteAudio')->name('admin.exercise.fields.audio.delete');
             Route::patch('content/exercise/fields/move', 'ExerciseFieldController@move')->name('admin.exercise.fields.move');
             Route::delete('content/exercise/fields/{exerciseField}', 'ExerciseFieldController@destroy')->name('admin.exercise.fields.destroy');
@@ -96,6 +97,7 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         });
         Route::middleware('permission:' . Permissions::update_translations)->group(function() {
             Route::patch('translations/{translation}', 'TranslationController@update')->name('admin.translations.exercise.fields.update');
+            Route::patch('translations/{translation}/audio/synthesize', 'TranslationController@synthesizeAudio')->name('admin.translations.audio.synthesize');
             Route::patch('translations/{translation}/audio/delete', 'TranslationController@deleteAudio')->name('admin.translations.audio.delete');
         });
         Route::middleware('permission:' . Permissions::assign_editors)->group(function() {

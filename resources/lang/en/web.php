@@ -6,6 +6,11 @@ return [
         'progress' => [
             'fail' => 'Unable to save the progress.',
         ],
+        'speed' => [
+            'slower' => 'Slower',
+            'normal' => 'Normal',
+            'faster' => 'Faster',
+        ]
     ],
     'html' => [
         'title' => [

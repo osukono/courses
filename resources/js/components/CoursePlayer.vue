@@ -26,11 +26,19 @@
                 <div class="form-inline float-right">
                     <transition name="fade">
                         <input style="max-width: 100px" type="range" class="form-control-range"
-                               id="volume" :value="volume * 100" @input="changeVolume" @change="saveVolume" v-show="showVolume">
+                               id="volume" :value="volume * 100" @input="changeVolume" @change="saveVolume"
+                               v-show="showVolume">
                     </transition>
-                    <button class="btn btn-link text-info mr-1" @click="showVolume = !showVolume">
-                        <i data-feather="volume-2"></i>
+                    <button class="btn btn-link text-info mr-1 align-bottom" @click="showVolume = !showVolume">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="feather feather-volume-2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
                     </button>
+                    <button class="btn btn-sm btn-link btn-upper text-info" @click="speedClicked"
+                            v-text="speedLabel"></button>
                 </div>
             </div>
             <audio ref="player" @canplay="audioCanPlay" @ended="audioEnded">
@@ -65,6 +73,11 @@
                     clear: 'clear',
                     finish: 'finish'
                 },
+                speeds: {
+                    slower: 'slower',
+                    normal: 'normal',
+                    faster: 'faster'
+                },
                 activities: {
                     listening: 'listening',
                     practice: 'practice'
@@ -83,7 +96,8 @@
 
                 showVolume: false,
 
-                volume: 0.7
+                volume: 0.7,
+                speed: undefined,
             }
         },
 
@@ -112,12 +126,34 @@
                         return this.locale['repeat'];
                 }
             },
+            speedLabel: function () {
+                switch (this.speed) {
+                    case this.speeds.slower:
+                        return this.locale['speed.slower'];
+                    case this.speeds.normal:
+                        return this.locale['speed.normal'];
+                    case this.speeds.faster:
+                        return this.locale['speed.faster'];
+                }
+            },
             volumeLevel: function () {
                 if (this.volume === 0)
                     return 'volume-x';
                 else if (this.volume <= 0.5)
                     return 'volume-1';
                 else return 'volume-2';
+            },
+            speedMultiplier: function () {
+                switch (this.speed) {
+                    case this.speeds.slower:
+                        return 1.3;
+                    case this.speeds.normal:
+                        return 1;
+                    case this.speeds.faster:
+                        return 0.7;
+                    default:
+                        return 1;
+                }
             }
         },
 
@@ -147,6 +183,24 @@
 
             continueClicked: function () {
                 window.location.href = this.continueUrl;
+            },
+
+            speedClicked: function () {
+                this.switchSpeed();
+            },
+
+            switchSpeed: function () {
+                switch (this.speed) {
+                    case this.speeds.slower:
+                        this.speed = this.speeds.normal;
+                        return;
+                    case this.speeds.normal:
+                        this.speed = this.speeds.faster;
+                        return;
+                    case this.speeds.faster:
+                        this.speed = this.speeds.slower;
+                        return;
+                }
             },
 
             saveVolume: function () {
@@ -233,14 +287,14 @@
                         setTimeout(function () {
                             this.waiting = false;
                             this.next();
-                        }.bind(this), this.audioDuration * 1000 * command.coefficient);
+                        }.bind(this), this.audioDuration * 1000 * command.coefficient * this.speedMultiplier);
                         this.waiting = true;
                         break;
                     case this.actions.pause:
                         setTimeout(function () {
                             this.waiting = false;
                             this.next();
-                        }.bind(this), command.duration);
+                        }.bind(this), command.duration * this.speedMultiplier);
                         this.waiting = true;
                         break;
                     case this.actions.clear:
@@ -398,6 +452,8 @@
             this.commands = this.listening;
 
             this.$refs.player.volume = 0.7;
+
+            this.speed = this.speeds.normal;
 
             this.state = 'mounted';
         }

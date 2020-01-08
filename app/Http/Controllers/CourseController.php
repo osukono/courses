@@ -148,7 +148,10 @@ class CourseController extends Controller
             'continue' => __('Continue'),
             'practice' => __('Practice'),
             'instruction' => __('web.player.instruction'),
-            'progress.fail' => __('web.player.progress.fail')
+            'progress.fail' => __('web.player.progress.fail'),
+            'speed.slower' => __('web.player.speed.slower'),
+            'speed.normal' => __('web.player.speed.normal'),
+            'speed.faster' => __('web.player.speed.faster')
         ];
     }
 }

@@ -9,14 +9,23 @@ use App\Http\Requests\Admin\Content\ExerciseFieldCreateRequest;
 use App\Http\Requests\Admin\Content\ExerciseFieldMoveRequest;
 use App\Http\Requests\Admin\Content\ExerciseFieldRestoreRequest;
 use App\Http\Requests\Admin\Content\ExerciseFieldUpdateRequest;
+use App\Library\Str;
+use App\Library\TextToSpeech;
 use App\Repositories\ExerciseFieldRepository;
 use Exception;
+use Google\ApiCore\ApiException;
+use Google\ApiCore\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ExerciseFieldController extends Controller
 {
@@ -136,5 +145,21 @@ class ExerciseFieldController extends Controller
         $this->authorize('access', $exerciseField->exercise->lesson->content);
 
         $exerciseField->repository()->move($request->get('index'));
+    }
+
+    /**
+     * @param ExerciseField $exerciseField
+     * @return RedirectResponse
+     * @throws ApiException
+     * @throws AuthorizationException
+     * @throws ValidationException
+     */
+    public function synthesizeAudio(ExerciseField $exerciseField)
+    {
+        $this->authorize('access', $exerciseField->exercise->lesson->content);
+
+        $exerciseField->repository()->synthesizeAudio();
+
+        return redirect()->route('admin.exercises.show', $exerciseField->exercise);
     }
 }

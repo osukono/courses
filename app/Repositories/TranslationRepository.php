@@ -6,7 +6,12 @@ namespace App\Repositories;
 
 use App\ExerciseField;
 use App\Language;
+use App\Library\Str;
+use App\Library\TextToSpeech;
 use App\Translation;
+use Google\ApiCore\ApiException;
+use Google\ApiCore\ValidationException;
+use Illuminate\Support\Facades\Storage;
 
 class TranslationRepository
 {
@@ -42,6 +47,20 @@ class TranslationRepository
         if ($this->model->exerciseField->field->audible && isset($attributes['audio'])) {
             $audio = $attributes['audio']->store('audio');
             $this->model->update(['content->audio' => $audio]);
+        }
+    }
+
+    /**
+     * @throws ApiException
+     * @throws ValidationException
+     */
+    public function synthesizeAudio()
+    {
+        $audioContent = TextToSpeech::synthesizeSpeech(
+            $this->model->language, Str::toPlainText($this->model->content['value']));
+        $path = 'audio/' . (string) \Illuminate\Support\Str::uuid() . '.wav';
+        if (Storage::put($path, $audioContent)) {
+            $this->model->update(['content->audio' => $path]);
         }
     }
 
