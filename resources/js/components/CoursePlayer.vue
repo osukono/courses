@@ -305,6 +305,7 @@
                             this.waiting = false;
                             this.next();
                         }.bind(this), this.audioDuration * 1000 * command.coefficient * this.speedMultiplier);
+                        // console.log(this.audioDuration * 1000 * command.coefficient * this.speedMultiplier);
                         this.waiting = true;
                         break;
                     case this.actions.pause:
@@ -473,6 +474,7 @@
             this.practice.push({action: this.actions.finish, activity: this.activities.practice});
 
             this.commands = this.listening;
+            // this.commands = this.practice;
 
             this.volume = (this.initialVolume !== undefined) ? this.initialVolume : 0.7;
             this.$refs.player.volume = this.volume;
