@@ -453,8 +453,9 @@
 
             this.listening.push({action: this.actions.finish, activity: this.activities.listening});
 
-            let delays = [exercises.length];
-            delays.fill(2.3);
+            let delays = [];
+            for (let x = 0; x < exercises.length; x++)
+                delays.push(2.3);
 
             for (let x = 0; x < exercises.length; x++) {
                 this.addPractice(exercises[x], delays[x]);
