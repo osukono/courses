@@ -12,24 +12,27 @@
                     </span>
                 </div>
             </div>
-            <div class="mt-4">
-                <button @click="actionClicked" v-text="actionLabel"
-                        class="btn btn-link btn-upper text-info"></button>
-                <button v-if="state === states.listeningFinished" @click="practiceClicked"
-                        class="btn btn-link btn-upper text-info">
-                    {{ this.locale['practice'] }}
-                </button>
-                <button v-if="state === states.practiceFinished && continueUrl !== undefined" @click="continueClicked"
-                        class="btn btn-link btn-upper text-info">
-                    {{ this.locale['continue'] }}
-                </button>
-                <div class="form-inline float-right">
+            <div class="mt-4 d-flex">
+                <div>
+                    <button @click="actionClicked" v-text="actionLabel"
+                            class="btn btn-link btn-upper text-info"></button>
+                    <button v-if="state === states.listeningFinished" @click="practiceClicked"
+                            class="btn btn-link btn-upper text-info">
+                        {{ this.locale['practice'] }}
+                    </button>
+                    <button v-if="state === states.practiceFinished && continueUrl !== undefined"
+                            @click="continueClicked"
+                            class="btn btn-link btn-upper text-info">
+                        {{ this.locale['continue'] }}
+                    </button>
+                </div>
+                <div class="form-inline ml-auto">
                     <transition name="fade">
                         <input style="max-width: 100px" type="range" class="form-control-range"
                                id="volume" :value="volume * 100" @input="changeVolume" @change="saveVolume"
                                v-show="showVolume">
                     </transition>
-                    <button class="btn btn-link text-info mr-1 align-bottom" @click="showVolume = !showVolume">
+                    <button class="btn btn-sm btn-link text-info mr-1" @click="showVolume = !showVolume">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                              class="feather feather-volume-2">
@@ -37,7 +40,7 @@
                             <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                         </svg>
                     </button>
-                    <button class="btn btn-sm btn-link btn-upper text-info" @click="switchSpeed"
+                    <button class="btn btn-sm btn-link btn-upper text-info" @click="changeSpeed"
                             v-text="speedLabel"></button>
                 </div>
             </div>
@@ -187,7 +190,7 @@
                 window.location.href = this.continueUrl;
             },
 
-            switchSpeed: function () {
+            changeSpeed: function () {
                 switch (this.speed) {
                     case this.speeds.slower:
                         this.speed = this.speeds.normal;
@@ -200,11 +203,20 @@
                         break;
                 }
 
+                this.saveSpeed();
+            },
+
+            saveSpeed: function () {
                 if (this.settingsUrl !== undefined) {
                     axios.post(this.settingsUrl, {
                         speed: this.speed
                     });
                 }
+            },
+
+            changeVolume: function (event) {
+                this.volume = event.target.value / 100;
+                this.$refs.player.volume = this.volume;
             },
 
             saveVolume: function () {
@@ -213,11 +225,6 @@
                         volume: this.volume
                     });
                 }
-            },
-
-            changeVolume: function (event) {
-                this.volume = event.target.value / 100;
-                this.$refs.player.volume = this.volume;
             },
 
             audioCanPlay: function () {
