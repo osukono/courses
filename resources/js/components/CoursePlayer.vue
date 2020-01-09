@@ -361,7 +361,7 @@
                 this.listening.push({action: this.actions.pause, duration: 700});
             },
 
-            addPractice: function (exercise) {
+            addPractice: function (exercise, delay) {
                 this.practice.push({action: this.actions.clear});
 
                 exercise['fields'].forEach(function (field) {
@@ -370,7 +370,7 @@
                         this.playAudio(this.practice, field['translation']['audio']);
 
                         this.practice.push({action: this.actions.load, audio: this.storageUrl + field['audio']});
-                        this.practice.push({action: this.actions.wait, coefficient: 2.2});
+                        this.practice.push({action: this.actions.wait, coefficient: delay});
                         this.showText(this.practice, field['value']);
                         this.practice.push({action: this.actions.play});
                         this.practice.push({action: this.actions.wait, coefficient: 0.4});
@@ -453,14 +453,20 @@
 
             this.listening.push({action: this.actions.finish, activity: this.activities.listening});
 
+            let delays = [exercises.length];
+            delays.fill(2.3);
+
             for (let x = 0; x < exercises.length; x++) {
-                this.addPractice(exercises[x]);
-                this.addPractice(exercises[(x + 2) % exercises.length]);
-                this.addPractice(exercises[(x + 5) % exercises.length]);
+                this.addPractice(exercises[x], delays[x]);
+                delays[x] -= 0.15;
+                this.addPractice(exercises[(x + 2) % exercises.length], delays[(x + 2) % exercises.length]);
+                delays[(x + 2) % exercises.length] -= 0.15;
+                this.addPractice(exercises[(x + 5) % exercises.length], delays[(x + 5) % exercises.length]);
+                delays[(x + 5) % exercises.length] -= 0.15;
             }
 
             review.forEach(function (exercise) {
-                this.addPractice(exercise);
+                this.addPractice(exercise, 2.0);
             }.bind(this));
 
             this.practice.push({action: this.actions.finish, activity: this.activities.practice});
