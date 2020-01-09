@@ -21,7 +21,7 @@ return [
         ],
         'seo' => [
             'keywords' => 'Yummy Lingo, Spoken English, English courses online, English grammar, English online, how to speak English, audio courses, practice English, English pronunciation, English tenses, English lessons, English for beginners',
-            'description' => 'English grammar courses. Practice 20 minutes a day and start speaking English fluently.',
+            'description' => 'English grammar courses. Practice 20 minutes a day to start speaking English fluently.',
         ]
     ],
     'index' => [
