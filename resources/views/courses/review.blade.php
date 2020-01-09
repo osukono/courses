@@ -7,9 +7,9 @@
             review="{{ json_encode($review) }}"
             storage-url="{{ Storage::url('.') }}"
             settings-url="{{ route('user.settings.save') }}"
-            @isset(Auth::getUser()->settings['speed']) prop-speed="{{ Auth::getUser()->settings['speed'] }}" @endisset
-            @isset(Auth::getUser()->settings['volume']) prop-volume="{{ Auth::getUser()->settings['volume'] }}" @endisset
-            localization="{{ json_encode($locale) }}"
+            @isset(Auth::getUser()->settings['volume']) initial-volume="{{ Auth::getUser()->settings['volume'] }}" @endisset
+            @isset(Auth::getUser()->settings['speed']) initial-speed="{{ Auth::getUser()->settings['speed'] }}" @endisset
+            encoded-locale="{{ json_encode($locale) }}"
         >
         </course-player>
     </div>

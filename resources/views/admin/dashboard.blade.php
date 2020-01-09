@@ -5,10 +5,10 @@
 @endsection
 
 @section('content')
-    {{--<div>
+    <div>
         Users : {{ $userCount }}
     </div>
     <div>
         User Courses : {{ $userCoursesCount }}
-    </div>--}}
+    </div>
 @endsection

@@ -10,6 +10,9 @@
       <change beforePath="$PROJECT_DIR$/public/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/CoursePlayer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CoursePlayer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/practice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/practice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/review.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/review.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +254,7 @@
       <workItem from="1577635175187" duration="22319000" />
       <workItem from="1578150297762" duration="40000" />
       <workItem from="1578150358385" duration="2291000" />
-      <workItem from="1578247599473" duration="26327000" />
+      <workItem from="1578247599473" duration="29808000" />
     </task>
     <servers />
   </component>

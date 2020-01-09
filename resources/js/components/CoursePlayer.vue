@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-inline ml-auto">
                     <transition name="fade">
-                        <input style="max-width: 100px" type="range" class="form-control-range"
+                        <input style="max-width: 100px" type="range" class="form-control-range form-control-sm"
                                id="volume" :value="volume * 100" @input="changeVolume" @change="saveVolume"
                                v-show="showVolume">
                     </transition>
@@ -57,7 +57,6 @@
 
         data() {
             return {
-                locale: [],
                 audio: [],
                 state: '',
                 states: {
@@ -112,12 +111,16 @@
             continueUrl: String,
             storageUrl: String,
             settingsUrl: String,
-            localization: String,
-            propVolume: Number,
-            propSpeed: String,
+            encodedLocale: String,
+            initialVolume: String,
+            initialSpeed: String,
         },
 
         computed: {
+            locale: function() {
+                return JSON.parse(this.encodedLocale);
+            },
+
             actionLabel: function () {
                 switch (this.state) {
                     case this.states.mounted:
@@ -131,6 +134,7 @@
                         return this.locale['repeat'];
                 }
             },
+
             speedLabel: function () {
                 switch (this.speed) {
                     case this.speeds.slower:
@@ -141,6 +145,7 @@
                         return this.locale['speed.faster'];
                 }
             },
+
             volumeLevel: function () {
                 if (this.volume === 0)
                     return 'volume-x';
@@ -148,6 +153,7 @@
                     return 'volume-1';
                 else return 'volume-2';
             },
+
             speedMultiplier: function () {
                 switch (this.speed) {
                     case this.speeds.slower:
@@ -410,7 +416,6 @@
         },
 
         mounted() {
-            this.locale = JSON.parse(this.localization);
             let review = this.review !== undefined ? JSON.parse(this.review) : [];
             let exercises = this.exercises !== undefined ? JSON.parse(this.exercises) : [];
 
@@ -462,10 +467,10 @@
 
             this.commands = this.listening;
 
-            this.volume = (this.propVolume !== undefined) ? this.propVolume : 0.7;
+            this.volume = (this.initialVolume !== undefined) ? this.initialVolume : 0.7;
             this.$refs.player.volume = this.volume;
 
-            this.speed = (this.propSpeed !== undefined) ? this.propSpeed : this.speeds.normal;
+            this.speed = (this.initialSpeed !== undefined) ? this.initialSpeed : this.speeds.normal;
 
             this.state = 'mounted';
         }
