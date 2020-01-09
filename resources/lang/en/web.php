@@ -20,11 +20,12 @@ return [
             'terms' => 'Terms of Service',
         ],
         'seo' => [
-            'keywords' => 'English courses online, English grammar, English online, how to speak English, audio courses, practice English, English pronunciation, English tenses, English lessons, English for beginners'
+            'keywords' => 'Yummy Lingo, Spoken English, English courses online, English grammar, English online, how to speak English, audio courses, practice English, English pronunciation, English tenses, English lessons, English for beginners',
+            'description' => 'English grammar courses. Practice 20 minutes a day and start speaking English fluently.',
         ]
     ],
     'index' => [
-        'description' => ''
+        'description' => 'Learn how to speak speaking fluently. With everyday practice, you would be able to use English grammar without translating in your mind.'
     ],
     'user' => [
         'unsubscribed' => 'You have successfully unsubscribed from our email notifications.'
