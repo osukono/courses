@@ -370,7 +370,7 @@
                         this.playAudio(this.practice, field['translation']['audio']);
 
                         this.practice.push({action: this.actions.load, audio: this.storageUrl + field['audio']});
-                        this.practice.push({action: this.actions.wait, coefficient: 2});
+                        this.practice.push({action: this.actions.wait, coefficient: 2.2});
                         this.showText(this.practice, field['value']);
                         this.practice.push({action: this.actions.play});
                         this.practice.push({action: this.actions.wait, coefficient: 0.4});
