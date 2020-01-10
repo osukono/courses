@@ -95,6 +95,7 @@
 
                 audioSrc: '',
                 audioDuration: 0,
+                audioDurations: [],
 
                 showVolume: false,
 
@@ -239,6 +240,9 @@
             },
 
             audioEnded: function () {
+                if (this.audioDurations[this.audioSrc] === undefined) {
+                    this.audioDurations[this.audioSrc] = this.$refs.player.duration;
+                }
                 this.next();
             },
 
@@ -301,11 +305,11 @@
                         this.$refs.player.play();
                         break;
                     case this.actions.wait:
+                        let duration = this.audioDurations[this.audioSrc] !== undefined ? this.audioDurations[this.audioSrc] : this.audioDuration;
                         setTimeout(function () {
                             this.waiting = false;
                             this.next();
-                        }.bind(this), this.audioDuration * 1000 * command.coefficient * this.speedMultiplier);
-                        // console.log(this.audioDuration * 1000 * command.coefficient * this.speedMultiplier);
+                        }.bind(this), duration * 1000 * command.coefficient * this.speedMultiplier);
                         this.waiting = true;
                         break;
                     case this.actions.pause:
