@@ -399,7 +399,6 @@
 
             preloadAudio: function (array) {
                 //https://stackoverflow.com/questions/31060642/preload-multiple-audio-files
-                //https://stackoverflow.com/questions/31060642/preload-multiple-audio-files
                 for (let x = 0; x < array.length; x++) {
                     array[x]['fields'].forEach(async function (field) {
                         this.audio[field['audio']] = new Audio();

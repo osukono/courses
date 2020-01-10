@@ -25,7 +25,7 @@ return [
         ]
     ],
     'index' => [
-        'description' => 'Learn how to speak fluently. With everyday practice, you would be able to use English grammar without translating in your mind.'
+        'description' => 'Learn how to speak fluently. With everyday practice, you will be able to use English grammar without translating in your mind.'
     ],
     'user' => [
         'unsubscribed' => 'You have successfully unsubscribed from our email notifications.'
