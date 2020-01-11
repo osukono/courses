@@ -8,11 +8,11 @@
                 @endif
             </h4>
             <a rel="nofollow" href="{{ route('courses.practice', $course) }}"
-               class="btn btn-outline-primary ml-2 d-none d-md-inline-block">{{ __('web.course.practice') }}</a>
+               class="btn btn-outline-primary ml-2 d-none d-md-inline-block text-uppercase">{{ __('web.course.practice') }}</a>
         </div>
         <div class="text-center d-md-none">
             <a rel="nofollow" href="{{ route('courses.practice', $course) }}"
-               class="btn btn-lg btn-outline-primary my-3">{{ __('web.course.practice') }}</a>
+               class="btn btn-lg btn-outline-primary my-3 text-uppercase">{{ __('web.course.practice') }}</a>
         </div>
         <p class="card-text mx-3" lang="{{ $course->translation->code }}">{{ $course->description }}</p>
         <h5>{{ __('web.course.topics') }}</h5>

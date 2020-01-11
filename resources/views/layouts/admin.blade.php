@@ -36,7 +36,7 @@
                 <a href="#administration" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administration</a>
                 <ul class="collapse list-unstyled" id="administration">
                     <li>
-                        <a href="#" class="text-muted">Languages</a>
+                        <a href="{{ route('admin.languages.index') }}">Languages</a>
                     </li>
                     <li>
                         <a href="#" class="text-muted">Exercise Fields</a>

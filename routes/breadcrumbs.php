@@ -151,3 +151,33 @@ Breadcrumbs::for('admin.courses.edit', function ($trail, \App\Course $course) {
     $trail->parent('admin.courses.show', $course);
     $trail->push('Properties');
 });
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Languages
+ * ---------------------------------------------------------------------------------------------------------------------
+ */
+
+// Languages
+Breadcrumbs::for('admin.languages.index', function ($trail) {
+    $trail->push('Languages', route('admin.languages.index'));
+});
+
+// Languages > Create
+
+Breadcrumbs::for('admin.languages.create', function ($trail) {
+    $trail->parent('admin.languages.index');
+    $trail->push('Create');
+});
+
+// Languages > [Language]
+Breadcrumbs::for('admin.languages.show', function ($trail, \App\Language $language) {
+    $trail->parent('admin.languages.index');
+    $trail->push($language);
+});
+
+// Languages > [Language] > Properties
+Breadcrumbs::for('admin.languages.edit', function ($trail, \App\Language $language) {
+    $trail->parent('admin.languages.show', $language);
+    $trail->push('Properties');
+});

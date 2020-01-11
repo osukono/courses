@@ -61,6 +61,7 @@ class LanguageRepository
     {
         $this->model->name = $attributes['name'];
         $this->model->code = $attributes['code'];
+        $this->model->slug = null;
         $this->model->save();
     }
 

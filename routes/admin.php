@@ -1,6 +1,7 @@
 <?php
 
 use App\Library\Permissions;
+use App\Library\Roles;
 
 Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
     ->namespace('Admin')->prefix('admin')->group(function () {
@@ -127,6 +128,17 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         Route::middleware('permission:' . Permissions::assign_editors)->group(function() {
             Route::get('courses/{course}/edit', 'CourseController@edit')->name('admin.courses.edit');
             Route::patch('courses/{course}', 'CourseController@update')->name('admin.courses.update');
+        });
+
+        /**
+         * Languages
+         */
+        Route::middleware('role:' . Roles::admin)->group(function() {
+            Route::get('languages', 'LanguageController@index')->name('admin.languages.index');
+            Route::get('languages/create', 'LanguageController@create')->name('admin.languages.create');
+            Route::post('languages', 'LanguageController@store')->name('admin.languages.store');
+            Route::get('languages/{language}/edit', 'LanguageController@edit')->name('admin.languages.edit');
+            Route::patch('languages/{language}', 'LanguageController@update')->name('admin.languages.update');
         });
 
         /**
