@@ -1,0 +1,264 @@
+{
+    "exercises": [
+        {
+            "fields": [
+                {
+                    "audio": "audio/6eAaxRZio6WU8ab1DhyrcdZ5RHdg7IB0eXuh0xBy.wav",
+                    "value": "I [am] American.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/J9x5YSYUj69zRPrbmrug2gnInQSIJM1xNrFN8G5v.wav",
+                        "value": "Я - американец."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/wM15yuK3EtqezWuG5Q3TBd14Hvoi7HNnsAOgThH6.wav",
+                    "value": "We [are] in the office.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/iMZFaqm3xrwCQFnRYOl19MURStwCphrOM6ahaCTv.wav",
+                        "value": "Мы в офисе."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/6TK72kBiSJyhJtlCVJdIupJe6BlW3BTigYfob7qX.wav",
+                    "value": "He [is] the boss.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/GsIhhVdCGgbtGQrq9gLffN2QxYL5O7vbP9rTykbq.wav",
+                        "value": "Он - директор."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/QBvyaSkqoByGBruWWlL1n0EqN4ESJfgUDt4FfQRH.wav",
+                    "value": "She [is not] blonde.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/EbCeqV0QAeYPXOquYEeAjMSwh6lxY19Lng3UXi57.wav",
+                        "value": "Она - не блондинка."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/vfYvrc2GOxtp8qjBOotXaQOnPSBn476NGYSiBucd.wav",
+                    "value": "You [are not] right.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/WxF5rT1aU5vKxdS2l3PKNkLw4UtV4wRFYKiPJeaS.wav",
+                        "value": "Ты не прав."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/Cs81oeHDJdb4i2wxopkmZ93JieCQRPXGmAFRyx3Q.wav",
+                    "value": "[Is] he at home?",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/D9FK84gPoiYaRxYgshsGp9bELAGT5xzDbdbxYxhe.wav",
+                        "value": "Он дома?"
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/41EiPqZ9POjiTBNuXQutn808nMGBQXnPnk05s9ob.wav",
+                    "value": "The children [are] in the garden.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/neTMXfe5SDzomEz9g7OM9kV0bjttdw1fLdirv0ll.wav",
+                        "value": "Дети - в саду."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/HSEeJpilHPAbthWERzneEdEg7aGo3aDQ5tJdlij4.wav",
+                    "value": "[Are] you sure?",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/KMFyHrQkDkVOqgIiLLVRmTzKb7YZNiW9YWAGv2xI.wav",
+                        "value": "Ты уверен?"
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/I5lQxoANCjzhN28BDM2ew87fIbZMDosnDnvt0bNe.wav",
+                    "value": "[Is] he serious?",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/HglUkJzGu9prLtai5rsDx4YysPmfBtRtJzjDKqe3.wav",
+                        "value": "Он серьезно?"
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/GvBc6gq7om8Lph4dIUfRPgovFApg8OBc15KxNnIE.wav",
+                    "value": "[Am] I in the right place?",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/7CJwSRZX7YzF1DjCRlL6byr2f8omtZbZRHTRgK2g.wav",
+                        "value": "Я нахожусь в правильном месте?"
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/EJ8iW7eWedmIhimGvPfSuBQVIAg0x0Zf9C4fHyvf.wav",
+                    "value": "Spanish people [are] friendly.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/sC44pGmmFZ73L5q79SuvQaKCVI4dQfNY1n9fJZ2F.wav",
+                        "value": "Испанцы - дружелюбный народ."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/hsM6uGpwrUPZdejt8H7ldC3diUEjnUtfs6A73B2n.wav",
+                    "value": "[Is] she a doctor?",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/YugFC8P8zSgxmxK0vwSHr9AftfBRzKLTbtphqyDm.wav",
+                        "value": "Она - доктор?"
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/08ZwptZCFE0HpyrlW2g5JrBNrxyIokPBqqrnML4J.wav",
+                    "value": "They [are not] young.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/XKUu0uUecV7nfxCbOF60xMrvs5Ce0tJlENqLJMoy.wav",
+                        "value": "Они не молоды."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/2EUbACFBnLpkl1G7CR2uMmS6HMJc9PIgrELGdaSk.wav",
+                    "value": "[Are] your parents Russian?",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/qcvlykJplPPIdWX32Yk7jVwM9FTC5vtuOpQjgAxl.wav",
+                        "value": "Твои родители русские?"
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/6YifMdg5OgFKijSsNBYCa1EbxxY4ZOmbMhzD8QEa.wav",
+                    "value": "This [is] very easy.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/3pTN2q4UwJ0mqHAGNyKHqJxBKacgoqCQLNm1bSrH.wav",
+                        "value": "Это очень просто."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/zn72SDg79p0gfYqX4SSWgqRhvU7o26zlR6VcHNGn.wav",
+                    "value": "I [am] interested in art.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/LaIGDSL37BJFfBRx8TpfGx2GVXLxEzwoKgdiJgN4.wav",
+                        "value": "Я интересуюсь искусством."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/g3xznlIw32EsAmqAOGW6RyLWFDT4ON76ae4vv6pD.wav",
+                    "value": "That woman [is] professional.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/HjdMnwYoDLIhU7ehzewXNt233wpterYloIpZGVGP.wav",
+                        "value": "Та женщина - профессионал."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/Kjh66rHEPuuG6rkdHJ48A98GhMhhIp7T7JR3BCLi.wav",
+                    "value": "Where [is] your house?",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/Q8Qa3KL5zSlPXB1n8Kf0wJ2dDjuy6m0tXjjl7jK0.wav",
+                        "value": "Где твой дом?"
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/5IwiDq8jzD9gnMJMUS3NePWTSfZaDmF6CvOJZmaf.wav",
+                    "value": "It [is] the last floor.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/rSIOwIszGbLu9c2KoxJaw9xT055JItyucWiFzWVb.wav",
+                        "value": "Это - последний этаж."
+                    }
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "audio": "audio/0SGSnQiZL6fGu96u8xZKtFWcUbg84nLm3wQ9pRr4.wav",
+                    "value": "This film [is not] interesting.",
+                    "identifier": "translation",
+                    "translation": {
+                        "audio": "audio/3cmz6Y9syruEuzXp94ToAoslHPEESAyGlhZ4i0aO.wav",
+                        "value": "Этот фильм неинтересен."
+                    }
+                }
+            ]
+        }
+    ]
+}
