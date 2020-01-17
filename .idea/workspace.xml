@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/UserCourseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserCourseRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
@@ -12,7 +11,6 @@
       <change beforePath="$PROJECT_DIR$/public/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/CoursePlayer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CoursePlayer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/practice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/practice.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +255,7 @@
       <workItem from="1578150358385" duration="2291000" />
       <workItem from="1578247599473" duration="33510000" />
       <workItem from="1578604359550" duration="9000" />
-      <workItem from="1578604376548" duration="15338000" />
+      <workItem from="1578604376548" duration="18585000" />
     </task>
     <servers />
   </component>
@@ -296,6 +294,10 @@
     </state>
     <state x="362" y="76" key="#phpunit.xml/0.23.1440.795@0.23.1440.795" timestamp="1578256881638" />
     <state x="362" y="76" key="#phpunit.xml/0.23.1440.797@0.23.1440.797" timestamp="1575731015181" />
+    <state x="298" y="23" key="CommitChangelistDialog2" timestamp="1579260169517">
+      <screen x="0" y="23" width="1440" height="798" />
+    </state>
+    <state x="298" y="23" key="CommitChangelistDialog2/0.23.1440.798@0.23.1440.798" timestamp="1579260169517" />
     <state x="482" y="244" key="NewPhpClassDialog" timestamp="1578249063085">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
