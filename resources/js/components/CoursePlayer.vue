@@ -33,7 +33,7 @@
                     </button>
                 </div>
                 <div class="progress flex-grow-1 ml-1 ml-md-3 mr-2 mr-md-4" style="height: 2px;">
-                    <div class="progress-bar bg-secondary" role="progressbar" :style="'width:' + (progress / progressMax) * 100  + '%;'" :aria-valuenow="progress" aria-valuemin="0" :aria-valuemax="progressMax"></div>
+                    <div class="progress-bar" style="background-color: #adb5bd;" role="progressbar" :style="'width:' + (progress / progressMax) * 100  + '%;'" :aria-valuenow="progress" aria-valuemin="0" :aria-valuemax="progressMax"></div>
                 </div>
                 <div class="form-inline ml-auto">
                     <transition name="fade">
