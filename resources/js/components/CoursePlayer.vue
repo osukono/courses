@@ -73,7 +73,8 @@
                     wait: 'wait',
                     pause: 'pause',
                     clear: 'clear',
-                    finish: 'finish'
+                    finish: 'finish',
+                    step: 'step'
                 },
                 speeds: {
                     slower: 'slower',
@@ -101,6 +102,7 @@
 
                 volume: undefined,
                 speed: undefined,
+                step: undefined,
             }
         },
 
@@ -115,10 +117,11 @@
             encodedLocale: String,
             initialVolume: String,
             initialSpeed: String,
+            initialStep: String,
         },
 
         computed: {
-            locale: function() {
+            locale: function () {
                 return JSON.parse(this.encodedLocale);
             },
 
@@ -262,13 +265,30 @@
                     this.next();
             },
 
+            saveStep: function (value) {
+                this.step = value;
+                if (this.progressUrl !== undefined) {
+                    axios.get(this.progressUrl, {
+                        params: {
+                            step: this.step
+                        }
+                    }).finally(() => {
+
+                    });
+                }
+            },
+
             finishListening: function () {
                 this.state = this.states.listeningFinished;
             },
 
             finishPractice: function () {
                 if (this.progressUrl !== undefined) {
-                    axios.get(this.progressUrl)
+                    axios.get(this.progressUrl, {
+                        params: {
+                            finished: true
+                        }
+                    })
                         .catch(error => {
                             this.messages = [
                                 this.locale['progress.fail'],
@@ -321,6 +341,10 @@
                         break;
                     case this.actions.clear:
                         this.sentences = [];
+                        this.next();
+                        break;
+                    case this.actions.step:
+                        this.saveStep(command.value);
                         this.next();
                         break;
                     case this.actions.finish:
@@ -423,6 +447,7 @@
         mounted() {
             let review = this.review !== undefined ? JSON.parse(this.review) : [];
             let exercises = this.exercises !== undefined ? JSON.parse(this.exercises) : [];
+            this.step = this.initialStep !== undefined ? this.initialStep : 1;
 
             // this.preloadAudio(review);
             // this.preloadAudio(exercises);
@@ -441,6 +466,8 @@
                 this.addListening(review[(x + 3) % review.length]);
             }
 
+            this.listening.push({action: this.actions.step, value: 2});
+
             for (let x = 0; x < exercises.length; x++) {
                 this.addListening(exercises[x]);
 
@@ -456,6 +483,7 @@
                 this.addListening(exercises[(x + 4) % exercises.length]);
             }
 
+            this.listening.push({action: this.actions.step, value: 3});
             this.listening.push({action: this.actions.finish, activity: this.activities.listening});
 
             let delays = [];
@@ -471,21 +499,26 @@
                 delays[(x + 5) % exercises.length] -= 0.15;
             }
 
+            this.practice.push({action: this.actions.step, value: 4});
+
             review.forEach(function (exercise) {
                 this.addPractice(exercise, 2.0);
             }.bind(this));
 
             this.practice.push({action: this.actions.finish, activity: this.activities.practice});
 
-            this.commands = this.listening;
-            // this.commands = this.practice;
-
             this.volume = (this.initialVolume !== undefined) ? this.initialVolume : 0.7;
             this.$refs.player.volume = this.volume;
 
             this.speed = (this.initialSpeed !== undefined) ? this.initialSpeed : this.speeds.normal;
 
-            this.state = 'mounted';
+            if (this.step >= 1 && this.step <= 2) {
+                this.commands = this.listening;
+                this.state = this.states.mounted;
+            } else {
+                this.commands = this.practice;
+                this.state = this.states.listeningFinished;
+            }
         }
     }
 </script>

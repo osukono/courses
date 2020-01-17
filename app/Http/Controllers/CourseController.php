@@ -56,6 +56,9 @@ class CourseController extends Controller
         $data['title'] = $courseLesson->title . ' › ' . __('Part') . ' ' . $userCourse->progress['part'];
         $data['locale'] = $this->getPlayerLocale();
 
+        if (isset($userCourse->progress['step']))
+            $data['step'] = $userCourse->progress['step'];
+
         $data['htmlTitle'] = $data['title'];
 
         return view('courses.practice')->with($data);
@@ -84,7 +87,7 @@ class CourseController extends Controller
         return view('courses.review')->with($data);
     }
 
-    public function updateProgress(Course $course, $key)
+    public function updateProgress(Request $request, Course $course, $key)
     {
         $user = Auth::user();
 
@@ -93,7 +96,11 @@ class CourseController extends Controller
         abort_if($userCourse == null, 404);
         abort_if($userCourse->progress['key'] !== $key, 410);
 
-        $userCourse->repository()->incrementProgress();
+        if ($request->has('step'))
+            $userCourse->repository()->updateStep($request->get('step'));
+
+        if ($request->has('finished'))
+            $userCourse->repository()->incrementProgress();
 
         return response('OK', 200)
             ->header('Content-Type', 'text/plain');
