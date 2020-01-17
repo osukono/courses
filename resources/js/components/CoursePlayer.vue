@@ -26,7 +26,7 @@
                         {{ this.locale['continue'] }}
                     </button>
                 </div>
-                <div class="progress flex-grow-1 mr-1 mr-md-4 ml-1 ml-md-4" style="height: 2px;">
+                <div class="progress flex-grow-1 ml-1 ml-md-3 mr-1 mr-md-4" style="height: 2px;">
                     <div class="progress-bar bg-secondary" role="progressbar" :style="'width:' + (progress / progressMax) * 100  + '%;'" :aria-valuenow="progress" aria-valuemin="0" :aria-valuemax="progressMax"></div>
                 </div>
                 <div class="form-inline ml-auto">
