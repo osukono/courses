@@ -11,6 +11,12 @@
                         {{ this.locale['instruction'] }}
                     </span>
                 </div>
+                <!--<div v-if="state === states.listeningFinished">
+                    <span style="font-size: 1rem;">
+                        Press <strong class="text-info">REPEAT</strong> to listen one more time.<br>
+                        Press <strong class="text-info">PRACTICE</strong> to start translation.
+                    </span>
+                </div>-->
             </div>
             <div class="mt-4 d-flex align-items-center">
                 <div>
@@ -26,7 +32,7 @@
                         {{ this.locale['continue'] }}
                     </button>
                 </div>
-                <div class="progress flex-grow-1 ml-1 ml-md-3 mr-1 mr-md-4" style="height: 2px;">
+                <div class="progress flex-grow-1 ml-1 ml-md-3 mr-2 mr-md-4" style="height: 2px;">
                     <div class="progress-bar bg-secondary" role="progressbar" :style="'width:' + (progress / progressMax) * 100  + '%;'" :aria-valuenow="progress" aria-valuemin="0" :aria-valuemax="progressMax"></div>
                 </div>
                 <div class="form-inline ml-auto">
@@ -309,6 +315,7 @@
             },
 
             repeat: function () {
+                this.commands = this.listening;
                 this.start();
             },
 
