@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-inline ml-auto">
                     <transition name="fade">
-                        <input style="max-width: 100px" type="range" class="form-control-range form-control-sm"
+                        <input style="max-width: 100px" type="range" class="custom-range"
                                id="volume" :value="volume * 100" @input="changeVolume" @change="saveVolume"
                                v-show="showVolume">
                     </transition>
@@ -545,4 +545,16 @@
     .fade-enter, .fade-leave-to {
         opacity: 0;
     }
+
+/*    .custom-range::-webkit-slider-thumb {
+        background: #17a2b8;
+    }
+
+    .custom-range::-moz-range-thumb {
+        background: #17a2b8;
+    }
+
+    .custom-range::-ms-thumb {
+        background: #17a2b8;
+    }*/
 </style>
