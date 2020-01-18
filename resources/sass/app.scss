@@ -5,10 +5,12 @@
 // Variables
 @import 'variables';
 
+$cyan:    #17a2b8 !default;
+
 $custom-range-track-height: .375rem !default;
 $custom-range-thumb-width: .75rem !default;
-$custom-range-thumb-bg: #17a2b8 !default;
-//$custom-range-thumb-active-bg: lighten($custom-range-thumb-bg, 35%) !default;
+$custom-range-thumb-bg: $cyan !default;
+$custom-range-thumb-active-bg: $cyan !default;
 //$custom-range-thumb-focus-box-shadow:        0 0 0 1px $body-bg, $input-focus-box-shadow !default;
 
 // Bootstrap
