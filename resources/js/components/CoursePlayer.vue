@@ -33,14 +33,14 @@
                     </button>
                 </div>
                 <div class="progress flex-grow-1 ml-1 ml-md-3 mr-2 mr-md-4" style="height: 2px;">
-                    <div class="progress-bar" style="background-color: #adb5bd;" role="progressbar" :style="'width:' + (progress / progressMax) * 100  + '%;'" :aria-valuenow="progress" aria-valuemin="0" :aria-valuemax="progressMax"></div>
+                    <div class="progress-bar" style="background-color: #adb5bd;" role="progressbar"
+                         :style="'width:' + (progress / progressMax) * 100  + '%;'" :aria-valuenow="progress"
+                         aria-valuemin="0" :aria-valuemax="progressMax"></div>
                 </div>
                 <div class="form-inline ml-auto">
-                    <transition name="fade">
-                        <input style="max-width: 100px" type="range" class="custom-range"
-                               id="volume" :value="volume * 100" @input="changeVolume" @change="saveVolume"
-                               v-show="showVolume">
-                    </transition>
+                    <input style="max-width: 100px" type="range" class="custom-range"
+                           id="volume" :value="volume * 100" @input="changeVolume" @change="saveVolume"
+                           v-show="showVolume">
                     <button class="btn btn-sm btn-link text-info mr-1" @click="showVolume = !showVolume">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -180,7 +180,7 @@
                 }
             },
 
-            progressMax: function() {
+            progressMax: function () {
                 return this.commands.length;
             },
         },
@@ -538,23 +538,4 @@
 </script>
 
 <style scoped>
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity .5s;
-    }
-
-    .fade-enter, .fade-leave-to {
-        opacity: 0;
-    }
-
-/*    .custom-range::-webkit-slider-thumb {
-        background: #17a2b8;
-    }
-
-    .custom-range::-moz-range-thumb {
-        background: #17a2b8;
-    }
-
-    .custom-range::-ms-thumb {
-        background: #17a2b8;
-    }*/
 </style>
