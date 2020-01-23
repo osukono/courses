@@ -48,7 +48,7 @@ class UserCourseRepository
         $userCourse->progress = [
             'lesson' => 1,
             'part' => 1,
-            'step' => 1,
+            'stage' => 1,
             'key' => Str::uuid()
         ];
         $userCourse->save();
@@ -56,10 +56,10 @@ class UserCourseRepository
         return $userCourse;
     }
 
-    public function updateStep($step)
+    public function updateStage($stage)
     {
         $progress = $this->model->progress;
-        $progress['step'] = $step;
+        $progress['stage'] = $stage;
 
         $this->model->progress = $progress;
         $this->model->save();
@@ -76,7 +76,7 @@ class UserCourseRepository
             $progress['part'] = 1;
         }
 
-        $progress['step'] = 1;
+        $progress['stage'] = 1;
         $progress['key'] = Str::uuid();
 
         $this->model->progress = $progress;
@@ -88,7 +88,7 @@ class UserCourseRepository
         $this->model->progress = [
             'lesson' => 1,
             'part' => 1,
-            'step' => 1,
+            'stage' => 1,
             'key' => Str::uuid()
         ];
 

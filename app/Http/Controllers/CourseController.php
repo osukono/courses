@@ -56,8 +56,8 @@ class CourseController extends Controller
         $data['title'] = $courseLesson->title . ' › ' . __('Part') . ' ' . $userCourse->progress['part'];
         $data['locale'] = $this->getPlayerLocale();
 
-        if (isset($userCourse->progress['step']))
-            $data['step'] = $userCourse->progress['step'];
+        if (isset($userCourse->progress['stage']))
+            $data['stage'] = $userCourse->progress['stage'];
 
         $data['htmlTitle'] = $data['title'];
 
@@ -96,8 +96,8 @@ class CourseController extends Controller
         abort_if($userCourse == null, 404);
         abort_if($userCourse->progress['key'] !== $key, 410);
 
-        if ($request->has('step'))
-            $userCourse->repository()->updateStep($request->get('step'));
+        if ($request->has('stage'))
+            $userCourse->repository()->updateStage($request->get('stage'));
 
         if ($request->has('finished'))
             $userCourse->repository()->incrementProgress();
