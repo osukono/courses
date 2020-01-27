@@ -133,14 +133,14 @@ class ContentRepository
                     if (isset($field['content']['value']))
                         $data .= Str::toPlainText($field['content']['value']) . PHP_EOL;
 
-                    if (/*$language != null && */isset($field['translations'])) {
+                    if ($language != null && isset($field['translations'])) {
                         foreach ($field['translations'] as $translation)
-//                            if ($translation['language'] == $language->code) {
+                            if ($translation['language'] == $language->code) {
                                 if (isset($translation['content']['value']))
                                     $data .= Str::toPlainText($translation['content']['value']) . PHP_EOL;
 
                                 break;
-//                            }
+                            }
                     }
                 }
                 $data .= PHP_EOL;
