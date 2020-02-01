@@ -23,7 +23,7 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::get('content', 'ContentController@index')->name('admin.content.index');
             Route::get('content/{content}', 'ContentController@show')->name('admin.content.show');
             Route::get('content/{content}/log', 'ContentController@log')->name('admin.content.log');
-            Route::get('content/{content}/audio/move', 'ContentController@moveAudio')->name('admin.content.audio.move');
+//            Route::get('content/{content}/audio/move', 'ContentController@moveAudio')->name('admin.content.audio.move');
             Route::get('content/{content}/export', 'ContentController@export')->name('admin.content.export');
             Route::get('content/{content}/export/json', 'ContentController@exportJson')->name('admin.content.export.json');
             Route::post('content/{content}/import/json', 'ContentController@importJson')->name('admin.content.import.json');
