@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\Content\ContentRestoreRequest;
 use App\Http\Requests\Admin\Content\ContentUpdateRequest;
 use App\Http\Requests\Admin\Content\RemoveEditorRequest;
 use App\Jobs\ImportContent;
+use App\Jobs\MoveAudio;
 use App\Library\Permissions;
 use App\Repositories\ContentRepository;
 use App\Repositories\LanguageRepository;
@@ -282,6 +283,27 @@ class ContentController extends Controller
             $json = $request->file('json')->store('tmp');
 
             $job = new ImportContent($content, $json);
+            $this->dispatch($job);
+
+            Session::flash('job', $job->getJobStatusId());
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+
+        return redirect()->route('admin.content.show', $content);
+    }
+
+    /**
+     * @param Content $content
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function moveAudio(Content $content)
+    {
+        $this->authorize('access', $content);
+
+        try {
+            $job = new MoveAudio($content);
             $this->dispatch($job);
 
             Session::flash('job', $job->getJobStatusId());

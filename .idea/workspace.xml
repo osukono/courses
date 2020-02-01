@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Jobs/MoveAudio.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/LanguagesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/LanguagesSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/CoursePlayer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CoursePlayer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +260,9 @@
       <workItem from="1579353555429" duration="14000" />
       <workItem from="1579361270633" duration="2644000" />
       <workItem from="1579536672368" duration="35000" />
-      <workItem from="1579536715199" duration="8364000" />
+      <workItem from="1579536715199" duration="10513000" />
+      <workItem from="1580544553424" duration="20000" />
+      <workItem from="1580544593890" duration="1496000" />
     </task>
     <servers />
   </component>
@@ -268,11 +277,11 @@
       <screen x="0" y="23" width="1440" height="795" />
     </state>
     <state x="289" y="230" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.795@0.23.1440.795" timestamp="1578852722575" />
-    <state x="408" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1579536678877">
-      <screen x="0" y="23" width="1440" height="798" />
+    <state x="408" y="156" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580544569953">
+      <screen x="0" y="23" width="1440" height="795" />
     </state>
     <state x="408" y="156" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.22.1440.798@0.22.1440.798" timestamp="1575227627718" />
-    <state x="408" y="156" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.795@0.23.1440.795" timestamp="1578604364980" />
+    <state x="408" y="156" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.795@0.23.1440.795" timestamp="1580544569953" />
     <state x="408" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.798@0.23.1440.798" timestamp="1579536678877" />
     <state x="378" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578293116823">
       <screen x="0" y="23" width="1440" height="795" />
@@ -319,11 +328,11 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="374" y="183" width="761" height="476" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1577690797893" />
-    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup" timestamp="1580131287216">
+    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup" timestamp="1580545542609">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
     <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.22.1440.798@0.22.1440.798" timestamp="1575635459573" />
-    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1580131287216" />
+    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1580545542609" />
     <state x="385" y="145" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1577430664599" />
     <state x="385" y="145" width="670" height="678" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1579969352409" />
   </component>

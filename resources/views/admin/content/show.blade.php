@@ -21,6 +21,10 @@
                         <div class="dropdown-divider"></div>
                     @endcan
 
+                    <a class="dropdown-item" href="{{ route('admin.content.audio.move', $content) }}">
+                        Move Audio
+                    </a>
+
                     <h6 class="dropdown-header">Download</h6>
                     <a class="dropdown-item" href="{{ route('admin.content.export', $content) }}">
                         {{ $content->language }}

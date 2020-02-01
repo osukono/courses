@@ -11,12 +11,6 @@
                         {{ this.locale['instruction'] }}
                     </span>
                 </div>
-                <!--<div v-if="state === states.listeningFinished">
-                    <span style="font-size: 1rem;">
-                        Press <strong class="text-info">REPEAT</strong> to listen one more time.<br>
-                        Press <strong class="text-info">PRACTICE</strong> to start translation.
-                    </span>
-                </div>-->
             </div>
             <div class="mt-4 d-flex align-items-center">
                 <div>
@@ -438,33 +432,12 @@
 
                 return array;
             },
-
-            preloadAudio: function (array) {
-                //https://stackoverflow.com/questions/31060642/preload-multiple-audio-files
-                for (let x = 0; x < array.length; x++) {
-                    array[x]['fields'].forEach(async function (field) {
-                        // this.audio[field['audio']] = new Audio();
-                        // this.audio[field['audio']].src = this.storageUrl + field['audio'];
-                        this.audio[this.storageUrl + field['audio']] = await fetch(this.storageUrl + field['audio']).then(r => r.blob());
-
-                        if (field['identifier'] === 'translation') {
-                            // this.audio[field['audio']] = new Audio();
-                            // this.audio[field['audio']].src = this.storageUrl + field['translation']['audio'];
-                            this.audio[this.storageUrl + field['translation']['audio']] = await fetch(this.storageUrl + field['translation']['audio']).then(r => r.blob());
-
-                        }
-                    }.bind(this));
-                }
-            }
         },
 
         mounted() {
             let review = this.review !== undefined ? JSON.parse(this.review) : [];
             let exercises = this.exercises !== undefined ? JSON.parse(this.exercises) : [];
             this.stage = this.initialStage !== undefined ? this.initialStage : 1;
-
-            // this.preloadAudio(review);
-            // this.preloadAudio(exercises);
 
             for (let x = 0; x < review.length; x++) {
                 this.addListening(review[x]);
@@ -479,8 +452,6 @@
 
                 this.addListening(review[(x + 3) % review.length]);
             }
-
-            // this.listening.push({action: this.actions.stage, value: 2});
 
             for (let x = 0; x < exercises.length; x++) {
                 this.addListening(exercises[x]);
@@ -512,8 +483,6 @@
                 this.addPractice(exercises[(x + 5) % exercises.length], delays[(x + 5) % exercises.length]);
                 delays[(x + 5) % exercises.length] -= 0.15;
             }
-
-            // this.practice.push({action: this.actions.stage, value: 4});
 
             review.forEach(function (exercise) {
                 this.addPractice(exercise, 2.0);
