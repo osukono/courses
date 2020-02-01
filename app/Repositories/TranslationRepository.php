@@ -45,7 +45,7 @@ class TranslationRepository
     {
         $this->model->update(['content->value' => $attributes['value']]);
         if ($this->model->exerciseField->field->audible && isset($attributes['audio'])) {
-            $audio = $attributes['audio']->store('audio');
+            $audio = $attributes['audio']->store('');
             $this->model->update(['content->audio' => $audio]);
         }
     }
@@ -58,7 +58,7 @@ class TranslationRepository
     {
         $audioContent = TextToSpeech::synthesizeSpeech(
             $this->model->language, Str::toPlainText($this->model->content['value']));
-        $path = 'audio/' . (string) \Illuminate\Support\Str::uuid() . '.wav';
+        $path = (string) \Illuminate\Support\Str::uuid() . '.wav';
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
         }

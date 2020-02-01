@@ -78,7 +78,7 @@ class ExerciseFieldRepository
     public function updateAudio(Request $request)
     {
         if ($this->model->field->audible && $request->has('audio')) {
-            $audio = $request->file('audio')->store('audio');
+            $audio = $request->file('audio')->store('');
             $this->model->update(['content->audio' => $audio]);
         }
     }
@@ -91,7 +91,7 @@ class ExerciseFieldRepository
     {
         $audioContent = TextToSpeech::synthesizeSpeech(
             $this->model->exercise->lesson->content->language, Str::toPlainText($this->model->content['value']));
-        $path = 'audio/' . (string) \Illuminate\Support\Str::uuid() . '.wav';
+        $path = (string) \Illuminate\Support\Str::uuid() . '.wav';
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
         }
