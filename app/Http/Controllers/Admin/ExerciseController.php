@@ -33,6 +33,7 @@ class ExerciseController extends Controller
     {
         $this->authorize('access', $exercise->lesson->content);
 
+
         if (Auth::getUser()->can(Permissions::update_content) && $request->has('field'))
             $data['editedField'] = ExerciseFieldRepository::find($request->get('field'))->model();
 
@@ -44,6 +45,10 @@ class ExerciseController extends Controller
             ->whereNotIn('id', [$exercise->lesson->content->language->id])->ordered()->get();
         $data['fields'] = FieldRepository::all()->ordered()->get();
         $data['exerciseFields'] = $exercise->exerciseFields()->ordered()->get();
+
+        foreach ($data['exerciseFields'] as $exerciseField) {
+            $exerciseField->repository()->updateAudioDuration();
+        }
 
         return view('admin.content.exercises.show')->with($data);
     }
