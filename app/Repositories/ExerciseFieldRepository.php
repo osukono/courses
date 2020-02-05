@@ -81,6 +81,8 @@ class ExerciseFieldRepository
         if ($this->model->field->audible && $request->has('audio')) {
             $audio = $request->file('audio')->store('');
             $this->model->update(['content->audio' => $audio]);
+
+            $this->updateAudioDuration();
         }
     }
 
@@ -103,6 +105,8 @@ class ExerciseFieldRepository
         $path = (string) \Illuminate\Support\Str::uuid() . '.wav';
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
+
+            $this->updateAudioDuration();
         }
     }
 

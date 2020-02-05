@@ -46,10 +46,6 @@ class ExerciseController extends Controller
         $data['fields'] = FieldRepository::all()->ordered()->get();
         $data['exerciseFields'] = $exercise->exerciseFields()->ordered()->get();
 
-        foreach ($data['exerciseFields'] as $exerciseField) {
-            $exerciseField->repository()->updateAudioDuration();
-        }
-
         return view('admin.content.exercises.show')->with($data);
     }
 

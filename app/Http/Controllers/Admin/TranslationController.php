@@ -125,10 +125,6 @@ class TranslationController extends Controller
                 }
             ])
             ->ordered()->get();
-        foreach ($data['exerciseFields'] as $exerciseField) {
-            foreach ($exerciseField->translations as $translation)
-                $translation->repository()->updateAudioDuration();
-        }
 
         $data['previous'] = $exercise->repository()->previous();
         $data['next'] = $exercise->repository()->next();
@@ -181,21 +177,6 @@ class TranslationController extends Controller
         $this->authorize('access', $translation->language);
 
         $translation->repository()->synthesizeAudio();
-
-        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseField->exercise]);
-    }
-
-    /**
-     * @param Translation $translation
-     * @return RedirectResponse
-     * @throws AuthorizationException
-     */
-    public function duration(Translation $translation)
-    {
-        $this->authorize('access', $translation->exerciseField->exercise->lesson->content);
-        $this->authorize('access', $translation->language);
-
-        $translation->repository()->updateAudioDuration();
 
         return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseField->exercise]);
     }

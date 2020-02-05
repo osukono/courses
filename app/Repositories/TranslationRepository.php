@@ -48,6 +48,8 @@ class TranslationRepository
         if ($this->model->exerciseField->field->audible && isset($attributes['audio'])) {
             $audio = $attributes['audio']->store('');
             $this->model->update(['content->audio' => $audio]);
+
+            $this->updateAudioDuration();
         }
     }
 
@@ -70,6 +72,8 @@ class TranslationRepository
         $path = (string) \Illuminate\Support\Str::uuid() . '.wav';
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
+
+            $this->updateAudioDuration();
         }
     }
 
