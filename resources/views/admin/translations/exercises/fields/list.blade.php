@@ -39,6 +39,16 @@
                             @method('patch')
                             @csrf
                         </form>
+                        <a class="mr-2" href="#"
+                           onclick="event.preventDefault(); document.getElementById('translation-{{ $exerciseField->translations->first()->id }}-duration').submit();">
+                            Duration
+                        </a>
+                        <form id="translation-{{ $exerciseField->translations()->first()->id }}-duration" class="d-none"
+                              action="{{ route('admin.translations.audio.duration', $exerciseField->translations->first()) }}"
+                              method="post">
+                            @method('patch')
+                            @csrf
+                        </form>
                     @endif
                 </td>
             </tr>

@@ -7,6 +7,7 @@ namespace App\Repositories;
 use App\Exercise;
 use App\ExerciseField;
 use App\Field;
+use App\Library\Audio;
 use App\Library\Str;
 use App\Library\TextToSpeech;
 use Exception;
@@ -81,6 +82,12 @@ class ExerciseFieldRepository
             $audio = $request->file('audio')->store('');
             $this->model->update(['content->audio' => $audio]);
         }
+    }
+
+    public function updateAudioDuration()
+    {
+        $duration = Audio::length(Storage::url($this->model->content['audio']));
+        $this->model->update(['content->duration' => $duration]);
     }
 
     /**

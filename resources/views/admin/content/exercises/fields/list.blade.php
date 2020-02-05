@@ -32,6 +32,12 @@
                                 @method('patch')
                                 @csrf
                             </form>
+                            <a class="mr-2" href="#" onclick="event.preventDefault(); document.getElementById('field-{{ $exerciseField->id }}-duration').submit();">Duration</a>
+                            <form id="field-{{ $exerciseField->id }}-duration" class="d-none"
+                                  action="{{ route('admin.exercise.fields.audio.duration', $exerciseField) }}" method="post">
+                                @method('patch')
+                                @csrf
+                            </form>
                             <a href="#"
                                data-toggle="confirmation"
                                data-btn-ok-label="{{ __('admin.form.delete') }}"

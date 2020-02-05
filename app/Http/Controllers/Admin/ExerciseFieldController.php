@@ -162,4 +162,18 @@ class ExerciseFieldController extends Controller
 
         return redirect()->route('admin.exercises.show', $exerciseField->exercise);
     }
+
+    /**
+     * @param ExerciseField $exerciseField
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function duration(ExerciseField $exerciseField)
+    {
+        $this->authorize('access', $exerciseField->exercise->lesson->content);
+
+        $exerciseField->repository()->updateAudioDuration();
+
+        return redirect()->route('admin.exercises.show', $exerciseField->exercise);
+    }
 }

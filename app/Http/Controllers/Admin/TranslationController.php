@@ -181,6 +181,21 @@ class TranslationController extends Controller
     }
 
     /**
+     * @param Translation $translation
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function duration(Translation $translation)
+    {
+        $this->authorize('access', $translation->exerciseField->exercise->lesson->content);
+        $this->authorize('access', $translation->language);
+
+        $translation->repository()->updateAudioDuration();
+
+        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseField->exercise]);
+    }
+
+    /**
      * @param Language $language
      * @param Content $content
      * @return ResponseFactory|Response

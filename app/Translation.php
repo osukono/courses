@@ -47,7 +47,8 @@ class Translation extends Model implements Recordable
 
     protected $fillable = [
         'content->value',
-        'content->audio'
+        'content->audio',
+        'content->duration'
     ];
 
     /**
