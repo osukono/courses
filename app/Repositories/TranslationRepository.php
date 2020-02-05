@@ -53,8 +53,10 @@ class TranslationRepository
 
     public function updateAudioDuration()
     {
-        $duration = Audio::length(Storage::url($this->model->content['audio']));
-        $this->model->update(['content->duration' => $duration]);
+        if (isset($this->model->content['audio'])) {
+            $duration = Audio::length(Storage::url($this->model->content['audio']));
+            $this->model->update(['content->duration' => $duration]);
+        }
     }
 
     /**

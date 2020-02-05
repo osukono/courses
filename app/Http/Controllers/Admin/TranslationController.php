@@ -125,6 +125,11 @@ class TranslationController extends Controller
                 }
             ])
             ->ordered()->get();
+        foreach ($data['exerciseFields'] as $exerciseField) {
+            foreach ($exerciseField->translations as $translation)
+                $translation->repository()->updateAudioDuration();
+        }
+
         $data['previous'] = $exercise->repository()->previous();
         $data['next'] = $exercise->repository()->next();
 
