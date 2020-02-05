@@ -7,6 +7,7 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
     ->namespace('Admin')->prefix('admin')->group(function () {
 
         Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
+        Route::get('/test', 'AdminController@test');
 
         /**
          * ContentController
