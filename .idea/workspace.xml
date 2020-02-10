@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseFieldController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseFieldController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ExerciseFieldRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ExerciseFieldRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/TranslationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/TranslationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/fields/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/exercises/fields/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/fields/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/exercises/fields/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/exercises/fields/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/exercises/fields/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/exercises/fields/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/exercises/fields/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/CommitContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/CommitContent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Library/Audio.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/Audio.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +178,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/ru" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.grazie" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
@@ -264,7 +256,7 @@
       <workItem from="1579536715199" duration="10513000" />
       <workItem from="1580544553424" duration="20000" />
       <workItem from="1580544593890" duration="3684000" />
-      <workItem from="1580895231744" duration="10122000" />
+      <workItem from="1580895231744" duration="11379000" />
     </task>
     <servers />
   </component>
@@ -334,12 +326,12 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="374" y="183" width="761" height="476" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1577690797893" />
-    <state x="385" y="145" width="670" height="678" key="search.everywhere.popup" timestamp="1580917284560">
+    <state x="385" y="145" width="670" height="678" key="search.everywhere.popup" timestamp="1580917726566">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.22.1440.798@0.22.1440.798" timestamp="1575635459573" />
     <state x="385" y="145" width="670" height="675" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1580822116161" />
     <state x="385" y="145" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1577430664599" />
-    <state x="385" y="145" width="670" height="678" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1580917284560" />
+    <state x="385" y="145" width="670" height="678" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1580917726566" />
   </component>
 </project>

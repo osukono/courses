@@ -119,6 +119,11 @@ class CommitContent implements ShouldQueue
                         $valid = false;
                     }
 
+                    if ($exerciseField->field->audible && !isset($exerciseField->content['duration'])) {
+                        $messages[] = "Lesson " . $lesson->index . " › Exercise " . $exercise->index . " › Field " . $exerciseField->index . " doesn't have audio duration.";
+                        $valid = false;
+                    }
+
                     if ($exerciseField->field->translatable) {
                         $translation = $exerciseField->translations->where('language_id', $this->translation->id)->first();
 
@@ -134,6 +139,11 @@ class CommitContent implements ShouldQueue
 
                         if ($exerciseField->field->audible && !isset($translation->content['audio'])) {
                             $messages[] = "Lesson " . $lesson->index . " › Exercise " . $exercise->index . " › Field " . $exerciseField->index . " › Translation doesn't have audio.";
+                            $valid = false;
+                        }
+
+                        if ($exerciseField->field->audible && !isset($translation->content['duration'])) {
+                            $messages[] = "Lesson " . $lesson->index . " › Exercise " . $exercise->index . " › Field " . $exerciseField->index . " › Translation doesn't have audio duration.";
                             $valid = false;
                         }
                     }
