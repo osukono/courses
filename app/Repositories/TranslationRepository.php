@@ -80,6 +80,7 @@ class TranslationRepository
     public function deleteAudio()
     {
         $this->model->update(['content->audio' => null]);
+        $this->model->update(['content->duration' => null]);
     }
 
     public function exportAsArray()

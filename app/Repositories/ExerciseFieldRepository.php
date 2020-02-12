@@ -102,7 +102,7 @@ class ExerciseFieldRepository
     {
         $audioContent = TextToSpeech::synthesizeSpeech(
             $this->model->exercise->lesson->content->language, Str::toPlainText($this->model->content['value']));
-        $path = (string) \Illuminate\Support\Str::uuid() . '.wav';
+        $path = (string)\Illuminate\Support\Str::uuid() . '.wav';
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
             $this->updateAudioDuration();
@@ -112,6 +112,7 @@ class ExerciseFieldRepository
     public function deleteAudio()
     {
         $this->model->update(['content->audio' => null]);
+        $this->model->update(['content->duration' => null]);
     }
 
     public function move($index)
@@ -135,7 +136,7 @@ class ExerciseFieldRepository
      */
     public function restore()
     {
-        if (! $this->model->trashed())
+        if (!$this->model->trashed())
             throw new Exception(__('admin.messages.restored.is_not_trashed', ['object' => $this->model]));
 
         $this->model->restore();
@@ -160,7 +161,8 @@ class ExerciseFieldRepository
 
         if ($this->model->field->translatable) {
             foreach ($this->model->translations as $translation) {
-                $data['translations'][] = $translation->repository()->exportAsArray();
+                if (count($translation->content))
+                    $data['translations'][] = $translation->repository()->exportAsArray();
             }
         }
 
