@@ -70,9 +70,9 @@ class TranslationRepository
         $audioContent = TextToSpeech::synthesizeSpeech(
             $this->model->language, Str::toPlainText($this->model->content['value']));
         $path = (string) \Illuminate\Support\Str::uuid() . '.wav';
+//        dd($path);
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
-
             $this->updateAudioDuration();
         }
     }

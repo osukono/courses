@@ -168,15 +168,17 @@ class TranslationController extends Controller
      * @param Translation $translation
      * @return RedirectResponse
      * @throws AuthorizationException
-     * @throws \Google\ApiCore\ApiException
-     * @throws \Google\ApiCore\ValidationException
      */
     public function synthesizeAudio(Translation $translation)
     {
         $this->authorize('access', $translation->exerciseField->exercise->lesson->content);
         $this->authorize('access', $translation->language);
 
-        $translation->repository()->synthesizeAudio();
+        try {
+            $translation->repository()->synthesizeAudio();
+        } catch (Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
 
         return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseField->exercise]);
     }

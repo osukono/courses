@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Language;
+use App\TextToSpeechSettings;
 use App\User;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
@@ -51,6 +52,15 @@ class LanguageRepository
         $language->code = $attributes['code'];
         $language->save();
 
+        if (isset($attributes['voice_name'], $attributes['speaking_rate'], $attributes['pitch'])) {
+            $textToSpeechSettings = new TextToSpeechSettings();
+            $textToSpeechSettings->voice_name = $attributes['voice_name'];
+            $textToSpeechSettings->speaking_rate = $attributes['speaking_rate'];
+            $textToSpeechSettings->pitch = $attributes['pitch'];
+            $textToSpeechSettings->language()->associate($language);
+            $textToSpeechSettings->save();
+        }
+
         return $language;
     }
 
@@ -63,6 +73,12 @@ class LanguageRepository
         $this->model->code = $attributes['code'];
         $this->model->slug = null;
         $this->model->save();
+
+        $this->model->textToSpeechSettings()->updateOrCreate([
+            'voice_name' => $attributes['voice_name'],
+            'speaking_rate' => $attributes['speaking_rate'],
+            'pitch' => $attributes['pitch']
+        ]);
     }
 
     /**

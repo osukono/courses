@@ -105,7 +105,6 @@ class ExerciseFieldRepository
         $path = (string) \Illuminate\Support\Str::uuid() . '.wav';
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
-
             $this->updateAudioDuration();
         }
     }

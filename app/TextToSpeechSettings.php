@@ -30,6 +30,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class TextToSpeechSettings extends Model
 {
+    protected $fillable = [
+        'voice_name',
+        'speaking_rate',
+        'pitch'
+    ];
+
     /**
      * @return BelongsTo
      */

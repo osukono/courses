@@ -33,7 +33,7 @@
                            onclick="event.preventDefault(); document.getElementById('translation-{{ $exerciseField->translations->first()->id }}-synthesize').submit();">
                             Synthesize Audio
                         </a>
-                        <form id="translation-{{ $exerciseField->translations()->first()->id }}-synthesize" class="d-none"
+                        <form id="translation-{{ $exerciseField->translations->first()->id }}-synthesize" class="d-none"
                               action="{{ route('admin.translations.audio.synthesize', $exerciseField->translations->first()) }}"
                               method="post">
                             @method('patch')

@@ -49,11 +49,10 @@ class TextToSpeech
             ->setText($text);
 
         $voice = (new VoiceSelectionParams())
-//            ->setName($speechSettings->voice_name);
-//            ->setLanguageCode($language->code)
-            ->setLanguageCode('ru-RU')
-//            ->setName('en-US-Wavenet-D');
-        ->setName('ru-RU-Wavenet-E');
+            ->setLanguageCode($language->code)
+            ->setName($speechSettings->voice_name);
+//        ->setName('en-US-Wavenet-D');
+//        ->setName('ru-RU-Wavenet-E');
 
         // Effects profile
         $effectsProfileId = "headphone-class-device";
@@ -62,11 +61,9 @@ class TextToSpeech
         $audioConfig = (new AudioConfig())
             ->setAudioEncoding(AudioEncoding::LINEAR16)
             ->setSampleRateHertz(24000)
-//            ->setPitch($speechSettings->pitch)
-            ->setPitch(0)
-//            ->setSpeakingRate($speechSettings->speaking_rate)
-            ->setSpeakingRate(1)
-            ->setEffectsProfileId(array($effectsProfileId));
+            ->setPitch($speechSettings->pitch)
+            ->setSpeakingRate($speechSettings->speaking_rate);
+//            ->setEffectsProfileId(array($effectsProfileId));
 
         // perform text-to-speech request on the text input with selected voice
         // parameters and audio file type
