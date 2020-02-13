@@ -10,15 +10,16 @@ class UserController extends Controller
 {
     public function unsubscribe()
     {
+        $user = \Auth::getUser();
+
+        $user->update((['subscribed' => false]));
+
         return view('user.unsubscribe');
     }
 
     public function saveSettings(SaveSettingsRequest $request)
     {
         $user = \Auth::getUser();
-
-        Log::alert('volume ' . $request->get('volume'));
-        Log::alert('speed ' . $request->get('speed'));
 
         if ($request->has('volume'))
             $user->update(['settings->volume' => $request->get('volume')]);

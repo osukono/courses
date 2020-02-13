@@ -144,6 +144,7 @@ class TranslationController extends Controller
         $this->authorize('access', $translation->language);
 
         $translation->repository()->update($request->all());
+        $translation->repository()->updateAudio($request);
 
         return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseField->exercise]);
     }

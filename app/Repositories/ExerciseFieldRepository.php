@@ -6,7 +6,6 @@ namespace App\Repositories;
 
 use App\Exercise;
 use App\ExerciseField;
-use App\Field;
 use App\Library\Audio;
 use App\Library\Str;
 use App\Library\TextToSpeech;
@@ -69,13 +68,20 @@ class ExerciseFieldRepository
      */
     public function update(array $attributes)
     {
-        $this->model->update(['content->value' => $attributes['value']]);
-//        if ($this->model->field->audible && isset($attributes['audio'])) {
-//            $audio = $attributes['audio']->store('audio');
-//            $this->model->update(['content->audio' => $audio]);
-//        }
+        $content = $this->model->content;
+
+        if (empty($attributes['value']))
+            unset($content['value']);
+        else
+            $content['value'] = $attributes['value'];
+
+        $this->model->save();
     }
 
+    /**
+     * Update exercise's audio and duration.
+     * @param Request $request
+     */
     public function updateAudio(Request $request)
     {
         if ($this->model->field->audible && $request->has('audio')) {
@@ -109,10 +115,16 @@ class ExerciseFieldRepository
         }
     }
 
+    /**
+     * Delete audio and duration from the content.
+     */
     public function deleteAudio()
     {
-        $this->model->update(['content->audio' => null]);
-        $this->model->update(['content->duration' => null]);
+        $content = $this->model->content;
+        unset($content['audio']);
+        unset($content['duration']);
+        $this->model->content = $content;
+        $this->model->save();
     }
 
     public function move($index)

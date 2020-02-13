@@ -8,6 +8,7 @@ use App\Course;
 use App\User;
 use App\UserCourse;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\Permission\Models\Role;
 
 class UserRepository
 {
@@ -42,6 +43,22 @@ class UserRepository
      */
     public function enroll(Course $course) {
         return UserCourseRepository::create($course, $this->model);
+    }
+
+    /**
+     * @param Role $role
+     */
+    public function assignRole(Role $role)
+    {
+        $this->model->assignRole($role);
+    }
+
+    /**
+     * @param Role $role
+     */
+    public function removeRole(Role $role)
+    {
+        $this->model->removeRole($role);
     }
 
     /**

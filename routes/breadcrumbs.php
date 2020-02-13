@@ -164,7 +164,6 @@ Breadcrumbs::for('admin.languages.index', function ($trail) {
 });
 
 // Languages > Create
-
 Breadcrumbs::for('admin.languages.create', function ($trail) {
     $trail->parent('admin.languages.index');
     $trail->push('Create');
@@ -180,4 +179,21 @@ Breadcrumbs::for('admin.languages.show', function ($trail, \App\Language $langua
 Breadcrumbs::for('admin.languages.edit', function ($trail, \App\Language $language) {
     $trail->parent('admin.languages.show', $language);
     $trail->push('Properties');
+});
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Users
+ * ---------------------------------------------------------------------------------------------------------------------
+ */
+
+// Users
+Breadcrumbs::for('admin.users.index', function ($trail) {
+    $trail->push('Users', route('admin.users.index'));
+});
+
+// Users > [User]
+Breadcrumbs::for('admin.users.show', function ($trail, \App\User $user) {
+    $trail->parent('admin.users.index');
+    $trail->push($user, route('admin.users.show', $user));
 });

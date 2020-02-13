@@ -45,7 +45,7 @@
                         <a href="#" class="text-muted">Exercise Fields</a>
                     </li>
                     <li>
-                        <a href="#" class="text-muted">Users</a>
+                        <a href="{{ route('admin.users.index') }}">Users</a>
                     </li>
                     <li>
                         <a href="#" class="text-muted">Roles</a>

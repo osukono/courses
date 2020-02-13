@@ -12,6 +12,7 @@ use App\Library\TextToSpeech;
 use App\Translation;
 use Google\ApiCore\ApiException;
 use Google\ApiCore\ValidationException;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class TranslationRepository
@@ -44,9 +45,24 @@ class TranslationRepository
      */
     public function update(array $attributes)
     {
-        $this->model->update(['content->value' => $attributes['value']]);
-        if ($this->model->exerciseField->field->audible && isset($attributes['audio'])) {
-            $audio = $attributes['audio']->store('');
+        $content = $this->model->content;
+
+        if (empty($attributes['value']))
+            unset($content['value']);
+        else
+            $content['value'] = $attributes['value'];
+
+        $this->model->save();
+    }
+
+    /**
+     * Update translation's audio and duration.
+     * @param Request $request
+     */
+    public function updateAudio(Request $request)
+    {
+        if ($this->model->exerciseField->field->audible && $request->has('audio')) {
+            $audio = $request->file('audio')->store('');
             $this->model->update(['content->audio' => $audio]);
 
             $this->updateAudioDuration();
@@ -70,7 +86,6 @@ class TranslationRepository
         $audioContent = TextToSpeech::synthesizeSpeech(
             $this->model->language, Str::toPlainText($this->model->content['value']));
         $path = (string) \Illuminate\Support\Str::uuid() . '.wav';
-//        dd($path);
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
             $this->updateAudioDuration();
@@ -79,8 +94,11 @@ class TranslationRepository
 
     public function deleteAudio()
     {
-        $this->model->update(['content->audio' => null]);
-        $this->model->update(['content->duration' => null]);
+        $content = $this->model->content;
+        unset($content['audio']);
+        unset($content['duration']);
+        $this->model->content = $content;
+        $this->model->save();
     }
 
     public function exportAsArray()

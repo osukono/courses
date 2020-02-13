@@ -63,7 +63,8 @@ class User extends Authenticatable implements Identifiable
     protected $fillable = [
         'name', 'email', 'password',
         'settings->speed',
-        'settings->volume'
+        'settings->volume',
+        'subscribed'
     ];
 
     /**

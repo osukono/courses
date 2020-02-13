@@ -21,7 +21,9 @@ class RouteServiceProvider extends ServiceProvider
         'exercise',
         'exerciseField',
         'translation',
-        'jobStatus'
+        'jobStatus',
+        'user',
+        'role'
     ];
 
     private $slug = [

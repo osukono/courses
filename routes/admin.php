@@ -144,6 +144,16 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         });
 
         /**
+         * Users
+         */
+        Route::middleware('role:' . Roles::admin)->group(function() {
+            Route::get('users', 'UserController@index')->name('admin.users.index');
+            Route::get('users/{user}', 'UserController@show')->name('admin.users.show');
+            Route::patch('users/{user}/roles/{role}/assign', 'UserController@assignRole')->name('admin.users.roles.assign');
+            Route::patch('users/{user}/roles/{role}/remove', 'UserController@removeRole')->name('admin.users.roles.remove');
+        });
+
+        /**
          * Jobs
          */
         Route::get('jobs/{jobStatus}/status', 'JobController@status')->name('admin.jobs.status');
