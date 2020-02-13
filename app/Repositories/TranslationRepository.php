@@ -52,6 +52,7 @@ class TranslationRepository
         else
             $content['value'] = $attributes['value'];
 
+        $this->model->content = $content;
         $this->model->save();
     }
 
@@ -95,8 +96,10 @@ class TranslationRepository
     public function deleteAudio()
     {
         $content = $this->model->content;
+
         unset($content['audio']);
         unset($content['duration']);
+        
         $this->model->content = $content;
         $this->model->save();
     }
