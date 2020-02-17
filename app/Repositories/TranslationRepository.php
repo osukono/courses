@@ -86,7 +86,7 @@ class TranslationRepository
     {
         $audioContent = TextToSpeech::synthesizeSpeech(
             $this->model->language, Str::toPlainText($this->model->content['value']));
-        $path = (string) \Illuminate\Support\Str::uuid() . '.wav';
+        $path = \Illuminate\Support\Str::random(42) . '.wav';
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
             $this->updateAudioDuration();
@@ -99,12 +99,12 @@ class TranslationRepository
 
         unset($content['audio']);
         unset($content['duration']);
-        
+
         $this->model->content = $content;
         $this->model->save();
     }
 
-    public function exportAsArray()
+    public function toArray()
     {
         $this->model->loadMissing([
             'language'
@@ -122,5 +122,17 @@ class TranslationRepository
     public function model()
     {
         return $this->model;
+    }
+
+    public function removeDashesFromAudioFilename()
+    {
+        $content = $this->model->content;
+        if (isset($content['audio']) && \Illuminate\Support\Str::contains($content['audio'], "-")) {
+            $fileNameWithoutDashes = \Illuminate\Support\Str::random(42) . ".wav";
+            Storage::move($content['audio'], $fileNameWithoutDashes);
+            $content['audio'] = $fileNameWithoutDashes;
+            $this->model->content = $content;
+            $this->model->save();
+        }
     }
 }

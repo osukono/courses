@@ -120,7 +120,7 @@ class LessonRepository
     /**
      * @return array
      */
-    public function exportAsArray()
+    public function toArray()
     {
         $this->model->loadMissing([
             'exercises' => function (HasMany $query) {
@@ -139,7 +139,7 @@ class LessonRepository
         $data['title'] = $this->model->title;
 
         foreach ($this->model->exercises as $exercise)
-            $data['exercises'][] = $exercise->repository()->exportAsArray();
+            $data['exercises'][] = $exercise->repository()->toArray();
 
         return $data;
     }

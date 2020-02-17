@@ -116,9 +116,9 @@ class ContentRepository
      * @param Language|null $language
      * @return string
      */
-    public function exportAsText(Language $language = null)
+    public function toPlainText(Language $language = null)
     {
-        $content = $this->exportAsArray();
+        $content = $this->toArray();
 
         $data = "";
 
@@ -154,7 +154,7 @@ class ContentRepository
     /**
      * @return array
      */
-    public function exportAsArray()
+    public function toArray()
     {
         $this->model->loadMissing([
             'lessons' => function (HasMany $query) {
@@ -178,7 +178,7 @@ class ContentRepository
         $data['level'] = $this->model->level->name;
 
         foreach ($this->model->lessons as $lesson)
-            $data['lessons'][] = $lesson->repository()->exportAsArray();
+            $data['lessons'][] = $lesson->repository()->toArray();
 
         return $data;
     }

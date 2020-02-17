@@ -109,7 +109,7 @@ class ExerciseFieldRepository
     {
         $audioContent = TextToSpeech::synthesizeSpeech(
             $this->model->exercise->lesson->content->language, Str::toPlainText($this->model->content['value']));
-        $path = (string)\Illuminate\Support\Str::uuid() . '.wav';
+        $path = \Illuminate\Support\Str::random(42) . '.wav';
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
             $this->updateAudioDuration();
@@ -161,7 +161,7 @@ class ExerciseFieldRepository
     /**
      * @return array
      */
-    public function exportAsArray()
+    public function toArray()
     {
         $this->model->loadMissing([
             'field',
@@ -177,7 +177,7 @@ class ExerciseFieldRepository
         if ($this->model->field->translatable) {
             foreach ($this->model->translations as $translation) {
                 if (count($translation->content))
-                    $data['translations'][] = $translation->repository()->exportAsArray();
+                    $data['translations'][] = $translation->repository()->toArray();
             }
         }
 
@@ -190,5 +190,17 @@ class ExerciseFieldRepository
     public function model()
     {
         return $this->model;
+    }
+
+    public function removeDashesFromAudioFilename()
+    {
+        $content = $this->model->content;
+        if (isset($content['audio']) && \Illuminate\Support\Str::contains($content['audio'], "-")) {
+            $fileNameWithoutDashes = \Illuminate\Support\Str::random(42) . ".wav";
+            Storage::move($content['audio'], $fileNameWithoutDashes);
+            $content['audio'] = $fileNameWithoutDashes;
+            $this->model->content = $content;
+            $this->model->save();
+        }
     }
 }

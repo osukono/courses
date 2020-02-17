@@ -101,7 +101,7 @@ class ExerciseRepository
     /**
      * @return array
      */
-    public function exportAsArray()
+    public function toArray()
     {
         $this->model->loadMissing([
             'exerciseFields' => function (HasMany $query) {
@@ -117,7 +117,7 @@ class ExerciseRepository
         $data = [];
 
         foreach ($this->model->exerciseFields as $exerciseField) {
-            $data['fields'][] = $exerciseField->repository()->exportAsArray();
+            $data['fields'][] = $exerciseField->repository()->toArray();
         }
 
         return $data;

@@ -195,7 +195,7 @@ class TranslationController extends Controller
         $this->authorize('access', $content);
         $this->authorize('access', $language);
 
-        return response($content->repository()->exportAsText($language), 200)
+        return response($content->repository()->toPlainText($language), 200)
             ->header('Content-Type', 'text/plain')
             ->header('Content-Disposition' , 'attachment; filename="' . $content . ' - ' . $language . '.txt"');
     }

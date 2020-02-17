@@ -62,6 +62,7 @@ class TextToSpeech
             ->setAudioEncoding(AudioEncoding::LINEAR16)
             ->setSampleRateHertz(24000)
             ->setPitch($speechSettings->pitch)
+//            ->setVolumeGainDb()
             ->setSpeakingRate($speechSettings->speaking_rate);
 //            ->setEffectsProfileId(array($effectsProfileId));
 

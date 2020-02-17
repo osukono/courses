@@ -14,16 +14,13 @@ use App\Jobs\MoveAudio;
 use App\Library\Permissions;
 use App\Repositories\ContentRepository;
 use App\Repositories\LanguageRepository;
-use App\Repositories\LessonRepository;
 use App\Repositories\LevelRepository;
 use App\User;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Http\File;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -244,11 +241,11 @@ class ContentController extends Controller
      * @return ResponseFactory|Response
      * @throws AuthorizationException
      */
-    public function export(Content $content)
+    public function exportText(Content $content)
     {
         $this->authorize('access', $content);
 
-        return response($content->repository()->exportAsText(), 200)
+        return response($content->repository()->toPlainText(), 200)
             ->header('Content-Type', 'text/plain')
             ->header('Content-Disposition', 'attachment; filename="' . $content . '.txt"');
     }
@@ -262,7 +259,7 @@ class ContentController extends Controller
     {
         $this->authorize('access', $content);
 
-        $json = json_encode($content->repository()->exportAsArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        $json = json_encode($content->repository()->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
         return response($json, 200)
             ->header('Content-Type', 'application/json')
