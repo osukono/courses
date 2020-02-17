@@ -50,15 +50,6 @@ class LessonController extends Controller
             ])
             ->ordered()->get();
 
-        foreach ($data['exercises'] as $exercise) {
-            foreach ($exercise->exerciseFields as $exerciseField) {
-                $exerciseField->repository()->removeDashesFromAudioFilename();
-                foreach ($exerciseField->translations as $translation) {
-                    $translation->repository()->removeDashesFromAudioFilename();
-                }
-            }
-        }
-
         return view('admin.content.lessons.show')->with($data);
     }
 

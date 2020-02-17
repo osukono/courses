@@ -86,6 +86,8 @@ class TranslationRepository
     {
         $audioContent = TextToSpeech::synthesizeSpeech(
             $this->model->language, Str::toPlainText($this->model->content['value']));
+
+        // It is important file names do not contain dashes.
         $path = \Illuminate\Support\Str::random(42) . '.wav';
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
@@ -122,17 +124,5 @@ class TranslationRepository
     public function model()
     {
         return $this->model;
-    }
-
-    public function removeDashesFromAudioFilename()
-    {
-        $content = $this->model->content;
-        if (isset($content['audio']) && \Illuminate\Support\Str::contains($content['audio'], "-")) {
-            $fileNameWithoutDashes = \Illuminate\Support\Str::random(42) . ".wav";
-            Storage::move($content['audio'], $fileNameWithoutDashes);
-            $content['audio'] = $fileNameWithoutDashes;
-            $this->model->content = $content;
-            $this->model->save();
-        }
     }
 }
