@@ -9,6 +9,7 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
+        dd(env('FIREBASE_URI'));
 //        $data['userCount'] = UserRepository::all()->count();
 //        $data['userCoursesCount'] = UserCourseRepository::all()->count();
 
