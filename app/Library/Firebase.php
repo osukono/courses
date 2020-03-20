@@ -5,6 +5,7 @@ namespace App\Library;
 use Google\Cloud\Firestore\FirestoreClient;
 use Google\Cloud\Storage\Bucket;
 use Google\Cloud\Storage\StorageClient;
+use GuzzleHttp\Psr7\Uri;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\UploadedFile;
 use Kreait\Firebase\Exception\RemoteConfigException;
@@ -75,7 +76,7 @@ final class Firebase
         if (! isset(static::$remoteConfig)) {
             static::$remoteConfig = (new Factory())
                 ->withServiceAccount(static::$serviceAccount)
-                ->withDatabaseUri(env('FIREBASE_URI'))
+                ->withDatabaseUri(new Uri(env('FIREBASE_URI')))
                 ->createRemoteConfig();
         }
 
@@ -87,7 +88,7 @@ final class Firebase
         if (! isset(static::$firestoreClient)) {
             static::$firestoreClient = (new Factory())
                 ->withServiceAccount(static::$serviceAccount)
-                ->withDatabaseUri(env('FIREBASE_URI'))
+                ->withDatabaseUri(new Uri(env('FIREBASE_URI')))
                 ->createFirestore()->database();
         }
 
