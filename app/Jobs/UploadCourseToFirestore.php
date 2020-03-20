@@ -65,6 +65,11 @@ class UploadCourseToFirestore implements ShouldQueue
 
         $firestoreCourse = FirebaseCourseRepository::findOrCreate($this->course);
 
+        if (!isset($this->course->firebase_id)) {
+            $this->course->firebase_id = $firestoreCourse->id();
+            $this->course->save();
+        }
+
 //        FirebaseCourseRepository::setIsUpdating($this->course);
         /*
          * Update course properties
@@ -119,9 +124,6 @@ class UploadCourseToFirestore implements ShouldQueue
         $this->incrementProgress();
 
         $this->course->uploaded_at = Carbon::now();
-        if (!isset($this->course->firebase_id)) {
-            $this->course->firebase_id = $firestoreCourse->id();
-        }
         $this->course->save();
         $this->incrementProgress();
     }
