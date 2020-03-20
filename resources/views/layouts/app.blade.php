@@ -28,7 +28,7 @@
 
             <div>
                 <ul class="navbar-nav ml-auto">
-                    <a class="btn btn-lg btn-outline-primary rounded-pill" href="#">{{ __('web.header.download') }}</a>
+                    <a class="btn btn-lg btn-outline-primary rounded-pill" href="https://play.google.com/store/apps/details?id=com.yummylingo.app" target="_blank">{{ __('web.header.download') }}</a>
                 </ul>
             </div>
         </div>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="https://play.google.com/store/apps/details?id=com.yummylingo.app">
+                        <a href="https://play.google.com/store/apps/details?id=com.yummylingo.app" target="_blank">
                             <img src="{{ URL::asset('images/google_play.svg') }}" alt="Google Play" width="148"
                                  height="44">
                         </a>
