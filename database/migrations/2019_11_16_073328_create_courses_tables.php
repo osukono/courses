@@ -19,53 +19,40 @@ class CreateCoursesTables extends Migration
             $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('translation_id');
             $table->unsignedBigInteger('level_id');
-            $table->string('slug');
+            $table->unsignedBigInteger('topic_id');
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->integer('demo_lessons')->default(0);
-            $table->decimal('price')->default(0);
-            $table->boolean('published')->default(false);
+            $table->unsignedInteger('major_version');
+            $table->unsignedInteger('minor_version');
+            $table->unsignedInteger('player_version')->default(0);
+            $table->string('image')->nullable();
+            $table->integer('review_exercises')->default(0);
+            $table->string('audio_storage')->nullable();
+            $table->string('firebase_id')->nullable()->unique();
+            $table->boolean('is_updating')->default(true);
             $table->timestamps();
+            $table->timestamp('committed_at')->nullable();
+            $table->timestamp('uploaded_at')->nullable();
 
-            $table->unique(['language_id', 'translation_id', 'level_id'], 'courses_unique');
+            $table->unique(['language_id', 'translation_id', 'level_id', 'topic_id', 'major_version'], 'firebase_courses_unique');
 
             $table->foreign('language_id')->references('id')->on('languages');
-            $table->foreign('translation_id')->references('id')->on('languages');
+            $table->foreign('translation_id')->references('id')->on('translations');
             $table->foreign('level_id')->references('id')->on('levels');
-        });
-
-        Schema::create('course_contents', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('course_id');
-            $table->boolean('enabled')->default(false);
-            $table->timestamps();
-
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('topic_id')->references('id')->on('topics');
         });
 
         Schema::create('course_lessons', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('course_content_id');
+            $table->unsignedBigInteger('course_id');
             $table->string('title');
-            $table->integer('number');
-            $table->string('uuid');
-            $table->string('checksum');
             $table->integer('exercises_count');
             $table->json('content')->default(new Expression('(JSON_ARRAY())'));
+            $table->integer('index');
             $table->timestamps();
 
-            $table->foreign('course_content_id')->references('id')->on('course_contents');
-        });
+            $table->unique(['course_id', 'index'], 'course_lessons_unique');
 
-        Schema::create('user_courses', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('course_id');
-            $table->boolean('demo')->default(true);
-            $table->json('progress')->default(new Expression('(JSON_ARRAY())'));
-            $table->timestamp('finished_at')->nullable();
-            $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('course_id')->references('id')->on('courses');
         });
     }
@@ -78,7 +65,6 @@ class CreateCoursesTables extends Migration
     public function down()
     {
         Schema::dropIfExists('course_lessons');
-        Schema::dropIfExists('course_contents');
         Schema::dropIfExists('courses');
     }
 }

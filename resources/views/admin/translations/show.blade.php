@@ -25,6 +25,13 @@
                     <a class="dropdown-item"
                        href="{{ route('admin.translations.content.export', [$language, $content]) }}">{{ $language }}</a>
 
+                    @can(\App\Library\Permissions::update_translations)
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('admin.translations.speech.settings.edit', [$language, $content]) }}">
+                            Speech Settings
+                        </a>
+                    @endcan
+
                     @can(\App\Library\Permissions::publish_courses)
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"

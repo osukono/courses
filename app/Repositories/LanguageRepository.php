@@ -5,15 +5,17 @@ namespace App\Repositories;
 
 
 use App\Language;
-use App\TextToSpeechSettings;
+use App\Library\Firebase;
 use App\User;
 use Exception;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class LanguageRepository
 {
-    /** @var Language $model */
-    protected $model;
+    protected Language $model;
 
     /**
      * LanguageRepository constructor.
@@ -49,19 +51,34 @@ class LanguageRepository
     {
         $language = new Language();
         $language->name = $attributes['name'];
+        $language->native = $attributes['native'];
         $language->code = $attributes['code'];
         $language->save();
 
-        if (isset($attributes['voice_name'], $attributes['speaking_rate'], $attributes['pitch'])) {
-            $textToSpeechSettings = new TextToSpeechSettings();
-            $textToSpeechSettings->voice_name = $attributes['voice_name'];
-            $textToSpeechSettings->speaking_rate = $attributes['speaking_rate'];
-            $textToSpeechSettings->pitch = $attributes['pitch'];
-            $textToSpeechSettings->language()->associate($language);
-            $textToSpeechSettings->save();
+        return $language;
+    }
+
+    public function createFirestoreDocument()
+    {
+        $firebase = Firebase::getInstance()->firestoreClient();
+
+        $snapshot = $firebase->collection(Firebase::languages_collection)
+            ->where('code', '=', $this->model->code)
+            ->limit(1)
+            ->documents();
+
+        if ($snapshot->isEmpty()) {
+            $reference = $firebase->collection(Firebase::languages_collection)->add([
+                'code' => $this->model->code,
+                'name' => $this->model->native,
+            ]);
+
+            $this->model->firebase_id = $reference->id();
+        } else {
+            $this->model->firebase_id = $snapshot->rows()[0]->id();
         }
 
-        return $language;
+        $this->model->save();
     }
 
     /**
@@ -70,15 +87,71 @@ class LanguageRepository
     public function update(array $attributes)
     {
         $this->model->name = $attributes['name'];
+        $this->model->native = $attributes['native'];
         $this->model->code = $attributes['code'];
+        $this->model->firebase_id = $attributes['firebase_id'];
         $this->model->slug = null;
         $this->model->save();
+    }
 
-        $this->model->textToSpeechSettings()->updateOrCreate([
-            'voice_name' => $attributes['voice_name'],
-            'speaking_rate' => $attributes['speaking_rate'],
-            'pitch' => $attributes['pitch']
-        ]);
+    public function updateFirestoreDocument()
+    {
+        if (empty($this->model->firebase_id))
+            return;
+
+        $firestore = Firebase::getInstance()->firestoreClient();
+        $firestore->collection(Firebase::languages_collection)->document($this->model->firebase_id)
+            ->set([
+                'code' => $this->model->code,
+                'name' => $this->model->native
+            ], ['merge' => true]);
+    }
+
+    /**
+     * @param Request $request
+     * @throws FileNotFoundException
+     */
+    public function uploadIcon(Request $request)
+    {
+        if (!isset($this->model->firebase_id))
+            return;
+
+        $icon = Firebase::getInstance()->uploadFile($request->file('icon'), 'languages');
+
+        $this->model->icon = $icon;
+        $this->model->save();
+
+        $firestore = Firebase::getInstance()->firestoreClient();
+        $firestore->collection(Firebase::languages_collection)->document($this->model->firebase_id)
+            ->set([
+                'icon' => $this->model->icon
+            ], ['merge' => true]);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function syncWithFirestore()
+    {
+        $firestore = Firebase::getInstance()->firestoreClient();
+
+        $languagesSnapshot = $firestore->collection(Firebase::languages_collection)
+            ->where('code', '=', $this->model->code)
+            ->limit(1)
+            ->documents();
+
+        if ($languagesSnapshot->isEmpty()) {
+            throw new Exception('Firestore does not have language with code ' . $this->model->code);
+        }
+
+        $firestoreLanguage = $languagesSnapshot->rows()[0];
+
+        $this->model->firebase_id = $firestoreLanguage->id();
+
+        $data = $firestoreLanguage->data();
+        $this->model->native = Arr::get($data, 'name', '');
+        $this->model->icon = Arr::get($data, 'icon', null);
+        $this->model->save();
     }
 
     /**

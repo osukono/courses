@@ -12,11 +12,11 @@
             <td>{{ $exercise->index }}</td>
             <td class="clickable-row last-child-mb-0"
                 data-href="{{ route('admin.translations.exercise.show', [$language, $exercise]) }}">
-                @foreach($exercise->exerciseFields as $exerciseField)
-                    @include('admin.content.exercises.fields.show')
-                    @if($exerciseField->field->translatable && ($translation = $exerciseField->translations->first()) != null)
+                @foreach($exercise->exerciseData as $data)
+                    @include('admin.content.exercises.data.show')
+                    @if(($translation = $data->translations->first()) != null)
                         <div class="mb-1">
-                            @include('admin.translations.exercises.fields.show')
+                            @include('admin.translations.exercises.data.show')
                         </div>
                     @endif
                 @endforeach

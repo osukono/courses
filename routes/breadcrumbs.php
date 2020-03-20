@@ -45,6 +45,12 @@ Breadcrumbs::for('admin.content.editors', function ($trail, \App\Content $conten
     $trail->push('Content Editors');
 });
 
+// [Content] > Speech Settings
+Breadcrumbs::for('admin.content.speech.settings', function ($trail, \App\Content $content) {
+    $trail->parent('admin.content.show', $content);
+    $trail->push('Speech Settings');
+});
+
 /**
  * ---------------------------------------------------------------------------------------------------------------------
  * Lessons
@@ -60,7 +66,7 @@ Breadcrumbs::for('admin.lessons.create', function ($trail, \App\Content $content
 // [Content] > [Lesson]
 Breadcrumbs::for('admin.lessons.show', function ($trail, \App\Lesson $lesson) {
     $trail->parent('admin.content.show', $lesson->content);
-    $trail->push($lesson, route('admin.lessons.show', $lesson));
+    $trail->push($lesson->index . '. ' . $lesson->title, route('admin.lessons.show', $lesson));
 });
 
 // [Content] > [Lesson] > Properties
@@ -94,7 +100,7 @@ Breadcrumbs::for('admin.exercises.trash', function ($trail, \App\Lesson $lesson)
 });
 
 // [Content] > [Lesson] > [Exercise] > Trash
-Breadcrumbs::for('admin.exercise.fields.trash', function ($trail, \App\Exercise $exercise) {
+Breadcrumbs::for('admin.exercise.data.trash', function ($trail, \App\Exercise $exercise) {
     $trail->parent('admin.exercises.show', $exercise);
     $trail->push('Trash');
 });
@@ -117,10 +123,16 @@ Breadcrumbs::for('admin.translations.editors', function ($trail, \App\Language $
     $trail->push('Translation Editors');
 });
 
+// [Content] > [Language] > Speech Settings
+Breadcrumbs::for('admin.translations.speech.settings', function ($trail, \App\Language $language, \App\Content $content) {
+    $trail->parent('admin.translations.content.show', $language, $content);
+    $trail->push('Speech Settings');
+});
+
 // [Content] > [Language] > [Lesson]
 Breadcrumbs::for('admin.translations.lesson.show', function ($trail, \App\Language $language,  \App\Lesson $lesson) {
     $trail->parent('admin.translations.content.show', $language, $lesson->content);
-    $trail->push($lesson, route('admin.translations.lesson.show', [$language, $lesson]));
+    $trail->push($lesson->index . '. ' . $lesson->title, route('admin.translations.lesson.show', [$language, $lesson]));
 });
 
 // [Content] > [Language] > [Lesson] > [Exercise]
@@ -152,6 +164,12 @@ Breadcrumbs::for('admin.courses.edit', function ($trail, \App\Course $course) {
     $trail->push('Properties');
 });
 
+// Courses > [Course] > [CourseLesson]
+Breadcrumbs::for('admin.courses.practice', function ($trail, \App\Course $course, \App\CourseLesson $courseLesson) {
+    $trail->parent('admin.courses.show', $course);
+    $trail->push($courseLesson->index . '. ' . $courseLesson);
+});
+
 /**
  * ---------------------------------------------------------------------------------------------------------------------
  * Languages
@@ -178,6 +196,47 @@ Breadcrumbs::for('admin.languages.show', function ($trail, \App\Language $langua
 // Languages > [Language] > Properties
 Breadcrumbs::for('admin.languages.edit', function ($trail, \App\Language $language) {
     $trail->parent('admin.languages.show', $language);
+    $trail->push('Properties');
+});
+
+// Languages > [Language] > Create Player Settings
+Breadcrumbs::for('admin.player.settings.create', function ($trail, \App\Language $language) {
+    $trail->parent('admin.languages.show', $language);
+    $trail->push('Create Player Settings');
+});
+
+// Languages > [Languages] > Update Player Settings
+Breadcrumbs::for('admin.player.settings.edit', function($trail, \App\Language $language) {
+    $trail->parent('admin.languages.show', $language);
+    $trail->push('Update Player Settings');
+});
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Topics
+ * ---------------------------------------------------------------------------------------------------------------------
+ */
+
+// Topics
+Breadcrumbs::for('admin.topics.index', function ($trail) {
+    $trail->push('Course Topics', route('admin.topics.index'));
+});
+
+// Topics > Create
+Breadcrumbs::for('admin.topics.create', function ($trail) {
+    $trail->parent('admin.topics.index');
+    $trail->push('Create');
+});
+
+// Topics > [Topic]
+Breadcrumbs::for('admin.topics.show', function ($trail, \App\Topic $topic) {
+    $trail->parent('admin.topics.index');
+    $trail->push($topic);
+});
+
+// Topics > [Topic] > Properties
+Breadcrumbs::for('admin.topics.edit', function ($trail, \App\Topic $topic) {
+    $trail->parent('admin.topics.show', $topic);
     $trail->push('Properties');
 });
 

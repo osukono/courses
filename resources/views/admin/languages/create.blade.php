@@ -8,6 +8,7 @@
     <form action="{{ route('admin.languages.store') }}" method="post" autocomplete="off">
         @csrf
         @input(['name' => 'name', 'label' => 'Name'])
+        @input(['name' => 'native', 'label' => 'Native name'])
         @input(['name' => 'code', 'label' => 'Code'])
         <fieldset>
             <legend>Text to Speech</legend>

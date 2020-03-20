@@ -9,13 +9,9 @@
         @csrf
         @method('patch')
         @input(['name' => 'name', 'label' => 'Name', 'default' => $language->name])
+        @input(['name' => 'native', 'label' => 'Native name', 'default' => $language->native])
         @input(['name' => 'code', 'label' => 'Code', 'default' => $language->code])
-        <fieldset>
-            <legend>Text to Speech</legend>
-            @input(['name' => 'voice_name', 'label' => 'Voice Name', 'default' => optional($language->textToSpeechSettings)->voice_name])
-            @input(['name' => 'speaking_rate', 'label' => 'Speaking Rate', 'default' => optional($language->textToSpeechSettings)->speaking_rate])
-            @input(['name' => 'pitch', 'label' => 'Pitch', 'default' => optional($language->textToSpeechSettings)->pitch])
-        </fieldset>
+        @input(['name' => 'firebase_id', 'label' => 'Firebase ID', 'default' => $language->firebase_id])
 
         @submit(['text' => 'Save'])
         @cancel(['route' => route('admin.languages.index')])

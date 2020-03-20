@@ -19,19 +19,13 @@
         @can(\App\Library\Permissions::update_content)
             <div class="btn-group ml-2" role="group">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-info dropdown-toggle" id="create" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn btn-info" onclick="$('#create-data').submit();"
+                            data-toggle="tooltip" data-title="Add Sentence">
                         @include('admin.components.svg.plus')
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="create">
-                        @foreach($fields as $field)
-                            <button class="dropdown-item" type="button" onclick="document.getElementById('field-{{ $field->id }}').submit();">{{ $field }}</button>
-                            <form class="d-none" id="field-{{ $field->id }}" action="{{ route('admin.exercise.fields.store', $exercise) }}" method="post">
-                                @csrf
-                                <input type="hidden" name="field_id" value="{{ $field->id }}">
-                            </form>
-                        @endforeach
-                    </div>
+                    <form id="create-data" class="d-none" action="{{ route('admin.exercise.data.create', $exercise) }}" method="post" autocomplete="off">
+                        @csrf
+                    </form>
                 </div>
 
                 <div class="btn-group" role="group">
@@ -52,7 +46,7 @@
                                 data-form="delete">
                             Delete
                         </button>
-                        <a class="dropdown-item" href="{{ route('admin.exercise.fields.trash', $exercise) }}">Trash</a>
+                        <a class="dropdown-item" href="{{ route('admin.exercise.data.trash', $exercise) }}">Trash</a>
                     </div>
                 </div>
 
@@ -65,8 +59,8 @@
 @endsection
 
 @section('content')
-    @if($exerciseFields->count() > 0)
-        @include('admin.content.exercises.fields.list')
+    @if($exerciseData->count() > 0)
+        @include('admin.content.exercises.data.list')
     @endif
 @endsection
 

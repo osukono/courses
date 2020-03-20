@@ -6,8 +6,10 @@ use App\Exercise;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Content\ExerciseMoveRequest;
 use App\Http\Requests\Admin\Content\ExerciseRestoreRequest;
+use App\Language;
 use App\Lesson;
 use App\Library\Permissions;
+use App\Repositories\ExerciseDataRepository;
 use App\Repositories\ExerciseFieldRepository;
 use App\Repositories\ExerciseRepository;
 use App\Repositories\FieldRepository;
@@ -34,8 +36,8 @@ class ExerciseController extends Controller
         $this->authorize('access', $exercise->lesson->content);
 
 
-        if (Auth::getUser()->can(Permissions::update_content) && $request->has('field'))
-            $data['editedField'] = ExerciseFieldRepository::find($request->get('field'))->model();
+        if (Auth::getUser()->can(Permissions::update_content) && $request->has('data'))
+            $data['editData'] = ExerciseDataRepository::find($request->get('data'))->model();
 
         $data['content'] = $exercise->lesson->content;
         $data['exercise'] = $exercise;
@@ -43,8 +45,7 @@ class ExerciseController extends Controller
         $data['next'] = $exercise->repository()->next();
         $data['languages'] = LanguageRepository::all()
             ->whereNotIn('id', [$exercise->lesson->content->language->id])->ordered()->get();
-        $data['fields'] = FieldRepository::all()->ordered()->get();
-        $data['exerciseFields'] = $exercise->exerciseFields()->ordered()->get();
+        $data['exerciseData'] = $exercise->exerciseData()->ordered()->get();
 
         return view('admin.content.exercises.show')->with($data);
     }
@@ -59,22 +60,9 @@ class ExerciseController extends Controller
         $this->authorize('access', $lesson->content);
 
         $exercise = ExerciseRepository::create($lesson);
+        $exerciseData = ExerciseDataRepository::create($exercise);
 
-        return redirect()->route('admin.exercises.show', $exercise);
-    }
-
-    /**
-     * @param Exercise $exercise
-     * @return Factory|View
-     * @throws AuthorizationException
-     */
-    public function edit(Exercise $exercise)
-    {
-        $this->authorize('access', $exercise->lesson->content);
-
-        $data['exercise'] = $exercise;
-
-        return view('admin.content.exercises.edit')->with($data);
+        return redirect()->route('admin.exercises.show', [$exercise, 'data' => $exerciseData->id]);
     }
 
     /**
@@ -128,6 +116,38 @@ class ExerciseController extends Controller
 
         return redirect()->route('admin.lessons.show', $exercise->lesson)
             ->with('message', __('admin.messages.restored.success', ['object' => $exercise]));
+    }
+
+    /**
+     * @param Exercise $exercise
+     * @param Language $language
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function disable(Exercise $exercise, Language $language)
+    {
+        $this->authorize('access', $exercise->lesson->content);
+        $this->authorize('access', $language);
+
+        $exercise->repository()->disable($language);
+
+        return back()->with('message', __('admin.messages.disabled', ['object' => $exercise]));
+    }
+
+    /**
+     * @param Exercise $exercise
+     * @param Language $language
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function enable(Exercise $exercise, Language $language)
+    {
+        $this->authorize('access', $exercise->lesson->content);
+        $this->authorize('access', $language);
+
+        $exercise->repository()->enable($language);
+
+        return back()->with('message', __('admin.messages.enabled', ['object' => $exercise]));
     }
 
     /**

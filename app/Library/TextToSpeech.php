@@ -4,7 +4,7 @@
 namespace App\Library;
 
 
-use App\Language;
+use App\SpeechSettings;
 use Google\ApiCore\ApiException;
 use Google\ApiCore\ValidationException;
 use Google\Cloud\TextToSpeech\V1\AudioConfig;
@@ -16,16 +16,14 @@ use Google\Cloud\TextToSpeech\V1\VoiceSelectionParams;
 class TextToSpeech
 {
     /**
-     * @param Language $language
+     * @param SpeechSettings $speechSettings
      * @param $text
      * @return string
      * @throws ApiException
      * @throws ValidationException
      */
-    public static function synthesizeSpeech(Language $language, $text)
+    public static function synthesizeSpeech(SpeechSettings $speechSettings, $text)
     {
-        $speechSettings = $language->textToSpeechSettings;
-
         // instantiates a client
         $client = new TextToSpeechClient([
             'credentialsConfig' => [
@@ -49,22 +47,18 @@ class TextToSpeech
             ->setText($text);
 
         $voice = (new VoiceSelectionParams())
-            ->setLanguageCode($language->code)
+            ->setLanguageCode($speechSettings->language->code)
             ->setName($speechSettings->voice_name);
 //        ->setName('en-US-Wavenet-D');
 //        ->setName('ru-RU-Wavenet-E');
 
-        // Effects profile
-        $effectsProfileId = "headphone-class-device";
-
         // select the type of audio file you want returned
         $audioConfig = (new AudioConfig())
             ->setAudioEncoding(AudioEncoding::LINEAR16)
-            ->setSampleRateHertz(24000)
+            ->setSampleRateHertz($speechSettings->sample_rate)
+            ->setSpeakingRate($speechSettings->speaking_rate)
             ->setPitch($speechSettings->pitch)
-//            ->setVolumeGainDb()
-            ->setSpeakingRate($speechSettings->speaking_rate);
-//            ->setEffectsProfileId(array($effectsProfileId));
+            ->setVolumeGainDb($speechSettings->volume_gain_db);
 
         // perform text-to-speech request on the text input with selected voice
         // parameters and audio file type

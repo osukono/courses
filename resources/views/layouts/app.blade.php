@@ -20,110 +20,85 @@
 </head>
 <body class="d-flex flex-column h-100">
 <header>
-    <nav class="navbar navbar-expand-md navbar-light bg-white">
-        <div class="container mt-2">
-            <a class="navbar-brand" href="{{ route('welcome') }}"><h3>{{ env('APP_NAME') }}</h3></a>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container mt-2 mb-2" style="z-index: 100;">
+            <a class="navbar-brand" href="{{ route('welcome') }}">
+                <img src="{{ URL::to('/') }}/images/brand_header.svg" alt="Yummy Lingo">
+            </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Right Side Of Navbar -->
+            <div>
                 <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
-                    @guest
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" href="{{ route('login') }}">{{ __('Log In') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link text-secondary"
-                                   href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                    @else
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" href="{{ route('home') }}">{{ __('My Courses') }}</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-secondary" href="#"
-                               role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                @can(\App\Library\Permissions::view_admin_panel)
-                                    <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Administration</a>
-                                @endcan
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endguest
+                    <a class="btn btn-lg btn-outline-primary rounded-pill" href="#">{{ __('web.header.download') }}</a>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
 
-<main role="main" class="pt-4 flex-shrink-0">
-    <div id="app" class="container">
-        @yield('content')
-    </div>
+<main role="main" class="flex-shrink-0">
+    @yield('content')
 </main>
 
-<footer class="footer mt-auto py-3 text-muted">
+<footer class="footer mt-auto py-3">
     <div class="container">
-        <div class="row px-3">
-            <div class="col-lg-auto text-lg-left text-center">
-                <span class="text-black-50 text-nowrap">
-                    Copyright &copy; {{ now()->year }} Yummy Lingo.
-                </span>
-                <span class="text-black-50 text-nowrap">
-                    {{ __('All rights reserved.') }}
-                </span>
-            </div>
-            <div class="col-lg mt-lg-0 text-lg-right mt-2 text-center">
-                <div class="dropdown dropup d-inline">
-                    <a href="#" class="dropdown-toggle text-secondary" id="language" data-toggle="dropdown"
-                       aria-haspopup="true"
-                       aria-expanded="false">{{ LaravelLocalization::getCurrentLocaleNative() }}</a>
-                    <div class="dropdown-menu" aria-labelledby="language">
-                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                            <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
-                               href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                {{ $properties['native'] }}
-                            </a>
-                        @endforeach
+        <div class="row mt-4">
+            <div class="col-12 text-center col-md-6 text-md-left">
+                <div class="row mb-4">
+                    <div class="col">
+                        <img src="{{ URL::asset('images/brand_footer.svg') }}" alt="Yummy Lingo" width="169"
+                             height="25">
                     </div>
                 </div>
-                <a href="{{ route('privacy') }}" class="ml-3 text-secondary">{{ __('Privacy Policy') }}</a>
-{{--                <a href="{{ route('terms') }}" class="ml-3 text-secondary">{{ __('Terms of Service') }}</a>--}}
-                {{--                <a href="#" id="complaint" onclick="$('#complaint').tooltip('show'); return false;" class="ml-3 text-secondary" title="{{ __("There isn't one you can complain to. Just practice.") }}">{{ __('Complain') }}</a>--}}
+                <div class="row">
+                    <div class="col">
+                        <img src="{{ URL::asset('images/google_play.svg') }}" alt="Google Play" width="148" height="44">
+                        <img class="ml-1" src="{{ URL::asset('images/app_store.svg') }}" alt="App Store" width="148"
+                             height="44">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center pt-5 col-md-6 text-md-left pt-md-0">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="text-white mb-3">{{ __('web.footer.contact_us') }}</h5>
+                        <div>support@yummylingo.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 order-2 col-md-8 order-md-1">
+                <div class="row">
+                    <div class="col-12 text-center order-2 mt-3 col-md-auto text-md-left order-md-1 mt-md-0">
+                        <span class="text-nowrap">
+                            {{ __('web.footer.copyright', ['year' => now()->year]) }}
+                        </span>
+                    </div>
+                    <div class="col-12 text-center order-1 mt-3 col-md text-md-left order-md-2 mt-md-0">
+                        <a href="{{ route('privacy') }}"
+                           class="font-weight-bold text-white text-nowrap">{{ __('web.footer.privacy') }}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center order-1 mt-3 col-md-4 text-md-right order-md-2 mt-md-0">
+                <img class="mr-2" src="{{ URL::asset('images/globe.svg') }}" alt="Languages" width="20" height="20">
+                <span class="align-middle text-nowrap">
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <a rel="alternate"
+                           class="@if(LaravelLocalization::getCurrentLocale() == $localeCode) text-white font-weight-bold @endif text-uppercase text-decoration-none"
+                           style="color: #D9DFF6" hreflang="{{ $localeCode }}"
+                           href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        {{ $localeCode }}
+                    </a>
+                        @if (! $loop->last) / @endif
+                    @endforeach
+                </span>
             </div>
         </div>
     </div>
 </footer>
 
 @stack('scripts')
-{{--<script>--}}
-{{--    $(document).ready(function () {--}}
-{{--        feather.replace();--}}
-{{--    });--}}
-{{--// </script>--}}
 
 </body>
 </html>

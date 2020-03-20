@@ -1,5 +1,6 @@
 <template>
     <div v-if="status !== statuses.finished || messages.length > 0">
+        <div class="h5 text-muted">{{ title }}</div>
         <div class="progress" v-if="status !== statuses.finished">
             <div class="progress-bar bg-info" role="progressbar" :style=style :aria-valuenow=progressNow
                  aria-valuemin="0" :aria-valuemax=progressMax></div>
@@ -20,6 +21,7 @@
 
         data() {
             return {
+                title: undefined,
                 progressNow: 0,
                 progressMax: 0,
                 progress_percentage: 0,
@@ -52,6 +54,7 @@
             update: function () {
                 axios.get(this.jobStatusUrl)
                     .then(response => {
+                        this.title = response.data.displayName;
                         this.progressNow = response.data.progressNow;
                         this.progressMax = response.data.progressMax;
                         this.progress_percentage = response.data.progress_percentage;

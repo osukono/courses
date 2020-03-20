@@ -9,7 +9,9 @@ use HighSolutions\EloquentSequence\Sequence;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -17,12 +19,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @property int $id
  * @property int $lesson_id
- * @property mixed $properties
+ * @property int $index
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\ExerciseField[] $exerciseFields
- * @property-read int|null $exercise_fields_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\ExerciseData[] $exerciseData
+ * @property-read int|null $exercise_data_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Altek\Accountant\Models\Ledger[] $ledgers
+ * @property-read int|null $ledgers_count
  * @property-read \App\Lesson $lesson
  * @method static bool|null forceDelete()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise newModelQuery()
@@ -35,16 +39,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereIndex($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereLessonId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereProperties($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Exercise withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Exercise withoutTrashed()
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\Altek\Accountant\Models\Ledger[] $ledgers
- * @property-read int|null $ledgers_count
- * @property int $index
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereIndex($value)
  */
 class Exercise extends Model implements Recordable
 {
@@ -68,11 +68,19 @@ class Exercise extends Model implements Recordable
     }
 
     /**
-     * @return HasMany|ExerciseField
+     * @return HasMany|ExerciseData
      */
-    public function exerciseFields()
+    public function exerciseData()
     {
-        return $this->hasMany(ExerciseField::class);
+        return $this->hasMany(ExerciseData::class);
+    }
+
+    /**
+     * @return MorphToMany|Language
+     */
+    public function disabled()
+    {
+        return $this->morphToMany(Language::class, 'disabled', 'disabled_content');
     }
 
     /**
@@ -89,8 +97,7 @@ class Exercise extends Model implements Recordable
         ];
     }
 
-    /** @var ExerciseRepository */
-    private $repository;
+    private ExerciseRepository $repository;
 
     /**
      * @return ExerciseRepository

@@ -14,6 +14,7 @@ trait MaxSequence
     public function maxSequence()
     {
         return $this->where(function(Builder $query) {
+            // ToDo group can be an array
             foreach ((array) $this->sequence()['group'] as $group)
                 $query->where($group, $this->{$group});
         })->max($this->sequence()['fieldName']);

@@ -1,7 +1,25 @@
 <template>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title mb-4" v-text="title"></h5>
+            <div class="row">
+                <div class="col-auto">
+                    <h5 class="card-title mb-4" v-text="title + ' › ' + exercisesSet.title"></h5>
+                </div>
+                <div class="col text-right">
+                    <div class="btn-group">
+                        <button role="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            {{ exercisesSet.title }}
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#" v-for="set in exercisesSets"
+                               @click="changeExercisesSet(set)">
+                                {{ set.title }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="mx-md-4 py-2" style="min-height: 8rem;">
                 <div v-for="sentence in sentences">
                     <span style="font-size: 1rem;" v-html="sentence"></span>
@@ -16,15 +34,6 @@
                 <div>
                     <button @click="actionClicked" v-text="actionLabel"
                             class="btn btn-link btn-upper text-info"></button>
-                    <button v-if="state === states.listeningFinished" @click="practiceClicked"
-                            class="btn btn-link btn-upper text-info">
-                        {{ this.locale['practice'] }}
-                    </button>
-                    <button v-if="state === states.practiceFinished && continueUrl !== undefined"
-                            @click="continueClicked"
-                            class="btn btn-link btn-upper text-info">
-                        {{ this.locale['continue'] }}
-                    </button>
                 </div>
                 <div class="progress flex-grow-1 ml-1 ml-md-3 mr-2 mr-md-4" style="height: 2px;">
                     <div class="progress-bar" style="background-color: #adb5bd;" role="progressbar"
@@ -62,12 +71,14 @@
             return {
                 audio: [],
                 state: '',
+                exercisesSets: [],
+                exercisesSet: undefined,
+
                 states: {
                     mounted: 'mounted',
                     started: 'started',
                     paused: 'paused',
-                    listeningFinished: 'listeningFinished',
-                    practiceFinished: 'practiceFinished'
+                    finished: 'finished',
                 },
                 actions: {
                     print: 'print',
@@ -77,50 +88,34 @@
                     pause: 'pause',
                     clear: 'clear',
                     finish: 'finish',
-                    stage: 'stage'
                 },
                 speeds: {
                     slower: 'slower',
                     normal: 'normal',
                     faster: 'faster'
                 },
-                activities: {
-                    listening: 'listening',
-                    practice: 'practice'
-                },
                 sentences: [],
-
-                commands: [],
-                listening: [],
-                practice: [],
 
                 progress: 0,
                 waiting: false,
 
                 audioSrc: '',
-                audioDuration: 0,
-                audioDurations: [],
 
                 showVolume: false,
 
                 volume: undefined,
                 speed: undefined,
-                stage: undefined,
             }
         },
 
         props: {
             title: String,
             exercises: String,
-            review: String,
-            progressUrl: String,
-            continueUrl: String,
             storageUrl: String,
             settingsUrl: String,
             encodedLocale: String,
             initialVolume: String,
             initialSpeed: String,
-            initialStage: String,
         },
 
         computed: {
@@ -136,8 +131,7 @@
                         return this.locale['pause'];
                     case this.states.paused:
                         return this.locale['resume'];
-                    case this.states.listeningFinished:
-                    case this.states.practiceFinished:
+                    case this.states.finished:
                         return this.locale['repeat'];
                 }
             },
@@ -151,14 +145,6 @@
                     case this.speeds.faster:
                         return this.locale['speed.faster'];
                 }
-            },
-
-            volumeLevel: function () {
-                if (this.volume === 0)
-                    return 'volume-x';
-                else if (this.volume <= 0.5)
-                    return 'volume-1';
-                else return 'volume-2';
             },
 
             speedMultiplier: function () {
@@ -175,7 +161,7 @@
             },
 
             progressMax: function () {
-                return this.commands.length;
+                return this.exercisesSet.commands.length;
             },
         },
 
@@ -191,20 +177,17 @@
                     case this.states.paused:
                         this.resume();
                         break;
-                    case this.states.listeningFinished:
-                    case this.states.practiceFinished:
+                    case this.states.finished:
                         this.repeat();
                         break;
                 }
             },
 
-            practiceClicked: function () {
-                this.commands = this.practice;
-                this.start();
-            },
-
-            continueClicked: function () {
-                window.location.href = this.continueUrl;
+            changeExercisesSet: function (set) {
+                this.sentences = [];
+                this.exercisesSet = set;
+                this.progress = 0;
+                this.state = this.states.mounted;
             },
 
             changeSpeed: function () {
@@ -245,14 +228,10 @@
             },
 
             audioCanPlay: function () {
-                this.audioDuration = this.$refs.player.duration;
                 this.next();
             },
 
             audioEnded: function () {
-                if (this.audioDurations[this.audioSrc] === undefined) {
-                    this.audioDurations[this.audioSrc] = this.$refs.player.duration;
-                }
                 this.next();
             },
 
@@ -272,53 +251,16 @@
                     this.next();
             },
 
-            saveStage: function (value) {
-                this.stage = value;
-                if (this.progressUrl !== undefined) {
-                    axios.get(this.progressUrl, {
-                        params: {
-                            stage: this.stage
-                        }
-                    }).finally(() => {
-
-                    });
-                }
-            },
-
-            finishListening: function () {
-                this.state = this.states.listeningFinished;
-            },
-
-            finishPractice: function () {
-                if (this.progressUrl !== undefined) {
-                    axios.get(this.progressUrl, {
-                        params: {
-                            finished: true
-                        }
-                    })
-                        .catch(error => {
-                            this.messages = [
-                                this.locale['progress.fail'],
-                                error.response
-                            ];
-                        })
-                        .finally(() => {
-                            this.state = this.states.practiceFinished;
-                        });
-                }
-            },
-
             repeat: function () {
-                this.commands = this.listening;
                 this.start();
             },
 
             next: function () {
-                if (this.state !== this.states.started || this.progress >= this.commands.length) {
+                if (this.state !== this.states.started || this.progress >= this.exercisesSet.length) {
                     return;
                 }
 
-                let command = this.commands[this.progress++];
+                let command = this.exercisesSet.commands[this.progress++];
 
                 switch (command.action) {
                     case this.actions.print:
@@ -333,11 +275,10 @@
                         this.$refs.player.play();
                         break;
                     case this.actions.wait:
-                        let duration = this.audioDurations[this.audioSrc] !== undefined ? this.audioDurations[this.audioSrc] : this.audioDuration;
                         setTimeout(function () {
                             this.waiting = false;
                             this.next();
-                        }.bind(this), duration * 1000 * command.coefficient * this.speedMultiplier);
+                        }.bind(this), command.duration  * command.coefficient * this.speedMultiplier);
                         this.waiting = true;
                         break;
                     case this.actions.pause:
@@ -351,15 +292,8 @@
                         this.sentences = [];
                         this.next();
                         break;
-                    case this.actions.stage:
-                        this.saveStage(command.value);
-                        this.next();
-                        break;
                     case this.actions.finish:
-                        if (command.activity === this.activities.listening)
-                            this.finishListening();
-                        else if (command.activity === this.activities.practice)
-                            this.finishPractice();
+                        this.state = this.states.finished;
                         break;
                 }
             },
@@ -372,52 +306,52 @@
                 return str;
             },
 
-            showText: function (commands, text) {
-                commands.push({action: this.actions.print, text: this.normalize(text)});
+            showText: function (set, text) {
+                set.commands.push({action: this.actions.print, text: this.normalize(text)});
             },
 
-            playAudio: function (commands, audio) {
-                commands.push({action: this.actions.load, audio: this.storageUrl + audio});
-                commands.push({action: this.actions.play});
-                commands.push({action: this.actions.wait, coefficient: 0.4});
+            playAudio: function (set, audio, duration) {
+                set.commands.push({action: this.actions.load, audio: this.storageUrl + audio});
+                set.commands.push({action: this.actions.play});
+                set.commands.push({action: this.actions.wait, duration: duration, coefficient: 0.4});
             },
 
-            addListening: function (exercise) {
-                this.listening.push({action: this.actions.clear});
+            addListening: function (set, exercise) {
+                set.commands.push({action: this.actions.clear});
 
-                exercise['fields'].forEach(function (field) {
-                    this.showText(this.listening, field['value']);
-                    this.playAudio(this.listening, field['audio']);
+                exercise['data'].forEach(function (data) {
+                    this.showText(set, data['value']);
+                    this.playAudio(set, data['audio'], data['duration']);
 
-                    if (field['identifier'] === 'translation') {
-                        this.showText(this.listening, field['translation']['value']);
-                        this.playAudio(this.listening, field['translation']['audio']);
+                    if ('translation' in data) {
+                        this.showText(set, data['translation']['value']);
+                        this.playAudio(set, data['translation']['audio'], data['translation']['duration']);
                     }
                 }.bind(this));
 
-                this.listening.push({action: this.actions.pause, duration: 700});
+                set.commands.push({action: this.actions.pause, duration: 700});
             },
 
-            addPractice: function (exercise, delay) {
-                this.practice.push({action: this.actions.clear});
+            addPractice: function (set, exercise, delay) {
+                set.commands.push({action: this.actions.clear});
 
-                exercise['fields'].forEach(function (field) {
-                    if (field['identifier'] === 'translation') {
-                        this.showText(this.practice, field['translation']['value']);
-                        this.playAudio(this.practice, field['translation']['audio']);
+                exercise['data'].forEach(function (data) {
+                    if ('translation' in data) {
+                        this.showText(set, data['translation']['value']);
+                        this.playAudio(set, data['translation']['audio'], data['translation']['duration']);
 
-                        this.practice.push({action: this.actions.load, audio: this.storageUrl + field['audio']});
-                        this.practice.push({action: this.actions.wait, coefficient: delay});
-                        this.showText(this.practice, field['value']);
-                        this.practice.push({action: this.actions.play});
-                        this.practice.push({action: this.actions.wait, coefficient: 0.4});
+                        set.commands.push({action: this.actions.load, audio: this.storageUrl + data['audio']});
+                        set.commands.push({action: this.actions.wait, duration: data['duration'], coefficient: delay});
+                        this.showText(set, data['value']);
+                        set.commands.push({action: this.actions.play});
+                        set.commands.push({action: this.actions.wait, duration: data['duration'], coefficient: 0.4});
                     } else {
-                        this.showText(this.practice, field['value']);
-                        this.playAudio(this.practice, field['audio']);
+                        this.showText(set, data['value']);
+                        this.playAudio(set, data['audio'], data['duration']);
                     }
                 }.bind(this));
 
-                this.practice.push({action: this.actions.pause, duration: 700});
+                set.commands.push({action: this.actions.pause, duration: 700});
             },
 
             shuffle: function (array) {
@@ -432,76 +366,93 @@
 
                 return array;
             },
+
+            pattern_1: function (set, exercises) {
+                for (let x = 0; x < exercises.length; x++) {
+                    this.addListening(set, exercises[x]);
+
+                    let array = [];
+                    array.push(exercises[(x + 1) % exercises.length]);
+                    array.push(exercises[(x + 2) % exercises.length]);
+                    this.shuffle(array);
+                    array.forEach(function (exercise) {
+                        this.addListening(set, exercise);
+                    }.bind(this));
+
+                    this.addListening(set, exercises[(x + 3) % exercises.length]);
+                }
+            },
+
+            pattern_2: function (set, exercises) {
+                for (let x = 0; x < exercises.length; x++) {
+                    this.addListening(set, exercises[x]);
+
+                    let array = [];
+                    array.push(exercises[(x + 1) % exercises.length]);
+                    array.push(exercises[(x + 2) % exercises.length]);
+                    array.push(exercises[(x + 3) % exercises.length]);
+                    this.shuffle(array);
+                    array.forEach(function (exercise) {
+                        this.addListening(set, exercise);
+                    }.bind(this));
+
+                    this.addListening(set, exercises[(x + 4) % exercises.length]);
+                }
+            },
+
+            pattern_3: function (set, exercises) {
+                let delays = [];
+                for (let x = 0; x < exercises.length; x++)
+                    delays.push(2.3);
+
+                for (let x = 0; x < exercises.length; x++) {
+                    this.addPractice(set, exercises[x], delays[x]);
+                    delays[x] -= 0.15;
+                    this.addPractice(set, exercises[(x + 2) % exercises.length], delays[(x + 2) % exercises.length]);
+                    delays[(x + 2) % exercises.length] -= 0.15;
+                    this.addPractice(set, exercises[(x + 5) % exercises.length], delays[(x + 5) % exercises.length]);
+                    delays[(x + 5) % exercises.length] -= 0.15;
+                }
+            },
+
+            pattern_4: function (set, exercises) {
+                exercises.forEach(function (exercise) {
+                    this.addPractice(set, exercise, 2.0);
+                }.bind(this));
+            },
+
+            buildCommands: function (set, exercises) {
+                if ('review' in exercises)
+                    this.pattern_1(set, exercises['review']);
+                if ('exercises' in exercises) {
+                    this.pattern_2(set, exercises['exercises']);
+                    this.pattern_3(set, exercises['exercises']);
+                }
+                if ('review' in exercises)
+                    this.pattern_4(set, exercises['review']);
+            },
+        },
+
+        created() {
+            let exercises = JSON.parse(this.exercises);
+            for (const [key, content] of Object.entries(exercises)) {
+                let set = {
+                    title: content.title,
+                    commands: []
+                };
+                this.buildCommands(set, content);
+                set.commands.push({action: this.actions.finish});
+                this.exercisesSets.push(set);
+            }
+
+            this.volume = (this.initialVolume !== undefined) ? this.initialVolume : 0.7;
+            this.speed = (this.initialSpeed !== undefined) ? this.initialSpeed : this.speeds.normal;
+            this.changeExercisesSet(this.exercisesSets[0]);
         },
 
         mounted() {
-            let review = this.review !== undefined ? JSON.parse(this.review) : [];
-            let exercises = this.exercises !== undefined ? JSON.parse(this.exercises) : [];
-            this.stage = this.initialStage !== undefined ? this.initialStage : 1;
-
-            for (let x = 0; x < review.length; x++) {
-                this.addListening(review[x]);
-
-                let array = [];
-                array.push(review[(x + 1) % review.length]);
-                array.push(review[(x + 2) % review.length]);
-                this.shuffle(array);
-                array.forEach(function (exercise) {
-                    this.addListening(exercise);
-                }.bind(this));
-
-                this.addListening(review[(x + 3) % review.length]);
-            }
-
-            for (let x = 0; x < exercises.length; x++) {
-                this.addListening(exercises[x]);
-
-                let array = [];
-                array.push(exercises[(x + 1) % exercises.length]);
-                array.push(exercises[(x + 2) % exercises.length]);
-                array.push(exercises[(x + 3) % exercises.length]);
-                this.shuffle(array);
-                array.forEach(function (exercise) {
-                    this.addListening(exercise);
-                }.bind(this));
-
-                this.addListening(exercises[(x + 4) % exercises.length]);
-            }
-
-            this.listening.push({action: this.actions.stage, value: 2});
-            this.listening.push({action: this.actions.finish, activity: this.activities.listening});
-
-            let delays = [];
-            for (let x = 0; x < exercises.length; x++)
-                delays.push(2.3);
-
-            for (let x = 0; x < exercises.length; x++) {
-                this.addPractice(exercises[x], delays[x]);
-                delays[x] -= 0.15;
-                this.addPractice(exercises[(x + 2) % exercises.length], delays[(x + 2) % exercises.length]);
-                delays[(x + 2) % exercises.length] -= 0.15;
-                this.addPractice(exercises[(x + 5) % exercises.length], delays[(x + 5) % exercises.length]);
-                delays[(x + 5) % exercises.length] -= 0.15;
-            }
-
-            review.forEach(function (exercise) {
-                this.addPractice(exercise, 2.0);
-            }.bind(this));
-
-            this.practice.push({action: this.actions.finish, activity: this.activities.practice});
-
-            this.volume = (this.initialVolume !== undefined) ? this.initialVolume : 0.7;
             this.$refs.player.volume = this.volume;
-
-            this.speed = (this.initialSpeed !== undefined) ? this.initialSpeed : this.speeds.normal;
-
-            if (this.stage === 1) {
-                this.commands = this.listening;
-                this.state = this.states.mounted;
-            } else {
-                this.commands = this.practice;
-                this.state = this.states.listeningFinished;
-            }
+            this.state = this.states.mounted;
         }
     }
 </script>

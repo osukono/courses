@@ -9,8 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class LevelRepository
 {
-    /** @var Level $model */
-    protected $model;
+    protected Level $model;
 
     /**
      * LevelRepository constructor.

@@ -31,7 +31,7 @@
 @endsection
 
 @section('content')
-    @includeWhen($exerciseFields->count(), 'admin.translations.exercises.fields.list')
+    @includeWhen($exerciseData->count(), 'admin.translations.exercises.data.list')
 @endsection
 
 @push('scripts')

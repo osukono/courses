@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Content\LessonCreateRequest;
 use App\Http\Requests\Admin\Content\LessonMoveRequest;
 use App\Http\Requests\Admin\Content\LessonRestoreRequest;
 use App\Http\Requests\Admin\Content\LessonUpdateRequest;
+use App\Language;
 use App\Lesson;
 use App\Repositories\ExerciseRepository;
 use App\Repositories\LanguageRepository;
@@ -42,13 +43,19 @@ class LessonController extends Controller
             ->ordered()->get();
         $data['exercises'] = $lesson->exercises()
             ->with([
-                'exerciseFields' => function (HasMany $query) {
+                'exerciseData' => function (HasMany $query) {
                     $query->orderBy('index');
-                },
-                'exerciseFields.field',
-                'exerciseFields.field.dataType'
+                }
             ])
             ->ordered()->get();
+
+//        try {
+//            foreach ($data['exercises'] as $exercise)
+//                foreach ($exercise->exerciseData as $exerciseData)
+//                    $exerciseData->repository()->synthesizeAudio();
+//        } catch (Exception $e) {
+//
+//        }
 
         return view('admin.content.lessons.show')->with($data);
     }
@@ -162,6 +169,38 @@ class LessonController extends Controller
 
         return redirect()->route('admin.content.show', $lesson->content)
             ->with('message', __('admin.messages.restored.success', ['object' => $lesson]));
+    }
+
+    /**
+     * @param Lesson $lesson
+     * @param Language $language
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function disable(Lesson $lesson, Language $language)
+    {
+        $this->authorize('access', $lesson->content);
+        $this->authorize('access', $language);
+
+        $lesson->repository()->disable($language);
+
+        return back()->with('message', __('admin.messages.disabled', ['object' => $lesson]));
+    }
+
+    /**
+     * @param Lesson $lesson
+     * @param Language $language
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function enable(Lesson $lesson, Language $language)
+    {
+        $this->authorize('access', $lesson->content);
+        $this->authorize('access', $language);
+
+        $lesson->repository()->enable($language);
+
+        return back()->with('message', __('admin.messages.enabled', ['object' => $lesson]));
     }
 
     /**

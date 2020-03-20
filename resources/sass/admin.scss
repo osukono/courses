@@ -6,6 +6,13 @@
 // Variables
 @import 'variables';
 
+$cyan:    #17a2b8 !default;
+
+$custom-range-track-height: .375rem !default;
+$custom-range-thumb-width: .75rem !default;
+$custom-range-thumb-bg: $cyan !default;
+$custom-range-thumb-active-bg: $cyan !default;
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
@@ -77,4 +84,11 @@
 .brand {
     color: #404040;
     font-family: 'Paytone One', sans-serif;
+}
+
+.btn-upper {
+    font-weight: 500;
+    letter-spacing: .04rem;
+    text-decoration: none !important;
+    text-transform: uppercase;
 }

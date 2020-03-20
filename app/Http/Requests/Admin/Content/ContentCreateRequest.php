@@ -19,18 +19,6 @@ class ContentCreateRequest extends FormRequest
     }
 
     /**
-     * Get custom messages for validator errors.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'level_id.unique' => Content::withTrashed()->where('language_id', $this->get('language_id'))->where('level_id', $this->get('level_id'))->first() . ' already exists.',
-        ];
-    }
-
-    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -49,8 +37,25 @@ class ContentCreateRequest extends FormRequest
                 'required',
                 'integer',
                 Rule::exists('levels', 'id'),
-                Rule::unique('contents')->where('language_id', $this->get('language_id'))
             ],
+            'topic_id' => [
+                'bail',
+                'required',
+                'integer',
+                Rule::exists('topics', 'id'),
+            ],
+            'title' => [
+                'bail',
+                'nullable',
+                'string',
+                'max:255'
+            ],
+            'description' => [
+                'bail',
+                'nullable',
+                'string',
+                'max:500'
+            ]
         ];
     }
 }

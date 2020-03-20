@@ -3,20 +3,21 @@
 namespace App\Jobs;
 
 use App\Content;
-use App\CourseContent;
+use App\Course;
 use App\CourseLesson;
 use App\Exercise;
-use App\ExerciseField;
+use App\ExerciseData;
 use App\Language;
 use App\Lesson;
-use App\Repositories\CourseContentRepository;
 use App\Repositories\CourseRepository;
+use App\Translation;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Carbon;
 use Imtigger\LaravelJobStatus\Trackable;
 
 class CommitContent implements ShouldQueue
@@ -27,6 +28,8 @@ class CommitContent implements ShouldQueue
     private $content;
     /** @var Language $translation */
     private $translation;
+    /** @var array $messages */
+    private $messages = [];
 
     /**
      * Create a new job instance.
@@ -39,6 +42,11 @@ class CommitContent implements ShouldQueue
         $this->prepareStatus();
         $this->content = $content;
         $this->translation = $translation;
+    }
+
+    public function getDisplayName()
+    {
+        return "Committing content to courses.";
     }
 
     /**
@@ -58,11 +66,10 @@ class CommitContent implements ShouldQueue
             'lessons.exercises' => function (HasMany $query) {
                 $query->orderBy('index');
             },
-            'lessons.exercises.exerciseFields' => function (HasMany $query) {
+            'lessons.exercises.exerciseData' => function (HasMany $query) {
                 $query->orderBy('index');
             },
-            'lessons.exercises.exerciseFields.field',
-            'lessons.exercises.exerciseFields.translations' => function (HasMany $query) {
+            'lessons.exercises.exerciseData.translations' => function (HasMany $query) {
                 $query->where('language_id', $this->translation->id);
             }
 
@@ -70,106 +77,128 @@ class CommitContent implements ShouldQueue
 
         $this->setProgressMax($this->content->lessons->count() * 2);
 
-        if (!$this->validateContent())
+        if (!$this->validate()) {
+            $this->setOutput($this->messages);
             return;
+        }
 
-        $course = CourseRepository::findOrCreate($this->content->language, $this->translation, $this->content->level);
-        $courseContent = CourseContentRepository::create($course);
+        $course = CourseRepository::findOrCreate($this->content, $this->translation);
 
-        $this->commit($courseContent);
+        $course->minor_version += 1;
+        $course->committed_at = Carbon::now();
+        $course->save();
 
-        $courseContent->repository()->enable();
+        try {
+            $course->courseLessons()->delete();
+        } catch (\Exception $e) {
+        }
+
+        $this->commit($course);
     }
 
-    private function validateContent()
+    private function validate()
     {
         $valid = true;
-        $messages = [];
 
         if ($this->content->lessons->count() == 0) {
-            $messages[] = "The content doesn't have lessons.";
+            $this->messages[] = $this->content . " doesn't have lessons.";
             $valid = false;
         }
 
         foreach ($this->content->lessons as $lesson) {
-            if ($lesson->title == null) {
-                $messages[] = "Lesson " . $lesson->index . " doesn't have title.";
+            if (!$this->validateLesson($lesson, "Lesson " . $lesson->index))
                 $valid = false;
-            }
 
-            if ($lesson->exercises->count() == 0) {
-                $messages[] = "Lesson " . $lesson->index . " doesn't have exercises.";
-                $valid = false;
-            }
-
-            foreach ($lesson->exercises as $exercise) {
-                if ($exercise->exerciseFields->count() == 0) {
-                    $messages[] = "Lesson " . $lesson->index . " › Exercise " . $exercise->index . " doesn't have fields";
-                    $valid = false;
-                }
-
-                foreach ($exercise->exerciseFields as $exerciseField) {
-                    if (!isset($exerciseField->content['value'])) {
-                        $messages[] = "Lesson " . $lesson->index . " › Exercise " . $exercise->index . " › Field " . $exerciseField->index . " doesn't have value.";
-                        $valid = false;
-                    }
-
-                    if ($exerciseField->field->audible && !isset($exerciseField->content['audio'])) {
-                        $messages[] = "Lesson " . $lesson->index . " › Exercise " . $exercise->index . " › Field " . $exerciseField->index . " doesn't have audio.";
-                        $valid = false;
-                    }
-
-                    if ($exerciseField->field->audible && !isset($exerciseField->content['duration'])) {
-                        $messages[] = "Lesson " . $lesson->index . " › Exercise " . $exercise->index . " › Field " . $exerciseField->index . " doesn't have audio duration.";
-                        $valid = false;
-                    }
-
-                    if ($exerciseField->field->translatable) {
-                        $translation = $exerciseField->translations->where('language_id', $this->translation->id)->first();
-
-                        if ($translation == null) {
-                            $messages[] = "Lesson " . $lesson->index . " › Exercise " . $exercise->index . " › Field " . $exerciseField->index . " doesn't have translation.";
-                            $valid = false;
-                        }
-
-                        if (!isset($translation->content['value'])) {
-                            $messages[] = "Lesson " . $lesson->index . " › Exercise " . $exercise->index . " › Field " . $exerciseField->index . " › Translation doesn't have value.";
-                            $valid = false;
-                        }
-
-                        if ($exerciseField->field->audible && !isset($translation->content['audio'])) {
-                            $messages[] = "Lesson " . $lesson->index . " › Exercise " . $exercise->index . " › Field " . $exerciseField->index . " › Translation doesn't have audio.";
-                            $valid = false;
-                        }
-
-                        if ($exerciseField->field->audible && !isset($translation->content['duration'])) {
-                            $messages[] = "Lesson " . $lesson->index . " › Exercise " . $exercise->index . " › Field " . $exerciseField->index . " › Translation doesn't have audio duration.";
-                            $valid = false;
-                        }
-                    }
-                }
-
-                $this->incrementProgress();
-            }
+            $this->incrementProgress();
         }
-
-        if (!$valid)
-            $this->setOutput($messages);
 
         return $valid;
     }
 
-    private function commit(CourseContent $courseContent)
+    public function validateLesson(Lesson $lesson, $current)
+    {
+        $valid = true;
+
+        if ($lesson->title == null) {
+            $this->messages[] = $current . " doesn't have title.";
+            $valid = false;
+        }
+
+        if ($lesson->exercises->count() == 0) {
+            $this->messages[] = $current . " doesn't have exercises.";
+            $valid = false;
+        }
+
+        foreach ($lesson->exercises as $exercise) {
+            if (!$this->validateExercise($exercise, $current . " › Exercise " . $exercise->index))
+                $valid = false;
+        }
+
+        return $valid;
+    }
+
+    public function validateExercise(Exercise $exercise, $current)
+    {
+        $valid = true;
+
+        if ($exercise->exerciseData->count() == 0) {
+            $this->messages[] = $current . " doesn't have data.";
+            $valid = false;
+        }
+
+        foreach ($exercise->exerciseData as $exerciseData) {
+            $_current = $current . " › Data " . $exerciseData->index;
+            if (!$this->validateContent($exerciseData->content, $_current))
+                $valid = false;
+
+            if ($exerciseData->translatable) {
+                $translation = $exerciseData->translations->where('language_id', $this->translation->id)->first();
+
+                if ($translation == null) {
+                    $this->messages[] = $_current . " doesn't have translation.";
+                    $valid = false;
+                    continue;
+                }
+
+                if (!$this->validateContent($translation->content, $_current . " › Translation"))
+                    $valid = false;
+            }
+        }
+
+        return $valid;
+    }
+
+    public function validateContent($content, $current)
+    {
+        $valid = true;
+
+        if (!isset($content['value'])) {
+            $this->messages[] = $current . " doesn't have value.";
+            $valid = false;
+        }
+
+        if (!isset($content['audio'])) {
+            $this->messages[] = $current . " doesn't have audio.";
+            $valid = false;
+        }
+
+        if (!isset($content['duration'])) {
+            $this->messages[] = $current . " doesn't have audio duration.";
+            $valid = false;
+        }
+
+        return $valid;
+    }
+
+    private function commit(Course $course)
     {
         foreach ($this->content->lessons as $lesson) {
             $courseLesson = new CourseLesson();
-            $courseLesson->courseContent()->associate($courseContent);
+            $courseLesson->course()->associate($course);
             $courseLesson->title = $lesson->title;
-            $courseLesson->uuid = $lesson->uuid;
 
-            $content = $this->buildLessonContent($lesson);
+            $content = $this->commitLesson($lesson);
 
-            $courseLesson->checksum = hash("md5", json_encode($content));
             $courseLesson->exercises_count = $lesson->exercises_count;
             $courseLesson->content = $content;
             $courseLesson->save();
@@ -178,41 +207,41 @@ class CommitContent implements ShouldQueue
         }
     }
 
-    private function buildLessonContent(Lesson $lesson)
+    private function commitLesson(Lesson $lesson)
     {
         $data = [];
 
         foreach ($lesson->exercises as $exercise) {
-            $data['exercises'][] = $this->buildExerciseContent($exercise);
+            $data['exercises'][] = $this->commitExercise($exercise);
         }
 
         return $data;
     }
 
-    private function buildExerciseContent(Exercise $exercise) {
-        $data = [];
+    private function commitExercise(Exercise $exercise)
+    {
+        $data['index'] = $exercise->index;
 
-        foreach ($exercise->exerciseFields as $exerciseField) {
-            $data['fields'][] = $this->buildExerciseFieldContent($exerciseField);
+        foreach ($exercise->exerciseData as $exerciseData) {
+            $data['data'][] = $this->commitExerciseData($exerciseData);
         }
 
         return $data;
     }
 
-    private function buildExerciseFieldContent(ExerciseField $exerciseField) {
-        $data['identifier'] = $exerciseField->field->identifier;
-        $data['value'] = $exerciseField->content['value'];
+    private function commitExerciseData(ExerciseData $exerciseData)
+    {
+        $data['value'] = $exerciseData->content['value'];
+        $data['audio'] = $exerciseData->content['audio'];
+        $data['duration'] = $exerciseData->content['duration'];
 
-        if ($exerciseField->field->audible)
-            $data['audio'] = $exerciseField->content['audio'];
-
-        if ($exerciseField->field->translatable) {
-            $translation = $exerciseField->translations->where('language_id', $this->translation->id)->first();
+        if ($exerciseData->translatable) {
+            /** @var Translation $translation */
+            $translation = $exerciseData->translations->where('language_id', $this->translation->id)->first();
 
             $data['translation']['value'] = $translation->content['value'];
-
-            if ($exerciseField->field->audible)
-                $data['translation']['audio'] = $translation->content['audio'];
+            $data['translation']['audio'] = $translation->content['audio'];
+            $data['translation']['duration'] = $translation->content['duration'];
         }
 
         return $data;

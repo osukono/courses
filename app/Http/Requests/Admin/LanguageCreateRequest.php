@@ -33,6 +33,11 @@ class LanguageCreateRequest extends FormRequest
                 'max:50',
                 Rule::unique('languages', 'name'),
             ],
+            'native' => [
+                'bail',
+                'string',
+                'max:50',
+            ],
             'code' => [
                 'bail',
                 'required',
@@ -43,20 +48,20 @@ class LanguageCreateRequest extends FormRequest
             ],
             'voice_name' => [
                 'bail',
-                'sometimes',
+                'nullable',
                 'string',
                 'max:255'
             ],
             'speaking_rate' => [
                 'bail',
-                'sometimes',
+                'nullable',
                 'numeric',
                 'min:0.25',
                 'max:4.00'
             ],
             'pitch' => [
                 'bail',
-                'sometimes',
+                'nullable',
                 'numeric',
                 'min:-20.00',
                 'max:20.00'

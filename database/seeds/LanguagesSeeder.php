@@ -12,8 +12,8 @@ class LanguagesSeeder extends Seeder
      */
     public function run()
     {
-        (new Language(['name' => 'Russian', 'code' => 'ru-RU']))->save();
-        (new Language(['name' => 'English (US)', 'code' => 'en-US']))->save();
-        (new Language(['name' => 'Ukrainian', 'code' => 'uk-UA']))->save();
+        (new Language(['name' => 'Russian', 'native' => 'Русский', 'code' => 'ru-RU']))->save();
+        (new Language(['name' => 'English (US)', 'native' => 'English US', 'code' => 'en-US']))->save();
+        (new Language(['name' => 'Ukrainian', 'native' => 'Українська', 'code' => 'uk-UA']))->save();
     }
 }

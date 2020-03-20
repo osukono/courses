@@ -1,220 +1,116 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-center mb-4">Privacy Policy</h2>
+    <div class="container mb-5 lead">
+        <h1 class="my-5 text-center text-md-left">Privacy Policy</h1>
 
-    <p>
-        This privacy policy will explain how our organization uses the personal data we collect from you when you use
-        our
-        website.
-    </p>
+        <p>
+            Yummy Lingo built the Yummy Lingo app as a Commercial app. This SERVICE is provided by Yummy Lingo and is intended for use as is.
+        </p>
+        <p>
+            This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.
+        </p>
+        <p>
+            If you choose to use our Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.
+        </p>
+        {{--<p>
+            The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at Yummy Lingo unless otherwise defined in this Privacy Policy.
+        </p>--}}
 
-    <ul>
-        <li><a href="#whatDataDoWeCollect">What data do we collect?</a></li>
-        <li><a href="#howDoWeCollectYourData">How do we collect your data?</a></li>
-        <li><a href="#howWillWeUseYourData">How will we use your data?</a></li>
-        <li><a href="#howDoWeStoreYourData">How do we store your data?</a></li>
-        <li><a href="#marketing">Marketing</a></li>
-        <li><a href="#whatAreYourDataProtectionRights">What are your data protection rights?</a></li>
-        <li><a href="#whatAreCookies">What are cookies?</a></li>
-        <li><a href="#howDoWeUseCookies">How do we use cookies?</a></li>
-        <li><a href="#whatTypesOfCookiesDoWeUse">What types of cookies do we use?</a></li>
-        <li><a href="#howToManageYourCookies">How to manage your cookies</a></li>
-        <li><a href="#privacyPolicyOfOtherWebsites">Privacy policies of other websites</a></li>
-        <li><a href="#changesToOurPrivacyPolicy">Changes to our privacy policy</a></li>
-        <li><a href="#howToContactUs">How to contact us</a></li>
-        <li><a href="#howToContactTheAppropriateAuthorities">How to contact the appropriate authorities</a></li>
-    </ul>
+        <hr class="my-5">
 
-    <h3 id="whatDataDoWeCollect">What data do we collect?</h3>
+        <h3>Information Collection and Use</h3>
 
-    <p>
-        We collect the following data:
-    </p>
+        <p>
+            For a better experience, while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to email address, name. The information that we request will be retained by us and used as described in this privacy policy.
+        </p>
+        <p>
+            The app does use third party services that may collect information used to identify you.
+        </p>
+        <p>
+            Link to privacy policy of third party service providers used by the app
+        </p>
+        <ul>
+            <li><a href="https://www.google.com/policies/privacy/">Google Play Services</a></li>
+            <li><a href="https://firebase.google.com/support/privacy">Firebase</a></li>
+            <li><a href="https://aws.amazon.com/privacy/">Amazon Web Services</a></li>
+        </ul>
 
-    <ul>
-        <li>Personal identification information (Name, email address)</li>
-    </ul>
+        <hr class="my-5">
 
-    <h3 id="howDoWeCollectYourData">How do we collect your data?</h3>
+        <h3>Log Data</h3>
 
-    <p>
-        You directly provide us with most of the data we collect. We collect data and process data when you:
-    </p>
+        <p>
+            We want to inform you that whenever you use our Service, in a case of an error in the app we collect data and information (through third party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app when utilizing our Service, the time and date of your use of the Service, and other statistics.
+        </p>
 
-    <ul>
-        <li>Register online or place an order for any of our products or services.</li>
-        <li>Voluntarily complete a customer survey or provide feedback on any of our message boards or via email.</li>
-        <li>Use or view our website via your browser’s cookies.</li>
-    </ul>
+        <hr class="my-5">
 
-    <h3 id="howWillWeUseYourData">How will we use your data?</h3>
+        <h3>Cookies</h3>
 
-    <p>
-        We collect your data so that we can:
-    </p>
+        <p>
+            Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
+        </p>
 
-    <ul>
-        <li>Process your order and manage your account.</li>
-        <li>Email you with special offers on other products and services we think you might like.</li>
-    </ul>
+        <p>
+            This Service does not use these “cookies” explicitly. However, the app may use third party code and libraries that use “cookies” to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.
+        </p>
 
-    <p>
-        When we processes your order, we may send your data to, and also use the resulting information from,
-        credit reference agencies to prevent fraudulent purchases.
-    </p>
+        <hr class="my-5">
 
-    <h3 id="howDoWeStoreYourData">How do we store your data?</h3>
+        <h3>Service Providers</h3>
 
-    <p>
-        We securely store your data at the database provided by <a rel="external" href="https://aws.amazon.com/">Amazon Web Services</a>.
-    </p>
+        <p>
+            We may employ third-party companies and individuals due to the following reasons:
+        </p>
+        <ul>
+            <li>To facilitate our Service;</li>
+            <li>To provide the Service on our behalf;</li>
+            <li>To perform Service-related services; or</li>
+            <li>To assist us in analyzing how our Service is used.</li>
+        </ul>
+        <p>
+            We want to inform users of this Service that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
+        </p>
 
-    <p>
-        We will keep your data until you cancel your account. Once you cancel your account we will delete all
-        the records related to your account from our database.
-    </p>
+        <hr class="my-5">
 
-    <h3 id="marketing">Marketing</h3>
+        <h3>Security</h3>
 
-    <p>
-        We would like to send you information about products and services of ours that we think you might like.
-    </p>
+        <p>
+            We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
+        </p>
 
-    <p>
-        If you have agreed to receive marketing, you may always opt out at a later date.
-    </p>
+        <hr class="my-5">
 
-    <p>
-        You have the right at any time to stop us from contacting you for marketing purposes or giving your data
-        to other members of the Our Company Group.
-    </p>
+        <h3>Links to Other Sites</h3>
 
-    <p>
-        If you no longer wish to be contacted for marketing purposes, please <a rel="nofollow" href="{{ route('user.unsubscribe') }}">click here</a>.
-    </p>
+        <p>
+            This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+        </p>
 
-    <h3 id="whatAreYourDataProtectionRights">What are your data protection rights?</h3>
+        <hr class="my-5">
 
-    <p>
-        We would like to make sure you are fully aware of all of your data protection rights. Every user is
-        entitled to the following:
-    </p>
+        <h3>Children’s Privacy</h3>
 
-    <p>
-        <strong>The right to access</strong> – You have the right to request us for copies of your personal
-        data. We may charge you a small fee for this service.
-    </p>
+        <p>
+            These Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. In the case we discover that a child under 13 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do necessary actions.
+        </p>
 
-    <p>
-        <strong>The right to rectification</strong> – You have the right to request that we correct any
-        information you believe is inaccurate. You also have the right to request us to complete the
-        information you believe is incomplete.
-    </p>
+        <hr class="my-5">
 
-    <p>
-        <strong>The right to erasure</strong> – You have the right to request that we erase your personal data,
-        under certain conditions.
-    </p>
+        <h3>Changes to This Privacy Policy</h3>
 
-    <p>
-        <strong>The right to restrict processing</strong> – You have the right to request that we restrict the
-        processing of your personal data, under certain conditions.
-    </p>
+        <p>
+            We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted on this page.
+        </p>
 
-    <p>
-        <strong>The right to object to processing</strong> – You have the right to object to ours processing of
-        your personal data, under certain conditions.
-    </p>
+        <hr class="my-5">
 
-    <p>
-        <strong>The right to data portability</strong> – You have the right to request that we transfer the data
-        that we have collected to another organization, or directly to you, under certain conditions.
-    </p>
+        <h3>Contact Us</h3>
 
-    <p>
-        If you make a request, we have one month to respond to you. If you would like to exercise any of these rights,
-        please contact us at our email:
-    </p>
-
-    <p>
-        Email us at: privacy@mg.yummylingo.com
-    </p>
-
-    <h3 id="whatAreCookies">Cookies</h3>
-
-    <p>
-        Cookies are text files placed on your computer to collect standard Internet log information and visitor behavior
-        information. When you visit our websites, we may collect information from you automatically through cookies or
-        similar technology
-    </p>
-
-    <p>
-        For further information, visit <a rel="external" href="https://www.allaboutcookies.org/">allaboutcookies.org</a>.
-    </p>
-
-    <h3 id="howDoWeUseCookies">How do we use cookies?</h3>
-
-    <p>
-        We uses cookies in a range of ways to improve your experience on our website, including:
-    </p>
-
-    <ul>
-        <li>Keeping you signed in</li>
-        <li>Understanding how you use our website</li>
-    </ul>
-
-    <h3 id="whatTypesOfCookiesDoWeUse">What types of cookies do we use?</h3>
-
-    <p>
-        There are a number of different types of cookies, however, our website uses:
-    </p>
-
-    <ul>
-        <li>
-            Functionality – We use these cookies so that we recognize you on our website and remember your previously selected preferences. These could include what language you prefer and location you are in. A mix of first-party and third-party cookies are used.
-        </li>
-        <li>
-            Advertising – We use these cookies to collect information about your visit to our website, the content you viewed, the links you followed and information about your browser, device, and your IP address. We sometimes share some limited aspects of this data with third parties for advertising purposes. We may also share online data collected through cookies with our advertising partners. This means that when you visit another website, you may be shown advertising based on your browsing patterns on our website.
-        </li>
-    </ul>
-
-    <h3 id="howToManageYourCookies">How to manage cookies</h3>
-
-    <p>
-        You can set your browser not to accept cookies, and the above website tells you how to remove cookies from your browser. However, in a few cases, some of our website features may not function as a result.
-    </p>
-
-    <h3 id="privacyPolicyOfOtherWebsites">Privacy policies of other websites</h3>
-
-    <p>
-        The Yummy Lingo website contains links to other websites. Our privacy policy applies only to our website, so if you click on a link to another website, you should read their privacy policy.
-    </p>
-
-    <h3 id="changesToOurPrivacyPolicy">Changes to our privacy policy</h3>
-
-    <p>
-        We keep our privacy policy under regular review and place any updates on this web page. This privacy policy was last updated on 30 December 2019.
-    </p>
-
-    <h3 id="howToContactUs">How to contact us</h3>
-
-    <p>
-        If you have any questions about Yummy Lingo’s privacy policy, the data we hold on you, or you would like to exercise one of your data protection rights, please do not hesitate to contact us.
-    </p>
-
-    <p>
-        Email us at: privacy@mg.yummylingo.com
-    </p>
-
-    <h3 id="howToContactTheAppropriateAuthorities">How to contact the appropriate authority</h3>
-
-    <p>
-        Should you wish to report a complaint or if you feel that we have not addressed your concern in a satisfactory manner, you may contact the Information Commissioner’s Office.
-    </p>
-
-    <p>Web Address: <a rel="external" href="https://ico.org.uk/">ico.org.uk</a></p>
-
-    <p>Wycliffe House, Water Ln, Wilmslow SK9 5AF, United Kingdom</p>
-
+        <p>
+            If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at support@yummylingo.com.
+        </p>
+    </div>
 @endsection

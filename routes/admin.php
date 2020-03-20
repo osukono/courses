@@ -7,7 +7,6 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
     ->namespace('Admin')->prefix('admin')->group(function () {
 
         Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
-        Route::get('/test', 'AdminController@test');
 
         /**
          * ContentController
@@ -15,6 +14,10 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         Route::middleware('permission:' . Permissions::create_content)->group(function () {
             Route::get('content/create', 'ContentController@create')->name('admin.content.create');
             Route::post('content', 'ContentController@store')->name('admin.content.store');
+        });
+        Route::middleware('permission:' . Permissions::update_content)->group(function () {
+            Route::get('content/{content}/edit', 'ContentController@edit')->name('admin.content.edit');
+            Route::patch('content/{content}', 'ContentController@update')->name('admin.content.update');
         });
         Route::middleware('permission:' . Permissions::restore_content)->group(function () {
             Route::get('content/trash', 'ContentController@trash')->name('admin.content.trash');
@@ -58,6 +61,8 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::delete('content/lessons/{lesson}', 'LessonController@destroy')->name('admin.lessons.destroy');
             Route::get('content/{content}/lessons/trash', 'LessonController@trash')->name('admin.lessons.trash');
             Route::post('content/lessons/restore', 'LessonController@restore')->name('admin.lessons.restore');
+            Route::patch('content/lessons/{lesson}/disable/{language}', 'LessonController@disable')->name('admin.lessons.disable');
+            Route::patch('content/lessons/{lesson}/enable/{language}', 'LessonController@enable')->name('admin.lesson.enable');
         });
 
         /**
@@ -73,20 +78,24 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::delete('content/exercises/{exercise}', 'ExerciseController@destroy')->name('admin.exercises.destroy');
             Route::get('content/lessons/{lesson}/exercises/trash', 'ExerciseController@trash')->name('admin.exercises.trash');
             Route::post('content/exercises/restore', 'ExerciseController@restore')->name('admin.exercises.restore');
+            Route::patch('content/exercises/{exercise}/disable/{language}', 'ExerciseController@disable')->name('admin.exercises.disable');
+            Route::patch('content/exercises/{exercise}/enable/{language}', 'ExerciseController@enable')->name('admin.exercises.enable');
         });
 
         /**
-         * ExerciseFieldController
+         * ExerciseDataController
          */
-        Route::middleware('permission:' . Permissions::update_content)->group(function () {
-            Route::post('content/exercises/{exercise}/fields', 'ExerciseFieldController@store')->name('admin.exercise.fields.store');
-            Route::patch('content/exercise/fields/{exerciseField}', 'ExerciseFieldController@update')->name('admin.exercise.fields.update');
-            Route::patch('content/exercise/fields/{exerciseField}/audio/synthesize', 'ExerciseFieldController@synthesizeAudio')->name('admin.exercise.fields.audio.synthesize');
-            Route::patch('content/exercise/fields/{exerciseField}/audio/delete', 'ExerciseFieldController@deleteAudio')->name('admin.exercise.fields.audio.delete');
-            Route::patch('content/exercise/fields/move', 'ExerciseFieldController@move')->name('admin.exercise.fields.move');
-            Route::delete('content/exercise/fields/{exerciseField}', 'ExerciseFieldController@destroy')->name('admin.exercise.fields.destroy');
-            Route::get('content/exercises/{exercise}/fields/trash', 'ExerciseFieldController@trash')->name('admin.exercise.fields.trash');
-            Route::post('content/exercise/fields/restore', 'ExerciseFieldController@restore')->name('admin.exercise.fields.restore');
+        Route::middleware('permission:' . Permissions::update_content)->group(function() {
+            Route::post('content/exercises/{exercise}/data/create', 'ExerciseDataController@store')->name('admin.exercise.data.create');
+            Route::patch('content/exercise/data/{exerciseData}', 'ExerciseDataController@update')->name('admin.exercise.data.update');
+            Route::patch('content/exercise/data/{exerciseData}/audio/synthesize', 'ExerciseDataController@synthesizeAudio')->name('admin.exercise.data.audio.synthesize');
+            Route::patch('content/exercise/data/{exerciseData}/audio/delete', 'ExerciseDataController@deleteAudio')->name('admin.exercise.data.audio.delete');
+            Route::patch('content/exercise/data/move', 'ExerciseDataController@move')->name('admin.exercise.data.move');
+            Route::delete('content/exercise/data/{exerciseData}', 'ExerciseDataController@destroy')->name('admin.exercise.data.destroy');
+            Route::get('content/exercises/{exercise}/data/trash', 'ExerciseDataController@trash')->name('admin.exercise.data.trash');
+            Route::post('content/exercise/data/restore', 'ExerciseDataController@restore')->name('admin.exercise.data.restore');
+            Route::patch('content/exercise/data/{exerciseData/disable/{language}', 'ExerciseDataController@disable')->name('admin.exercise.data.disable');
+            Route::patch('content/exercise/data/{exerciseData/enable/{language}','ExerciseDataController@enable')->name('admin.exercise.data.enable');
         });
 
         /**
@@ -99,7 +108,7 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::get('translations/{language}/content/{content}/export', 'TranslationController@export')->name('admin.translations.content.export');
         });
         Route::middleware('permission:' . Permissions::update_translations)->group(function() {
-            Route::patch('translations/{translation}', 'TranslationController@update')->name('admin.translations.exercise.fields.update');
+            Route::patch('translations/{translation}', 'TranslationController@update')->name('admin.translations.exercise.data.update');
             Route::patch('translations/{translation}/audio/synthesize', 'TranslationController@synthesizeAudio')->name('admin.translations.audio.synthesize');
             Route::patch('translations/{translation}/audio/delete', 'TranslationController@deleteAudio')->name('admin.translations.audio.delete');
         });
@@ -126,8 +135,16 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         Route::middleware('permission:' . Permissions::view_courses)->group(function() {
             Route::get('courses', 'CourseController@index')->name('admin.courses.index');
             Route::get('courses/{course}', 'CourseController@show')->name('admin.courses.show');
+            Route::get('courses/{course}/practice/lessons/{courseLesson}', 'CourseController@practice')->name('admin.courses.practice');
         });
-        Route::middleware('permission:' . Permissions::assign_editors)->group(function() {
+        Route::middleware('permission:' . Permissions::publish_courses)->group(function() {
+            Route::post('courses/{course}/firestore/upload', 'CourseController@firestoreUpload')->name('admin.courses.firestore.upload');
+            Route::post('courses/{course}/firestore/update', 'CourseController@firestoreUpdate')->name('admin.courses.firestore.update');
+            Route::delete('courses/{course}/delete', 'CourseController@delete')->name('admin.courses.delete');
+            Route::post('courses/{course}/image/upload', 'CourseController@uploadImage')->name('admin.courses.image.upload');
+            Route::post('courses/{course}/updating/switch', 'CourseController@switchIsUpdating')->name("admin.courses.updating.switch");
+        });
+        Route::middleware('permission:' . Permissions::update_courses)->group(function() {
             Route::get('courses/{course}/edit', 'CourseController@edit')->name('admin.courses.edit');
             Route::patch('courses/{course}', 'CourseController@update')->name('admin.courses.update');
         });
@@ -141,6 +158,42 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::post('languages', 'LanguageController@store')->name('admin.languages.store');
             Route::get('languages/{language}/edit', 'LanguageController@edit')->name('admin.languages.edit');
             Route::patch('languages/{language}', 'LanguageController@update')->name('admin.languages.update');
+            Route::post('languages/{language}/icon/upload', 'LanguageController@uploadIcon')->name('admin.languages.icon.upload');
+            Route::post('languages/{language}/sync', 'LanguageController@sync')->name('admin.languages.firestore.sync');
+        });
+
+        /**
+         * Speech Settings
+         */
+        Route::middleware('permission:' . Permissions::update_content)->group(function() {
+            Route::get('content/{content}/speech/settings/edit', 'SpeechSettingsController@editContentSettings')->name('admin.content.speech.settings.edit');
+            Route::post('content/{content}/speech/settings', 'SpeechSettingsController@updateContentSettings')->name('admin.content.speech.settings.update');
+        });
+        Route::middleware('permission:' . Permissions::update_translations)->group(function() {
+            Route::get('translations/{language}/content/{content}/speech/settings/edit', 'SpeechSettingsController@editTranslationSettings')->name('admin.translations.speech.settings.edit');
+            Route::post('translations/{language}/content/{content}/speech/settings', 'SpeechSettingsController@updateTranslationSettings')->name('admin.translations.speech.settings.update');
+        });
+
+        /**
+         * Player Settings
+         */
+        Route::middleware('role:' . Roles::admin)->group(function() {
+            Route::get('languages/{language}/player/settings/create', 'PlayerSettingsController@create')->name('admin.player.settings.create');
+            Route::post('languages/{language}/player/settings', 'PlayerSettingsController@store')->name('admin.player.settings.store');
+            Route::get('languages/{language}/player/settings/edit', 'PlayerSettingsController@edit')->name('admin.player.settings.edit');
+            Route::patch('languages/{language}/player/settings', 'PlayerSettingsController@update')->name('admin.player.settings.update');
+        });
+
+        /**
+         * Topics
+         */
+        Route::middleware('role:' . Roles::admin)->group(function() {
+            Route::get('topics', 'TopicController@index')->name('admin.topics.index');
+            Route::get('topics/create', 'TopicController@create')->name('admin.topics.create');
+            Route::post('topics', 'TopicController@store')->name('admin.topics.store');
+            Route::get('topics/{topic}/edit', 'TopicController@edit')->name('admin.topics.edit');
+            Route::patch('topics/{topic}', 'TopicController@update')->name('admin.topics.update');
+            Route::post('topics/{topic}/sync', 'TopicController@sync')->name('admin.topics.firestore.sync');
         });
 
         /**

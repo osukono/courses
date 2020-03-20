@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Exercise;
+use App\Language;
 use App\Lesson;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
@@ -12,8 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ExerciseRepository
 {
-    /** @var Exercise $model */
-    protected $model;
+    protected Exercise $model;
 
     public function __construct(Exercise $exercise)
     {
@@ -79,6 +79,22 @@ class ExerciseRepository
     }
 
     /**
+     * @param Language $language
+     */
+    public function disable(Language $language)
+    {
+        $this->model->disabled()->syncWithoutDetaching($language);
+    }
+
+    /**
+     * @param Language $language
+     */
+    public function enable(Language $language)
+    {
+        $this->model->disabled()->detach($language);
+    }
+
+    /**
      * @return Exercise|null
      */
     public function previous()
@@ -104,23 +120,22 @@ class ExerciseRepository
     public function toArray()
     {
         $this->model->loadMissing([
-            'exerciseFields' => function (HasMany $query) {
+            'exerciseData' => function (HasMany $query) {
                 $query->orderBy('index');
             },
-            'exerciseFields.field',
-            'exerciseFields.translations' => function (HasMany $query) {
+            'exerciseData.translations' => function (HasMany $query) {
                 $query->orderBy('language_id');
             },
-            'exerciseFields.translations.language'
+            'exerciseData.translations.language'
         ]);
 
-        $data = [];
+        $content = [];
 
-        foreach ($this->model->exerciseFields as $exerciseField) {
-            $data['fields'][] = $exerciseField->repository()->toArray();
+        foreach ($this->model->exerciseData as $data) {
+            $content['data'][] = $data->repository()->toArray();
         }
 
-        return $data;
+        return $content;
     }
 
     /**

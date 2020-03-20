@@ -24,7 +24,30 @@ class ContentUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'description' => ['bail', 'nullable', 'string', 'max:65535'],
+            'title' => [
+                'bail',
+                'nullable',
+                'string',
+                'max:255'
+            ],
+            'description' => [
+                'bail',
+                'nullable',
+                'string',
+                'max:500'
+            ],
+            'player_version' => [
+                'bail',
+                'required',
+                'integer',
+                'min:0'
+            ],
+            'review_exercises' => [
+                'bail',
+                'required',
+                'integer',
+                'min:0'
+            ]
         ];
     }
 }

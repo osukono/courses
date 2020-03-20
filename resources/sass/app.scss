@@ -1,9 +1,22 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=cyrillic&display=block');
 @import url('https://fonts.googleapis.com/css?family=Paytone+One&display=block');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap&subset=cyrillic,latin-ext');
 
 // Variables
-@import 'variables';
+$body-bg: #fff;
+$body-color: #686D85;
+
+$enable-responsive-font-sizes: true;
+$font-family-base: 'Roboto', sans-serif;
+$font-size-base: 0.8rem;
+$line-height-base: 1.6;
+
+$primary: #405FD3 !default;
+
+//$input-btn-padding-x: 1.5rem !default;
+
+//$font-family-base: 'PT Sans', sans-serif;
 
 $cyan:    #17a2b8 !default;
 
@@ -16,17 +29,30 @@ $custom-range-thumb-active-bg: $cyan !default;
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-//body { padding-bottom: 70px; }
-
-//.footer > .container {
-//    padding-right: 15px;
-//    padding-left: 15px;
-//}
-
-.navbar-brand {
-    color: #404040 !important;
-    font-family: 'Paytone One', sans-serif !important;
+html {
+    scroll-behavior: smooth;
 }
+
+.navbar {
+    border-bottom: 1px #E8E8F0 solid;
+    background-color: #F9F8F8 !important;
+}
+
+.btn {
+    padding-left: 1.7rem !important;
+    padding-right: 1.7rem !important;
+    font-weight: 500 !important;
+}
+
+.footer {
+    background: #405FD3;
+    color: #D9DFF6 !important;
+}
+
+//.navbar-brand {
+//    color: #405FD3 !important;
+//    font-family: 'Paytone One', sans-serif !important;
+//}
 
 .nav-link {
     color: #636b6f;

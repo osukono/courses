@@ -33,17 +33,18 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="more">
                         <a class="dropdown-item" href="{{ route('admin.lessons.edit', $lesson) }}">Properties</a>
-                        <form class="d-none" id="delete" action="{{ route('admin.lessons.destroy', $lesson) }}"
+                        <div class="dropdown-divider"></div>
+                        <form class="d-none" id="lesson-{{ $lesson->id }}-delete" action="{{ route('admin.lessons.destroy', $lesson) }}"
                               method="post">
                             @method('delete')
                             @csrf
                         </form>
-                        <button class="dropdown-item" type="button"
+                        <button class="dropdown-item text-danger" type="button"
                            data-toggle="confirmation"
                            data-btn-ok-label="{{ __('admin.form.delete') }}"
                            data-title="{{ __('admin.form.delete_confirmation', ['object' => $lesson]) }}"
-                           data-form="delete">
-                            Delete
+                           data-form="lesson-{{ $lesson->id }}-delete">
+                            Delete Lesson
                         </button>
                         <a class="dropdown-item" href="{{ route('admin.exercises.trash', $lesson) }}">Trash</a>
                     </div>

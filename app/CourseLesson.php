@@ -12,33 +12,27 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * App\CourseLesson
  *
  * @property int $id
- * @property int $course_content_id
+ * @property int $course_id
  * @property string $title
- * @property int $number
- * @property string $uuid
- * @property string $checksum
- * @property int $demo
- * @property mixed $content
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\CourseContent $courseContent
+ * @property int $exercises_count
+ * @property array $content
+ * @property int $index
+ * @property-read \App\Course $course
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereChecksum($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereContent($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereCourseContentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereDemo($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereNumber($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereUuid($value)
- * @mixin \Eloquent
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson sequenced($direction = 'asc')
- * @property int $exercises_count
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereCourseId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereExercisesCount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereIndex($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereTitle($value)
+ * @mixin \Eloquent
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereUpdatedAt($value)
  */
 class CourseLesson extends Model
 {
@@ -50,11 +44,11 @@ class CourseLesson extends Model
     ];
 
     /**
-     * @return BelongsTo|CourseContent
+     * @return BelongsTo|Course
      */
-    public function courseContent()
+    public function course()
     {
-        return $this->belongsTo(CourseContent::class);
+        return $this->belongsTo(Course::class);
     }
 
     /**
@@ -65,14 +59,13 @@ class CourseLesson extends Model
     public function sequence()
     {
         return [
-            'group' => 'course_content_id',
-            'fieldName' => 'number',
+            'group' => 'course_id',
+            'fieldName' => 'index',
             'orderFrom1' => true
         ];
     }
 
-    /** @var CourseLessonRepository */
-    private $repository;
+    private CourseLessonRepository $repository;
 
     /**
      * @return CourseLessonRepository
@@ -80,5 +73,13 @@ class CourseLesson extends Model
     public function repository()
     {
         return isset($this->repository) ? $this->repository : $this->repository = new CourseLessonRepository($this);
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->title;
     }
 }

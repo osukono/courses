@@ -11,6 +11,7 @@ class JobController extends Controller
     public function status(JobStatus $jobStatus)
     {
         return response()->json([
+            'displayName' => $jobStatus->type,
             'progressNow' => $jobStatus->progress_now,
             'progressMax' => $jobStatus->progress_max,
             'progress_percentage' => $jobStatus->progress_percentage,

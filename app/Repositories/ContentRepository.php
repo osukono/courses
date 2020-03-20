@@ -5,12 +5,8 @@ namespace App\Repositories;
 
 
 use App\Content;
-use App\Exercise;
-use App\ExerciseField;
 use App\Language;
-use App\Lesson;
 use App\Library\Str;
-use App\Translation;
 use App\User;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
@@ -18,8 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ContentRepository
 {
-    /** @var Content $model */
-    protected $model;
+    protected Content $model;
 
     public function __construct(Content $content)
     {
@@ -60,6 +55,9 @@ class ContentRepository
         $content = new Content();
         $content->language()->associate($attributes['language_id']);
         $content->level()->associate($attributes['level_id']);
+        $content->topic()->associate($attributes['topic_id']);
+        $content->title = $attributes['title'];
+        $content->description = $attributes['description'];
         $content->save();
 
         return $content;
@@ -92,7 +90,10 @@ class ContentRepository
      */
     public function update(array $attributes)
     {
+        $this->model->title = $attributes['title'];
         $this->model->description = $attributes['description'];
+        $this->model->player_version = $attributes['player_version'];
+        $this->model->review_exercises = $attributes['review_exercises'];
         $this->model->save();
     }
 
@@ -126,10 +127,10 @@ class ContentRepository
             $data .= $lesson['title'] . PHP_EOL . PHP_EOL;
 
             foreach ($lesson['exercises'] as $exerciseKey => $exercise) {
-                if (!isset($exercise['fields']))
+                if (!isset($exercise['data']))
                     continue;
 
-                foreach ($exercise['fields'] as $fieldKey => $field) {
+                foreach ($exercise['data'] as $fieldKey => $field) {
                     if (isset($field['content']['value']))
                         $data .= Str::toPlainText($field['content']['value']) . PHP_EOL;
 
@@ -163,24 +164,27 @@ class ContentRepository
             'lessons.exercises' => function (HasMany $query) {
                 $query->orderBy('index');
             },
-            'lessons.exercises.exerciseFields' => function (HasMany $query) {
+            'lessons.exercises.exerciseData' => function (HasMany $query) {
                 $query->orderBy('index');
             },
-            'lessons.exercises.exerciseFields.field',
-            'lessons.exercises.exerciseFields.translations' => function (HasMany $query) {
+            'lessons.exercises.exerciseData.translations' => function (HasMany $query) {
                 $query->orderBy('language_id');
             },
-            'lessons.exercises.exerciseFields.translations.language'
+            'lessons.exercises.exerciseData.translations.language'
         ]);
 
-        $data['title'] = (string)$this->model;
-        $data['language'] = $this->model->language->code;
-        $data['level'] = $this->model->level->name;
+        $content['title'] = isset($this->model->title) ? $this->model->title : (string)$this->model;
+        $content['description'] = isset($this->model->description) ? $this->model->description : "";
+        $content['language'] = $this->model->language->code;
+        $content['level'] = $this->model->level->scale;
+        $content['topic'] = $this->model->topic->identifier;
+        $content['player_version'] = $this->model->player_version;
+        $content['review_exercises'] = $this->model->review_exercises;
 
         foreach ($this->model->lessons as $lesson)
-            $data['lessons'][] = $lesson->repository()->toArray();
+            $content['lessons'][] = $lesson->repository()->toArray();
 
-        return $data;
+        return $content;
     }
 
     /**

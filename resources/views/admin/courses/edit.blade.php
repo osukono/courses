@@ -9,10 +9,10 @@
         @method('patch')
         @csrf
 
+        @input(['name' => 'title', 'label' => 'Title', 'default' => $course->title])
         @textarea(['name' => 'description', 'label' => 'Description', 'default' => $course->description])
-        @input(['name' => 'demo_lessons', 'label' => 'Number of Demo Lessons', 'default' => $course->demo_lessons])
-        @input(['name' => 'price', 'label' => 'Price', 'default' => $course->price])
-        @include('html.form.switch', ['name' => 'published', 'label' => 'Published', 'default' => $course->published])
+        @input(['name' => 'review_exercises', 'label' => 'Review Exercises', 'default' => $course->review_exercises])
+        @input(['name' => 'version', 'label' => 'Version', 'default' => $course->minor_version])
 
         @submit(['text' => 'Save'])
         @cancel(['route' => route('admin.courses.show', $course)])

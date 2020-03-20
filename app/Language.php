@@ -9,18 +9,22 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
+
 /**
  * App\Language
  *
  * @property int $id
  * @property string $name
+ * @property string $native
  * @property string $code
+ * @property string|null $icon
  * @property string $slug
+ * @property string|null $firebase_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $editors
  * @property-read int|null $editors_count
- * @property-read \App\TextToSpeechSettings $textToSpeechSettings
+ * @property-read \App\PlayerSettings $playerSettings
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language findSimilarSlugs($attribute, $config, $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language newQuery()
@@ -28,8 +32,11 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language query()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereFirebaseId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereIcon($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereNative($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereUpdatedAt($value)
  * @mixin \Eloquent
@@ -40,6 +47,7 @@ class Language extends Model
 
     protected $fillable = [
         'name',
+        'native',
         'code'
     ];
 
@@ -52,15 +60,15 @@ class Language extends Model
     }
 
     /**
-     * @return HasOne|TextToSpeechSettings
+     * @return HasOne|PlayerSettings
      */
-    public function textToSpeechSettings()
+    public function playerSettings()
     {
-        return $this->hasOne(TextToSpeechSettings::class);
+        return $this->hasOne(PlayerSettings::class);
     }
 
-    /** @var LanguageRepository */
-    private $repository;
+
+    private LanguageRepository $repository;
 
     /**
      * @return LanguageRepository

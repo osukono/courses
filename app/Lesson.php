@@ -9,23 +9,26 @@ use HighSolutions\EloquentSequence\Sequence;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Str;
 
 /**
  * App\Lesson
  *
  * @property int $id
  * @property int $content_id
- * @property string $uuid
  * @property string $title
+ * @property int $index
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \App\Content $content
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Exercise[] $exercises
  * @property-read int|null $exercises_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Altek\Accountant\Models\Ledger[] $ledgers
+ * @property-read int|null $ledgers_count
  * @method static bool|null forceDelete()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson newQuery()
@@ -38,16 +41,12 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereIndex($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereUuid($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Lesson withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Lesson withoutTrashed()
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\Altek\Accountant\Models\Ledger[] $ledgers
- * @property-read int|null $ledgers_count
- * @property int $index
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereIndex($value)
  */
 class Lesson extends Model implements Recordable
 {
@@ -79,6 +78,14 @@ class Lesson extends Model implements Recordable
     }
 
     /**
+     * @return MorphToMany|Language
+     */
+    public function disabled()
+    {
+        return $this->morphToMany(Language::class, 'disabled', 'disabled_content');
+    }
+
+    /**
      * Return the sequence configuration array for this model.
      *
      * @return array
@@ -92,8 +99,7 @@ class Lesson extends Model implements Recordable
         ];
     }
 
-    /** @var LessonRepository */
-    private $repository;
+    private LessonRepository $repository;
 
     /**
      * @return LessonRepository

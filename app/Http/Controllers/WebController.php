@@ -9,7 +9,7 @@ class WebController extends Controller
 {
     public function index()
     {
-        $data['courses'] = CourseRepository::all()->where('published', true)->get();
+        $data['courses'] = CourseRepository::all()/*->where('uploaded_at', '!=', null)*/->ordered()->get();
         $data['htmlTitle'] = __('web.html.title.index');
 
         return view('index')->with($data);

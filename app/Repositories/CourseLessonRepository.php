@@ -8,8 +8,7 @@ use App\CourseLesson;
 
 class CourseLessonRepository
 {
-    /** @var CourseLesson $model */
-    private $model;
+    private CourseLesson $model;
 
     public function __construct(CourseLesson $courseLesson)
     {
@@ -24,6 +23,26 @@ class CourseLessonRepository
             return array_slice($this->model->content['exercises'], (int) count($this->model->content['exercises']) / 2);
 
         return [];
+    }
+
+    /**
+     * @return CourseLesson|null
+     */
+    public function previous()
+    {
+        return CourseLesson::where('course_id', $this->model->course_id)
+            ->where('index', '<', $this->model->index)
+            ->orderBy('index', 'desc')->first();
+    }
+
+    /**
+     * @return CourseLesson|null
+     */
+    public function next()
+    {
+        return CourseLesson::where('course_id', $this->model->course_id)
+            ->where('index', '>', $this->model->index)
+            ->orderBy('index', 'asc')->first();
     }
 
     public function model()

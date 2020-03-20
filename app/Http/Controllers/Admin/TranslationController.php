@@ -12,7 +12,7 @@ use App\Jobs\CommitContent;
 use App\Language;
 use App\Lesson;
 use App\Library\Permissions;
-use App\Repositories\ExerciseFieldRepository;
+use App\Repositories\ExerciseDataRepository;
 use App\Repositories\ExerciseRepository;
 use App\Repositories\LanguageRepository;
 use App\Repositories\LessonRepository;
@@ -74,12 +74,10 @@ class TranslationController extends Controller
             ->ordered()->get();
         $data['exercises'] = $lesson->exercises()
             ->with([
-                'exerciseFields' => function (HasMany $query) {
+                'exerciseData' => function (HasMany $query) {
                     $query->orderBy('index');
                 },
-                'exerciseFields.field',
-                'exerciseFields.field.dataType',
-                'exerciseFields.translations' => function (HasMany $query) use ($language) {
+                'exerciseData.translations' => function (HasMany $query) use ($language) {
                     $query->where('language_id', $language->id);
                 },
             ])
@@ -87,6 +85,14 @@ class TranslationController extends Controller
         $data['previous'] = $lesson->repository()->previous();
         $data['next'] = $lesson->repository()->next();
         $data['trashed'] = ExerciseRepository::trashed()->where('lesson_id', $lesson->id)->count();
+
+//        try {
+//            foreach ($data['exercises'] as $exercise)
+//                foreach ($exercise->exerciseData as $exerciseData)
+//                    $exerciseData->translations->first()->repository()->synthesizeAudio();
+//        } catch (Exception $ex) {
+//
+//        }
 
         return view('admin.translations.lessons.show')->with($data);
     }
@@ -103,13 +109,13 @@ class TranslationController extends Controller
         $this->authorize('access', $exercise->lesson->content);
         $this->authorize('access', $language);
 
-        if (Auth::getUser()->can(Permissions::update_content) && $request->has('field')) {
-            $editedField = ExerciseFieldRepository::find($request->get('field'))->model();
+        if (Auth::getUser()->can(Permissions::update_content) && $request->has('data')) {
+            $editData = ExerciseDataRepository::find($request->get('data'))->model();
 
-            $data['editedField'] = $editedField;
+            $data['editData'] = $editData;
 
-            if ($editedField->translations()->where('language_id', $language->id)->doesntExist()) {
-                TranslationRepository::create($language, $editedField);
+            if ($editData->translations()->where('language_id', $language->id)->doesntExist()) {
+                TranslationRepository::create($language, $editData);
             }
         }
 
@@ -118,7 +124,7 @@ class TranslationController extends Controller
         $data['content'] = $exercise->lesson->content;
         $data['languages'] = LanguageRepository::all()
             ->whereNotIn('id', [$exercise->lesson->content->language->id])->get();
-        $data['exerciseFields'] = $exercise->exerciseFields()
+        $data['exerciseData'] = $exercise->exerciseData()
             ->with([
                 'translations' => function (HasMany $query) use ($language) {
                     $query->where('language_id', $language->id);
@@ -140,13 +146,13 @@ class TranslationController extends Controller
      */
     public function update(TranslationUpdateRequest $request, Translation $translation)
     {
-        $this->authorize('access', $translation->exerciseField->exercise->lesson->content);
+        $this->authorize('access', $translation->exerciseData->exercise->lesson->content);
         $this->authorize('access', $translation->language);
 
         $translation->repository()->update($request->all());
         $translation->repository()->updateAudio($request);
 
-        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseField->exercise]);
+        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseData->exercise]);
     }
 
     /**
@@ -156,12 +162,12 @@ class TranslationController extends Controller
      */
     public function deleteAudio(Translation $translation)
     {
-        $this->authorize('access', $translation->exerciseField->exercise->lesson->content);
+        $this->authorize('access', $translation->exerciseData->exercise->lesson->content);
         $this->authorize('access', $translation->language);
 
         $translation->repository()->deleteAudio();
 
-        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseField->exercise, 'field' => $translation->exerciseField->id])
+        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseData->exercise, 'field' => $translation->exerciseField->id])
             ->with('message', __('admin.messages.deleted.success', ['object' => 'Audio']));
     }
 
@@ -172,7 +178,7 @@ class TranslationController extends Controller
      */
     public function synthesizeAudio(Translation $translation)
     {
-        $this->authorize('access', $translation->exerciseField->exercise->lesson->content);
+        $this->authorize('access', $translation->exerciseData->exercise->lesson->content);
         $this->authorize('access', $translation->language);
 
         try {
@@ -181,7 +187,7 @@ class TranslationController extends Controller
             return back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseField->exercise]);
+        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseData->exercise]);
     }
 
     /**
@@ -197,7 +203,7 @@ class TranslationController extends Controller
 
         return response($content->repository()->toPlainText($language), 200)
             ->header('Content-Type', 'text/plain')
-            ->header('Content-Disposition' , 'attachment; filename="' . $content . ' - ' . $language . '.txt"');
+            ->header('Content-Disposition', 'attachment; filename="' . $content . ' - ' . $language . '.txt"');
     }
 
     /**

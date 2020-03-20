@@ -35,6 +35,11 @@ class LanguageUpdateRequest extends FormRequest
                 'max:50',
                 Rule::unique('languages', 'name')->ignore($this->language->id),
             ],
+            'native' => [
+                'bail',
+                'string',
+                'max:50'
+            ],
             'code' => [
                 'bail',
                 'required',
@@ -43,22 +48,29 @@ class LanguageUpdateRequest extends FormRequest
                 'max:12',
                 Rule::unique('languages', 'code')->ignore($this->language->id),
             ],
+            'firebase_id' => [
+                'bail',
+                'nullable',
+                'string',
+                'max:255',
+                Rule::unique('languages', 'firebase_id')->ignore($this->language->id),
+            ],
             'voice_name' => [
                 'bail',
-                'sometimes',
+                'nullable',
                 'string',
                 'max:255'
             ],
             'speaking_rate' => [
                 'bail',
-                'sometimes',
+                'nullable',
                 'numeric',
                 'min:0.25',
                 'max:4.00'
             ],
             'pitch' => [
                 'bail',
-                'sometimes',
+                'nullable',
                 'numeric',
                 'min:-20.00',
                 'max:20.00'

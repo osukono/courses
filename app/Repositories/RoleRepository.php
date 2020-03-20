@@ -9,8 +9,7 @@ use Spatie\Permission\Models\Role;
 
 class RoleRepository
 {
-    /** @var Role $model */
-    private $model;
+    private Role $model;
 
     public function __construct(Role $role)
     {

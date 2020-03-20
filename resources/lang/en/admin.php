@@ -39,6 +39,8 @@ return [
             'success' => ':object restored.',
             'is_not_trashed' => ':object is not trashed.',
         ],
+        'disabled' => ':object disabled.',
+        'enabled' => ':object enabled',
         'editors' => [
             'assigned' => ':subject assigned to :object\'s editors.',
             'removed' => ':subject removed from :object\'s editors.',

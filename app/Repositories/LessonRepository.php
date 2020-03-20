@@ -15,8 +15,7 @@ use Illuminate\Support\Str;
 
 class LessonRepository
 {
-    /** @var Lesson $model */
-    protected $model;
+    protected Lesson $model;
 
     /**
      * LessonRepository constructor.
@@ -53,7 +52,6 @@ class LessonRepository
     {
         $lesson = new Lesson();
         $lesson->content()->associate($content);
-        $lesson->uuid = Str::uuid();
         $lesson->title = $attributes['title'];
         $lesson->save();
 
@@ -98,6 +96,22 @@ class LessonRepository
     }
 
     /**
+     * @param Language $language
+     */
+    public function disable(Language $language)
+    {
+        $this->model->disabled()->syncWithoutDetaching($language);
+    }
+
+    /**
+     * @param Language $language
+     */
+    public function enable(Language $language)
+    {
+        $this->model->disabled()->detach($language);
+    }
+
+    /**
      * @return Lesson|null
      */
     public function previous()
@@ -126,22 +140,21 @@ class LessonRepository
             'exercises' => function (HasMany $query) {
                 $query->orderBy('index');
             },
-            'exercises.exerciseFields' => function (HasMany $query) {
+            'exercises.exerciseData' => function (HasMany $query) {
                 $query->orderBy('index');
             },
-            'exercises.exerciseFields.field',
-            'exercises.exerciseFields.translations' => function (HasMany $query) {
+            'exercises.exerciseData.translations' => function (HasMany $query) {
                 $query->orderBy('language_id');
             },
-            'exercises.exerciseFields.translations.language'
+            'exercises.exerciseData.translations.language'
         ]);
 
-        $data['title'] = $this->model->title;
+        $content['title'] = $this->model->title;
 
         foreach ($this->model->exercises as $exercise)
-            $data['exercises'][] = $exercise->repository()->toArray();
+            $content['exercises'][] = $exercise->repository()->toArray();
 
-        return $data;
+        return $content;
     }
 
     /**

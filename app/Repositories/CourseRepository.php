@@ -7,13 +7,15 @@ namespace App\Repositories;
 use App\Content;
 use App\Course;
 use App\Language;
-use App\Level;
+use App\Library\Firebase;
+use Exception;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 
 class CourseRepository
 {
-    /** @var Course $model */
-    private $model;
+    private Course $model;
 
     public function __construct(Course $course)
     {
@@ -29,19 +31,31 @@ class CourseRepository
         return Course::findOrFail($id)->repository();
     }
 
-    public static function findOrCreate(Language $language, Language $translation, Level $level)
+    public static function findOrCreate(Content $content, Language $translation)
     {
-        $course = Course::where('language_id', $language->id)
+        /** @var Course $course */
+        $course = Course::where('language_id', $content->language->id)
             ->where('translation_id', $translation->id)
-            ->where('level_id', $level->id)->first();
+            ->where('level_id', $content->level->id)
+            ->where('topic_id', $content->topic->id)
+            ->where('major_version', $content->version)->first();
 
         if ($course == null) {
             $course = new Course();
-            $course->language()->associate($language);
+            $course->language()->associate($content->language);
             $course->translation()->associate($translation);
-            $course->level()->associate($level);
+            $course->level()->associate($content->level);
+            $course->topic()->associate($content->topic);
+            $course->major_version = $content->version;
+            $course->minor_version = 0;
             $course->save();
         }
+
+        $course->title = $content->title;
+        $course->description = $content->description;
+        $course->player_version = $content->player_version;
+        $course->review_exercises = $content->review_exercises;
+        $course->save();
 
         return $course;
     }
@@ -59,10 +73,10 @@ class CourseRepository
      */
     public function update(array $attributes)
     {
+        $this->model->title = $attributes['title'];
         $this->model->description = $attributes['description'];
-        $this->model->demo_lessons = $attributes['demo_lessons'];
-        $this->model->price = $attributes['price'];
-        $this->model->published = isset($attributes['published']);
+        $this->model->review_exercises = $attributes['review_exercises'];
+        $this->model->minor_version = $attributes['version'];
         $this->model->save();
     }
 
@@ -71,7 +85,7 @@ class CourseRepository
         if ($number <= 0)
             return [];
 
-        $lesson = $this->model->latestContent->courseLessons()->where('number', $number)->first();
+        $lesson = $this->model->courseLessons()->where('index', $number)->first();
 
         if ($lesson == null)
             return [];
@@ -86,6 +100,55 @@ class CourseRepository
         $rand_keys = array_rand($exercises, count($exercises) / 2);
 
         return array_values(array_intersect_key($exercises, array_flip($rand_keys)));
+    }
+
+    /**
+     * @param Request $request
+     * @throws FileNotFoundException
+     */
+    public function uploadImage(Request $request)
+    {
+//        if (!isset($this->model->firebase_id))
+//            return;
+
+        $image = Firebase::getInstance()->uploadFile($request->file('image'), 'courses');
+
+        $this->model->image = $image;
+        $this->model->save();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function firestoreUpdate()
+    {
+        if (! isset($this->model->firebase_id))
+            throw new Exception("The course doesn't have a firestore reference.");
+
+        $firestore = Firebase::getInstance()->firestoreClient();
+
+        $firestore->collection(Firebase::courses_collection)->document($this->model->firebase_id)
+            ->set([
+                'title' => $this->model->title,
+                'description' => $this->model->description,
+                'icon' => $this->model->image,
+                'player_version' => $this->model->player_version,
+                'review_exercises' => $this->model->review_exercises,
+            ], ['merge' => true]);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function switchIsUpdating()
+    {
+        if (! isset($this->model->firebase_id))
+            throw new Exception($this->model . '. Firebase ID is not set.');
+
+        FirebaseCourseRepository::setIsUpdating($this->model, !$this->model->is_updating);
+
+        $this->model->is_updating = !$this->model->is_updating;
+        $this->model->save();
     }
 
     /**

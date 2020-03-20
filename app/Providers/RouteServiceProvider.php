@@ -17,19 +17,22 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace = 'App\Http\Controllers';
 
     private $id = [
+        'topic',
+        'level',
+        'content',
         'lesson',
         'exercise',
-        'exerciseField',
+        'exerciseData',
         'translation',
+        'course',
+        'courseLesson',
         'jobStatus',
         'user',
         'role'
     ];
 
     private $slug = [
-        'content',
         'language',
-        'course'
     ];
 
     private $uuid = [

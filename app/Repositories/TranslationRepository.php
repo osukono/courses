@@ -4,12 +4,14 @@
 namespace App\Repositories;
 
 
+use App\ExerciseData;
 use App\ExerciseField;
 use App\Language;
 use App\Library\Audio;
 use App\Library\Str;
 use App\Library\TextToSpeech;
 use App\Translation;
+use Exception;
 use Google\ApiCore\ApiException;
 use Google\ApiCore\ValidationException;
 use Illuminate\Http\Request;
@@ -17,8 +19,7 @@ use Illuminate\Support\Facades\Storage;
 
 class TranslationRepository
 {
-    /** @var Translation $translation */
-    private $model;
+    private Translation $model;
 
     public function __construct(Translation $translation)
     {
@@ -27,14 +28,14 @@ class TranslationRepository
 
     /**
      * @param Language $language
-     * @param ExerciseField $exerciseField
+     * @param ExerciseData $exerciseData
      * @return Translation
      */
-    public static function create(Language $language, ExerciseField $exerciseField)
+    public static function create(Language $language, ExerciseData $exerciseData)
     {
         $translation = new Translation();
         $translation->language()->associate($language);
-        $translation->exerciseField()->associate($exerciseField);
+        $translation->exerciseData()->associate($exerciseData);
         $translation->save();
 
         return $translation;
@@ -62,7 +63,7 @@ class TranslationRepository
      */
     public function updateAudio(Request $request)
     {
-        if ($this->model->exerciseField->field->audible && $request->has('audio')) {
+        if ($request->has('audio')) {
             $audio = $request->file('audio')->store('');
             $this->model->update(['content->audio' => $audio]);
 
@@ -84,8 +85,14 @@ class TranslationRepository
      */
     public function synthesizeAudio()
     {
+        $speechSettings = SpeechSettingsRepository::find($this->model->exerciseData->exercise->lesson->content,
+            $this->model->language);
+
+        if ($speechSettings == null)
+            throw new Exception('Speech Settings is not set.');
+
         $audioContent = TextToSpeech::synthesizeSpeech(
-            $this->model->language, Str::toPlainText($this->model->content['value']));
+            $speechSettings, Str::toPlainText($this->model->content['value']));
 
         // It is important file names do not contain dashes.
         $path = \Illuminate\Support\Str::random(42) . '.wav';
@@ -108,14 +115,10 @@ class TranslationRepository
 
     public function toArray()
     {
-        $this->model->loadMissing([
-            'language'
-        ]);
+        $content['language'] = $this->model->language->code;
+        $content['content'] = $this->model->content;
 
-        $data['language'] = $this->model->language->code;
-        $data['content'] = $this->model->content;
-
-        return $data;
+        return $content;
     }
 
     /**

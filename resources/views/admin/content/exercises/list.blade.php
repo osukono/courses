@@ -12,8 +12,8 @@
             <td>{{ $exercise->index }}</td>
             <td class="clickable-row last-child-mb-0"
                 data-href="{{ route('admin.exercises.show', $exercise) }}">
-                @foreach($exercise->exerciseFields as $exerciseField)
-                    @include('admin.content.exercises.fields.show')
+                @foreach($exercise->exerciseData as $data)
+                    @include('admin.content.exercises.data.show')
                 @endforeach
             </td>
             <td class="text-nowrap text-right">{{ $exercise->updated_at->diffForHumans() }}</td>

@@ -42,13 +42,10 @@
                         <a href="{{ route('admin.languages.index') }}">Languages</a>
                     </li>
                     <li>
-                        <a href="#" class="text-muted">Exercise Fields</a>
+                        <a href="{{ route('admin.topics.index') }}">Topics</a>
                     </li>
                     <li>
                         <a href="{{ route('admin.users.index') }}">Users</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-muted">Roles</a>
                     </li>
                 </ul>
             </li>

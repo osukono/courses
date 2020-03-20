@@ -26,10 +26,10 @@ class CourseUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'description' => ['bail', 'nullable', 'string', 'max:65535'],
-            'demo_lessons' => ['bail', 'required', 'integer', 'min:0'],
-            'price' => ['bail', 'required', 'numeric', 'min:0'],
-            'published' => ['bail', 'nullable', Rule::in(Checkbox::$acceptable)],
+            'title' => ['bail', 'required', 'string', 'max:255'],
+            'description' => ['bail', 'required', 'string', 'max:500'],
+            'review_exercises' => ['bail', 'required', 'integer', 'min:0'],
+            'version' => ['bail', 'required', 'integer', 'min:1'],
         ];
     }
 }
