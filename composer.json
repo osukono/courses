@@ -17,6 +17,7 @@
         "google/cloud-firestore": "^1.11",
         "google/cloud-text-to-speech": "^0.5.0",
         "google/protobuf": "^3.11",
+        "grpc/grpc": "^v1.1.0",
         "guzzlehttp/guzzle": "^6.5",
         "highsolutions/eloquent-sequence": "^3.6",
         "imtigger/laravel-job-status": "^0.2.2",
