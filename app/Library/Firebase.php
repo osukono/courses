@@ -84,6 +84,7 @@ final class Firebase
 
     public function firestoreClient(): FirestoreClient
     {
+        \Log::info('Firebase Uri ' . env('FIREBASE_URI'));
         if (! isset(static::$firestoreClient)) {
             static::$firestoreClient = (new Factory())
                 ->withServiceAccount(static::$serviceAccount)
