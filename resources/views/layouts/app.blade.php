@@ -51,7 +51,10 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <img src="{{ URL::asset('images/google_play.svg') }}" alt="Google Play" width="148" height="44">
+                        <a href="https://play.google.com/store/apps/details?id=com.yummylingo.app">
+                            <img src="{{ URL::asset('images/google_play.svg') }}" alt="Google Play" width="148"
+                                 height="44">
+                        </a>
                         <img class="ml-1" src="{{ URL::asset('images/app_store.svg') }}" alt="App Store" width="148"
                              height="44">
                     </div>

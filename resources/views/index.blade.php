@@ -19,7 +19,9 @@
                 <h1 class="text-primary">{{ __('web.index.section.app.header') }}</h1>
                 <div class="lead mt-4">{{ __('web.index.section.app.text') }}</div>
                 <div class="mt-4 text-center text-md-left">
-                    <img src="{{ URL::asset('images/google_play.svg') }}" alt="Google Play" width="148" height="44">
+                    <a href="https://play.google.com/store/apps/details?id=com.yummylingo.app">
+                        <img src="{{ URL::asset('images/google_play.svg') }}" alt="Google Play" width="148" height="44">
+                    </a>
                     <img class="ml-1" src="{{ URL::asset('images/app_store.svg') }}" alt="App Store"
                          width="148"
                          height="44">
@@ -29,21 +31,21 @@
     </div>
 
     @if(!$courses->isEmpty())
-    <div class="container-fluid mt-5" style="background-color: #D9DFF6;">
-        <div class="container">
-            <div class="row py-3">
-                <div class="col-12 col-md-8 text-center align-self-center">
-                    <h4 class="text-primary mb-0">
-                        {{ __('web.index.section.promo.text', ['course' => $courses->first()->language->name . ' ' . $courses->first()->level->name]) }}
-                    </h4>
-                </div>
-                <div class="col-12 text-center pt-3 pr-0 col-md-4 pt-md-0 pr-md-5">
-                    <a class="btn btn-primary btn-lg rounded-pill shadow-sm"
-                       href="#">{{ __('web.index.section.promo.button') }}</a>
+        <div class="container-fluid mt-5" style="background-color: #D9DFF6;">
+            <div class="container">
+                <div class="row py-3">
+                    <div class="col-12 col-md-8 text-center align-self-center">
+                        <h4 class="text-primary mb-0">
+                            {{ __('web.index.section.promo.text', ['course' => $courses->first()->language->name . ' ' . $courses->first()->level->name]) }}
+                        </h4>
+                    </div>
+                    <div class="col-12 text-center pt-3 pr-0 col-md-4 pt-md-0 pr-md-5">
+                        <a class="btn btn-primary btn-lg rounded-pill shadow-sm"
+                           href="#">{{ __('web.index.section.promo.button') }}</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     @endif
 
     <div class="container-fluid">
