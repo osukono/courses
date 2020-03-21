@@ -28,6 +28,11 @@
 
             <div>
                 <ul class="navbar-nav ml-auto">
+                    @can(\App\Library\Permissions::view_admin_panel)
+                        <a class="btn btn-lg btn-link rounded-pill mr-md-2 mr-0"
+                           href="{{ route('admin.dashboard') }}"
+                           >Content</a>
+                    @endif
                     <a class="btn btn-lg btn-outline-primary rounded-pill"
                        href="https://play.google.com/store/apps/details?id=com.yummylingo.app"
                        target="_blank">{{ __('web.header.download') }}</a>
