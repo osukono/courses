@@ -30,7 +30,7 @@
                 <ul class="navbar-nav ml-auto">
                     @can(\App\Library\Permissions::view_admin_panel)
                         <a class="btn btn-lg btn-link mr-md-2 mr-0"
-                           href="{{ route('admin.dashboard') }}"
+                           href="{{ route('admin.content.index') }}"
                            >Content</a>
                     @endif
                     <a class="btn btn-lg btn-outline-primary rounded-pill"

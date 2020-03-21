@@ -115,9 +115,10 @@ class ContentRepository
 
     /**
      * @param Language|null $language
+     * @param bool $withTarget
      * @return string
      */
-    public function toPlainText(Language $language = null)
+    public function toPlainText(Language $language = null, bool $withTarget = true)
     {
         $content = $this->toArray();
 
@@ -131,7 +132,7 @@ class ContentRepository
                     continue;
 
                 foreach ($exercise['data'] as $fieldKey => $field) {
-                    if (isset($field['content']['value']))
+                    if ($withTarget && isset($field['content']['value']))
                         $data .= Str::toPlainText($field['content']['value']) . PHP_EOL;
 
                     if ($language != null && isset($field['translations'])) {

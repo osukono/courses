@@ -23,11 +23,14 @@
 
                     <h6 class="dropdown-header">Download</h6>
                     <a class="dropdown-item"
-                       href="{{ route('admin.translations.content.export', [$language, $content]) }}">{{ $language }}</a>
+                       href="{{ route('admin.translations.content.export', [$language, $content]) }}">{{ $language->native }}</a>
+                    <a class="dropdown-item"
+                       href="{{ route('admin.translations.content.export', [$language, $content]) }}?target=1">{{ $content->language->native . ' + ' . $language->native }}</a>
 
                     @can(\App\Library\Permissions::update_translations)
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('admin.translations.speech.settings.edit', [$language, $content]) }}">
+                        <a class="dropdown-item"
+                           href="{{ route('admin.translations.speech.settings.edit', [$language, $content]) }}">
                             Speech Settings
                         </a>
                     @endcan

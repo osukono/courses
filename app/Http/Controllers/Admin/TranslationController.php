@@ -191,17 +191,18 @@ class TranslationController extends Controller
     }
 
     /**
+     * @param Request $request
      * @param Language $language
      * @param Content $content
      * @return ResponseFactory|Response
      * @throws AuthorizationException
      */
-    public function export(Language $language, Content $content)
+    public function export(Request $request, Language $language, Content $content)
     {
         $this->authorize('access', $content);
         $this->authorize('access', $language);
 
-        return response($content->repository()->toPlainText($language), 200)
+        return response($content->repository()->toPlainText($language, $request->has('target')), 200)
             ->header('Content-Type', 'text/plain')
             ->header('Content-Disposition', 'attachment; filename="' . $content . ' - ' . $language . '.txt"');
     }
