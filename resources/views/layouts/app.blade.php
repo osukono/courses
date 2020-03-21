@@ -29,7 +29,7 @@
             <div>
                 <ul class="navbar-nav ml-auto">
                     @can(\App\Library\Permissions::view_admin_panel)
-                        <a class="btn btn-lg btn-link rounded-pill mr-md-2 mr-0"
+                        <a class="btn btn-lg btn-link mr-md-2 mr-0"
                            href="{{ route('admin.dashboard') }}"
                            >Content</a>
                     @endif
