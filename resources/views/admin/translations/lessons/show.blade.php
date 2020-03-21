@@ -31,6 +31,8 @@
 @endsection
 
 @section('content')
+    <h4>{{ $language->native }}</h4>
+
     @if($exercises->count())
         @include('admin.translations.exercises.list')
     @endif
