@@ -17,7 +17,7 @@
     <div id="apps" class="container pt-4">
         <div class="row">
             <div class="d-none col-5 text-center d-lg-table-cell">
-                <img src="{{ URL::asset('/images/screen.png') }}" class="w-50 border rounded shadow">
+                <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen')) }}" class="w-50 border rounded shadow">
             </div>
             <div class="col-10 offset-1 text-center col-lg-7 offset-lg-0 text-md-left">
                 <h1 class="text-primary">{{ __('web.index.section.app.header') }}</h1>
