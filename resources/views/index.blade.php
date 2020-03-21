@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-12 text-center pt-3 pl-0 pr-0 col-md-4 pt-md-0 pr-md-5">
                         <a class="btn btn-primary btn-lg rounded-pill shadow-sm"
-                           href="#">{{ __('web.index.section.promo.button') }}</a>
+                           href="https://play.google.com/store/apps/details?id=com.yummylingo.app">{{ __('web.index.section.promo.button') }}</a>
                     </div>
                 </div>
             </div>
