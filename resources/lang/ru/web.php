@@ -41,7 +41,7 @@ return [
             ],
             'app' => [
                 'header' => 'Уроки языка, которые всегда под рукой.',
-                'text' => 'Download the app and with everyday practice, you will be able to use English grammar without translating in your mind.'
+                'text' => 'Загрузите приложение и получите доступ к курсам, разработанных самыми опытными учителями которых мы можем вам только предложить. Практикуйте иностранные языки в удобное для вас время. '
             ],
             'promo' => [
                 'text' => 'Начните изучать :course БЕСПЛАТНО',

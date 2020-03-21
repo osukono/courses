@@ -17,8 +17,8 @@ return [
                 'button' => "Дізнатися більше"
             ],
             'app' => [
-                'header' => 'Уроки з іноземної мови, які завжди під рукою.',
-                'text' => 'Download the app and with everyday practice, you will be able to use English grammar without translating in your mind.'
+                'header' => 'Тримайте уроки з іноземної мови завжди під рукою.',
+                'text' => 'Завантажте додаток та отримайте доступ до курсів, розроблених досвідченими вчителями. Практикуйте іноземні мови у зручний для вас час.'
             ],
             'promo' => [
                 'text' => "Вивчайте :course БЕЗКОШТОВНО",
