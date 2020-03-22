@@ -64,7 +64,7 @@
 @section('content')
     @includeWhen($content->descirption, 'admin.components.description', ['description' => $content->description])
 
-    <h4>{{ $language->native }}</h4>
+    <h4>{{ $content->language->native . ' › ' . $language->native }}</h4>
 
     @if($lessons->count())
         @include('admin.translations.lessons.list')

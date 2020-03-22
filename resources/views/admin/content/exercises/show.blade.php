@@ -59,6 +59,8 @@
 @endsection
 
 @section('content')
+    <h4>{{ $content->language->native }}</h4>
+
     @if($exerciseData->count() > 0)
         @include('admin.content.exercises.data.list')
     @endif
