@@ -33,7 +33,7 @@
 @section('content')
 
     @if($exercises->count())
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body">
                 <h5 class="card-title">@include('admin.translations.title')</h5>
                 @include('admin.translations.exercises.list')

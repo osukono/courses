@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="card">
+    <div class="card shadow-sm">
         <div class="card-body">
             <h5 class="card-title mb-4">{{ $course }}</h5>
             <form action="{{ route('admin.courses.update', $course) }}" method="post" autocomplete="off">

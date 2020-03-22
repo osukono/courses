@@ -12,7 +12,7 @@
 
 @section('content')
     @if($topics->count())
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body">
                 @include('admin.topics.list')
             </div>

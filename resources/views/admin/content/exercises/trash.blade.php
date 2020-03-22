@@ -10,7 +10,7 @@
 
 @section('content')
     @if($exercises->count() > 0)
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-striped table-borderless">

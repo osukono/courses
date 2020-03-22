@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="card">
+    <div class="card shadow-sm">
         <div class="card-body">
             <h5 class="card-title mb-4">{{ $content->language->native }}</h5>
             <form action="{{ route('admin.content.speech.settings.update', $content) }}" method="post" autocomplete="off">

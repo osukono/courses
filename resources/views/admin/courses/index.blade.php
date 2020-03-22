@@ -6,7 +6,7 @@
 
 @section('content')
     @if($courses->count())
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body">
                 @include('admin.courses.list')
             </div>

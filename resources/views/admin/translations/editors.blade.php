@@ -14,33 +14,37 @@
 
 @section('content')
     @if($editors->count())
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Roles</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($editors as $editor)
-                    <tr>
-                        <td>{{ $editor->name }}</td>
-                        <td>{{ $editor->roles->implode('name', ',') }}</td>
-                        <td class="text-right">
-                            <form class="mr-1"
-                                  action="{{ route('admin.translations.editors.remove', [$language, $content]) }}"
-                                  method="post">
-                                @csrf
-                                <input type="hidden" id="user_id" name="user_id" value="{{ $editor->id }}">
-                                <button type="submit" class="btn btn-link btn-sm">Remove</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Roles</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($editors as $editor)
+                            <tr>
+                                <td>{{ $editor->name }}</td>
+                                <td>{{ $editor->roles->implode('name', ',') }}</td>
+                                <td class="text-right">
+                                    <form class="mr-1"
+                                          action="{{ route('admin.translations.editors.remove', [$language, $content]) }}"
+                                          method="post">
+                                        @csrf
+                                        <input type="hidden" id="user_id" name="user_id" value="{{ $editor->id }}">
+                                        <button type="submit" class="btn btn-link btn-sm">Remove</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     @endif
 

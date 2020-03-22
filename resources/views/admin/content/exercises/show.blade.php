@@ -60,7 +60,7 @@
 
 @section('content')
     @if($exerciseData->count() > 0)
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body">
                 <h5 class="card-title">@include('admin.content.title')</h5>
                 @include('admin.content.exercises.data.list')
