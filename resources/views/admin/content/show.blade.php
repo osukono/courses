@@ -78,7 +78,7 @@
 @endsection
 
 @section('content')
-    <div class="card bg-light mb-3" style="cursor: pointer"
+    <div class="card bg-light mb-4" style="cursor: pointer"
          onclick="window.location.href='{{ route('admin.content.edit', $content) }}';">
         <div class="card-body">
             @isset($content->title)
