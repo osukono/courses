@@ -7,14 +7,21 @@
 @section('toolbar')
     <div class="btn-group" role="group">
         <button type="button" class="btn btn-info"
-           data-toggle="modal" data-target="#assignRole">
+                data-toggle="modal" data-target="#assignRole">
             @include('admin.components.svg.plus')
         </button>
     </div>
 @endsection
 
 @section('content')
-    @includeWhen($assignedRoles->count(), 'admin.users.roles')
+    @if($assignedRoles->count())
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Roles</h5>
+                @include('admin.users.roles')
+            </div>
+        </div>
+    @endif
 
     <div class="modal" id="assignRole" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -32,7 +39,9 @@
                             <tr>
                                 <td>{{ $role->name }}</td>
                                 <td class="text-right">
-                                    <form id="role-{{ $role->id }}->assign" action="{{ route('admin.users.roles.assign', [$user, $role]) }}" method="post" autocomplete="off">
+                                    <form id="role-{{ $role->id }}->assign"
+                                          action="{{ route('admin.users.roles.assign', [$user, $role]) }}" method="post"
+                                          autocomplete="off">
                                         @csrf
                                         @method('patch')
                                         <input type="submit" value="Assign" class="btn btn-sm btn-link">
