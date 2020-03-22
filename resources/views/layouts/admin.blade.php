@@ -66,11 +66,11 @@
         </nav>
 
         <main role="main" class="">
-            <div class="row bg-white border-bottom pt-3 pb-3 mb-3">
+            <div class="row bg-white border-bottom pt-3 pb-3 mb-3" style="min-height: 70px">
                 <div class="col text-nowrap align-self-center">
                     @yield('breadcrumbs')
                 </div>
-                <div class="col-auto">
+                <div class="col-auto align-self-center">
                     @yield('toolbar')
                 </div>
             </div>
