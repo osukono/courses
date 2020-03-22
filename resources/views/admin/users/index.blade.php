@@ -8,6 +8,7 @@
     @if($users->count())
         <div class="card shadow-sm">
             <div class="card-body">
+                <h5 class="card-title mb-4">Users</h5>
                 @include('admin.users.list')
             </div>
         </div>

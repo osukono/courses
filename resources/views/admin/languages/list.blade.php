@@ -1,7 +1,7 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col-6">Name</th>
+        <th class="col-6"></th>
         <th>Native</th>
         <th>Code</th>
         <th class="text-nowrap">Firestore ID</th>

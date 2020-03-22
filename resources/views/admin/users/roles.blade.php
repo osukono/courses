@@ -1,7 +1,7 @@
 <table class="table">
     <thead>
     <tr>
-        <th>Name</th>
+        <th></th>
         <th>Permissions</th>
         <th></th>
     </tr>

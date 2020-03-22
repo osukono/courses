@@ -14,6 +14,7 @@
     @if($topics->count())
         <div class="card shadow-sm">
             <div class="card-body">
+                <h5 class="card-title mb-4">Topics</h5>
                 @include('admin.topics.list')
             </div>
         </div>
