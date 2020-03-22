@@ -79,11 +79,11 @@
             <div class="row">
                 <div class="col-auto">
                     @isset($course->image)
-                        <img width="200" height="112" src="{{ $course->image }}" alt="Course Image"
+                        <img width="192" height="108" class="border rounded" src="{{ $course->image }}" alt="Course Image"
                              onclick="$('#course-{{ $course->id }}-image').click();" style="cursor: pointer;">
                     @else
                         <div class="text-center border bg-white align-middle d-table-cell"
-                             style="width: 200px; height: 112px;">
+                             style="width: 192px; height: 108px;">
                             <button type="button" class="btn btn-info btn-sm"
                                     onclick="$('#course-{{ $course->id }}-image').click();">
                                 Upload Image
