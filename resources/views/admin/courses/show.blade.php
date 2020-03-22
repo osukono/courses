@@ -106,7 +106,11 @@
         </div>
     </div>
 
-    @include('admin.courses.lessons')
+    <div class="card">
+        <div class="card-body">
+            @include('admin.courses.lessons')
+        </div>
+    </div>
 
     @if (Session::has('job'))
         @push('progress')
