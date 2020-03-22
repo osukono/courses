@@ -55,8 +55,9 @@
 
     </nav>
     <!-- Page Content -->
-    <div id="content" class="">
-        <nav class="navbar navbar-expand-md navbar-light d-md-none">
+    <div class="container-fluid pb-3">
+    <div id="content" class="pt-0">
+        <nav class="navbar navbar-expand-md bg-white navbar-light d-md-none">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" id="sidebarCollapse" data-target="#sidebar">
                     <span class="navbar-toggler-icon"></span>
@@ -65,8 +66,8 @@
         </nav>
 
         <main role="main" class="">
-            <div class="row mb-3">
-                <div class="col text-nowrap mb-1">
+            <div class="row bg-white border-bottom pt-3 pb-3 mb-3">
+                <div class="col text-nowrap align-self-center">
                     @yield('breadcrumbs')
                 </div>
                 <div class="col-auto">
@@ -88,6 +89,7 @@
                 </div>
             </div>
         </main>
+    </div>
     </div>
 </div>
 

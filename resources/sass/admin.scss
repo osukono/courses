@@ -62,7 +62,8 @@ $custom-range-thumb-active-bg: $cyan !default;
  */
 
 .breadcrumb {
-    background-color: $body-bg;
+    //background-color: $body-bg;
+    background-color: #fff;
     margin: 0;
     padding: 0;
 }
@@ -94,7 +95,7 @@ $custom-range-thumb-active-bg: $cyan !default;
 }
 
 .context {
-    color: #858585;
+    //color: #858585;
 }
 
 .translation {
