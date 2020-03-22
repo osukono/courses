@@ -5,5 +5,11 @@
 @endsection
 
 @section('content')
-    @includeWhen($courses->count() > 0, 'admin.courses.list')
+    @if($courses->count())
+        <div class="card">
+            <div class="card-body">
+                @include('admin.courses.list')
+            </div>
+        </div>
+    @endif
 @endsection
