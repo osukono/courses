@@ -31,7 +31,11 @@ $custom-range-thumb-active-bg: $cyan !default;
 }*/
 
 .table {
-    margin: 0 !important;
+    margin: 0;
+}
+
+.table th {
+    border-top: none;
 }
 
 .card {

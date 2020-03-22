@@ -11,5 +11,11 @@
 @endsection
 
 @section('content')
-    @includeWhen($languages->count(), 'admin.languages.list')
+    @if($languages->count())
+        <div class="card">
+            <div class="card-body">
+                @include('admin.languages.list')
+            </div>
+        </div>
+    @endif
 @endsection

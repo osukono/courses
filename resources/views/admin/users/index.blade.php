@@ -5,5 +5,11 @@
 @endsection
 
 @section('content')
-    @includeWhen($users->count(), 'admin.users.list')
+    @if($users->count())
+        <div class="card">
+            <div class="card-body">
+                @include('admin.users.list')
+            </div>
+        </div>
+    @endif
 @endsection

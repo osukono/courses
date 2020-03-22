@@ -11,5 +11,11 @@
 @endsection
 
 @section('content')
-    @includeWhen($topics->count(), 'admin.topics.list')
+    @if($topics->count())
+        <div class="card">
+            <div class="card-body">
+                @include('admin.topics.list')
+            </div>
+        </div>
+    @endif
 @endsection

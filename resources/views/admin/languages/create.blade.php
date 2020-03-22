@@ -5,19 +5,18 @@
 @endsection
 
 @section('content')
-    <form action="{{ route('admin.languages.store') }}" method="post" autocomplete="off">
-        @csrf
-        @input(['name' => 'name', 'label' => 'Name'])
-        @input(['name' => 'native', 'label' => 'Native name'])
-        @input(['name' => 'code', 'label' => 'Code'])
-        <fieldset>
-            <legend>Text to Speech</legend>
-            @input(['name' => 'voice_name', 'label' => 'Voice Name'])
-            @input(['name' => 'speaking_rate', 'label' => 'Speaking Rate'])
-            @input(['name' => 'pitch', 'label' => 'Pitch'])
-        </fieldset>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title mb-4">Add a Language</h5>
+            <form action="{{ route('admin.languages.store') }}" method="post" autocomplete="off">
+                @csrf
+                @input(['name' => 'name', 'label' => 'Name'])
+                @input(['name' => 'native', 'label' => 'Native name'])
+                @input(['name' => 'code', 'label' => 'Code'])
 
-        @submit(['text' => 'Save'])
-        @cancel(['route' => route('admin.languages.index')])
-    </form>
+                @submit(['text' => 'Save'])
+                @cancel(['route' => route('admin.languages.index')])
+            </form>
+        </div>
+    </div>
 @endsection

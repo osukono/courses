@@ -7,6 +7,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            <h5 class="card-title mb-4">{{ $content->language->native }}</h5>
             <form action="{{ route('admin.content.speech.settings.update', $content) }}" method="post" autocomplete="off">
                 @csrf
                 @input(['name' => 'voice_name', 'label' => 'Voice Name', 'default' => optional($speechSettings)->voice_name])
