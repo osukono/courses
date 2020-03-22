@@ -7,7 +7,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <div class="card-title mb-4">{{ $language->native }}</div>
+            <h5 class="card-title mb-4">{{ $language->native }}</h5>
             <form action="{{ route('admin.player.settings.update', $language) }}" method="post" autocomplete="off">
                 @csrf
                 @method('patch')
