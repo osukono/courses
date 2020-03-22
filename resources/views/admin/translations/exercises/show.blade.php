@@ -31,7 +31,7 @@
 @endsection
 
 @section('content')
-    <h4>{{ $content->language->native . ' › ' . $language->native }}</h4>
+    @include('admin.translations.title')
 
     @includeWhen($exerciseData->count(), 'admin.translations.exercises.data.list')
 @endsection

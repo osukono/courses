@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <h4>{{ $content->language->native }}</h4>
+    @include('admin.content.title')
 
     @if($lessons->count())
         @include('admin.content.lessons.list')

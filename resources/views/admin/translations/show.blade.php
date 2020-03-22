@@ -64,7 +64,7 @@
 @section('content')
     @includeWhen($content->descirption, 'admin.components.description', ['description' => $content->description])
 
-    <h4 class="text-nowrap">{{ $content->language->native . ' ' . $content->level->name . ' › ' . $language->native }}</h4>
+    @include('admin.translations.title')
 
     @if($lessons->count())
         @include('admin.translations.lessons.list')

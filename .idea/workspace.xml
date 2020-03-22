@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="" />
+    <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/content/title.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/translations/title.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/exercises/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/lessons/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/exercises/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/exercises/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/show.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -273,7 +282,7 @@
       <workItem from="1580895231744" duration="77584000" />
       <workItem from="1582201402949" duration="113776000" />
       <workItem from="1583045020558" duration="19350000" />
-      <workItem from="1583756510275" duration="89541000" />
+      <workItem from="1583756510275" duration="89825000" />
     </task>
     <servers />
   </component>
@@ -331,13 +340,13 @@
     <state x="482" y="245" key="NewPhpClassDialog/0.23.1440.797@0.23.1440.797" timestamp="1576318494687" />
     <state x="482" y="245" key="NewPhpClassDialog/0.23.1440.798@0.23.1440.798" timestamp="1583499315278" />
     <state x="482" y="246" key="NewPhpClassDialog/0.23.1440.801@0.23.1440.801" timestamp="1583735780264" />
-    <state x="541" y="351" key="NewPhpFileDialog" timestamp="1584453370358">
-      <screen x="0" y="23" width="1440" height="795" />
+    <state x="541" y="352" key="NewPhpFileDialog" timestamp="1584870338856">
+      <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state x="541" y="351" key="NewPhpFileDialog/0.22.1440.798@0.22.1440.798" timestamp="1575633025242" />
     <state x="541" y="351" key="NewPhpFileDialog/0.23.1440.795@0.23.1440.795" timestamp="1584453370358" />
     <state x="541" y="352" key="NewPhpFileDialog/0.23.1440.797@0.23.1440.797" timestamp="1577690362711" />
-    <state x="541" y="352" key="NewPhpFileDialog/0.23.1440.798@0.23.1440.798" timestamp="1582479929200" />
+    <state x="541" y="352" key="NewPhpFileDialog/0.23.1440.798@0.23.1440.798" timestamp="1584870338856" />
     <state x="541" y="353" key="NewPhpFileDialog/0.23.1440.801@0.23.1440.801" timestamp="1581580272900" />
     <state x="541" y="354" key="NewPhpFileDialog/0.23.1440.804@0.23.1440.804" timestamp="1582533691334" />
     <state x="229" y="61" key="SettingsEditor" timestamp="1584442645480">
