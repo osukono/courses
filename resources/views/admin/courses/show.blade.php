@@ -79,7 +79,7 @@
             <div class="row">
                 <div class="col-auto">
                     @isset($course->image)
-                        <img width="208" height="117" class="rounded shadow-sm" src="{{ $course->image }}" alt="Course Image"
+                        <img width="208" height="117" class="border rounded" src="{{ $course->image }}" alt="Course Image"
                              onclick="$('#course-{{ $course->id }}-image').click();" style="cursor: pointer;">
                     @else
                         <div class="text-center border rounded bg-white align-middle d-table-cell"
