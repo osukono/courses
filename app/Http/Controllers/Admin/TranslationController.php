@@ -68,6 +68,7 @@ class TranslationController extends Controller
         $this->authorize('access', $language);
 
         $data['language'] = $language;
+        $data['content'] = $lesson->content;
         $data['lesson'] = $lesson;
         $data['languages'] = LanguageRepository::all()
             ->whereNotIn('id', [$lesson->content->language->id])
