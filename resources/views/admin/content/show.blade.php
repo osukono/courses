@@ -78,7 +78,7 @@
 @endsection
 
 @section('content')
-    <div class="card bg-light mb-4" style="cursor: pointer"
+    <div class="card mb-4" style="cursor: pointer"
          onclick="window.location.href='{{ route('admin.content.edit', $content) }}';">
         <div class="card-body">
             @isset($content->title)
@@ -91,10 +91,13 @@
         </div>
     </div>
 
-    @include('admin.content.title')
-
     @if($lessons->count())
-        @include('admin.content.lessons.list')
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@include('admin.content.title')</h5>
+                @include('admin.content.lessons.list')
+            </div>
+        </div>
     @endif
 
     @if (Session::has('job'))

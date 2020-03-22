@@ -24,14 +24,20 @@ $custom-range-thumb-active-bg: $cyan !default;
 
 @import "sidebar.scss";
 
-.table {
+/*.table {
     background-color: #fff;
     border: 1px solid #ced4da;
     border-radius: 0.3rem !important;
+}*/
+
+.table {
+    margin: 0 !important;
 }
 
-.card-body {
+.card {
+    border: 1px solid #ced4da;
     background-color: #fff;
+    border-radius: 0.3rem !important;
 }
 
 .custom-file-label {

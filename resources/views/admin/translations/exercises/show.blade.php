@@ -31,9 +31,14 @@
 @endsection
 
 @section('content')
-    @include('admin.translations.title')
-
-    @includeWhen($exerciseData->count(), 'admin.translations.exercises.data.list')
+    @if($exerciseData->count())
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@include('admin.translations.title')</h5>
+                @include('admin.translations.exercises.data.list')
+            </div>
+        </div>
+    @endif
 @endsection
 
 @push('scripts')

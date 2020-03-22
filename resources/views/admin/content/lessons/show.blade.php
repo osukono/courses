@@ -59,10 +59,13 @@
 @endsection
 
 @section('content')
-    @include('admin.content.title')
-
     @if($exercises->count())
-        @include('admin.content.exercises.list')
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@include('admin.content.title')</h5>
+                @include('admin.content.exercises.list')
+            </div>
+        </div>
     @endif
 @endsection
 

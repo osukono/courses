@@ -10,6 +10,11 @@
 
 @section('content')
     @if($contents->count())
-        @include('admin.content.list')
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Content</h5>
+                @include('admin.content.list')
+            </div>
+        </div>
     @endif
 @endsection

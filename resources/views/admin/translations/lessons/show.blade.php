@@ -31,10 +31,14 @@
 @endsection
 
 @section('content')
-    @include('admin.translations.title')
 
     @if($exercises->count())
-        @include('admin.translations.exercises.list')
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@include('admin.translations.title')</h5>
+                @include('admin.translations.exercises.list')
+            </div>
+        </div>
     @endif
 @endsection
 

@@ -62,12 +62,13 @@
 @endsection
 
 @section('content')
-    @includeWhen($content->descirption, 'admin.components.description', ['description' => $content->description])
-
-    @include('admin.translations.title')
-
     @if($lessons->count())
-        @include('admin.translations.lessons.list')
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@include('admin.translations.title')</h5>
+                @include('admin.translations.lessons.list')
+            </div>
+        </div>
     @endif
 
     @if (Session::has('job'))

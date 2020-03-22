@@ -5,12 +5,16 @@
 @endsection
 
 @section('content')
-    <form action="{{ route('admin.lessons.store', $content) }}" method="post" autocomplete="off">
-        @csrf
+    <div class="card">
+        <div class="card-body">
+            <form action="{{ route('admin.lessons.store', $content) }}" method="post" autocomplete="off">
+                @csrf
 
-        @input(['name' => 'title', 'label' => 'Title', 'autofocus' => true])
+                @input(['name' => 'title', 'label' => 'Title', 'autofocus' => true])
 
-        @submit(['text' => 'Create'])
-        @cancel(['route' => route('admin.content.show', $content)])
-    </form>
+                @submit(['text' => 'Create'])
+                @cancel(['route' => route('admin.content.show', $content)])
+            </form>
+        </div>
+    </div>
 @endsection
