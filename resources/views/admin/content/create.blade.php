@@ -7,6 +7,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            <h5 class="card-title mb-4">Create a new Content</h5>
             <form action="{{ route('admin.content.store') }}" method="post" autocomplete="off">
                 @csrf
 

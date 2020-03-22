@@ -7,7 +7,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">{{ $lesson->title }}</h5>
+            <h5 class="card-title mb-4">{{ $lesson->title }}</h5>
             <form action="{{ route('admin.lessons.update', $lesson) }}" method="post" autocomplete="off">
                 @method('patch')
                 @csrf
