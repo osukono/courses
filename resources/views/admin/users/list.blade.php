@@ -1,7 +1,7 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col-9">Name</th>
+        <th class="col-9"></th>
         <th>Email</th>
         <th>Roles</th>
         <th class="text-right">Registered</th>
@@ -14,7 +14,7 @@
             <td>{{ $user->email }}</td>
             <td class="text-nowrap">
                 @foreach($user->roles as $role)
-                    <span class="mx-2 text-nowrap">{{ $role->name }}</span>
+                    <span class="mr-3 text-nowrap">{{ $role->name }}</span>
                 @endforeach
             </td>
             <td class="text-nowrap text-right">{{ $user->created_at->diffForHumans() }}</td>
