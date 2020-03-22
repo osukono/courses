@@ -22,7 +22,17 @@ $custom-range-thumb-active-bg: $cyan !default;
 //@import '~froala-editor/css/froala_editor.pkgd.css';
 //@import "~froala-editor/css/froala_style.min.css";
 
-@import "sidebar.css";
+@import "sidebar.scss";
+
+.table {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.3rem !important;
+}
+
+.card-body {
+    background-color: #fff;
+}
 
 .custom-file-label {
     overflow: hidden;
@@ -82,7 +92,7 @@ $custom-range-thumb-active-bg: $cyan !default;
 }
 
 .brand {
-    color: #404040;
+    //color: #404040;
     font-family: 'Paytone One', sans-serif;
 }
 

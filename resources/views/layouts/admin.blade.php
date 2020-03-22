@@ -17,40 +17,41 @@
 <body>
 <div id="app" class="wrapper">
     <!-- Sidebar -->
-    <nav id="sidebar"  {{--class="border-right border-light"--}}>
+    <nav id="sidebar" {{--class="border-right border-light"--}}>
         <div class="sidebar-header text-center mt-2">
-            <a href="{{ route('welcome') }}"><h3 class="brand mb-0">{{ env('APP_NAME') }}</h3></a>
+            <a href="{{ route('welcome') }}"><h3 class="brand">{{ env('APP_NAME') }}</h3></a>
         </div>
 
         <ul class="list-unstyled">
             <li>
                 <a href="{{ route('admin.dashboard') }}">Dashboard</a>
             </li>
-            <li>
-                <a href="{{ route('admin.content.index') }}">Content</a>
-            </li>
+            @can(\App\Library\Permissions::view_content)
+                <li>
+                    <a href="{{ route('admin.content.index') }}">Content</a>
+                </li>
+            @endcan
             @can(\App\Library\Permissions::view_courses)
                 <li>
                     <a href="{{ route('admin.courses.index') }}">Courses</a>
                 </li>
             @endcan
-            @role(\App\Library\Roles::admin)
-            <li>
-                <a href="#administration" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administration</a>
-                <ul class="collapse list-unstyled" id="administration">
-                    <li>
-                        <a href="{{ route('admin.languages.index') }}">Languages</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.topics.index') }}">Topics</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.users.index') }}">Users</a>
-                    </li>
-                </ul>
-            </li>
-            @endrole
         </ul>
+        @role(\App\Library\Roles::admin)
+        <ul class="list-unstyled">
+            <li>
+                <a href="{{ route('admin.languages.index') }}">Languages</a>
+            </li>
+            <li>
+                <a href="{{ route('admin.topics.index') }}">Topics</a>
+            </li>
+        </ul>
+        <ul class="list-unstyled">
+            <li>
+                <a href="{{ route('admin.users.index') }}">Users</a>
+            </li>
+        </ul>
+        @endrole
 
     </nav>
     <!-- Page Content -->
