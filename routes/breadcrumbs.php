@@ -219,7 +219,7 @@ Breadcrumbs::for('admin.player.settings.edit', function($trail, \App\Language $l
 
 // Topics
 Breadcrumbs::for('admin.topics.index', function ($trail) {
-    $trail->push('Course Topics', route('admin.topics.index'));
+    $trail->push('Topics', route('admin.topics.index'));
 });
 
 // Topics > Create
