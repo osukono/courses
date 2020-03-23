@@ -1,9 +1,13 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col-10"></th>
-        <th class="text-right text-nowrap">Last Modified</th>
-        <th></th>
+        @empty($editData)
+            <th class="col-10"></th>
+            <th class="text-right text-nowrap">Last Modified</th>
+            <th></th>
+        @else
+            <th></th>
+        @endempty
     </tr>
     </thead>
     <tbody>
@@ -23,21 +27,23 @@
                     @include('admin.content.exercises.data.show')
                     @includeWhen(($translation = $data->translations->first()) != null, 'admin.translations.exercises.data.show')
                 </td>
-                <td class="text-nowrap text-right">{{ $data->updated_at->diffForHumans() }}</td>
-                <td class="text-nowrap">
-                    @if($data->translations->first() != null)
-                        <a class="mr-2" href="#"
-                           onclick="event.preventDefault(); document.getElementById('translation-{{ $data->translations->first()->id }}-synthesize').submit();">
-                            Synthesize Audio
-                        </a>
-                        <form id="translation-{{ $data->translations->first()->id }}-synthesize" class="d-none"
-                              action="{{ route('admin.translations.audio.synthesize', $data->translations->first()) }}"
-                              method="post">
-                            @method('patch')
-                            @csrf
-                        </form>
-                    @endif
-                </td>
+                @empty($editData)
+                    <td class="text-nowrap text-right">{{ $data->updated_at->diffForHumans() }}</td>
+                    <td class="text-nowrap">
+                        @if($data->translations->first() != null)
+                            <a class="mr-2" href="#"
+                               onclick="event.preventDefault(); document.getElementById('translation-{{ $data->translations->first()->id }}-synthesize').submit();">
+                                Synthesize Audio
+                            </a>
+                            <form id="translation-{{ $data->translations->first()->id }}-synthesize" class="d-none"
+                                  action="{{ route('admin.translations.audio.synthesize', $data->translations->first()) }}"
+                                  method="post">
+                                @method('patch')
+                                @csrf
+                            </form>
+                        @endif
+                    </td>
+                @endempty
             </tr>
         @endif
     @endforeach
