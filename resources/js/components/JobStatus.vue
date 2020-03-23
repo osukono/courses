@@ -1,11 +1,15 @@
 <template>
     <div v-if="status !== statuses.finished || messages.length > 0">
-        <div class="h5 text-muted">{{ title }}</div>
-        <div class="progress" v-if="status !== statuses.finished">
-            <div class="progress-bar bg-info" role="progressbar" :style=style :aria-valuenow=progressNow
-                 aria-valuemin="0" :aria-valuemax=progressMax></div>
+        <div class="card mb-3" v-if="status !== statuses.finished">
+            <div class="card-body">
+                <h5 class="card-title mb-3">{{ title }}</h5>
+                <div class="progress">
+                    <div class="progress-bar bg-info" role="progressbar" :style=style :aria-valuenow=progressNow
+                         aria-valuemin="0" :aria-valuemax=progressMax></div>
+                </div>
+            </div>
         </div>
-        <div class="overflow-auto card mt-2" v-if="messages.length > 0" style="max-height: 200px">
+        <div class="overflow-auto card mb-3" v-if="messages.length > 0" style="max-height: 200px">
             <div class="card-body">
                 <div v-for="message in messages">
                     <span v-text="message"></span>
