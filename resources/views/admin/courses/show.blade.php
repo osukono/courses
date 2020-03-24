@@ -100,7 +100,7 @@
                 </div>
                 <div class="col">
                     <h5 class="card-title">{{ $course->title }}</h5>
-                    <p class="card-text">{{ $course->description }}</p>
+                    <p class="card-text">{!! nl2br($course->description) !!}</p>
                 </div>
             </div>
         </div>
