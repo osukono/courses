@@ -77,6 +77,7 @@ class CourseRepository
         $this->model->description = $attributes['description'];
         $this->model->review_exercises = $attributes['review_exercises'];
         $this->model->minor_version = $attributes['version'];
+        $this->model->firebase_id = $attributes['firebase_id'];
         $this->model->save();
     }
 
