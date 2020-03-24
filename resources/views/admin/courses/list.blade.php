@@ -3,7 +3,7 @@
     <tr>
         <th class="col-7"></th>
         <th>Lessons</th>
-        <th class="text-nowrap">Player Version</th>
+        <th class="text-nowrap">Player</th>
         <th class="text-nowrap text-right">Committed</th>
         <th class="text-nowrap text-right">Status</th>
         <th class="text-nowrap">Firebase ID</th>
