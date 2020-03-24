@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\LanguageCreateRequest;
 use App\Http\Requests\Admin\LanguageUpdateRequest;
 use App\Http\Requests\Admin\LanguageUploadIconRequest;
 use App\Language;
+use App\Library\Sidebar;
 use App\Repositories\LanguageRepository;
 use App\Repositories\PlayerSettingsRepository;
 use Exception;
@@ -14,10 +15,15 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\View;
 
 class LanguageController extends Controller
 {
+    public function __construct()
+    {
+        View::share('current', Sidebar::languages);
+    }
+
     /**
      * @return Factory|View
      */

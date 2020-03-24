@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\Content\LessonRestoreRequest;
 use App\Http\Requests\Admin\Content\LessonUpdateRequest;
 use App\Language;
 use App\Lesson;
+use App\Library\Sidebar;
 use App\Repositories\ExerciseRepository;
 use App\Repositories\LanguageRepository;
 use App\Repositories\LessonRepository;
@@ -20,11 +21,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
-use Illuminate\View\View;
 
 class LessonController extends Controller
 {
+    public function __construct()
+    {
+        View::share('current', Sidebar::content);
+    }
+
     /**
      * @param Lesson $lesson
      * @return Factory|View

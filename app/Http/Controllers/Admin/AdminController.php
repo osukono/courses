@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Library\Sidebar;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,6 +14,8 @@ class AdminController extends Controller
 //        $data['userCount'] = UserRepository::all()->count();
 //        $data['userCoursesCount'] = UserCourseRepository::all()->count();
 
-        return view('admin.dashboard');
+        $data['current'] = Sidebar::dashboard;
+
+        return view('admin.dashboard')->with($data);
     }
 }

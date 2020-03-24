@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CourseUpdateRequest;
 use App\Http\Requests\Admin\CourseUploadImageRequest;
 use App\Jobs\UploadCourseToFirestore;
+use App\Library\Sidebar;
 use App\Repositories\CourseRepository;
 use App\Repositories\FirebaseCourseRepository;
 use Exception;
@@ -16,10 +17,15 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\View;
 
 class CourseController extends Controller
 {
+    public function __construct()
+    {
+        View::share('current', Sidebar::courses);
+    }
+
     /**
      * @return Factory|View
      */

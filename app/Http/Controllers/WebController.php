@@ -11,7 +11,9 @@ class WebController extends Controller
     {
         $data['courses'] = CourseRepository::all()
             ->ordered()->get();
-//            ->groupBy(['language_id', 'level_id', 'topic_id'])->first();
+//            ->groupBy(['language_id', 'level_id', 'topic_id'], $preserveKeys = true)->first();
+
+//        dd($data['courses']);
 
         $data['seo']['title'] = __('web.index.seo.title');
         $data['seo']['description'] = __('web.index.seo.description');

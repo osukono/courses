@@ -24,31 +24,31 @@
 
         <ul class="list-unstyled">
             <li>
-                <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                <a class="{{ (isset($current) && $current == \App\Library\Sidebar::dashboard? 'active' : '') }}" href="{{ route('admin.dashboard') }}">Dashboard</a>
             </li>
             @can(\App\Library\Permissions::view_content)
                 <li>
-                    <a href="{{ route('admin.content.index') }}">Content</a>
+                    <a class="{{ (isset($current) && $current == \App\Library\Sidebar::content ? 'active' : '') }}" href="{{ route('admin.content.index') }}">Content</a>
                 </li>
             @endcan
             @can(\App\Library\Permissions::view_courses)
                 <li>
-                    <a href="{{ route('admin.courses.index') }}">Courses</a>
+                    <a class="{{ (isset($current) && $current == \App\Library\Sidebar::courses ? 'active' : '') }}" href="{{ route('admin.courses.index') }}">Courses</a>
                 </li>
             @endcan
         </ul>
         @role(\App\Library\Roles::admin)
         <ul class="list-unstyled">
             <li>
-                <a href="{{ route('admin.languages.index') }}">Languages</a>
+                <a class="{{ (isset($current) && $current == \App\Library\Sidebar::languages ? 'active' : '') }}" href="{{ route('admin.languages.index') }}">Languages</a>
             </li>
             <li>
-                <a href="{{ route('admin.topics.index') }}">Topics</a>
+                <a class="{{ (isset($current) && $current == \App\Library\Sidebar::topics ? 'active' : '') }}" href="{{ route('admin.topics.index') }}">Topics</a>
             </li>
         </ul>
         <ul class="list-unstyled">
             <li>
-                <a href="{{ route('admin.users.index') }}">Users</a>
+                <a class="{{ (isset($current) && $current == \App\Library\Sidebar::users ? 'active' : '') }}" href="{{ route('admin.users.index') }}">Users</a>
             </li>
         </ul>
         @endrole

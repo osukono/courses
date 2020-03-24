@@ -21,10 +21,15 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\View;
 
 class ExerciseController extends Controller
 {
+    public function __construct()
+    {
+        View::share('current', 'content');
+    }
+
     /**
      * @param Request $request
      * @param Exercise $exercise

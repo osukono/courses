@@ -19,6 +19,7 @@ use App\Library\Html\Toolbar\Group;
 use App\Library\Html\Toolbar\Toolbar;
 use App\Library\Permissions;
 use App\Library\Roles;
+use App\Library\Sidebar;
 use App\Repositories\ContentRepository;
 use App\Repositories\LanguageRepository;
 use App\Repositories\LevelRepository;
@@ -35,11 +36,16 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\View;
 use Spatie\Permission\Models\Permission;
 
 class ContentController extends Controller
 {
+    public function __construct()
+    {
+        View::share('current', Sidebar::content);
+    }
+
     /**
      * @return Factory|View
      */

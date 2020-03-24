@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TopicCreateRequest;
 use App\Http\Requests\Admin\TopicUpdateRequest;
+use App\Library\Sidebar;
 use App\Repositories\FirebaseTopicRepository;
 use App\Repositories\TopicRepository;
 use App\Topic;
@@ -12,10 +13,15 @@ use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\View;
 
 class TopicController extends Controller
 {
+    public function __construct()
+    {
+        View::share('current', Sidebar::topics);
+    }
+
     /**
      * @return Factory|View
      */

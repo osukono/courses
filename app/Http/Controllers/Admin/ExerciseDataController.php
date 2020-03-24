@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Content\ExerciseDataMoveRequest;
 use App\Http\Requests\Admin\Content\ExerciseDataRestoreRequest;
 use App\Language;
+use App\Library\Sidebar;
 use App\Repositories\ExerciseDataRepository;
 use foo\bar;
 use Google\ApiCore\ApiException;
@@ -17,11 +18,16 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Exception;
+use Illuminate\Support\Facades\View;
 
 class ExerciseDataController extends Controller
 {
+    public function __construct()
+    {
+        View::share('current', Sidebar::content);
+    }
+
     /**
      * @param Exercise $exercise
      * @return RedirectResponse

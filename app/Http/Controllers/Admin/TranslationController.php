@@ -12,6 +12,7 @@ use App\Jobs\CommitContent;
 use App\Language;
 use App\Lesson;
 use App\Library\Permissions;
+use App\Library\Sidebar;
 use App\Repositories\ExerciseDataRepository;
 use App\Repositories\ExerciseRepository;
 use App\Repositories\LanguageRepository;
@@ -45,6 +46,7 @@ class TranslationController extends Controller
         $this->authorize('access', $content);
         $this->authorize('access', $language);
 
+        $data['current'] = Sidebar::content;
         $data['language'] = $language;
         $data['content'] = $content;
         $data['languages'] = LanguageRepository::all()
@@ -67,6 +69,7 @@ class TranslationController extends Controller
         $this->authorize('access', $lesson->content);
         $this->authorize('access', $language);
 
+        $data['current'] = Sidebar::content;
         $data['language'] = $language;
         $data['content'] = $lesson->content;
         $data['lesson'] = $lesson;
@@ -120,6 +123,7 @@ class TranslationController extends Controller
             }
         }
 
+        $data['current'] = Sidebar::content;
         $data['language'] = $language;
         $data['exercise'] = $exercise;
         $data['content'] = $exercise->lesson->content;
@@ -218,6 +222,7 @@ class TranslationController extends Controller
     {
         $this->authorize('access', $content);
 
+        $data['current'] = Sidebar::content;
         $data['content'] = $content;
         $data['language'] = $language;
         $data['editors'] = $language->editors()->ordered()->get();
