@@ -83,7 +83,7 @@
         <div class="card-body">
             @isset($content->title)
                 <h5 class="card-title">{{ $content->title }}</h5>
-                <p class="card-text">{!! nl2br($content->description) !!}</p>
+                <p class="card-text">{!! nl2br(e($content->description)) !!}</p>
             @else
                 <h5 class="card-title text-muted">Title</h5>
                 <p class="card-text text-muted">Description</p>
