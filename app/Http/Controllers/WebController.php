@@ -9,7 +9,10 @@ class WebController extends Controller
 {
     public function index()
     {
-        $data['courses'] = CourseRepository::all()/*->where('uploaded_at', '!=', null)*/->ordered()->get();
+        $data['courses'] = CourseRepository::all()
+            ->ordered()->get()
+            ->groupBy(['language_id', 'level_id', 'topic_id']);
+
         $data['seo']['title'] = __('web.index.seo.title');
         $data['seo']['description'] = __('web.index.seo.description');
         $data['seo']['keywords'] = __('web.index.seo.keywords');

@@ -86,7 +86,7 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col">
-                                    <span class="lead">{{ $course->description }}</span>
+                                    <span class="lead">{!! nl2br(e($course->description)) !!}</span>
                                 </div>
                             </div>
                             <div class="row collapse" id="course-{{ $course->id }}-lessons">
