@@ -2,59 +2,56 @@
 
 return [
     'header' => [
-        'download' => 'Download'
+        'download' => "Download"
     ],
     'footer' => [
-        'copyright' => 'Yummy Lingo © :year. All rights reserved.',
-        'privacy' => 'Privacy Policy',
-        'contact_us' => 'Contact us'
+        'copyright' => "Yummy Lingo © :year. All rights reserved.",
+        'privacy' => "Privacy Policy",
+        'contact_us' => "Contact us"
     ],
     'player' => [
-        'instruction' => 'Listen to the exercise paying your attention to how sentences are structured. After the listening part, you will have an opportunity to practice them by translating.',
-        'progress' => [
-            'fail' => 'Unable to save the progress.',
-        ],
+        'instruction' => "Listen carefully trying to remember translation. After the listening part, you will have an opportunity to practice your speaking skills.",
         'speed' => [
-            'slower' => 'Slower',
-            'normal' => 'Normal',
-            'faster' => 'Faster',
-        ]
-    ],
-    'html' => [
-        'title' => [
-            'index' => 'Learn English with Yummy Lingo',
-            'home' => 'My Courses',
-            'privacy' => 'Privacy Policy',
-            'terms' => 'Terms of Service',
-        ],
-        'seo' => [
-            'keywords' => 'Yummy Lingo, Spoken English, English courses online, English grammar, English online, how to speak English, audio courses, practice English, English pronunciation, English tenses, English lessons, English for beginners',
-            'description' => 'English grammar courses. Practice 20 minutes a day to start speaking English fluently.',
+            'slower' => "Slower",
+            'normal' => "Normal",
+            'faster' => "Faster",
         ]
     ],
     'index' => [
+        'seo' => [
+            'title' => "Learn English with Yummy Lingo",
+            'keywords' => "Yummy Lingo, mobile application, learn English online, English grammar, practice English vocabulary, learn how to speak English, practice English, English pronunciation, English for Elementary, English for Pre-Intermediate, English for beginners, English for students",
+            'description' => "English speaking courses. Practice your speaking skills with Yummy Lingo's mobile application."
+        ],
         'section' => [
             'top' => [
-                'header' => 'Learn languages with pleasure!',
-                'text' => 'A simple but powerful technique to improve your language.',
+                'header' => "Learn languages with pleasure!",
+                'text' => "A simple but powerful technique to improve your English.",
                 'button' => 'Learn more'
             ],
             'app' => [
                 'header' => 'Take your lessons wherever you go.',
-                'text' => 'Download the app and get access to the courses developed by the most experienced teachers we can offer. Practice your desired language at any time.',
-                'screen' => 'app_en.PNG'
+                'text' => "Download the app and get access to the courses developed by the most experienced teachers we can offer. Practice English at any time.",
+                'screen' => "app_en.PNG"
             ],
             'promo' => [
-                'text' => 'Start :course course for FREE',
-                'button' => 'Get started'
+                'text' => "Start learning :course course for FREE",
+                'button' => "Get started"
             ],
             'courses' => [
-                'header' => 'Developed with all the love.',
-                'learn_more' => 'Learn more',
-                'demo' => 'Demo',
-                'lessons' => 'Lessons'
+                'header' => "Developed with all the love.",
+                'learn_more' => "Learn more",
+                'demo' => "Demo",
+                'lessons' => "The course covers"
             ]
         ],
+    ],
+    'privacy' => [
+        'seo' => [
+            'title' => "Yummy Lingo - Privacy Policy",
+            'keywords' => "Yummy Lingo, Privacy Policy",
+            'description' => "Yummy Lingo's Privacy Policy"
+        ]
     ],
     'errors' => [
         '401' => [
@@ -78,11 +75,4 @@ return [
             'button' => "Go home"
         ]
     ],
-    'user' => [
-        'unsubscribed' => 'You have successfully unsubscribed from our email notifications.'
-    ],
-    'course' => [
-        'practice' => 'Get started',
-        'topics' => 'In the course'
-    ]
 ];

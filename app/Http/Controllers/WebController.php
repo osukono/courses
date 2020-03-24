@@ -10,13 +10,10 @@ class WebController extends Controller
     public function index()
     {
         $data['courses'] = CourseRepository::all()/*->where('uploaded_at', '!=', null)*/->ordered()->get();
-        $data['htmlTitle'] = __('web.html.title.index');
+        $data['seo']['title'] = __('web.index.seo.title');
+        $data['seo']['description'] = __('web.index.seo.description');
+        $data['seo']['keywords'] = __('web.index.seo.keywords');
 
         return view('index')->with($data);
-    }
-
-    public function seed()
-    {
-        (new \DatabaseSeeder())->run();
     }
 }

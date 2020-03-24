@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="{{ __('web.html.seo.keywords') }}">
-    <meta name="description" content="{{ __('web.html.seo.description') }}">
+    <meta name="keywords" content="{{ $seo['keywords'] ?? ''}}">
+    <meta name="description" content="{{ $seo['description'] ?? '' }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ isset($htmlTitle) ? $htmlTitle : config('app.name', 'Yummy Lingo') }}</title>
+    <title>{{ $seo['title'] ?? config('app.name', 'Yummy Lingo') }}</title>
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
