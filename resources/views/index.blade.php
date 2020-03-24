@@ -21,7 +21,7 @@
             </div>
             <div class="col-10 offset-1 text-center col-lg-7 offset-lg-0 text-md-left">
                 <h1 class="text-primary">{{ __('web.index.section.app.header') }}</h1>
-                <div class="lead mt-4">{{ __('web.index.section.app.text') }}</div>
+                <div class="lead mt-4">{!! __('web.index.section.app.description') !!}</div>
                 <div class="mt-4 text-center text-md-left">
                     <a href="https://play.google.com/store/apps/details?id=com.yummylingo.app" target="_blank"><img
                             src="{{ URL::asset('images/google_play.svg') }}" alt="Google Play" width="148" height="44"></a>

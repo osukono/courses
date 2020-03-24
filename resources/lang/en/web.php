@@ -32,7 +32,8 @@ return [
             'app' => [
                 'header' => 'Take your lessons wherever you go.',
                 'text' => "Download the app and get access to the courses developed by the most experienced teachers we can offer. Practice English at any time.",
-                'screen' => "app_en.PNG"
+                'screen' => "app_en.PNG",
+                'description' => "Chose a level of difficulty that is the most appropriate for you and listen to our lessons practicing particular aspects of grammar until you gain confidence.<br><br>Each lesson starts with the review part built from the previously learned material that helps you keep your knowledge fresh and always ready to serve your needs. Next you will listen to the new material where you can easily obtain new grammar with numerous examples of its actual usage. And finally, you will have an opportunity to practice your speaking skills.<br><br>The application is built as a player in mind. You can either read the material that you are listening to or just simply use it as an audio player learning new languages while driving, doing sports and more.",
             ],
             'promo' => [
                 'text' => "Start learning :course course for FREE",
