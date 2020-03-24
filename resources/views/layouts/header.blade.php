@@ -6,7 +6,7 @@
     <div class="w-100 position-absolute align-self-center d-md-block d-none"
          style="top: 35%;">
         <div class="container">
-            <div class="col-md-8 offset-md-0 col-10 offset-1">
+            <div class="col-md-7 offset-md-0 col-10 offset-1">
                 <h1 class="text-primary">{{ $header_title }}</h1>
                 <div class="lead">{{ $header_text }}</div>
                 <a class="btn btn-primary btn-lg rounded-pill mt-4 shadow-sm"
