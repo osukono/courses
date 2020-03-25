@@ -40,13 +40,13 @@ class ContentUpdateRequest extends FormRequest
                 'bail',
                 'required',
                 'integer',
-                'min:0'
+                'min:1'
             ],
             'review_exercises' => [
                 'bail',
                 'required',
                 'integer',
-                'min:0'
+                'min:3',
             ]
         ];
     }
