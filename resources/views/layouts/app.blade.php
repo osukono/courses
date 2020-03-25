@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <script src="{{ mix('js/app.js') }}" async defer></script>
+    <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ mix('js/vue.js') }}" async defer></script>
 </head>
 <body class="d-flex flex-column h-100">
@@ -34,8 +34,7 @@
                         >Content</a>
                     @endif
                     <a id="download" class="btn btn-lg btn-outline-primary rounded-pill"
-                       href="#"
-                       target="_blank">{{ __('web.header.download') }}</a>
+                       href="#apps">{{ __('web.header.download') }}</a>
                     @push('scripts')
                         <script>
                             $(document).ready(function () {
@@ -44,7 +43,7 @@
                                 } else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
                                     $('#download').attr('href', "https://itunes.apple.com/app/apple-store/id1503356144");
                                 } else {
-                                    $('#download').addClass('d-none');
+                                    // $('#download').addClass('d-none');
                                 }
                             });
                         </script>
