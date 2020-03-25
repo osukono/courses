@@ -36,7 +36,11 @@ return [
                 'description' => "<p>Download the app and get access to the courses developed by the most experienced teachers we can offer.</p>" .
                     "<p>Chose a level of difficulty that is the most appropriate for you and listen to our lessons practicing particular aspects of grammar until you gain confidence.</p>" .
                     "<p>Each lesson starts with the review part built from the previously learned material that helps you keep your knowledge fresh and always ready to serve your needs. Next you will listen to the new material where you can easily obtain new grammar with numerous examples of its actual usage. And finally, you will have an opportunity to practice your speaking skills.</p>" .
-                    "<p>The application is built as a player in mind. You can either read the material you are listening to or just simply use it as an audio player learning new languages while driving, doing sports and more.</p>",
+                    "<p>The application built as a player in mind. You can either read the material you are listening to or just simply use it as an audio player learning new languages while driving, doing sports and more.</p>",
+                'links' => [
+                    'android' => "https://play.google.com/store/apps/details?id=com.yummylingo.app",
+                    'ios' => "https://itunes.apple.com/app/apple-store/id1503356144"
+                ]
             ],
             'promo' => [
                 'text' => "Start learning :course course for FREE",

@@ -39,11 +39,9 @@
                         <script>
                             $(document).ready(function () {
                                 if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
-                                    $('#download').attr('href', "https://play.google.com/store/apps/details?id=com.yummylingo.app");
+                                    $('#download').attr('href', "{{ __('web.index.section.app.links.android') }}");
                                 } else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
-                                    $('#download').attr('href', "https://itunes.apple.com/app/apple-store/id1503356144");
-                                } else {
-                                    // $('#download').addClass('d-none');
+                                    $('#download').attr('href', "{{ __('web.index.section.app.links.ios') }}");
                                 }
                             });
                         </script>
@@ -70,10 +68,10 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="https://play.google.com/store/apps/details?id=com.yummylingo.app" target="_blank"><img
+                        <a href="{{ __('web.index.section.app.links.android') }}" target="_blank"><img
                                 src="{{ URL::asset('images/google_play.svg') }}" alt="Google Play" width="148"
                                 height="44"></a>
-                        <a href="https://itunes.apple.com/app/apple-store/id1503356144" target="_blank"><img
+                        <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank"><img
                                 class="ml-1" src="{{ URL::asset('images/app_store.svg') }}" alt="App Store" width="148"
                                 height="44"></a>
                     </div>
