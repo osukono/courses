@@ -33,9 +33,22 @@
                            href="{{ route('admin.content.index') }}"
                         >Content</a>
                     @endif
-                    <a class="btn btn-lg btn-outline-primary rounded-pill"
-                       href="https://play.google.com/store/apps/details?id=com.yummylingo.app"
+                    <a id="download" class="btn btn-lg btn-outline-primary rounded-pill"
+                       href="#"
                        target="_blank">{{ __('web.header.download') }}</a>
+                    @push('scripts')
+                        <script>
+                            $(document).ready(function () {
+                                if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+                                    $('#download').attr('href', "https://play.google.com/store/apps/details?id=com.yummylingo.app");
+                                } else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
+                                    $('#download').attr('href', "https://itunes.apple.com/app/apple-store/id1503356144");
+                                } else {
+                                    $('#download').addClass('d-none');
+                                }
+                            });
+                        </script>
+                    @endpush
                 </ul>
             </div>
         </div>
