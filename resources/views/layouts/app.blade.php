@@ -31,7 +31,7 @@
                     @can(\App\Library\Permissions::view_admin_panel)
                         <a class="btn btn-lg btn-link mr-md-2 mr-0"
                            href="{{ route('admin.content.index') }}"
-                           >Content</a>
+                        >Content</a>
                     @endif
                     <a class="btn btn-lg btn-outline-primary rounded-pill"
                        href="https://play.google.com/store/apps/details?id=com.yummylingo.app"
@@ -61,8 +61,9 @@
                         <a href="https://play.google.com/store/apps/details?id=com.yummylingo.app" target="_blank"><img
                                 src="{{ URL::asset('images/google_play.svg') }}" alt="Google Play" width="148"
                                 height="44"></a>
-                        <img class="ml-1" src="{{ URL::asset('images/app_store.svg') }}" alt="App Store" width="148"
-                             height="44">
+                        <a href="https://itunes.apple.com/app/apple-store/id1503356144" target="_blank"><img
+                                class="ml-1" src="{{ URL::asset('images/app_store.svg') }}" alt="App Store" width="148"
+                                height="44"></a>
                     </div>
                 </div>
             </div>
