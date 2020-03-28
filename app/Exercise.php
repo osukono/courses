@@ -45,6 +45,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Exercise withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Exercise withoutTrashed()
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Language[] $disabled
+ * @property-read int|null $disabled_count
  */
 class Exercise extends Model implements Recordable
 {
@@ -113,6 +115,15 @@ class Exercise extends Model implements Recordable
      */
     public function scopeOrdered($query) {
         return $query->orderBy('index');
+    }
+
+    /**
+     * @param Language $language
+     * @return bool
+     */
+    public function isDisabled(Language $language)
+    {
+        return $this->disabled->where('id', $language->id)->isNotEmpty();
     }
 
     /**

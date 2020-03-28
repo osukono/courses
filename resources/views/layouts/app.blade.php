@@ -11,8 +11,8 @@
 
     <title>{{ $seo['title'] ?? config('app.name', 'Yummy Lingo') }}</title>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ URL::asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ URL::asset('favicon-16x16.png') }}">
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <script src="{{ mix('js/app.js') }}"></script>
@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-md navbar-light">
         <div class="container mt-2 mb-2" style="z-index: 100;">
             <a class="navbar-brand" href="{{ route('welcome') }}">
-                <img src="{{ URL::to('/') }}/images/brand_header.svg" alt="Yummy Lingo">
+                <img src="{{ URL::asset('images/brand_header.svg') }}" alt="Yummy Lingo">
             </a>
 
             <div>
@@ -52,7 +52,7 @@
     </nav>
 </header>
 
-<main role="main" class="flex-shrink-0">
+<main id="app" role="main" class="flex-shrink-0">
     @yield('content')
 </main>
 

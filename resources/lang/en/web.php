@@ -50,7 +50,7 @@ return [
                 'header' => "Developed with all the love.",
                 'learn_more' => "Learn more",
                 'demo' => "Demo",
-                'lessons' => "The course covers"
+                'lessons' => "Topics"
             ]
         ],
     ],

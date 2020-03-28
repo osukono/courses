@@ -162,9 +162,11 @@ class ContentRepository
             'lessons' => function (HasMany $query) {
                 $query->orderBy('index');
             },
+            'lessons.disabled',
             'lessons.exercises' => function (HasMany $query) {
                 $query->orderBy('index');
             },
+            'lessons.exercises.disabled',
             'lessons.exercises.exerciseData' => function (HasMany $query) {
                 $query->orderBy('index');
             },

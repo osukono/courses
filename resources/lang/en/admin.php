@@ -40,7 +40,11 @@ return [
             'is_not_trashed' => ':object is not trashed.',
         ],
         'disabled' => ':object disabled.',
-        'enabled' => ':object enabled',
+        'enabled' => ':object enabled.',
+        'translations' => [
+            'disabled' => ':object translation disabled.',
+            'enabled' => ':object translation enabled'
+        ],
         'editors' => [
             'assigned' => ':subject assigned to :object\'s editors.',
             'removed' => ':subject removed from :object\'s editors.',

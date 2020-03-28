@@ -63,9 +63,11 @@ class CommitContent implements ShouldQueue
                 $query->orderBy('index');
                 $query->withCount('exercises');
             },
+            'lessons.disabled',
             'lessons.exercises' => function (HasMany $query) {
                 $query->orderBy('index');
             },
+            'lessons.exercises.disabled',
             'lessons.exercises.exerciseData' => function (HasMany $query) {
                 $query->orderBy('index');
             },
@@ -100,13 +102,19 @@ class CommitContent implements ShouldQueue
     {
         $valid = true;
 
-        if ($this->content->lessons->count() == 0) {
+        if ($this->content->lessons->reject(function (Lesson $lesson) {
+            return $lesson->isDisabled($this->content->language);
+        })->reject(function (Lesson $lesson) {
+            return $lesson->isDisabled($this->translation);
+        })->isEmpty()) {
             $this->messages[] = $this->content . " doesn't have lessons.";
             $valid = false;
         }
 
         foreach ($this->content->lessons as $lesson) {
-            if (!$this->validateLesson($lesson, "Lesson " . $lesson->index))
+            if (!$lesson->isDisabled($this->content->language) &&
+                !$lesson->isDisabled($this->translation) &&
+                !$this->validateLesson($lesson, "Lesson " . $lesson->index))
                 $valid = false;
 
             $this->incrementProgress();
@@ -124,13 +132,19 @@ class CommitContent implements ShouldQueue
             $valid = false;
         }
 
-        if ($lesson->exercises->count() == 0) {
+        if ($lesson->exercises->reject(function (Exercise $exercise) {
+            return $exercise->isDisabled($this->content->language);
+        })->reject(function (Exercise $exercise) {
+            return $exercise->isDisabled($this->translation);
+        })->isEmpty()) {
             $this->messages[] = $current . " doesn't have exercises.";
             $valid = false;
         }
 
         foreach ($lesson->exercises as $exercise) {
-            if (!$this->validateExercise($exercise, $current . " › Exercise " . $exercise->index))
+            if (!$exercise->isDisabled($this->content->language) &&
+                !$exercise->isDisabled($this->translation) &&
+                !$this->validateExercise($exercise, $current . " › Exercise " . $exercise->index))
                 $valid = false;
         }
 
@@ -193,6 +207,10 @@ class CommitContent implements ShouldQueue
     private function commit(Course $course)
     {
         foreach ($this->content->lessons as $lesson) {
+            if ($lesson->isDisabled($this->content->language) ||
+                $lesson->isDisabled($this->translation))
+                continue;
+
             $courseLesson = new CourseLesson();
             $courseLesson->course()->associate($course);
             $courseLesson->title = $lesson->title;
@@ -212,6 +230,10 @@ class CommitContent implements ShouldQueue
         $data = [];
 
         foreach ($lesson->exercises as $exercise) {
+            if ($exercise->isDisabled($this->content->language) ||
+                $exercise->isDisabled($this->translation))
+                continue;
+
             $data['exercises'][] = $this->commitExercise($exercise);
         }
 

@@ -84,7 +84,7 @@ class Language extends Model
      */
     public function scopeOrdered($query)
     {
-        return $query->orderBy('name');
+        return $query->orderBy('native');
     }
 
     /**

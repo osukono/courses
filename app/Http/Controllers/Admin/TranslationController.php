@@ -52,7 +52,9 @@ class TranslationController extends Controller
         $data['languages'] = LanguageRepository::all()
             ->whereNotIn('id', [$content->language->id])
             ->ordered()->get();
-        $data['lessons'] = $content->lessons()->withCount('exercises')->ordered()->get();
+        $data['lessons'] = $content->lessons()
+            ->with('disabled')
+            ->withCount('exercises')->ordered()->get();
         $data['trashed'] = LessonRepository::trashed()->where('content_id', $content->id)->count();
 
         return view('admin.translations.show')->with($data);
@@ -66,6 +68,12 @@ class TranslationController extends Controller
      */
     public function showLesson(Language $language, Lesson $lesson)
     {
+        $lesson->load([
+            'content',
+            'content.language',
+            'disabled'
+        ]);
+
         $this->authorize('access', $lesson->content);
         $this->authorize('access', $language);
 
@@ -84,6 +92,7 @@ class TranslationController extends Controller
                 'exerciseData.translations' => function (HasMany $query) use ($language) {
                     $query->where('language_id', $language->id);
                 },
+                'disabled'
             ])
             ->ordered()->get();
         $data['previous'] = $lesson->repository()->previous();
@@ -102,6 +111,38 @@ class TranslationController extends Controller
     }
 
     /**
+     * @param Language $language
+     * @param Lesson $lesson
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function disableLesson(Language $language, Lesson $lesson)
+    {
+        $this->authorize('access', $lesson->content);
+        $this->authorize('access', $language);
+
+        $lesson->repository()->disable($language);
+
+        return back()->with('message', __('admin.messages.translations.disabled', ['object' => $lesson]));
+    }
+
+    /**
+     * @param Language $language
+     * @param Lesson $lesson
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function enableLesson(Language $language, Lesson $lesson)
+    {
+        $this->authorize('access', $lesson->content);
+        $this->authorize('access', $language);
+
+        $lesson->repository()->enable($language);
+
+        return back()->with('message', __('admin.messages.translations.enabled', ['object' => $lesson]));
+    }
+
+    /**
      * @param Request $request
      * @param Language $language
      * @param Exercise $exercise
@@ -110,6 +151,13 @@ class TranslationController extends Controller
      */
     public function showExercise(Request $request, Language $language, Exercise $exercise)
     {
+        $exercise->load([
+            'lesson',
+            'lesson.content',
+            'lesson.content.language',
+            'disabled'
+        ]);
+
         $this->authorize('access', $exercise->lesson->content);
         $this->authorize('access', $language);
 
@@ -141,6 +189,38 @@ class TranslationController extends Controller
         $data['next'] = $exercise->repository()->next();
 
         return view('admin.translations.exercises.show')->with($data);
+    }
+
+    /**
+     * @param Language $language
+     * @param Exercise $exercise
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function disableExercise(Language $language, Exercise $exercise)
+    {
+        $this->authorize('access', $exercise->lesson->content);
+        $this->authorize('access', $language);
+
+        $exercise->repository()->disable($language);
+
+        return back()->with('message', __('admin.messages.translations.disabled', ['object' => $exercise]));
+    }
+
+    /**
+     * @param Language $language
+     * @param Exercise $exercise
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function enableExercise(Language $language, Exercise $exercise)
+    {
+        $this->authorize('access', $exercise->lesson->content);
+        $this->authorize('access', $language);
+
+        $exercise->repository()->enable($language);
+
+        return back()->with('message', __('admin.messages.translations.enabled', ['object' => $exercise]));
     }
 
     /**

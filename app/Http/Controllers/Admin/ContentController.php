@@ -113,7 +113,10 @@ class ContentController extends Controller
         $data['languages'] = LanguageRepository::all()
             ->whereNotIn('id', [$content->language->id])
             ->ordered()->get();
-        $data['lessons'] = $content->lessons()->withCount('exercises')->ordered()->get();
+        $data['lessons'] = $content->lessons()
+            ->with('disabled')
+            ->withCount('exercises')
+            ->ordered()->get();
 
         /*$data['toolbar'] = new Toolbar([
             (new Group([

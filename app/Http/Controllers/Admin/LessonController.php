@@ -38,6 +38,12 @@ class LessonController extends Controller
      */
     public function show(Lesson $lesson)
     {
+        $lesson->load([
+            'content',
+            'content.language',
+            'disabled'
+        ]);
+
         $this->authorize('access', $lesson->content);
 
         $data['content'] = $lesson->content;
@@ -51,17 +57,10 @@ class LessonController extends Controller
             ->with([
                 'exerciseData' => function (HasMany $query) {
                     $query->orderBy('index');
-                }
+                },
+                'disabled'
             ])
             ->ordered()->get();
-
-//        try {
-//            foreach ($data['exercises'] as $exercise)
-//                foreach ($exercise->exerciseData as $exerciseData)
-//                    $exerciseData->repository()->synthesizeAudio();
-//        } catch (Exception $e) {
-//
-//        }
 
         return view('admin.content.lessons.show')->with($data);
     }
@@ -179,32 +178,38 @@ class LessonController extends Controller
 
     /**
      * @param Lesson $lesson
-     * @param Language $language
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function disable(Lesson $lesson, Language $language)
+    public function disable(Lesson $lesson)
     {
-        $this->authorize('access', $lesson->content);
-        $this->authorize('access', $language);
+        $lesson->load([
+            'content',
+            'content.language'
+        ]);
 
-        $lesson->repository()->disable($language);
+        $this->authorize('access', $lesson->content);
+
+        $lesson->repository()->disable($lesson->content->language);
 
         return back()->with('message', __('admin.messages.disabled', ['object' => $lesson]));
     }
 
     /**
      * @param Lesson $lesson
-     * @param Language $language
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function enable(Lesson $lesson, Language $language)
+    public function enable(Lesson $lesson)
     {
-        $this->authorize('access', $lesson->content);
-        $this->authorize('access', $language);
+        $lesson->load([
+            'content',
+            'content.language'
+        ]);
 
-        $lesson->repository()->enable($language);
+        $this->authorize('access', $lesson->content);
+
+        $lesson->repository()->enable($lesson->content->language);
 
         return back()->with('message', __('admin.messages.enabled', ['object' => $lesson]));
     }

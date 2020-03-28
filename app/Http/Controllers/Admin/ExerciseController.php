@@ -38,8 +38,14 @@ class ExerciseController extends Controller
      */
     public function show(Request $request, Exercise $exercise)
     {
-        $this->authorize('access', $exercise->lesson->content);
+        $exercise->load([
+            'lesson',
+            'lesson.content',
+            'lesson.content.language',
+            'disabled'
+        ]);
 
+        $this->authorize('access', $exercise->lesson->content);
 
         if (Auth::getUser()->can(Permissions::update_content) && $request->has('data'))
             $data['editData'] = ExerciseDataRepository::find($request->get('data'))->model();
@@ -125,32 +131,40 @@ class ExerciseController extends Controller
 
     /**
      * @param Exercise $exercise
-     * @param Language $language
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function disable(Exercise $exercise, Language $language)
+    public function disable(Exercise $exercise)
     {
-        $this->authorize('access', $exercise->lesson->content);
-        $this->authorize('access', $language);
+        $exercise->load([
+            'lesson',
+            'lesson.content',
+            'lesson.content.language'
+        ]);
 
-        $exercise->repository()->disable($language);
+        $this->authorize('access', $exercise->lesson->content);
+
+        $exercise->repository()->disable($exercise->lesson->content->language);
 
         return back()->with('message', __('admin.messages.disabled', ['object' => $exercise]));
     }
 
     /**
      * @param Exercise $exercise
-     * @param Language $language
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function enable(Exercise $exercise, Language $language)
+    public function enable(Exercise $exercise)
     {
-        $this->authorize('access', $exercise->lesson->content);
-        $this->authorize('access', $language);
+        $exercise->load([
+            'lesson',
+            'lesson.content',
+            'lesson.content.language'
+        ]);
 
-        $exercise->repository()->enable($language);
+        $this->authorize('access', $exercise->lesson->content);
+
+        $exercise->repository()->enable($exercise->lesson->content->language);
 
         return back()->with('message', __('admin.messages.enabled', ['object' => $exercise]));
     }

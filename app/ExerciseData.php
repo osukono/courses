@@ -49,6 +49,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\ExerciseData withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\ExerciseData withoutTrashed()
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Language[] $disabled
+ * @property-read int|null $disabled_count
  */
 class ExerciseData extends Model implements Recordable
 {

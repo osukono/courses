@@ -12,6 +12,11 @@
             <td>{{ $exercise->index }}</td>
             <td class="clickable-row last-child-mb-0"
                 data-href="{{ route('admin.exercises.show', $exercise) }}">
+                @if($exercise->isDisabled($content->language))
+                    <div>
+                        <span class="badge badge-warning text-uppercase">Disabled</span>
+                    </div>
+                @endif
                 @foreach($exercise->exerciseData as $data)
                     @include('admin.content.exercises.data.show')
                 @endforeach

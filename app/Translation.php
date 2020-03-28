@@ -30,6 +30,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation whereLanguageId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $disabled
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation whereDisabled($value)
  */
 class Translation extends Model implements Recordable
 {

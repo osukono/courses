@@ -120,6 +120,7 @@ class ExerciseRepository
     public function toArray()
     {
         $this->model->loadMissing([
+            'disabled',
             'exerciseData' => function (HasMany $query) {
                 $query->orderBy('index');
             },
@@ -130,6 +131,10 @@ class ExerciseRepository
         ]);
 
         $content = [];
+
+        if ($this->model->disabled->count() > 0)
+            foreach ($this->model->disabled as $language)
+                $content['disabled'][] = $language->code;
 
         foreach ($this->model->exerciseData as $data) {
             $content['data'][] = $data->repository()->toArray();

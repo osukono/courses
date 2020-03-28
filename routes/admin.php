@@ -61,8 +61,8 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::delete('content/lessons/{lesson}', 'LessonController@destroy')->name('admin.lessons.destroy');
             Route::get('content/{content}/lessons/trash', 'LessonController@trash')->name('admin.lessons.trash');
             Route::post('content/lessons/restore', 'LessonController@restore')->name('admin.lessons.restore');
-            Route::patch('content/lessons/{lesson}/disable/{language}', 'LessonController@disable')->name('admin.lessons.disable');
-            Route::patch('content/lessons/{lesson}/enable/{language}', 'LessonController@enable')->name('admin.lesson.enable');
+            Route::patch('content/lessons/{lesson}/disable', 'LessonController@disable')->name('admin.lessons.disable');
+            Route::patch('content/lessons/{lesson}/enable', 'LessonController@enable')->name('admin.lessons.enable');
         });
 
         /**
@@ -78,8 +78,8 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::delete('content/exercises/{exercise}', 'ExerciseController@destroy')->name('admin.exercises.destroy');
             Route::get('content/lessons/{lesson}/exercises/trash', 'ExerciseController@trash')->name('admin.exercises.trash');
             Route::post('content/exercises/restore', 'ExerciseController@restore')->name('admin.exercises.restore');
-            Route::patch('content/exercises/{exercise}/disable/{language}', 'ExerciseController@disable')->name('admin.exercises.disable');
-            Route::patch('content/exercises/{exercise}/enable/{language}', 'ExerciseController@enable')->name('admin.exercises.enable');
+            Route::patch('content/exercises/{exercise}/disable', 'ExerciseController@disable')->name('admin.exercises.disable');
+            Route::patch('content/exercises/{exercise}/enable', 'ExerciseController@enable')->name('admin.exercises.enable');
         });
 
         /**
@@ -111,6 +111,10 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::patch('translations/{translation}', 'TranslationController@update')->name('admin.translations.exercise.data.update');
             Route::patch('translations/{translation}/audio/synthesize', 'TranslationController@synthesizeAudio')->name('admin.translations.audio.synthesize');
             Route::patch('translations/{translation}/audio/delete', 'TranslationController@deleteAudio')->name('admin.translations.audio.delete');
+            Route::patch('translations/{language}/lessons/{lesson}/disable', 'TranslationController@disableLesson')->name('admin.translations.lesson.disable');
+            Route::patch('translations/{language}/lessons/{lesson}/enable', 'TranslationController@enableLesson')->name('admin.translations.lesson.enable');
+            Route::patch('translations/{language}/exercises/{exercise}/disable', 'TranslationController@disableExercise')->name('admin.translations.exercise.disable');
+            Route::patch('translations/{language}/exercises/{exercise}/enable', 'TranslationController@enableExercise')->name('admin.translations.exercise.enable');
         });
         Route::middleware('permission:' . Permissions::assign_editors)->group(function() {
             Route::get('translations/{language}/content/{content}/editors', 'TranslationController@editors')->name('admin.translations.editors.index');

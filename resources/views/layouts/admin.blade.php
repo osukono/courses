@@ -7,12 +7,12 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ URL::asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ URL::asset('favicon-16x16.png') }}">
 
-    <link href="{{ mix('css/admin.css') }}" rel="stylesheet">
-    <script src="{{ mix('js/admin.js') }}"></script>
-    <script src="{{ mix('js/vue.js') }}" async defer></script>
+    <link href="{{ mix('css/admin_3x0xof.css') }}" rel="stylesheet">
+    <script src="{{ mix('js/admin_3x0xof.js') }}"></script>
+    <script src="{{ mix('js/admin_vue_3x0xof.js') }}" async defer></script>
 </head>
 <body>
 <div id="app" class="wrapper">

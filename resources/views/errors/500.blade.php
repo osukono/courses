@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('layouts.header', [
+    @include('components.header', [
     'header_img' => URL::asset('images/500.svg'),
     'header_img_sm' => URL::asset('images/500_sm.svg'),
     'header_title' => __('web.errors.500.title'),

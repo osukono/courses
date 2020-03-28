@@ -73,6 +73,13 @@ class ImportContent implements ShouldQueue
             $lesson->title = $jsonLesson['title'];
             $lesson->save();
 
+            if (isset($jsonLesson['disabled']))
+                foreach ($jsonLesson['disabled'] as $disabled) {
+                    $language = $languages->where('code', $disabled)->first();
+                    if ($language != null)
+                        $lesson->repository()->disable($language);
+                }
+
             if (!isset($jsonLesson['exercises']))
                 continue;
 
@@ -80,6 +87,13 @@ class ImportContent implements ShouldQueue
                 $exercise = new Exercise();
                 $exercise->lesson()->associate($lesson);
                 $exercise->save();
+
+                if (isset($jsonExercise['disabled']))
+                    foreach ($jsonExercise['disabled'] as $disabled) {
+                        $language = $languages->where('code', $disabled)->first();
+                        if ($language != null)
+                            $exercise->repository()->disable($language);
+                    }
 
                 if (!isset($jsonExercise['data']))
                     continue;
