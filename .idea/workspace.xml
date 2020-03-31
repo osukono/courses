@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/FirebasePlayerSettingsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseDataController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LanguageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlayerSettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlayerSettingsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TopicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TopicController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/yummy-lingo-45fd015ad4aa.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WebController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WebController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/UploadCourseToFirestore.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/UploadCourseToFirestore.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Library/Firebase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/Firebase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Library/Permissions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/Permissions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/CourseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CourseRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ExerciseDataRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ExerciseDataRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/FirebaseCourseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/FirebaseCourseRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/FirebaseLanguageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/FirebaseLanguageRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/FirebaseTopicRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/FirebaseTopicRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/LanguageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/LanguageRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/LessonRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/LessonRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/PlayerSettingsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PlayerSettingsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/SpeechSettingsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/SpeechSettingsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/TranslationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/TranslationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/editors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/editors.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/topics/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/topics/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/editors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/editors.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +278,7 @@
       <workItem from="1582201402949" duration="113776000" />
       <workItem from="1583045020558" duration="19350000" />
       <workItem from="1583756510275" duration="133019000" />
-      <workItem from="1585196723007" duration="47234000" />
+      <workItem from="1585196723007" duration="47517000" />
     </task>
     <servers />
   </component>
@@ -389,10 +358,10 @@
     <state x="374" y="182" width="761" height="486" key="find.popup/0.23.1440.795@0.23.1440.795" timestamp="1585387837782" />
     <state x="374" y="183" width="761" height="476" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1577690797893" />
     <state x="374" y="183" width="761" height="486" key="find.popup/0.23.1440.798@0.23.1440.798" timestamp="1583477391094" />
-    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup" timestamp="1585644311737">
+    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup" timestamp="1585644762085">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1585644311737" />
+    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1585644762085" />
     <state x="385" y="145" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1577430664599" />
     <state x="385" y="145" width="670" height="678" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1585564772837" />
     <state x="385" y="145" width="670" height="681" key="search.everywhere.popup/0.23.1440.801@0.23.1440.801" timestamp="1585146569234" />

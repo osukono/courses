@@ -17,16 +17,16 @@ use Kreait\Firebase\ServiceAccount;
 
 final class Firebase
 {
-    public const languages_collection = '_languages';
-    public const topics_collection = '_topics';
-    public const courses_collection = '_courses';
-    public const lessons_collection = '_lessons';
-    public const exercises_collection = '_exercises';
+    public const languages_collection = 'languages';
+    public const topics_collection = 'topics';
+    public const courses_collection = 'courses';
+    public const lessons_collection = 'lessons';
+    public const exercises_collection = 'exercises';
 
-    public const server_courses_version = '_server_courses_version';
-    public const server_topics_version = '_server_topics_version';
-    public const server_languages_version = '_server_languages_version';
-    public const server_localizations_version = '_server_localizations_version';
+    public const server_courses_version = 'server_courses_version';
+    public const server_topics_version = 'server_topics_version';
+    public const server_languages_version = 'server_languages_version';
+    public const server_localizations_version = 'server_localizations_version';
 
     private static ?Firebase $instance = null;
     private static ServiceAccount $serviceAccount;
