@@ -3,7 +3,6 @@
 namespace App\Jobs;
 
 use App\Course;
-use App\Library\Firebase;
 use App\Repositories\FirebaseCourseRepository;
 use App\Repositories\FirebaseLanguageRepository;
 use Exception;
@@ -59,9 +58,7 @@ class UploadCourseToFirestore implements ShouldQueue
         ]);
         $this->course->loadCount('courseLessons');
 
-        $this->setProgressMax(8);
-
-        $firestore = Firebase::getInstance()->firestoreClient();
+        $this->setProgressMax(7);
 
         $firestoreCourse = FirebaseCourseRepository::findOrCreate($this->course);
 
@@ -69,8 +66,8 @@ class UploadCourseToFirestore implements ShouldQueue
             $this->course->firebase_id = $firestoreCourse->id();
             $this->course->save();
         }
+        $this->incrementProgress();
 
-//        FirebaseCourseRepository::setIsUpdating($this->course);
         /*
          * Update course properties
          */
@@ -90,31 +87,13 @@ class UploadCourseToFirestore implements ShouldQueue
         $this->incrementProgress();
 
         /*
-         * Update course language: translations and course indicator
+         * Update course and translations fields at language
          */
-        $translations = [];
-        $firestoreLanguageCourses = $firestore->collection(Firebase::courses_collection)
-            ->where('language', '=', $this->course->language->firebase_id)
-            ->documents()->rows();
-        foreach ($firestoreLanguageCourses as $firestoreLanguageCourse)
-            if (!in_array($firestoreLanguageCourse->get('translation'), $translations))
-                $translations[] = $firestoreLanguageCourse->get('translation');
-
-        $firestoreLanguage = $firestore->collection(Firebase::languages_collection)
-            ->document($this->course->language->firebase_id);
-        $firestoreLanguage->set([
-            'course' => true,
-            'translations' => $translations
-        ], ['merge' => true]);
-        $this->incrementProgress();
-
-//        FirebaseCourseRepository::setIsUpdating($this->course, false);
-
-        /*
-         * Increment server_languages_version at Firebase's Remote Config.
-         * ToDo do not increment version if languages didn't change.
-         */
-        FirebaseLanguageRepository::incrementLanguagesVersion();
+        if (FirebaseLanguageRepository::updateCourseProperty($this->course->language) ||
+            FirebaseLanguageRepository::updateTranslationsProperty($this->course->language)) {
+            // Increment server_languages_version at Firebase's Remote Config.
+            FirebaseLanguageRepository::incrementLanguagesVersion();
+        };
         $this->incrementProgress();
 
         /*

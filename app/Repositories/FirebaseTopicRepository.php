@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Library\Firebase;
 use App\Topic;
+use Exception;
 use Kreait\Firebase\Exception\RemoteConfigException;
 
 class FirebaseTopicRepository
@@ -44,8 +45,6 @@ class FirebaseTopicRepository
 
         $topic->firebase_id = $reference->id();
         $topic->save();
-
-//        static::incrementTopicsVersion();
     }
 
     private static function update(Topic $topic)
@@ -56,15 +55,23 @@ class FirebaseTopicRepository
         $reference->set([
             'type' => $topic->identifier
         ], ['merge' => true]);
+    }
 
-//        static::incrementTopicsVersion();
+    /**
+     * @param Topic $topic
+     * @throws Exception
+     */
+    public static function validateFirebaseID(Topic $topic)
+    {
+        if (empty($topic->firebase_id))
+            throw new Exception($topic . '. Firebase ID is not set.');
     }
 
     /**
      * @throws RemoteConfigException
      */
-    private static function incrementTopicsVersion()
+    public static function incrementTopicsVersion()
     {
-        Firebase::incrementConfigParameter('server_topics_version');
+        Firebase::incrementConfigParameter(Firebase::server_topics_version);
     }
 }

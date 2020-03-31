@@ -18,7 +18,6 @@ use App\Library\Html\Toolbar\DropdownItem;
 use App\Library\Html\Toolbar\Group;
 use App\Library\Html\Toolbar\Toolbar;
 use App\Library\Permissions;
-use App\Library\Roles;
 use App\Library\Sidebar;
 use App\Repositories\ContentRepository;
 use App\Repositories\LanguageRepository;

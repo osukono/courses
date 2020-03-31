@@ -109,9 +109,6 @@ class CourseRepository
      */
     public function uploadImage(Request $request)
     {
-//        if (!isset($this->model->firebase_id))
-//            return;
-
         $image = Firebase::getInstance()->uploadFile($request->file('image'), 'courses');
 
         $this->model->image = $image;
@@ -123,9 +120,6 @@ class CourseRepository
      */
     public function firestoreUpdate()
     {
-        if (! isset($this->model->firebase_id))
-            throw new Exception("The course doesn't have a firestore reference.");
-
         $firestore = Firebase::getInstance()->firestoreClient();
 
         $firestore->collection(Firebase::courses_collection)->document($this->model->firebase_id)

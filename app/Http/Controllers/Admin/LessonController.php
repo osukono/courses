@@ -8,10 +8,8 @@ use App\Http\Requests\Admin\Content\LessonCreateRequest;
 use App\Http\Requests\Admin\Content\LessonMoveRequest;
 use App\Http\Requests\Admin\Content\LessonRestoreRequest;
 use App\Http\Requests\Admin\Content\LessonUpdateRequest;
-use App\Language;
 use App\Lesson;
 use App\Library\Sidebar;
-use App\Repositories\ExerciseRepository;
 use App\Repositories\LanguageRepository;
 use App\Repositories\LessonRepository;
 use Exception;
@@ -22,7 +20,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Str;
 
 class LessonController extends Controller
 {

@@ -12,7 +12,7 @@
                 @csrf
 
                 @input(['name' => 'name', 'label' => 'Name'])
-                @input(['name' => 'type', 'label' => 'Identifier'])
+                @input(['name' => 'identifier', 'label' => 'Identifier'])
 
                 @submit(['text' => 'Save'])
                 @cancel(['route' => route('admin.topics.index')])

@@ -6,7 +6,6 @@ namespace App\Repositories;
 
 use App\Exercise;
 use App\ExerciseData;
-use App\ExerciseField;
 use App\Language;
 use App\Library\Audio;
 use App\Library\Str;

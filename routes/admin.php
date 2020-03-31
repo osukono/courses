@@ -4,7 +4,7 @@ use App\Library\Permissions;
 use App\Library\Roles;
 
 Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
-    ->namespace('Admin')->prefix('editors')->group(function () {
+    ->namespace('Admin')->prefix('console')->group(function () {
 
         Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
 

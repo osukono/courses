@@ -5,17 +5,19 @@
 @endsection
 
 @section('toolbar')
-    <div class="btn-group" role="group">
-        <button type="button" class="btn btn-info"
-                data-toggle="modal" data-target="#assignRole">
-            @include('admin.components.svg.plus')
-        </button>
-    </div>
+    @if($roles->isNotEmpty())
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-info"
+                    data-toggle="modal" data-target="#assignRole">
+                @include('admin.components.svg.plus')
+            </button>
+        </div>
+    @endif
 @endsection
 
 @section('content')
     @if($assignedRoles->count())
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body">
                 <h5 class="card-title">Roles</h5>
                 @include('admin.users.roles')
@@ -27,7 +29,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Assign role to {{ $user }}</h5>
+                    <h5 class="modal-title">{{ $user }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

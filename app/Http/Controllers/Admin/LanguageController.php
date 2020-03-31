@@ -8,14 +8,16 @@ use App\Http\Requests\Admin\LanguageUpdateRequest;
 use App\Http\Requests\Admin\LanguageUploadIconRequest;
 use App\Language;
 use App\Library\Sidebar;
+use App\Repositories\FirebaseLanguageRepository;
+use App\Repositories\FirebasePlayerSettingsRepository;
 use App\Repositories\LanguageRepository;
-use App\Repositories\PlayerSettingsRepository;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Kreait\Firebase\Exception\RemoteConfigException;
 
 class LanguageController extends Controller
 {
@@ -50,8 +52,16 @@ class LanguageController extends Controller
      */
     public function store(LanguageCreateRequest $request)
     {
-        $language = LanguageRepository::create($request->all());
-        $language->repository()->createFirestoreDocument();
+        try {
+            $language = LanguageRepository::create($request->all());
+
+            FirebaseLanguageRepository::createOrUpdate($language);
+            FirebasePlayerSettingsRepository::sync($language);
+            FirebaseLanguageRepository::incrementLanguagesVersion();
+        } catch (Exception $e) {
+            return back()->with('error', $e->getMessage());
+        } catch (RemoteConfigException $e) {
+        }
 
         return redirect()->route('admin.languages.index');
     }
@@ -74,9 +84,16 @@ class LanguageController extends Controller
      */
     public function update(LanguageUpdateRequest $request, Language $language)
     {
-        //ToDo update slugs
-        $language->repository()->update($request->all());
-        $language->repository()->updateFirestoreDocument();
+        try {
+            $language->repository()->update($request->all());
+
+            if (isset($language->firebase_id)) {
+                FirebaseLanguageRepository::update($language);
+                FirebaseLanguageRepository::incrementLanguagesVersion();
+            }
+        } catch (RemoteConfigException $e) {
+            return back()->with('error', $e->getMessage());
+        }
 
         return redirect()->route('admin.languages.index');
     }
@@ -90,22 +107,17 @@ class LanguageController extends Controller
     {
         try {
             $language->repository()->uploadIcon($request);
+
+            if (isset($language->firebase_id)) {
+                FirebaseLanguageRepository::updateIconProperty($language);
+                FirebaseLanguageRepository::incrementLanguagesVersion();
+            }
         } catch (FileNotFoundException $e) {
+        } catch (Exception $e) {
+        } catch (RemoteConfigException $e) {
         }
 
         return redirect()->route('admin.languages.index');
-    }
-
-    /**
-     * @param Language $language
-     * @throws Exception
-     */
-    public static function validateLanguage(Language $language)
-    {
-        if (empty($language->firebase_id))
-            throw new Exception("Language " . $language . " doesn't have a firebase reference.");
-        if (empty($language->icon))
-            throw new Exception("Language " . $language . " doesn't have an icon.");
     }
 
     /**
@@ -115,9 +127,12 @@ class LanguageController extends Controller
     public function sync(Language $language)
     {
         try {
-            $language->repository()->syncWithFirestore();
-            PlayerSettingsRepository::syncWithFirebase($language);
-        } catch (\Exception $e) {
+            FirebaseLanguageRepository::createOrUpdate($language);
+            FirebaseLanguageRepository::syncIconProperty($language);
+            FirebasePlayerSettingsRepository::sync($language);
+            FirebaseLanguageRepository::incrementLanguagesVersion();
+        } catch (Exception $e) {
+        } catch (RemoteConfigException $e) {
             return back()->with('error', $e->getMessage());
         }
 

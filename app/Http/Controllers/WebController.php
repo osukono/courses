@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Course;
-use App\CourseLesson;
 use App\Language;
 use App\Level;
 use App\Repositories\CourseRepository;
 use App\Topic;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class WebController extends Controller
 {

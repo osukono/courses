@@ -8,7 +8,6 @@ class Permissions
     public const view_admin_panel = 'view admin panel';
 
     public const view_courses = 'view courses';
-    public const create_courses = 'create courses';
     public const update_courses = 'update courses';
     public const publish_courses = 'publish courses';
 
@@ -23,6 +22,10 @@ class Permissions
     public const update_translations = 'update translations';
     public const delete_translations = 'delete translations';
     public const restore_translations = 'restore translations';
+
+    public const view_users = 'view users';
+    public const create_users = 'create users';
+    public const assign_roles = 'assign roles';
 
     public const assign_editors = 'assign editors';
 }

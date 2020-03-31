@@ -4,9 +4,7 @@
 namespace App\Repositories;
 
 
-use App\Course;
 use App\User;
-use App\UserCourse;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\Permission\Models\Role;
 

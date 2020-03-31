@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PlayerSettingsRequest;
 use App\Language;
+use App\Repositories\FirebaseLanguageRepository;
+use App\Repositories\FirebasePlayerSettingsRepository;
 use App\Repositories\PlayerSettingsRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Kreait\Firebase\Exception\RemoteConfigException;
 
 class PlayerSettingsController extends Controller
 {
@@ -19,10 +22,10 @@ class PlayerSettingsController extends Controller
      */
     public function create(Language $language)
     {
-        $data['language'] = $language;
-
-        if ($data['language']->playerSettings !== null)
+        if ($language->playerSettings !== null)
             return redirect()->route('admin.languages.index');
+
+        $data['language'] = $language;
 
         return view('admin.player.settings.create')->with($data);
     }
@@ -37,9 +40,18 @@ class PlayerSettingsController extends Controller
         if ($language->playerSettings !== null)
             return redirect()->route('admin.languages.index');
 
-        $playerSettings = PlayerSettingsRepository::create($request->all(), $language);
-        if (isset($language->firebase_id))
-            $playerSettings->repository()->updateFirebaseDocument();
+        try {
+            PlayerSettingsRepository::create($request->all(), $language);
+
+            if (isset($language->firebase_id)) {
+                //ToDo Seems like a bug
+                $language->refresh();
+                FirebasePlayerSettingsRepository::sync($language);
+                FirebaseLanguageRepository::incrementLanguagesVersion();
+            }
+        } catch (RemoteConfigException $e) {
+            return back()->with('error', $e->getMessage());
+        }
 
         return redirect()->route('admin.languages.index');
     }
@@ -62,9 +74,16 @@ class PlayerSettingsController extends Controller
      */
     public function update(PlayerSettingsRequest $request, Language $language)
     {
-        $language->playerSettings->repository()->update($request->all());
-        if (isset($language->firebase_id))
-            $language->playerSettings->repository()->updateFireBaseDocument();
+        try {
+            $language->playerSettings->repository()->update($request->all());
+
+            if (isset($language->firebase_id)) {
+                FirebasePlayerSettingsRepository::sync($language);
+                FirebaseLanguageRepository::incrementLanguagesVersion();
+            }
+        } catch (RemoteConfigException $e) {
+            return back()->with('error', $e->getMessage());
+        }
 
         return redirect()->route('admin.languages.index');
     }

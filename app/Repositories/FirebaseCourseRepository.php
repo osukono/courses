@@ -25,12 +25,9 @@ class FirebaseCourseRepository
             return $firestore->collection(Firebase::courses_collection)->document($course->firebase_id);
         }
 
-        if (!isset($course->language->firebase_id))
-            throw new Exception($course->language . ". Firebase ID is not set.");
-        if (!isset($course->topic->firebase_id))
-            throw new Exception($course->topic . ". Firebase ID is not set.");
-        if (!isset($course->translation->firebase_id))
-            throw new Exception($course->translation . ". Firebase ID is not set.");
+        FirebaseLanguageRepository::validateFirebaseID($course->language);
+        FirebaseTopicRepository::validateFirebaseID($course->topic);
+        FirebaseLanguageRepository::validateFirebaseID($course->translation);
 
         $course->loadCount('courseLessons');
 
@@ -72,8 +69,7 @@ class FirebaseCourseRepository
      */
     public static function setIsUpdating(Course $course, $is_updating = true)
     {
-        if (!isset($course->firebase_id))
-            throw new Exception($course . ". Firebase ID is not set.");
+        FirebaseCourseRepository::validateFirestoreID($course);
 
         $firestore = Firebase::getInstance()->firestoreClient();
 
@@ -88,8 +84,7 @@ class FirebaseCourseRepository
      */
     public static function updateProperties(Course $course)
     {
-        if (!isset($course->firebase_id))
-            throw new Exception($course . ". Firebase ID is not set.");
+        FirebaseCourseRepository::validateFirestoreID($course);
 
         $course->loadCount('courseLessons');
 
@@ -109,22 +104,12 @@ class FirebaseCourseRepository
     }
 
     /**
-     * @throws RemoteConfigException
-     */
-    public static function incrementCoursesVersion()
-    {
-        Firebase::incrementConfigParameter('server_courses_version');
-    }
-
-    /**
      * @param Course $course
      * @throws Exception
      */
     public static function deleteContent(Course $course)
     {
-        if (!isset($course->firebase_id)) {
-            throw new Exception($course . '. Firebase ID is not set.');
-        }
+        FirebaseCourseRepository::validateFirestoreID($course);
 
         $firestore = Firebase::getInstance()->firestoreClient();
 
@@ -152,9 +137,7 @@ class FirebaseCourseRepository
      */
     public static function uploadContent(Course $course)
     {
-        if (!isset($course->firebase_id)) {
-            throw new Exception($course . '. Firebase ID is not set.');
-        }
+        FirebaseCourseRepository::validateFirestoreID($course);
 
         $firestore = Firebase::getInstance()->firestoreClient();
 
@@ -196,5 +179,23 @@ class FirebaseCourseRepository
 
             $batch->commit();
         }
+    }
+
+    /**
+     * @param Course $course
+     * @throws Exception
+     */
+    public static function validateFirestoreID(Course $course)
+    {
+        if (! isset($course->firebase_id))
+            throw new Exception($course . '. Firebase ID is not set.');
+    }
+
+    /**
+     * @throws RemoteConfigException
+     */
+    public static function incrementCoursesVersion()
+    {
+        Firebase::incrementConfigParameter(Firebase::server_courses_version);
     }
 }

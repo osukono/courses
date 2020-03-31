@@ -5,11 +5,13 @@
 @endsection
 
 @section('toolbar')
-    <div class="btn-group" role="group" aria-label="Editors">
-        <a class="btn btn-info" href="#" data-toggle="modal" data-target="#usersModal">
-            @include('admin.components.svg.plus')
-        </a>
-    </div>
+    @if($users->isNotEmpty())
+        <div class="btn-group" role="group" aria-label="Editors">
+            <a class="btn btn-info" href="#" data-toggle="modal" data-target="#usersModal">
+                @include('admin.components.svg.plus')
+            </a>
+        </div>
+    @endif
 @endsection
 
 @section('content')
@@ -29,7 +31,7 @@
                         @foreach($editors as $editor)
                             <tr>
                                 <td>{{ $editor->name }}</td>
-                                <td>{{ $editor->roles->implode('name', ',') }}</td>
+                                <td>{{ $editor->roles->implode('name', ', ') }}</td>
                                 <td class="text-right">
                                     <form class="mr-1"
                                           action="{{ route('admin.content.editors.remove', $content) }}"

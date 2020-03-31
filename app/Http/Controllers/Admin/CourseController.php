@@ -11,6 +11,8 @@ use App\Jobs\UploadCourseToFirestore;
 use App\Library\Sidebar;
 use App\Repositories\CourseRepository;
 use App\Repositories\FirebaseCourseRepository;
+use App\Repositories\FirebaseLanguageRepository;
+use App\Repositories\FirebaseTopicRepository;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\View\Factory;
@@ -100,14 +102,18 @@ class CourseController extends Controller
     {
         try {
             if (!$course->is_updating)
-                throw new Exception('Is updating state is not set.');
+                throw new Exception($course . '. Is updating state is not set.');
 
-            LanguageController::validateLanguage($course->language);
-            if ($course->language->playerSettings()->doesntExist())
-                throw new Exception("Language " . $course->language . " doesn't have player settings.");
-            LanguageController::validateLanguage($course->translation);
-            TopicController::validateTopic($course->topic);
-            CourseController::validateCourse($course);
+            FirebaseLanguageRepository::validateFirebaseID($course->language);
+            FirebaseLanguageRepository::validateIcon($course->language);
+            FirebaseLanguageRepository::validatePlayerSettings($course->language);
+
+            FirebaseLanguageRepository::validateFirebaseID($course->translation);
+            FirebaseLanguageRepository::validateIcon($course->translation);
+
+            FirebaseTopicRepository::validateFirebaseID($course->topic);
+
+            CourseController::validateFields($course);
         } catch (Exception $e) {
             return back()->with('error', $e->getMessage());
         }
@@ -130,7 +136,8 @@ class CourseController extends Controller
     public function firestoreUpdate(Course $course)
     {
         try {
-            $this->validateCourse($course);
+            FirebaseCourseRepository::validateFirestoreID($course);
+            CourseController::validateFields($course);
 
             $course->repository()->firestoreUpdate();
         } catch (Exception $e) {
@@ -144,18 +151,18 @@ class CourseController extends Controller
      * @param $course
      * @throws Exception
      */
-    public static function validateCourse($course)
+    public static function validateFields($course)
     {
         if (empty($course->title))
-            throw new Exception("Course " . $course . " doesn't have the title");
+            throw new Exception($course . "Title is not set.");
         if (empty($course->description))
-            throw new Exception("Course " . $course . " doesn't have the description");
+            throw new Exception($course . "Description is not set.");
         if (empty($course->image))
-            throw new Exception("Course " . $course . " doesn't have an image");
+            throw new Exception($course . "Doesn't have an image.");
         if (empty($course->player_version))
-            throw new Exception("Course " . $course . " - player version is not set.");
+            throw new Exception($course . "Player version is not set.");
         if (empty($course->review_exercises))
-            throw new Exception("Course " . $course . " - review exercises is not set.");
+            throw new Exception($course . "Review exercises is not set.");
     }
 
     public function practice(Course $course, CourseLesson $courseLesson)

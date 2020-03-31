@@ -8,7 +8,6 @@ use App\Content;
 use App\Language;
 use App\SpeechSettings;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 
 class SpeechSettingsRepository
 {

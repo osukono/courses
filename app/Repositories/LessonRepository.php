@@ -5,13 +5,11 @@ namespace App\Repositories;
 
 
 use App\Content;
-use App\Exercise;
 use App\Language;
 use App\Lesson;
 use Exception;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Query\Builder;
-use Illuminate\Support\Str;
 
 class LessonRepository
 {

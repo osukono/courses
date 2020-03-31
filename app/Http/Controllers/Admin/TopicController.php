@@ -14,6 +14,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Kreait\Firebase\Exception\RemoteConfigException;
 
 class TopicController extends Controller
 {
@@ -43,12 +44,14 @@ class TopicController extends Controller
     /**
      * @param TopicCreateRequest $request
      * @return RedirectResponse
+     * @throws RemoteConfigException
      */
     public function store(TopicCreateRequest $request)
     {
         try {
             $topic = TopicRepository::create($request->all());
             FirebaseTopicRepository::createOrUpdate($topic);
+            FirebaseTopicRepository::incrementTopicsVersion();
         } catch (Exception $e) {
             return back()->with('error', $e->getMessage());
         }
@@ -71,27 +74,19 @@ class TopicController extends Controller
      * @param TopicUpdateRequest $request
      * @param Topic $topic
      * @return RedirectResponse
+     * @throws RemoteConfigException
      */
     public function update(TopicUpdateRequest $request, Topic $topic)
     {
         try {
             $topic->repository()->update($request->all());
             FirebaseTopicRepository::createOrUpdate($topic);
+            FirebaseTopicRepository::incrementTopicsVersion();
         } catch (Exception $e) {
             return back()->with('error', $e->getMessage());
         }
 
         return redirect()->route('admin.topics.index');
-    }
-
-    /**
-     * @param Topic $topic
-     * @throws Exception
-     */
-    public static function validateTopic(Topic $topic)
-    {
-        if (empty($topic->firebase_id))
-            throw new Exception("Topic " . $topic . " doesn't have a firebase reference");
     }
 
     /**
@@ -102,7 +97,8 @@ class TopicController extends Controller
     {
         try {
             FirebaseTopicRepository::createOrUpdate($topic);
-        } catch (Exception $e) {
+            FirebaseTopicRepository::incrementTopicsVersion();
+        } catch (Exception | RemoteConfigException $e) {
             return back()->with('error', $e->getMessage());
         }
 

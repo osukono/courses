@@ -1,4 +1,4 @@
-<?php //declare(strict_types=1);
+<?php
 
 namespace App\Library;
 
@@ -8,6 +8,7 @@ use Google\Cloud\Storage\StorageClient;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Arr;
 use Kreait\Firebase\Exception\RemoteConfigException;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\RemoteConfig;
@@ -16,11 +17,16 @@ use Kreait\Firebase\ServiceAccount;
 
 final class Firebase
 {
-    public const languages_collection = 'languages';
-    public const topics_collection = 'topics';
-    public const courses_collection = 'courses';
-    public const lessons_collection = 'lessons';
-    public const exercises_collection = 'exercises';
+    public const languages_collection = '_languages';
+    public const topics_collection = '_topics';
+    public const courses_collection = '_courses';
+    public const lessons_collection = '_lessons';
+    public const exercises_collection = '_exercises';
+
+    public const server_courses_version = '_server_courses_version';
+    public const server_topics_version = '_server_topics_version';
+    public const server_languages_version = '_server_languages_version';
+    public const server_localizations_version = '_server_localizations_version';
 
     private static ?Firebase $instance = null;
     private static ServiceAccount $serviceAccount;
@@ -51,16 +57,17 @@ final class Firebase
 
         $template = $remoteConfig->get();
 
-        foreach ($template->parameters() as $parameter)
-            if ($parameter->name() === $name) {
-                $value = (integer) $parameter->defaultValue()->jsonSerialize()['value'];
-                $remoteConfig->publish(
-                    $template->withParameter(
-                        Parameter::named($name, (string) ($value + 1))
-                    )
-                );
-                break;
-            }
+        $parameter = Arr::first($template->parameters(), function (Parameter $value) use ($name) {
+            return $value->name() === $name;
+        }, Parameter::named($name, "0"));
+
+        $value = (integer) $parameter->defaultValue()->jsonSerialize()['value'];
+
+        $remoteConfig->publish(
+            $template->withParameter(
+                Parameter::named($name, (string) ($value + 1))
+            )
+        );
     }
 
     /**
