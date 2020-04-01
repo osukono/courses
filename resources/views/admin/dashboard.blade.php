@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title mb-4">Users</h5>
@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title mb-4">Contents</h5>
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title mb-4">Courses</h5>
