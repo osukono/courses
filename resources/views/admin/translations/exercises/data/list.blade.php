@@ -2,9 +2,9 @@
     <thead>
     <tr>
         @empty($editData)
-            <th class="col-10"></th>
-            <th class="text-right text-nowrap">Last Modified</th>
-            <th></th>
+            <th class="col-12 col-md-10"></th>
+            <th class="text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
+            <th class="d-none d-md-table-cell"></th>
         @else
             <th></th>
         @endempty
@@ -28,8 +28,8 @@
                     @includeWhen(($translation = $data->translations->first()) != null, 'admin.translations.exercises.data.show')
                 </td>
                 @empty($editData)
-                    <td class="text-nowrap text-right">{{ $data->updated_at->diffForHumans() }}</td>
-                    <td class="text-nowrap">
+                    <td class="text-nowrap text-right d-none d-md-table-cell">{{ $data->updated_at->diffForHumans() }}</td>
+                    <td class="text-nowrap d-none d-md-table-cell">
                         @if($data->translations->first() != null)
                             <a class="mr-2" href="#"
                                onclick="event.preventDefault(); document.getElementById('translation-{{ $data->translations->first()->id }}-synthesize').submit();">
