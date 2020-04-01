@@ -1,19 +1,19 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col-9"></th>
-        <th>Title</th>
-        <th>Lessons</th>
-        <th class="text-nowrap text-right">Last Modified</th>
+        <th class="col-12 col-md-9"></th>
+        <th class="">Title</th>
+        <th class="d-none d-md-table-cell">Lessons</th>
+        <th class="text-nowrap text-right d-none d-md-table-cell">Last Modified</th>
     </tr>
     </thead>
     <tbody>
     @foreach($contents as $content)
         <tr class="clickable-row" data-href="{{ route('admin.content.show', $content) }}">
             <td class="text-nowrap">{{ $content }}</td>
-            <td class="text-nowrap">{{ $content->title }}</td>
-            <td>{{ $content->lessons_count }}</td>
-            <td class="text-nowrap text-right">{{ $content->updated_at->diffForHumans() }}</td>
+            <td class="text-nowrap d-none d-md-table-cell">{{ $content->title }}</td>
+            <td class="d-none d-md-table-cell">{{ $content->lessons_count }}</td>
+            <td class="text-nowrap text-right d-none d-md-table-cell">{{ $content->updated_at->diffForHumans() }}</td>
         </tr>
     @endforeach
     </tbody>
