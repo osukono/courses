@@ -175,6 +175,7 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::post('app/locales/upload', 'AppLocaleController@upload')->name('admin.app.locales.upload');
             Route::get('app/locales/{appLocale}/edit', 'AppLocaleController@edit')->name('admin.app.locales.edit');
             Route::patch('app/locales/{appLocale}', 'AppLocaleController@update')->name('admin.app.locales.update');
+            Route::delete('app/locales/{appLocale}', 'AppLocaleController@delete')->name('admin.app.locales.delete');
 
             Route::get('app/locale/groups', 'LocaleGroupController@index')->name('admin.app.locale.groups.index');
             Route::get('app/locale/groups/create', 'LocaleGroupController@create')->name('admin.app.locale.groups.create');

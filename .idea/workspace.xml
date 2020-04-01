@@ -2,43 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/AppLocale.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AppLocaleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LocaleGroupController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/AppLocaleUpdateRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/LocaleGroupCreateRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/LocaleGroupUpdateRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Jobs/LoadLocales.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Jobs/UploadLocales.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/LocaleGroup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/AppLocaleRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/FirebaseAppLocaleRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/LocaleGroupRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_03_31_104841_languages_add_regional.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_03_31_111647_create_locale_tables.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/groups/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/groups/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/groups/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/groups/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LanguageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/LanguageCreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/LanguageCreateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/LanguageUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/LanguageUpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Language.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Library/Firebase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/Firebase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Library/Sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/Sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/LanguageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/LanguageRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/LanguagesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/LanguagesSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AppLocaleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AppLocaleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/app/locales/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/breadcrumbs.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/breadcrumbs.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,7 +281,7 @@
       <workItem from="1582201402949" duration="113776000" />
       <workItem from="1583045020558" duration="19350000" />
       <workItem from="1583756510275" duration="133019000" />
-      <workItem from="1585196723007" duration="70664000" />
+      <workItem from="1585196723007" duration="71272000" />
     </task>
     <servers />
   </component>
@@ -394,10 +361,10 @@
     <state x="374" y="182" width="761" height="486" key="find.popup/0.23.1440.795@0.23.1440.795" timestamp="1585387837782" />
     <state x="374" y="183" width="761" height="476" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1577690797893" />
     <state x="374" y="183" width="761" height="486" key="find.popup/0.23.1440.798@0.23.1440.798" timestamp="1583477391094" />
-    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup" timestamp="1585730620505">
+    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup" timestamp="1585733162174">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1585730620505" />
+    <state x="385" y="145" width="670" height="675" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1585733162174" />
     <state x="385" y="145" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1577430664599" />
     <state x="385" y="145" width="670" height="678" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1585564772837" />
     <state x="385" y="145" width="670" height="681" key="search.everywhere.popup/0.23.1440.801@0.23.1440.801" timestamp="1585146569234" />

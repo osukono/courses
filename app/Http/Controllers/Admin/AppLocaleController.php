@@ -62,6 +62,19 @@ class AppLocaleController extends Controller
     }
 
     /**
+     * @param AppLocale $appLocale
+     * @return RedirectResponse
+     * @throws Exception
+     */
+    public function delete(AppLocale $appLocale)
+    {
+        $appLocale->delete();
+
+        return redirect()->route('admin.app.locales.index')
+            ->with('message', __('admin.messages.deleted.success', ['object' => $appLocale]));
+    }
+
+    /**
      * @return RedirectResponse
      */
     public function download()
