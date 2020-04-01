@@ -29,7 +29,7 @@
                 <a href="{{ route('admin.app.locales.edit', $appLocale) }}">
                     @include('admin.components.svg.edit')
                 </a>
-                <a href="#" type="button"
+                <a href="#"
                         data-toggle="confirmation"
                         data-btn-ok-label="{{ __('admin.form.delete') }}"
                         data-title="{{ __('admin.form.delete_confirmation', ['object' => $appLocale]) }}"
