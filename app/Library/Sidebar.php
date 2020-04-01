@@ -11,5 +11,6 @@ class Sidebar
     public const courses = 'courses';
     public const languages = 'languages';
     public const topics = 'topics';
+    public const locales = 'locales';
     public const users = 'users';
 }

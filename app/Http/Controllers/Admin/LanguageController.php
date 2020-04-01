@@ -58,9 +58,8 @@ class LanguageController extends Controller
             FirebaseLanguageRepository::createOrUpdate($language);
             FirebasePlayerSettingsRepository::sync($language);
             FirebaseLanguageRepository::incrementLanguagesVersion();
-        } catch (Exception $e) {
+        } catch (Exception | RemoteConfigException $e) {
             return back()->with('error', $e->getMessage());
-        } catch (RemoteConfigException $e) {
         }
 
         return redirect()->route('admin.languages.index');
@@ -131,8 +130,7 @@ class LanguageController extends Controller
             FirebaseLanguageRepository::syncIconProperty($language);
             FirebasePlayerSettingsRepository::sync($language);
             FirebaseLanguageRepository::incrementLanguagesVersion();
-        } catch (Exception $e) {
-        } catch (RemoteConfigException $e) {
+        } catch (Exception| RemoteConfigException $e) {
             return back()->with('error', $e->getMessage());
         }
 

@@ -2,12 +2,12 @@
 
 namespace App\Http\Requests\Admin;
 
-use App\Language;
+use App\AppLocale;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-/** @property Language $language */
-class LanguageUpdateRequest extends FormRequest
+/** @property AppLocale $appLocale */
+class AppLocaleUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,41 +27,36 @@ class LanguageUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => [
+            'key' => [
                 'bail',
                 'required',
                 'string',
-                'min:1',
-                'max:50',
-                Rule::unique('languages', 'name')->ignore($this->language->id),
+                'max:100',
+                Rule::unique('app_locales', 'key')->ignore($this->appLocale->id)
             ],
-            'native' => [
+            'description' => [
                 'bail',
+                'nullable',
                 'string',
-                'max:50'
+                'max:100'
             ],
-            'code' => [
+            'locale_group_id' => [
                 'bail',
                 'required',
-                'string',
-                'min:2',
-                'max:12',
-                Rule::unique('languages', 'code')->ignore($this->language->id),
+                'integer',
+                Rule::exists('locale_groups', 'id')
             ],
             'locale' => [
                 'bail',
-                'nullable',
-                'string',
-                'min:2',
-                'max:12'
+                'required',
+                'array'
             ],
-            'firebase_id' => [
+            'locale.*' => [
                 'bail',
                 'nullable',
                 'string',
-                'max:255',
-                Rule::unique('languages', 'firebase_id')->ignore($this->language->id),
-            ],
+                'max:200'
+            ]
         ];
     }
 }

@@ -52,6 +52,7 @@ class LanguageRepository
         $language->name = $attributes['name'];
         $language->native = $attributes['native'];
         $language->code = $attributes['code'];
+        $language->locale = $attributes['locale'];
         $language->save();
 
         return $language;
@@ -65,6 +66,7 @@ class LanguageRepository
         $this->model->name = $attributes['name'];
         $this->model->native = $attributes['native'];
         $this->model->code = $attributes['code'];
+        $this->model->locale = $attributes['locale'];
         $this->model->firebase_id = $attributes['firebase_id'];
         $this->model->slug = null;
         $this->model->save();

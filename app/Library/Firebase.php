@@ -22,6 +22,7 @@ final class Firebase
     public const courses_collection = 'courses';
     public const lessons_collection = 'lessons';
     public const exercises_collection = 'exercises';
+    public const localizations_collection = 'localizations';
 
     public const server_courses_version = 'server_courses_version';
     public const server_topics_version = 'server_topics_version';

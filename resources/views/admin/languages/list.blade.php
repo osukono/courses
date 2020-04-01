@@ -1,9 +1,10 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col-6"></th>
+        <th class="col-5"></th>
         <th>Native</th>
         <th>Code</th>
+        <th>Locale</th>
         <th class="text-nowrap">Firestore ID</th>
         <th class="text-nowrap">Player Settings</th>
         <th class="text-nowrap">Icon</th>
@@ -16,6 +17,7 @@
             <td class="text-nowrap">{{ $language->name }}</td>
             <td class="text-nowrap">{{ $language->native }}</td>
             <td class="text-nowrap">{{ $language->code }}</td>
+            <td>{{ $language->locale }}</td>
             <td>
                 @if(isset($language->firebase_id))
                     {{ $language->firebase_id }}

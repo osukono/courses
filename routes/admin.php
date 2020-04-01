@@ -167,6 +167,23 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         });
 
         /**
+         * App Locales
+         */
+        Route::middleware('role:' . Roles::admin)->group(function() {
+            Route::get('app/locales', 'AppLocaleController@index')->name('admin.app.locales.index');
+            Route::post('app/locales/download', 'AppLocaleController@download')->name('admin.app.locales.download');
+            Route::post('app/locales/upload', 'AppLocaleController@upload')->name('admin.app.locales.upload');
+            Route::get('app/locales/{appLocale}/edit', 'AppLocaleController@edit')->name('admin.app.locales.edit');
+            Route::patch('app/locales/{appLocale}', 'AppLocaleController@update')->name('admin.app.locales.update');
+
+            Route::get('app/locale/groups', 'LocaleGroupController@index')->name('admin.app.locale.groups.index');
+            Route::get('app/locale/groups/create', 'LocaleGroupController@create')->name('admin.app.locale.groups.create');
+            Route::post('app/locale/groups/store', 'LocaleGroupController@store')->name('admin.app.locale.groups.store');
+            Route::get('app/locale/groups/{localeGroup}/edit', 'LocaleGroupController@edit')->name('admin.app.locale.groups.edit');
+            Route::patch('app/locale/groups/{localeGroup}', 'LocaleGroupController@update')->name('admin.app.locale.groups.update');
+        });
+
+        /**
          * Speech Settings
          */
         Route::middleware('permission:' . Permissions::update_content)->group(function() {

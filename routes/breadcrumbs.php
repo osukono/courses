@@ -242,6 +242,53 @@ Breadcrumbs::for('admin.topics.edit', function ($trail, \App\Topic $topic) {
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------
+ * App Localizations
+ * ---------------------------------------------------------------------------------------------------------------------
+ */
+
+// App Localizations
+Breadcrumbs::for('admin.app.locales.index', function ($trail) {
+    $trail->push('App Localizations', route('admin.app.locales.index'));
+});
+
+// App Localizations > [App Locale]
+Breadcrumbs::for('admin.app.locales.show', function ($trail, \App\AppLocale $appLocale) {
+    $trail->parent('admin.app.locales.index');
+    $trail->push($appLocale);
+});
+
+// App Localizations > [App Locale] > Properties
+Breadcrumbs::for('admin.app.locales.edit', function ($trail, \App\AppLocale $appLocale) {
+    $trail->parent('admin.app.locales.show', $appLocale);
+    $trail->push('Properties');
+});
+
+// App Localizations > Groups
+Breadcrumbs::for('admin.app.locale.groups.index', function ($trail) {
+    $trail->parent('admin.app.locales.index');
+    $trail->push('Groups', route('admin.app.locale.groups.index'));
+});
+
+// App Localizations > Groups > Create
+Breadcrumbs::for('admin.app.locale.groups.create', function ($trail) {
+    $trail->parent('admin.app.locale.groups.index');
+    $trail->push('Create');
+});
+
+// App Localizations > Groups > [Group]
+Breadcrumbs::for('admin.app.locale.groups.show', function ($trail, \App\LocaleGroup $localeGroup) {
+    $trail->parent('admin.app.locale.groups.index');
+    $trail->push($localeGroup);
+});
+
+// App Localizations > Groups > [Group] > Properties
+Breadcrumbs::for('admin.app.locale.groups.edit', function ($trail, \App\LocaleGroup $localeGroup) {
+    $trail->parent('admin.app.locale.groups.show', $localeGroup);
+    $trail->push('Properties');
+});
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
  * Users
  * ---------------------------------------------------------------------------------------------------------------------
  */

@@ -13,7 +13,8 @@
                 @method('patch')
                 @input(['name' => 'name', 'label' => 'Name', 'default' => $language->name])
                 @input(['name' => 'native', 'label' => 'Native name', 'default' => $language->native])
-                @input(['name' => 'code', 'label' => 'Code', 'default' => $language->code])
+                @input(['name' => 'code', 'label' => 'Regional Code', 'default' => $language->code])
+                @input(['name' => 'locale', 'label' => 'Locale Code', 'default' => $language->locale])
                 @input(['name' => 'firebase_id', 'label' => 'Firebase ID', 'default' => $language->firebase_id])
 
                 @submit(['text' => 'Save'])

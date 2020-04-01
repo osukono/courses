@@ -45,6 +45,9 @@
             <li>
                 <a class="{{ (isset($current) && $current == \App\Library\Sidebar::topics ? 'active' : '') }}" href="{{ route('admin.topics.index') }}">Topics</a>
             </li>
+            <li>
+                <a class="{{ (isset($current) && $current == \App\Library\Sidebar::locales ? 'active' : '') }}" href="{{ route('admin.app.locales.index') }}">Localizations</a>
+            </li>
         </ul>
         <ul class="list-unstyled">
             <li>

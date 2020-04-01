@@ -40,6 +40,8 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $locale
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereLocale($value)
  */
 class Language extends Model
 {
@@ -66,7 +68,6 @@ class Language extends Model
     {
         return $this->hasOne(PlayerSettings::class);
     }
-
 
     private LanguageRepository $repository;
 

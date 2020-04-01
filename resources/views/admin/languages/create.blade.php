@@ -12,7 +12,8 @@
                 @csrf
                 @input(['name' => 'name', 'label' => 'Name'])
                 @input(['name' => 'native', 'label' => 'Native name'])
-                @input(['name' => 'code', 'label' => 'Code'])
+                @input(['name' => 'code', 'label' => 'Regional Code'])
+                @input(['name' => 'locale', 'label' => 'Locale Code'])
 
                 @submit(['text' => 'Save'])
                 @cancel(['route' => route('admin.languages.index')])
