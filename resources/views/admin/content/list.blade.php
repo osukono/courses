@@ -2,7 +2,7 @@
     <thead>
     <tr>
         <th class="col-12 col-md-9"></th>
-        <th class="">Title</th>
+        <th class="d-none d-md-table-cell">Title</th>
         <th class="d-none d-md-table-cell">Lessons</th>
         <th class="text-nowrap text-right d-none d-md-table-cell">Last Modified</th>
     </tr>
