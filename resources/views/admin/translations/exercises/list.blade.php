@@ -2,8 +2,8 @@
     <thead>
     <tr>
         <th class=""></th>
-        <th class="col-10"></th>
-        <th class="text-right text-nowrap">Last Modified</th>
+        <th class="col-11 col-md-10"></th>
+        <th class="text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
     </tr>
     </thead>
     <tbody>
@@ -31,7 +31,7 @@
                     @endif
                 @endforeach
             </td>
-            <td class="text-nowrap text-right">{{ $exercise->updated_at->diffForHumans() }}</td>
+            <td class="text-nowrap text-right d-none d-md-table-cell">{{ $exercise->updated_at->diffForHumans() }}</td>
         </tr>
     @endforeach
     </tbody>

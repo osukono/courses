@@ -2,7 +2,7 @@
     <thead>
     <tr>
         <th></th>
-        <th class="col-12 col-md-9"></th>
+        <th class="col-11 col-md-9"></th>
         <th class="d-none d-md-table-cell">Exercises</th>
         <th class="text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
     </tr>
