@@ -10,7 +10,7 @@
     <tbody>
     @foreach($contents as $content)
         <tr class="clickable-row" data-href="{{ route('admin.content.show', $content) }}">
-            <td class="text-nowrap">{{ $content }}</td>
+            <td>{{ $content }}</td>
             <td class="text-nowrap d-none d-md-table-cell">{{ $content->title }}</td>
             <td class="d-none d-md-table-cell">{{ $content->lessons_count }}</td>
             <td class="text-nowrap text-right d-none d-md-table-cell">{{ $content->updated_at->diffForHumans() }}</td>
