@@ -3,7 +3,7 @@
     <tr>
         <th></th>
         <th class="col-{{ (Auth::getUser()->can(\App\Library\Permissions::update_content)) ? '10' : '11' }}"></th>
-        <th class="text-right text-nowrap">Last Modified</th>
+        <th class="text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
     </tr>
     </thead>
     <tbody id="sortable">
@@ -21,7 +21,7 @@
                     @include('admin.content.exercises.data.show')
                 @endforeach
             </td>
-            <td class="text-nowrap text-right">{{ $exercise->updated_at->diffForHumans() }}</td>
+            <td class="text-nowrap text-right d-none d-md-table-cell">{{ $exercise->updated_at->diffForHumans() }}</td>
         </tr>
     @endforeach
     </tbody>
