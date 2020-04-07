@@ -56,10 +56,10 @@
     display: inline;
 }
 
-#sidebar ul li a svg {
-    //display:table-cell;
+#sidebar .feather {
+    width: 17px;
+    height: 17px;
     vertical-align: middle;
-    margin-bottom: 1px;
 }
 
 #sidebar ul li a.active {
