@@ -137,10 +137,8 @@
       <path value="$PROJECT_DIR$/vendor/kreait/laravel-firebase" />
       <path value="$PROJECT_DIR$/vendor/kreait/firebase-php" />
       <path value="$PROJECT_DIR$/vendor/kreait/clock" />
-      <path value="$PROJECT_DIR$/vendor/kreait/gcp-metadata" />
       <path value="$PROJECT_DIR$/vendor/kreait/firebase-tokens" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
-      <path value="$PROJECT_DIR$/vendor/superbalist/flysystem-google-storage" />
       <path value="$PROJECT_DIR$/vendor/google/cloud-firestore" />
     </include_path>
   </component>

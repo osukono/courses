@@ -118,13 +118,7 @@ class CourseController extends Controller
             return back()->with('error', $e->getMessage());
         }
 
-        $job = new UploadCourseToFirestore($course);
-        $this->dispatch($job);
-        try {
-            $jobStatusId = $job->getJobStatusId();
-            Session::flash('job', $jobStatusId);
-        } catch (Exception $e) {
-        }
+        $this->dispatchJob(new UploadCourseToFirestore($course));
 
         return redirect()->route('admin.courses.show', $course);
     }

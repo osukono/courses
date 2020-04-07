@@ -9,7 +9,7 @@
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-info"
                     data-toggle="modal" data-target="#assignRole">
-                @include('admin.components.svg.plus')
+                <icon-plus></icon-plus>
             </button>
         </div>
     @endif

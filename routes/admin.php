@@ -173,6 +173,8 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::get('app/locales', 'AppLocaleController@index')->name('admin.app.locales.index');
             Route::post('app/locales/download', 'AppLocaleController@download')->name('admin.app.locales.download');
             Route::post('app/locales/upload', 'AppLocaleController@upload')->name('admin.app.locales.upload');
+            Route::get('app/locales/create', 'AppLocaleController@create')->name('admin.app.locales.create');
+            Route::post('app/locales', 'AppLocaleController@store')->name('admin.app.locales.store');
             Route::get('app/locales/{appLocale}/edit', 'AppLocaleController@edit')->name('admin.app.locales.edit');
             Route::patch('app/locales/{appLocale}', 'AppLocaleController@update')->name('admin.app.locales.update');
             Route::delete('app/locales/{appLocale}', 'AppLocaleController@delete')->name('admin.app.locales.delete');

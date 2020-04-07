@@ -10,13 +10,6 @@ use App\Http\Requests\Admin\Content\ContentRestoreRequest;
 use App\Http\Requests\Admin\Content\ContentUpdateRequest;
 use App\Http\Requests\Admin\Content\RemoveEditorRequest;
 use App\Jobs\ImportContent;
-use App\Library\Html\Form\Form;
-use App\Library\Html\Toolbar\Button;
-use App\Library\Html\Toolbar\Dropdown;
-use App\Library\Html\Toolbar\DropdownGroup;
-use App\Library\Html\Toolbar\DropdownItem;
-use App\Library\Html\Toolbar\Group;
-use App\Library\Html\Toolbar\Toolbar;
 use App\Library\Permissions;
 use App\Library\Sidebar;
 use App\Repositories\ContentRepository;
@@ -33,8 +26,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Spatie\Permission\Models\Permission;
 
@@ -55,21 +46,6 @@ class ContentController extends Controller
             ->hasAccess(Auth::user())
             ->ordered()->withCount('lessons')->get();
         $data['trashed'] = ContentRepository::trashed()->count();
-
-        $data['toolbar'] = new Toolbar([
-            new Group([
-                (new Button())
-                    ->accessible(Auth::getUser()->can(Permissions::create_content))
-                    ->icon(Button::icon_plus)
-                    ->tooltip('Create Content')
-                    ->links(route('admin.content.create')),
-                (new Button())
-                    ->accessible(Auth::getUser()->can(Permissions::restore_content))
-                    ->icon($data['trashed'] ? Button::icon_trash_full : Button::icon_trash_empty)
-                    ->tooltip('Trash')
-                    ->links(route('admin.content.trash'))
-            ])
-        ]);
 
         return view('admin.content.index')->with($data);
     }
@@ -116,36 +92,6 @@ class ContentController extends Controller
             ->with('disabled')
             ->withCount('exercises')
             ->ordered()->get();
-
-        /*$data['toolbar'] = new Toolbar([
-            (new Group([
-                (new Button())
-                    ->accessible(Auth::getUser()->can(Permissions::update_content))
-                    ->icon(Button::icon_plus)
-                    ->tooltip('Create Lesson')
-                    ->links(route('admin.lessons.create', $content)),
-                (new Dropdown([
-                    (new DropdownGroup([
-                        (new DropdownItem('Content Editors'))
-                            ->accessible(Auth::getUser()->can(Permissions::assign_editors))
-                            ->links(route('admin.content.editors.index', $content))
-                    ])),
-                    (new DropdownGroup([
-                        (new DropdownItem($content->language))->links(route('admin.content.export', $content)),
-                        (new DropdownItem('Content'))
-                            ->accessible(Auth::getUser()->hasRole(Roles::admin))
-                            ->links(route('admin.content.export.json', $content))
-                    ]))->header('Download'),
-                    (new DropdownGroup([
-                        (new DropdownItem('Content'))
-                            ->accessible(Auth::getUser()->hasRole(Roles::admin)),
-                        (new Form())
-                            ->method('post')
-                            ->visible(false)
-                    ]))->header('Import')
-                ]))->icon(Button::icon_more_vertical),
-            ]))
-        ]);*/
 
         return view('admin.content.show')->with($data);
     }
@@ -339,37 +285,8 @@ class ContentController extends Controller
     {
         $this->authorize('access', $content);
 
-        try {
-            $json = $request->file('json')->store('tmp');
-
-            $job = new ImportContent($content, $json);
-            $this->dispatch($job);
-
-            Session::flash('job', $job->getJobStatusId());
-        } catch (Exception $e) {
-            Log::error($e);
-        }
-
-        return redirect()->route('admin.content.show', $content);
-    }
-
-    /**
-     * @param Content $content
-     * @return RedirectResponse
-     * @throws AuthorizationException
-     */
-    public function moveAudio(Content $content)
-    {
-        $this->authorize('access', $content);
-
-        try {
-            $job = new MoveAudio($content);
-            $this->dispatch($job);
-
-            Session::flash('job', $job->getJobStatusId());
-        } catch (Exception $e) {
-            Log::error($e);
-        }
+        $json = $request->file('json')->store('tmp');
+        $this->dispatchJob(new ImportContent($content, $json));
 
         return redirect()->route('admin.content.show', $content);
     }

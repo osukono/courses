@@ -5,7 +5,21 @@
 @endsection
 
 @section('toolbar')
-    {!! $toolbar->render() !!}
+    <toolbar-group
+        visible="{{ Auth::getUser()->can(App\Library\Permissions::create_content) | Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
+        <toolbar-button tooltip="Create Content"
+                        route="{{ route('admin.content.create') }}"
+                        visible="{{ Auth::getUser()->can(\App\Library\Permissions::create_content) }}"
+        >
+            <icon-plus></icon-plus>
+        </toolbar-button>
+        <toolbar-button tooltip="Trash"
+                        route="{{ route('admin.content.trash') }}"
+                        visible="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}"
+        >
+            <icon-trash trashed="{{ $trashed }}"></icon-trash>
+        </toolbar-button>
+    </toolbar-group>
 @endsection
 
 @section('content')
@@ -18,3 +32,4 @@
         </div>
     @endif
 @endsection
+

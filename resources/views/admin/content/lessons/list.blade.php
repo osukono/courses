@@ -26,7 +26,7 @@
             @can(\App\Library\Permissions::update_content)
                 <td class="text-right">
                     <a href="{{ route('admin.lessons.edit', $lesson) }}">
-                        @include('admin.components.svg.edit')
+                        <icon-edit></icon-edit>
                     </a>
                 </td>
             @endcan

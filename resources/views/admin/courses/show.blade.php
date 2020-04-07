@@ -27,7 +27,7 @@
             <div class="btn-group" role="group">
                 <button class="btn btn-info dropdown-toggle" type="button" id="more" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                    @include('admin.components.svg.more-vertical')
+                    <icon-more-vertical></icon-more-vertical>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="more">
                     @can(\App\Library\Permissions::publish_courses)

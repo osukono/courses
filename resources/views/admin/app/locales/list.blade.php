@@ -27,14 +27,14 @@
             </td>
             <td>
                 <a href="{{ route('admin.app.locales.edit', $appLocale) }}">
-                    @include('admin.components.svg.edit')
+                    <icon-edit></icon-edit>
                 </a>
                 <a href="#"
                         data-toggle="confirmation"
                         data-btn-ok-label="{{ __('admin.form.delete') }}"
                         data-title="{{ __('admin.form.delete_confirmation', ['object' => $appLocale]) }}"
                         data-form="appLocale-{{ $appLocale }}-delete">
-                    @include('admin.components.svg.delete')
+                    <icon-delete></icon-delete>
                 </a>
                 <form class="d-none" id="appLocale-{{ $appLocale }}-delete"
                       action="{{ route('admin.app.locales.delete', $appLocale) }}" method="post">

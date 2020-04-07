@@ -1,1 +1,1 @@
-<a href="{{ Storage::url($audio) }}">@include('admin.components.svg.download')</a>
+<a href="{{ Storage::url($audio) }}"><icon-download></icon-download></a>

@@ -7,16 +7,17 @@
 @section('toolbar')
     <div class="d-flex">
         <div class="btn-group" role="group">
+            @include('admin.components.menu.create', ['title' => 'Create', 'route' => route('admin.app.locales.create')])
             <button class="btn btn-info" type="button" data-toggle="tooltip" data-title="Download from Firebase"
                     onclick="$('#download-locales').submit();">
-                @include('admin.components.svg.download')
+                <icon-download></icon-download>
             </button>
             <form class="d-none" id="download-locales" action="{{ route('admin.app.locales.download') }}" method="post">
                 @csrf
             </form>
             <button class="btn btn-info" type="button" data-toggle="tooltip" data-title="Upload to Firebase"
                     onclick="$('#upload-locales').submit();">
-                @include('admin.components.svg.upload')
+                <icon-upload></icon-upload>
             </button>
             <form class="d-none" id="upload-locales" action="{{ route('admin.app.locales.upload') }}" method="post">
                 @csrf

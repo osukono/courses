@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\AppLocale;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\AppLocaleCreateRequest;
 use App\Http\Requests\Admin\AppLocaleUpdateRequest;
 use App\Jobs\LoadLocales;
 use App\Jobs\UploadLocales;
@@ -15,7 +16,6 @@ use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 
 class AppLocaleController extends Controller
@@ -34,6 +34,29 @@ class AppLocaleController extends Controller
             ->ordered()->get();
 
         return view('admin.app.locales.index')->with($data);
+    }
+
+    /**
+     * @return Factory|\Illuminate\View\View
+     */
+    public function create()
+    {
+        $data['localeGroups'] = LocaleGroupRepository::all()->ordered()->get();
+        $data['languages'] = LanguageRepository::all()->ordered()->get();
+
+        return view('admin.app.locales.create')->with($data);
+    }
+
+    /**
+     * @param AppLocaleCreateRequest $request
+     * @return RedirectResponse
+     */
+    public function store(AppLocaleCreateRequest $request)
+    {
+        $appLocale = AppLocaleRepository::create($request->all());
+
+        return redirect()->route('admin.app.locales.index', ['#locale-' . $appLocale->id])
+            ->with('messages', __('admin.messages.created', ['object' => $appLocale]));
     }
 
     /**
@@ -79,13 +102,7 @@ class AppLocaleController extends Controller
      */
     public function download()
     {
-        $job = new LoadLocales();
-        $this->dispatch($job);
-        try {
-            $jobStatusId = $job->getJobStatusId();
-            Session::flash('job', $jobStatusId);
-        } catch (Exception $e) {
-        }
+        $this->dispatchJob(new LoadLocales());
 
         return redirect()->route('admin.app.locales.index');
     }
@@ -95,13 +112,7 @@ class AppLocaleController extends Controller
      */
     public function upload()
     {
-        $job = new UploadLocales();
-        $this->dispatch($job);
-        try {
-            $jobStatusId = $job->getJobStatusId();
-            Session::flash('job', $jobStatusId);
-        } catch (Exception $e) {
-        }
+        $this->dispatchJob(new UploadLocales());
 
         return redirect()->route('admin.app.locales.index');
     }

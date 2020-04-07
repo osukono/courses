@@ -26,6 +26,24 @@ class AppLocaleRepository
 
     /**
      * @param array $attributes
+     * @return AppLocale
+     */
+    public static function create(array $attributes)
+    {
+        $appLocale = new AppLocale();
+        $appLocale->key = $attributes['key'];
+        $appLocale->description = $attributes['description'];
+        $appLocale->locale_group_id = $attributes['locale_group_id'];
+        $appLocale->values = array_filter($attributes['locale'], function ($value) {
+            return $value != null;
+        });
+        $appLocale->save();
+
+        return $appLocale;
+    }
+
+    /**
+     * @param array $attributes
      */
     public function update(array $attributes)
     {

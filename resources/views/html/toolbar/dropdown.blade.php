@@ -5,6 +5,6 @@
         @isset($label) $label @endisset
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="more">
-        {!! $items !!}
+        {{ $items }}
     </div>
 </div>

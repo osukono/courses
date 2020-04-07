@@ -17,7 +17,7 @@
                data-btn-ok-label="{{ __('admin.form.delete') }}"
                data-title="{{ __('admin.form.delete_confirmation', ['object' => 'Audio']) }}"
                data-form="delete-audio-{{ $data->id }}">
-                @include('admin.components.svg.delete')
+                <icon-delete></icon-delete>
             </a>
         </span>
         @push('forms')

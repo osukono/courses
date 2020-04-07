@@ -11,7 +11,7 @@
             <td>{{ $localeGroup->name }}</td>
             <td>
                 <a href="{{ route('admin.app.locale.groups.edit', $localeGroup) }}">
-                    @include('admin.components.svg.edit')
+                    <icon-edit></icon-edit>
                 </a>
             </td>
         </tr>

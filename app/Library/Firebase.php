@@ -13,7 +13,6 @@ use Kreait\Firebase\Exception\RemoteConfigException;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\RemoteConfig;
 use Kreait\Firebase\RemoteConfig\Parameter;
-use Kreait\Firebase\ServiceAccount;
 
 final class Firebase
 {
@@ -31,7 +30,7 @@ final class Firebase
     public const server_localizations_version = 'server_localizations_version';
 
     private static ?Firebase $instance = null;
-    private static ServiceAccount $serviceAccount;
+    private static string $serviceAccount = __DIR__ . '/yummy-lingo-45fd015ad4aa.json';
     private static StorageClient $storageClient;
     private static FirestoreClient $firestoreClient;
     private static RemoteConfig $remoteConfig;
@@ -43,7 +42,6 @@ final class Firebase
     {
         if (static::$instance === null) {
             static::$instance = new static();
-            static::$serviceAccount = ServiceAccount::fromJsonFile(__DIR__ . '/yummy-lingo-45fd015ad4aa.json');
         }
 
         return static::$instance;

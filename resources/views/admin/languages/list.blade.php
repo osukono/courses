@@ -24,7 +24,7 @@
                 @else
                     <div class="text-center">
                         <a href="#" onclick="$('#language-{{ $language->id }}-sync').submit();">
-                            @include('admin.components.svg.refresh-cw')
+                            <icon-refresh></icon-refresh>
                         </a>
                     </div>
                     <form class="d-none" id="language-{{ $language->id }}-sync"
@@ -73,7 +73,7 @@
             </td>
             <td class="text-right">
                 <a href="{{ route('admin.languages.edit', $language) }}">
-                    @include('admin.components.svg.edit')
+                    <icon-edit></icon-edit>
                 </a>
             </td>
         </tr>

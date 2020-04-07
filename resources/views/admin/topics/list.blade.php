@@ -18,7 +18,7 @@
                 @else
                     <div class="text-center">
                         <a href="#" onclick="$('#topic-{{ $topic->id }}-sync').submit();">
-                            @include('admin.components.svg.refresh-cw')
+                            <icon-refresh></icon-refresh>
                         </a>
                     </div>
                     <form class="d-none" id="topic-{{ $topic->id }}-sync"
@@ -29,7 +29,7 @@
             </td>
             <td>
                 <a href="{{ route('admin.topics.edit', $topic) }}">
-                    @include('admin.components.svg.edit')
+                    <icon-edit></icon-edit>
                 </a>
             </td>
         </tr>

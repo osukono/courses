@@ -21,7 +21,7 @@
                 <a class="btn btn-info" href="#" data-toggle="tooltip"
                    data-title="{{ __('admin.menu.create.exercise') }}"
                    onclick="document.getElementById('exercise-create').submit();">
-                    @include('admin.components.svg.plus')
+                    <icon-plus></icon-plus>
                 </a>
                 <form id="exercise-create" class="d-none" action="{{ route('admin.exercises.store', $lesson) }}"
                       method="post">
@@ -31,7 +31,7 @@
                 <div class="btn-group" role="group">
                     <button class="btn btn-info dropdown-toggle" type="button" id="more" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                        @include('admin.components.svg.more-vertical')
+                        <icon-more-vertical></icon-more-vertical>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="more">
                         @if($lesson->isDisabled($content->language))

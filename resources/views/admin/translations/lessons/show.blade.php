@@ -21,7 +21,7 @@
                 <div class="btn-group" role="group">
                     <button class="btn btn-info dropdown-toggle" type="button" id="more" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                        @include('admin.components.svg.more-vertical')
+                        <icon-more-vertical></icon-more-vertical>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="more">
                         @if($lesson->isDisabled($language))
@@ -57,7 +57,7 @@
 
             @can(\App\Library\Permissions::view_content)
                 <a class="btn btn-info" href="{{ route('admin.lessons.show', $lesson) }}">
-                    Content @include('admin.components.svg.chevron-right')
+                    Content <icon-chevron-right></icon-chevron-right>
                 </a>
             @endcan
         </div>

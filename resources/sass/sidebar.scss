@@ -9,7 +9,6 @@
     max-width: 250px;
     background: #3a3e40;
     color: rgba(255, 255, 255, .7);
-    /*background: #f9f9f9;*/
     transition: all 0.3s;
 }
 
@@ -50,6 +49,7 @@
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    align-items: center;
 }
 
 #sidebar ul li a.active {
@@ -57,12 +57,10 @@
 }
 
 #sidebar ul li a:hover {
-    //background: #f9f9f9;
     background: #504b40;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    //background: #f9f9f9;
     background: #504b40;
 }
 
@@ -72,7 +70,6 @@
 }
 
 #sidebar.active {
-    //color: #fff !important;
     margin-left: -250px;
 }
 

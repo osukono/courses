@@ -251,6 +251,12 @@ Breadcrumbs::for('admin.app.locales.index', function ($trail) {
     $trail->push('App Localizations', route('admin.app.locales.index'));
 });
 
+// App Localizations > Create
+Breadcrumbs::for('admin.app.locales.create', function ($trail) {
+    $trail->parent('admin.app.locales.index');
+    $trail->push('Create');
+});
+
 // App Localizations > [App Locale]
 Breadcrumbs::for('admin.app.locales.show', function ($trail, \App\AppLocale $appLocale) {
     $trail->parent('admin.app.locales.index');

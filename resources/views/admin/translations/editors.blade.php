@@ -8,7 +8,7 @@
     @if($users->isNotEmpty())
         <div class="btn-group" role="group" aria-label="Editors">
             <a class="btn btn-info" href="#" data-toggle="modal" data-target="#usersModal">
-                @include('admin.components.svg.plus')
+                <icon-plus></icon-plus>
             </a>
         </div>
     @endif
