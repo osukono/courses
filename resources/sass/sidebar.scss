@@ -49,7 +49,17 @@
     padding: 10px;
     font-size: 1.1em;
     display: block;
-    align-items: center;
+}
+
+#sidebar ul li a .link {
+    margin-left: 8px;
+    display: inline;
+}
+
+#sidebar ul li a svg {
+    //display:table-cell;
+    vertical-align: middle;
+    margin-bottom: 1px;
 }
 
 #sidebar ul li a.active {

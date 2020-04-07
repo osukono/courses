@@ -36,7 +36,9 @@ Vue.component('icon-users', require('./components/icons/IconUsers').default);
 Vue.component('icon-globe', require('./components/icons/IconGlobe').default);
 Vue.component('icon-activity', require('./components/icons/IconActivity').default);
 Vue.component('icon-book', require('./components/icons/IconBook').default);
-Vue.component('icon-book-open', require('./components/icons/IconBookOpen').default)
+Vue.component('icon-book-open', require('./components/icons/IconBookOpen').default);
+Vue.component('icon-message-square', require('./components/icons/IconMessageSquare').default);
+Vue.component('icon-list', require('./components/icons/IconList').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
