@@ -101,7 +101,7 @@
                     <div class="col text-nowrap align-self-center">
                         @yield('breadcrumbs')
                     </div>
-                    <div class="col-auto align-self-center">
+                    <div id="toolbar" class="col-auto align-self-center">
                         @yield('toolbar')
                     </div>
                 </div>

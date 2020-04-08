@@ -1,13 +1,14 @@
 <template>
     <button type="button" class="btn btn-info"
             data-toggle="tooltip" :data-title="tooltip" v-on:click="onclick" v-if="isVisible">
-        <slot></slot>
+        <slot name="label"></slot>
+        <slot name="icon"></slot>
     </button>
 </template>
 
 <script>
     export default {
-        name: "ToolbarButton",
+        name: "VButton",
 
         props: {
             visible: {

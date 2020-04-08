@@ -11,13 +11,25 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
+/**
+ * Bootstrap
+ */
+Vue.component('v-button-group', require('./components/bootstrap/VButtonGroup').default);
+Vue.component('v-button', require('./components/bootstrap/VButton').default);
+Vue.component('v-dropdown', require('./components/bootstrap/VDropdown').default);
+Vue.component('v-dropdown-group', require('./components/bootstrap/VDropdownGroup').default);
+Vue.component('v-dropdown-item', require('./components/bootstrap/VDropdownItem').default);
+Vue.component('v-dropdown-confirmation', require('./components/bootstrap/VDropdownConfirmation').default);
+
+/**
+ * Player
+ */
 Vue.component('course-player', require('./components/CoursePlayer.vue').default);
 Vue.component('job-status', require('./components/JobStatus.vue').default);
 
-Vue.component('toolbar-group', require('./components/toolbar/ToolbarGroup.vue').default);
-Vue.component('toolbar-button', require('./components/toolbar/ToolbarButton.vue').default);
-Vue.component('toolbar-more', require('./components/toolbar/ToolbarMore').default);
-
+/**
+ * Icons
+ */
 Vue.component('icon-plus', require('./components/icons/IconPlus').default);
 Vue.component('icon-edit', require('./components/icons/IconEdit').default);
 Vue.component('icon-delete', require('./components/icons/IconDelete').default);

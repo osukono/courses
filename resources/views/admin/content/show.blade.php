@@ -5,76 +5,101 @@
 @endsection
 
 @section('toolbar')
-    <toolbar-group>
-        @can(\App\Library\Permissions::update_content)
-            <toolbar-button tooltip="{{ __('admin.menu.create.lesson') }}"
-                            route="{{ route('admin.lessons.create', $content) }}">
+    <v-button-group>
+        <v-button tooltip="{{ __('admin.menu.create.lesson') }}"
+                  route="{{ route('admin.lessons.create', $content) }}"
+                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+            <template v-slot:icon>
                 <icon-plus></icon-plus>
-            </toolbar-button>
-        @endcan
-        <toolbar-more>
-            @can(\App\Library\Permissions::assign_editors)
-                <a class="dropdown-item" href="{{ route('admin.content.editors.index', $content) }}">
-                    Content Editors
-                </a>
-                <div class="dropdown-divider"></div>
-            @endcan
+            </template>
+        </v-button>
 
-            <h6 class="dropdown-header">Download</h6>
-            <a class="dropdown-item" href="{{ route('admin.content.export', $content) }}">
-                {{ $content->language }}
-            </a>
-            @role(\App\Library\Roles::admin)
-            <a class="dropdown-item" href="{{ route('admin.content.export.json', $content) }}">Content</a>
-            @endrole
+        <v-dropdown>
+            <template v-slot:icon>
+                <icon-more-vertical></icon-more-vertical>
+            </template>
 
-            @role(\App\Library\Roles::admin)
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header">Import</h6>
-            <button type="button" class="dropdown-item" onclick="$('#content-{{ $content->id }}-json').click();">
-                Content
-            </button>
-            <form class="d-none" id="content-{{ $content->id }}-import"
-                  action="{{ route('admin.content.import.json', $content) }}"
-                  method="post" enctype="multipart/form-data" autocomplete="off">
-                @csrf
-                <input type="file" id="content-{{ $content->id }}-json" name="json" accept="application/json"
-                       onchange="$('#content-{{ $content->id }}-import').submit();">
-            </form>
-            @endrole
+            <v-dropdown-group>
+                <v-dropdown-item label="Content Editors"
+                                 route="{{ route('admin.content.editors.index', $content) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::assign_editors) }}">
+                </v-dropdown-item>
+            </v-dropdown-group>
 
-            @can(\App\Library\Permissions::update_content)
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ route('admin.content.edit', $content) }}">Properties</a>
-                <a class="dropdown-item" href="{{ route('admin.content.speech.settings.edit', $content) }}">Speech
-                    Settings</a>
-            @endcan
+            <v-dropdown-group header="Download">
+                <v-dropdown-item label="{{ $content->language }}"
+                                 route="{{ route('admin.content.export', $content) }}">
+                </v-dropdown-item>
+                <v-dropdown-item label="Content"
+                                 route="{{ route('admin.content.export.json', $content) }}"
+                                 visible="{{ Auth::getUser()->hasRole(\App\Library\Roles::admin) }}">
 
-            @can(\App\Library\Permissions::delete_content)
-                <div class="dropdown-divider"></div>
-                <form class="d-none" id="content-{{ $content->id }}-delete"
-                      action="{{ route('admin.content.destroy', $content) }}"
-                      method="post">
-                    @method('delete')
-                    @csrf
-                </form>
-                <button class="dropdown-item text-danger" type="button"
-                        data-toggle="confirmation"
-                        data-btn-ok-label="{{ __('admin.form.delete') }}"
-                        data-title="{{ __('admin.form.delete_confirmation', ['object' => $content]) }}"
-                        data-form="content-{{ $content->id }}-delete">
-                    Delete Content
-                </button>
-            @endcan
-            @can(\App\Library\Permissions::restore_content)
-                <a class="dropdown-item" href="{{ route('admin.lessons.trash', $content) }}">Trash</a>
-            @endcan
-        </toolbar-more>
+                </v-dropdown-item>
+            </v-dropdown-group>
 
-        @can(\App\Library\Permissions::view_translations && $languages->isNotEmpty())
-            @include('admin.components.menu.translations', ['route' => 'admin.translations.content.show', 'arg' => $content])
-        @endcan
-    </toolbar-group>
+            <v-dropdown-group header="Import">
+                <v-dropdown-item label="Content"
+                                 click="#content-{{ $content->id }}-import-json"
+                                 visible="{{ Auth::getUser()->hasRole(\App\Library\Roles::admin) }}">
+                    @push('forms')
+                        <form class="d-none" id="content-{{ $content->id }}-import-form"
+                              action="{{ route('admin.content.import.json', $content) }}"
+                              method="post" enctype="multipart/form-data" autocomplete="off">
+                            @csrf
+                            <input type="file" id="content-{{ $content->id }}-import-json" name="json"
+                                   accept="application/json"
+                                   onchange="$('#content-{{ $content->id }}-import-form').submit();">
+                        </form>
+                    @endpush
+                </v-dropdown-item>
+            </v-dropdown-group>
+
+            <v-dropdown-group>
+                <v-dropdown-item label="Properties"
+                                 route="{{ route('admin.content.edit', $content) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                </v-dropdown-item>
+                <v-dropdown-item label="Speech Settings"
+                                 route="{{ route('admin.content.speech.settings.edit', $content) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                </v-dropdown-item>
+            </v-dropdown-group>
+
+            <v-dropdown-group>
+                <v-dropdown-confirmation label="Delete Content"
+                                         title="{{ __('admin.form.delete_confirmation', ['object' => $content]) }}"
+                                         btn-ok-label="{{ __('admin.form.delete') }}"
+                                         form="content-{{ $content->id }}-delete"
+                                         visible="{{ Auth::getUser()->can(\App\Library\Permissions::delete_content) }}">
+                    @push('forms')
+                        <form class="d-none" id="content-{{ $content->id }}-delete"
+                              action="{{ route('admin.content.destroy', $content) }}"
+                              method="post">
+                            @method('delete')
+                            @csrf
+                        </form>
+                    @endpush
+                </v-dropdown-confirmation>
+                <v-dropdown-item label="Trash"
+                                 route="{{ route('admin.lessons.trash', $content) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
+                </v-dropdown-item>
+            </v-dropdown-group>
+        </v-dropdown>
+
+        <v-dropdown>
+            <template v-slot:label>
+                Translations
+            </template>
+
+            @foreach($languages as $language)
+                <v-dropdown-item label="{{ $language->native }}"
+                                 route="{{ route('admin.translations.content.show', [$language, $content]) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
+                </v-dropdown-item>
+            @endforeach
+        </v-dropdown>
+    </v-button-group>
 @endsection
 
 @section('content')

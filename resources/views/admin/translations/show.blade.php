@@ -5,60 +5,72 @@
 @endsection
 
 @section('toolbar')
-    <div class="d-flex">
-        <div class="btn-group" role="group">
-            <div class="btn-group" role="group">
-                <button class="btn btn-info dropdown-toggle" type="button" id="more" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    <icon-more-vertical></icon-more-vertical>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="more">
-                    @can(\App\Library\Permissions::assign_editors)
-                        <a class="dropdown-item"
-                           href="{{ route('admin.translations.editors.index', [$language, $content]) }}">
-                            Translation Editors
-                        </a>
-                        <div class="dropdown-divider"></div>
-                    @endcan
+    <v-button-group>
+        <v-dropdown>
+            <template v-slot:icon>
+                <icon-more-vertical></icon-more-vertical>
+            </template>
+            <v-dropdown-group>
+                <v-dropdown-item label="Translation Editors"
+                                 route="{{ route('admin.translations.editors.index', [$language, $content]) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::assign_editors) }}">
 
-                    <h6 class="dropdown-header">Download</h6>
-                    <a class="dropdown-item"
-                       href="{{ route('admin.translations.content.export', [$language, $content]) }}">{{ $language->native }}</a>
-                    <a class="dropdown-item"
-                       href="{{ route('admin.translations.content.export', [$language, $content]) }}?target=1">{{ $content->language->native . ' + ' . $language->native }}</a>
+                </v-dropdown-item>
+            </v-dropdown-group>
 
-                    @can(\App\Library\Permissions::update_translations)
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item"
-                           href="{{ route('admin.translations.speech.settings.edit', [$language, $content]) }}">
-                            Speech Settings
-                        </a>
-                    @endcan
+            <v-dropdown-group header="Download">
+                <v-dropdown-item label="{{ $language->native }}"
+                                 route="{{ route('admin.translations.content.export', [$language, $content]) }}">
+                </v-dropdown-item>
+                <v-dropdown-item label="{{ $content->language->native . ' + ' . $language->native }}"
+                                 route="{{ route('admin.translations.content.export', [$language, $content]) }}?target=1">
 
-                    @can(\App\Library\Permissions::publish_courses)
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"
-                           onclick="document.getElementById('commit').submit();">Commit</a>
+                </v-dropdown-item>
+            </v-dropdown-group>
+
+            <v-dropdown-group>
+                <v-dropdown-item label="Speech Settings"
+                                 route="{{ route('admin.translations.speech.settings.edit', [$language, $content]) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
+                </v-dropdown-item>
+            </v-dropdown-group>
+
+            <v-dropdown-group>
+                <v-dropdown-item label="Commit"
+                                 sumbit="#commit"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
+                    @push('forms')
                         <form class="d-none" id="commit"
                               action="{{ route('admin.translations.commit', [$language, $content]) }}"
                               method="post">
                             @csrf
                         </form>
-                    @endcan
-                </div>
-            </div>
+                    @endpush
+                </v-dropdown-item>
+            </v-dropdown-group>
+        </v-dropdown>
 
-            @can($languages->isNotEmpty())
-                @include('admin.components.menu.translations', ['route' => 'admin.translations.content.show', 'arg' => $content])
-            @endcan
+        <v-dropdown>
+            <template v-slot:label>
+                Translations
+            </template>
 
-            @can(\App\Library\Permissions::view_content)
-                <a class="btn btn-info" href="{{ route('admin.content.show', $content) }}">
-                    Content <icon-chevron-right></icon-chevron-right>
-                </a>
-            @endcan
-        </div>
-    </div>
+            @foreach($languages as $language)
+                <v-dropdown-item label="{{ $language->native }}"
+                                 route="{{ route('admin.translations.content.show', [$language, $content]) }}">
+                </v-dropdown-item>
+            @endforeach
+        </v-dropdown>
+
+        <v-button route="{{ route('admin.content.show', $content) }}">
+            <template v-slot:label>
+                Content
+            </template>
+            <template v-slot:icon>
+                <icon-chevron-right></icon-chevron-right>
+            </template>
+        </v-button>
+    </v-button-group>
 @endsection
 
 @section('content')
