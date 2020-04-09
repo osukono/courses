@@ -5,72 +5,94 @@
 @endsection
 
 @section('toolbar')
-    <div class="d-flex">
-        <div class="btn-group">
-            @isset($previous)
-                @include('admin.components.menu.previous', ['route' => route('admin.exercises.show', $previous)])
-            @endisset
+    <v-button-group>
+        @isset($previous)
+            <v-button route="{{ route('admin.exercises.show', $previous) }}">
+                <template v-slot:icon>
+                    <icon-chevron-left></icon-chevron-left>
+                </template>
+            </v-button>
+        @endisset
+        @isset($next)
+            <v-button route="{{ route('admin.exercises.show', $next) }}">
+                <template v-slot:icon>
+                    <icon-chevron-right></icon-chevron-right>
+                </template>
+            </v-button>
+        @endisset
+    </v-button-group>
 
-            @isset($next)
-                @include('admin.components.menu.next', ['route' => route('admin.exercises.show', $next)])
-            @endisset
-        </div>
+    <v-button-group>
+        <v-button tooltip="Add Sentence"
+                  submit="sentence-create"
+                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+            <template v-slot:icon>
+                <icon-plus></icon-plus>
+            </template>
+            @push('forms')
+                <form id="sentence-create" class="d-none" action="{{ route('admin.exercise.data.create', $exercise) }}"
+                      method="post" autocomplete="off">
+                    @csrf
+                </form>
+            @endpush
+        </v-button>
 
-        @can(\App\Library\Permissions::update_content)
-            <div class="btn-group ml-2" role="group">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-info" onclick="$('#create-data').submit();"
-                            data-toggle="tooltip" data-title="Add Sentence">
-                        <icon-plus></icon-plus>
-                    </button>
-                    <form id="create-data" class="d-none" action="{{ route('admin.exercise.data.create', $exercise) }}"
-                          method="post" autocomplete="off">
-                        @csrf
-                    </form>
-                </div>
+        <v-dropdown>
+            <template v-slot:icon>
+                <icon-more-vertical></icon-more-vertical>
+            </template>
 
-                <div class="btn-group" role="group">
-                    <button class="btn btn-info dropdown-toggle" type="button" id="more" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        <icon-more-vertical></icon-more-vertical>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="more">
-                        @if($exercise->isDisabled($content->language))
-                            <button class="dropdown-item" type="button" onclick="$('#exercise-{{ $exercise->id }}-enable').submit();">Enable</button>
-                            <form class="d-none" action="{{ route('admin.exercises.enable', $exercise) }}" method="post" id="exercise-{{ $exercise->id }}-enable">
-                                @csrf
-                                @method('patch')
-                            </form>
-                        @else
-                            <button class="dropdown-item" type="button" onclick="$('#exercise-{{ $exercise->id }}-disable').submit();">Disable</button>
-                            <form class="d-none" action="{{ route('admin.exercises.disable', $exercise) }}" method="post" id="exercise-{{ $exercise->id }}-disable">
-                                @csrf
-                                @method('patch')
-                            </form>
-                        @endif
-                        <div class="dropdown-divider"></div>
-                        <form class="d-none" id="delete" action="{{ route('admin.exercises.destroy', $exercise) }}"
+            <v-dropdown-group>
+                <v-dropdown-item label="{{ $exercise->isDisabled($content->language) ? 'Enable' : 'Disable' }}"
+                                 submit="#exercise-{{ $exercise->id }}-{{ $exercise->isDisabled($content->language) ? 'enable' : 'disable' }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}"
+                >
+                    @push('forms')
+                        <form class="d-none"
+                              action="{{ route('admin.exercises.' . ($exercise->isDisabled($content->language) ? 'enable' : 'disable'), $exercise) }}"
+                              method="post"
+                              id="exercise-{{ $exercise->id }}-{{ $exercise->isDisabled($content->language) ? 'enable' : 'disable' }}">
+                            @csrf
+                            @method('patch')
+                        </form>
+                    @endpush
+                </v-dropdown-item>
+            </v-dropdown-group>
+
+            <v-dropdown-group>
+                <v-dropdown-confirmation label="Delete Exercise"
+                                         title="{{ __('admin.form.delete_confirmation', ['object' => 'Exercise ' . $exercise->index]) }}"
+                                         btn-ok-label="{{ __('admin.form.delete') }}"
+                                         form="delete-exercise"
+                                         visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                    @push('forms')
+                        <form class="d-none" id="delete-exercise" action="{{ route('admin.exercises.destroy', $exercise) }}"
                               method="post">
                             @method('delete')
                             @csrf
                         </form>
-                        <button class="dropdown-item text-danger" type="button"
-                                data-toggle="confirmation"
-                                data-btn-ok-label="{{ __('admin.form.delete') }}"
-                                data-title="{{ __('admin.form.delete_confirmation', ['object' => 'Exercise ' . $exercise->index]) }}"
-                                data-form="delete">
-                            Delete Exercise
-                        </button>
-                        <a class="dropdown-item" href="{{ route('admin.exercise.data.trash', $exercise) }}">Trash</a>
-                    </div>
-                </div>
+                    @endpush
+                </v-dropdown-confirmation>
+                <v-dropdown-item label="Trash"
+                                 route="{{ route('admin.exercise.data.trash', $exercise) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                </v-dropdown-item>
+            </v-dropdown-group>
+        </v-dropdown>
 
-                @can(\App\Library\Permissions::view_translations && $languages->isNotEmpty())
-                    @include('admin.components.menu.translations', ['route' => 'admin.translations.exercise.show', 'arg' => $exercise])
-                @endcan
-            </div>
-        @endcan
-    </div>
+        <v-dropdown>
+            <template v-slot:label>
+                Translations
+            </template>
+
+            @foreach($languages as $language)
+                <v-dropdown-item label="{{ $language->native }}"
+                                 route="{{ route('admin.translations.exercise.show', [$language, $exercise]) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
+                </v-dropdown-item>
+            @endforeach
+        </v-dropdown>
+    </v-button-group>
 @endsection
 
 @section('content')

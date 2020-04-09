@@ -5,26 +5,36 @@
 @endsection
 
 @section('toolbar')
-    <div class="d-flex">
-        <div class="btn-group" role="group">
-            @include('admin.components.menu.create', ['title' => 'Create', 'route' => route('admin.app.locales.create')])
-            <button class="btn btn-info" type="button" data-toggle="tooltip" data-title="Download from Firebase"
-                    onclick="$('#download-locales').submit();">
+    <v-button-group>
+        <v-button tooltip="Create"
+                  route="{{ route('admin.app.locales.create') }}">
+            <template v-slot:icon>
+                <icon-plus></icon-plus>
+            </template>
+        </v-button>
+        <v-button tooltip="Download from Firebase"
+                  submit="#download-locales">
+            <template v-slot:icon>
                 <icon-download></icon-download>
-            </button>
-            <form class="d-none" id="download-locales" action="{{ route('admin.app.locales.download') }}" method="post">
-                @csrf
-            </form>
-            <button class="btn btn-info" type="button" data-toggle="tooltip" data-title="Upload to Firebase"
-                    onclick="$('#upload-locales').submit();">
+            </template>
+            @push('forms')
+                <form class="d-none" id="download-locales" action="{{ route('admin.app.locales.download') }}" method="post">
+                    @csrf
+                </form>
+            @endpush
+        </v-button>
+        <v-button tooltip="Upload to Firebase"
+                  submit="#upload-locales">
+            <template v-slot:icon>
                 <icon-upload></icon-upload>
-            </button>
-            <form class="d-none" id="upload-locales" action="{{ route('admin.app.locales.upload') }}" method="post">
-                @csrf
-            </form>
-            <a class="btn btn-info" href="{{ route('admin.app.locale.groups.index') }}">Groups</a>
-        </div>
-    </div>
+            </template>
+        </v-button>
+        <v-button route="{{ route('admin.app.locale.groups.index') }}">
+            <template v-slot:label>
+                Groups
+            </template>
+        </v-button>
+    </v-button-group>
 @endsection
 
 @section('content')

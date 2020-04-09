@@ -5,17 +5,22 @@
 @endsection
 
 @section('toolbar')
-    <div class="d-flex">
-        <div class="btn-group">
-            @isset($previous)
-                @include('admin.components.menu.previous', ['route' => route('admin.courses.practice', [$course, $previous])])
-            @endisset
-
-            @isset($next)
-                @include('admin.components.menu.next', ['route' => route('admin.courses.practice', [$course, $next])])
-            @endisset
-        </div>
-    </div>
+    <v-button-group>
+        @isset($previous)
+            <v-button route="{{ route('admin.courses.practice', [$course, $previous]) }}">
+                <template v-slot:icon>
+                    <icon-chevron-left></icon-chevron-left>
+                </template>
+            </v-button>
+        @endisset
+        @isset($next)
+            <v-button route="{{ route('admin.courses.practice', [$course, $next]) }}">
+                <template v-slot:icon>
+                    <icon-chevron-right></icon-chevron-right>
+                </template>
+            </v-button>
+        @endisset
+    </v-button-group>
 @endsection
 
 @section('content')

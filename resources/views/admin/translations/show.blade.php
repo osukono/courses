@@ -14,7 +14,6 @@
                 <v-dropdown-item label="Translation Editors"
                                  route="{{ route('admin.translations.editors.index', [$language, $content]) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::assign_editors) }}">
-
                 </v-dropdown-item>
             </v-dropdown-group>
 
@@ -24,7 +23,6 @@
                 </v-dropdown-item>
                 <v-dropdown-item label="{{ $content->language->native . ' + ' . $language->native }}"
                                  route="{{ route('admin.translations.content.export', [$language, $content]) }}?target=1">
-
                 </v-dropdown-item>
             </v-dropdown-group>
 

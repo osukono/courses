@@ -19,6 +19,9 @@
             },
             route: {
                 type: String
+            },
+            submit: {
+                type: String
             }
         },
 
@@ -32,6 +35,8 @@
             onclick: function () {
                 if (this.route !== undefined)
                     document.location.href = this.route;
+                else if (this.submit !== undefined)
+                    $(this.submit).submit();
             }
         }
     }

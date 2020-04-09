@@ -5,9 +5,14 @@
 @endsection
 
 @section('toolbar')
-    <div class="btn-group" role="group">
-        @include('admin.components.menu.create', ['route' => route('admin.languages.create'), 'title' => 'Create Language'])
-    </div>
+    <v-button-group>
+        <v-button tooltip="Create Language"
+                  route="{{ route('admin.languages.create') }}">
+            <template v-slot:icon>
+                <icon-plus></icon-plus>
+            </template>
+        </v-button>
+    </v-button-group>
 @endsection
 
 @section('content')

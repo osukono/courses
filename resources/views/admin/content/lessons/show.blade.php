@@ -5,83 +5,98 @@
 @endsection
 
 @section('toolbar')
-    <div class="d-flex">
-        <div class="btn-group">
-            @isset($previous)
-                @include('admin.components.menu.previous', ['route' => route('admin.lessons.show', $previous)])
-            @endisset
+    <v-button-group>
+        @isset($previous)
+            <v-button route="{{ route('admin.lessons.show', $previous) }}">
+                <template v-slot:icon>
+                    <icon-chevron-left></icon-chevron-left>
+                </template>
+            </v-button>
+        @endisset
+        @isset($next)
+            <v-button route="{{ route('admin.lessons.show', $next) }}">
+                <template v-slot:icon>
+                    <icon-chevron-right></icon-chevron-right>
+                </template>
+            </v-button>
+        @endisset
+    </v-button-group>
 
-            @isset($next)
-                @include('admin.components.menu.next', ['route' => route('admin.lessons.show', $next)])
-            @endisset
-        </div>
-
-        @can(\App\Library\Permissions::update_content)
-            <div class="btn-group ml-2" role="group">
-                <a class="btn btn-info" href="#" data-toggle="tooltip"
-                   data-title="{{ __('admin.menu.create.exercise') }}"
-                   onclick="document.getElementById('exercise-create').submit();">
-                    <icon-plus></icon-plus>
-                </a>
-                <form id="exercise-create" class="d-none" action="{{ route('admin.exercises.store', $lesson) }}"
+    <v-button-group>
+        <v-button tooltip="{{ __('admin.menu.create.exercise') }}"
+                  submit="#create-exercise"
+                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+            <template v-slot:icon>
+                <icon-plus></icon-plus>
+            </template>
+            @push('forms')
+                <form id="create-exercise" class="d-none" action="{{ route('admin.exercises.store', $lesson) }}"
                       method="post">
                     @csrf
                 </form>
+            @endpush
+        </v-button>
 
-                <div class="btn-group" role="group">
-                    <button class="btn btn-info dropdown-toggle" type="button" id="more" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        <icon-more-vertical></icon-more-vertical>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="more">
-                        @if($lesson->isDisabled($content->language))
-                            <button class="dropdown-item" type="button" id="enable"
-                                    onclick="$('#lesson-{{ $lesson->id }}-enable').submit();">
-                                Enable
-                            </button>
-                            <form class="d-none" id="lesson-{{ $lesson->id }}-enable"
-                                  action="{{ route('admin.lessons.enable', $lesson) }}"
-                                  method="post">
-                                @method('patch')
-                                @csrf
-                            </form>
-                        @else
-                            <button class="dropdown-item" type="button" id="disable"
-                                    onclick="$('#lesson-{{ $lesson->id }}-disable').submit();">
-                                Disable
-                            </button>
-                            <form class="d-none" id="lesson-{{ $lesson->id }}-disable"
-                                  action="{{ route('admin.lessons.disable', $lesson) }}"
-                                  method="post">
-                                @method('patch')
-                                @csrf
-                            </form>
-                        @endif
-                        <a class="dropdown-item" href="{{ route('admin.lessons.edit', $lesson) }}">Properties</a>
-                        <div class="dropdown-divider"></div>
+        <v-dropdown>
+            <template v-slot:icon>
+                <icon-more-vertical></icon-more-vertical>
+            </template>
+
+            <v-dropdown-group>
+                <v-dropdown-item label="{{ ($lesson->isDisabled($content->language)) ? 'Enable' : 'Disable' }}"
+                                 submit="#lesson-{{ $lesson->id }}-{{ ($lesson->isDisabled($content->language) ? 'enable' : 'disable') }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                    @push('forms')
+                        <form class="d-none"
+                              id="lesson-{{ $lesson->id }}-{{ ($lesson->isDisabled($content->language) ? 'enable' : 'disable') }}"
+                              action="{{ route('admin.lessons.' . ($lesson->isDisabled($content->language) ? 'enable' : 'disable'), $lesson) }}"
+                              method="post">
+                            @method('patch')
+                            @csrf
+                        </form>
+                    @endpush
+                </v-dropdown-item>
+                <v-dropdown-item label="Properties"
+                                 route="{{ route('admin.lessons.edit', $lesson) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                </v-dropdown-item>
+            </v-dropdown-group>
+
+            <v-dropdown-group>
+                <v-dropdown-confirmation label="Delete Lesson"
+                                         title="{{ __('admin.form.delete_confirmation', ['object' => $lesson]) }}"
+                                         btn-ok-label="{{ __('admin.form.delete') }}"
+                                         form="#lesson-{{ $lesson->id }}-delete"
+                                         visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                    @push('forms')
                         <form class="d-none" id="lesson-{{ $lesson->id }}-delete"
                               action="{{ route('admin.lessons.destroy', $lesson) }}"
                               method="post">
                             @method('delete')
                             @csrf
                         </form>
-                        <button class="dropdown-item text-danger" type="button"
-                                data-toggle="confirmation"
-                                data-btn-ok-label="{{ __('admin.form.delete') }}"
-                                data-title="{{ __('admin.form.delete_confirmation', ['object' => $lesson]) }}"
-                                data-form="lesson-{{ $lesson->id }}-delete">
-                            Delete Lesson
-                        </button>
-                        <a class="dropdown-item" href="{{ route('admin.exercises.trash', $lesson) }}">Trash</a>
-                    </div>
-                </div>
+                    @endpush
+                </v-dropdown-confirmation>
+                <v-dropdown-item label="Trash"
+                                 route="{{ route('admin.exercises.trash', $lesson) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                </v-dropdown-item>
+            </v-dropdown-group>
+        </v-dropdown>
 
-                @can(\App\Library\Permissions::view_translations && $languages->isNotEmpty())
-                    @include('admin.components.menu.translations', ['route' => 'admin.translations.lesson.show', 'arg' => $lesson])
-                @endcan
-            </div>
-        @endcan
-    </div>
+        <v-dropdown>
+            <template v-slot:label>
+                Translations
+            </template>
+
+            @foreach($languages as $language)
+                <v-dropdown-item label="{{ $language->native }}"
+                                 route="{{ route('admin.translations.lesson.show', [$language, $lesson]) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
+                </v-dropdown-item>
+            @endforeach
+        </v-dropdown>
+    </v-button-group>
 @endsection
 
 @section('content')

@@ -8,7 +8,7 @@ return [
         'cancel' => 'Cancel',
         'restore' => 'Restore',
         'custom_file_text' => 'Browse',
-        'delete_confirmation' => 'Do you want to delete the :object?',
+        'delete_confirmation' => 'Do you want to delete :object?',
     ],
 
     'menu' => [

@@ -5,63 +5,68 @@
 @endsection
 
 @section('toolbar')
-    <div class="d-flex">
-        <div class="btn-group" role="group">
-            @isset($previous)
-                @include('admin.components.menu.previous', ['route' => route('admin.translations.exercise.show', [$language, $previous])])
-            @endisset
+    <v-button-group>
+        @isset($previous)
+            <v-button route="{{ route('admin.translations.exercise.show', [$language, $previous]) }}">
+                <template v-slot:icon>
+                    <icon-chevron-left></icon-chevron-left>
+                </template>
+            </v-button>
+        @endisset
+        @isset($next)
+            <v-button route="{{ route('admin.translations.exercise.show', [$language, $next]) }}">
+                <template v-slot:icon>
+                    <icon-chevron-right></icon-chevron-right>
+                </template>
+            </v-button>
+        @endisset
+    </v-button-group>
 
-            @isset($next)
-                @include('admin.components.menu.next', ['route' => route('admin.translations.exercise.show', [$language, $next])])
-            @endisset
-        </div>
+    <v-button-group>
+        <v-dropdown>
+            <template v-slot:icon>
+                <icon-more-vertical></icon-more-vertical>
+            </template>
 
-        <div class="btn-group ml-2" role="group">
-            @can(\App\Library\Permissions::update_translations)
-                <div class="btn-group" role="group">
-                    <button class="btn btn-info dropdown-toggle" type="button" id="more" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        <icon-more-vertical></icon-more-vertical>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="more">
-                        @if($exercise->isDisabled($language))
-                            <button class="dropdown-item" type="button" id="enable"
-                                    onclick="$('#exercise-{{ $exercise->id }}-enable').submit();">
-                                Enable
-                            </button>
-                            <form class="d-none" id="exercise-{{ $exercise->id }}-enable"
-                                  action="{{ route('admin.translations.exercise.enable', [$language, $exercise]) }}"
-                                  method="post">
-                                @method('patch')
-                                @csrf
-                            </form>
-                        @else
-                            <button class="dropdown-item" type="button" id="disable"
-                                    onclick="$('#exercise-{{ $exercise->id }}-disable').submit();">
-                                Disable
-                            </button>
-                            <form class="d-none" id="exercise-{{ $exercise->id }}-disable"
-                                  action="{{ route('admin.translations.exercise.disable', [$language, $exercise]) }}"
-                                  method="post">
-                                @method('patch')
-                                @csrf
-                            </form>
-                        @endif
-                    </div>
-                </div>
-            @endif
+            <v-dropdown-group>
+                <v-dropdown-item label="{{ $exercise->isDisabled($language) ? 'Enable' : 'Disable' }}"
+                                 submit="#exercise-{{ $exercise->id }}-{{ $exercise->isDisabled($language) ? 'enable' : 'disable' }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
+                    @push('forms')
+                        <form class="d-none"
+                              id="exercise-{{ $exercise->id }}-{{ $exercise->isDisabled($language) ? 'enable' : 'disable' }}"
+                              action="{{ route('admin.translations.exercise.' . ($exercise->isDisabled($language) ? 'enable' : 'disable'), [$language, $exercise]) }}"
+                              method="post">
+                            @method('patch')
+                            @csrf
+                        </form>
+                    @endpush
+                </v-dropdown-item>
+            </v-dropdown-group>
+        </v-dropdown>
 
-            @can($languages->isNotEmpty())
-                @include('admin.components.menu.translations', ['route' => 'admin.translations.exercise.show', 'arg' => $exercise])
-            @endcan
+        <v-dropdown>
+            <template v-slot:label>
+                Translations
+            </template>
 
-            @can(\App\Library\Permissions::view_content)
-                <a class="btn btn-info" href="{{ route('admin.exercises.show', $exercise) }}">
-                    Content <icon-chevron-right></icon-chevron-right>
-                </a>
-            @endcan
-        </div>
-    </div>
+            @foreach($languages as $language)
+                <v-dropdown-item label="{{ $language->native }}"
+                                 route="{{ route('admin.translations.exercise.show', [$language, $exercise]) }}">
+                </v-dropdown-item>
+            @endforeach
+        </v-dropdown>
+
+        <v-button route="{{ route('admin.exercises.show', $exercise) }}"
+                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_content) }}">
+            <template v-slot:label>
+                Content
+            </template>
+            <template v-slot:icon>
+                <icon-chevron-right></icon-chevron-right>
+            </template>
+        </v-button>
+    </v-button-group>
 @endsection
 
 @section('content')

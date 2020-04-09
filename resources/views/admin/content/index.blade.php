@@ -8,16 +8,14 @@
     <v-button-group>
         <v-button tooltip="Create Content"
                   route="{{ route('admin.content.create') }}"
-                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::create_content) }}"
-        >
+                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::create_content) }}">
             <template v-slot:icon>
                 <icon-plus></icon-plus>
             </template>
         </v-button>
         <v-button tooltip="Trash"
                   route="{{ route('admin.content.trash') }}"
-                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}"
-        >
+                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
             <template v-slot:icon>
                 <icon-trash trashed="{{ $trashed }}"></icon-trash>
             </template>

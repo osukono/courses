@@ -5,72 +5,77 @@
 @endsection
 
 @section('toolbar')
-    <div class="d-flex">
-        <div class="btn-group" role="group">
-            @isset($course->firebase_id)
-                @if($course->is_updating)
-                    <button class="btn btn-info" type="button" data-toggle="tooltip" data-title="Switch to published"
-                            onclick="$('#course-{{ $course->id }}-updating').submit();">
-                        Updating
-                    </button>
-                @else
-                    <button class="btn btn-info" type="button" data-toggle="tooltip" data-title="Switch to updating"
-                            onclick="$('#course-{{ $course->id }}-updating').submit();">
-                        Published
-                    </button>
-                @endif
-                <form id="course-{{ $course->id }}-updating"
-                      action="{{ route('admin.courses.updating.switch', $course) }}" method="post" autocomplete="off">
-                    @csrf
-                </form>
-            @endisset
-            <div class="btn-group" role="group">
-                <button class="btn btn-info dropdown-toggle" type="button" id="more" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    <icon-more-vertical></icon-more-vertical>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="more">
-                    @can(\App\Library\Permissions::publish_courses)
-                        <button role="button" class="dropdown-item"
-                                onclick="$('#upload-course-{{ $course->id }}').submit();">
-                            Upload to Firestore
-                        </button>
-                        <form class="d-none" id="upload-course-{{ $course->id }}"
+    <v-button-group>
+        @isset($course->firebase_id)
+            <v-button tooltip="{{ $course->is_updating ? 'Switch to published' : 'Switch to updating' }}"
+                      submit="#course-{{ $course->id }}-updating"
+                      visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
+                <template v-slot:label>
+                    {{ $course->is_updating ? 'Updating' : 'Published' }}
+                </template>
+                @push('forms')
+                    <form id="course-{{ $course->id }}-updating"
+                          action="{{ route('admin.courses.updating.switch', $course) }}" method="post"
+                          autocomplete="off">
+                        @csrf
+                    </form>
+                @endpush
+            </v-button>
+        @endisset
+
+        <v-dropdown>
+            <template v-slot:icon>
+                <icon-more-vertical></icon-more-vertical>
+            </template>
+            <v-dropdown-group>
+                <v-dropdown-item label="Upload to Firestore"
+                                 submit="#course-{{ $course->id }}->upload"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
+                    @push('forms')
+                        <form class="d-none" id="course-{{ $course->id }}->upload"
                               action="{{ route('admin.courses.firestore.upload', $course) }}"
                               method="post" autocomplete="off">
                             @csrf
                         </form>
-                        <button role="button" class="dropdown-item"
-                                onclick="$('#firestore-update-course-{{ $course->id }}').submit();">
-                            Update Firestore
-                        </button>
-                        <form class="d-none" id="firestore-update-course-{{ $course->id }}"
+                    @endpush
+                </v-dropdown-item>
+                <v-dropdown-item label="Update Firestore"
+                                 submit="course-{{ $course->id }}-firestore-update"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
+                    @push('forms')
+                        <form class="d-none" id="course-{{ $course->id }}-firestore-update"
                               action="{{ route('admin.courses.firestore.update', $course) }}"
                               method="post" autocomplete="off">
                             @csrf
                         </form>
-                    @endcan
-                    @can(\App\Library\Permissions::update_courses)
-                        <div class="dropdown-divider"></div>
-                        <a href="{{ route('admin.courses.edit', $course) }}" class="dropdown-item">Properties</a>
-                    @endcan
-                    <div class="dropdown-divider"></div>
-                    <button role="button" class="dropdown-item text-danger"
-                            data-toggle="confirmation"
-                            data-btn-ok-label="{{ __('admin.form.delete') }}"
-                            data-title="{{ __('admin.form.delete_confirmation', ['object' => $course]) }}"
-                            data-form="course-{{ $course->id }}-delete">Delete Course
-                    </button>
-                    <form class="d-none" id="course-{{ $course->id }}-delete"
-                          action="{{ route('admin.courses.delete', $course) }}"
-                          method="post" autocomplete="off">
-                        @csrf
-                        @method('delete')
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                    @endpush
+                </v-dropdown-item>
+            </v-dropdown-group>
+
+            <v-dropdown-group>
+                <v-dropdown-item label="Properties"
+                                 route="{{ route('admin.courses.edit', $course) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_courses) }}">
+                </v-dropdown-item>
+            </v-dropdown-group>
+
+            <v-dropdown-group>
+                <v-dropdown-confirmation label="Delete Course"
+                                         title="{{ __('admin.form.delete_confirmation', ['object' => $course]) }}"
+                                         btn-ok-label="{{ __('admin.form.delete') }}"
+                                         form="#course-{{ $course->id }}-delete">
+                    @push('forms')
+                        <form class="d-none" id="course-{{ $course->id }}-delete"
+                              action="{{ route('admin.courses.delete', $course) }}"
+                              method="post" autocomplete="off">
+                            @csrf
+                            @method('delete')
+                        </form>
+                    @endpush
+                </v-dropdown-confirmation>
+            </v-dropdown-group>
+        </v-dropdown>
+    </v-button-group>
 @endsection
 
 @section('content')
@@ -79,7 +84,8 @@
             <div class="row">
                 <div class="col-auto">
                     @isset($course->image)
-                        <img width="208" height="117" class="border rounded" src="{{ $course->image }}" alt="Course Image"
+                        <img width="208" height="117" class="border rounded" src="{{ $course->image }}"
+                             alt="Course Image"
                              onclick="$('#course-{{ $course->id }}-image').click();" style="cursor: pointer;">
                     @else
                         <div class="text-center border rounded bg-white align-middle d-table-cell"
