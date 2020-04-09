@@ -29,7 +29,7 @@
             </template>
 
             <v-dropdown-group>
-                <v-dropdown-item lable="{{ $lesson->isDisabled($language) ? 'Enable' : 'Disable' }}"
+                <v-dropdown-item label="{{ $lesson->isDisabled($language) ? 'Enable' : 'Disable' }}"
                                  submit="#lesson-{{ $lesson->id }}-{{ $lesson->isDisabled($language) ? 'enable' : 'disable' }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
                     @push('forms')
