@@ -50,9 +50,9 @@
                 Translations
             </template>
 
-            @foreach($languages as $language)
-                <v-dropdown-item label="{{ $language->native }}"
-                                 route="{{ route('admin.translations.exercise.show', [$language, $exercise]) }}">
+            @foreach($languages as $__language)
+                <v-dropdown-item label="{{ $__language->native }}"
+                                 route="{{ route('admin.translations.exercise.show', [$__language, $exercise]) }}">
                 </v-dropdown-item>
             @endforeach
         </v-dropdown>

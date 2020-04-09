@@ -95,9 +95,9 @@
                 Translations
             </template>
 
-            @foreach($languages as $language)
-                <v-dropdown-item label="{{ $language->native }}"
-                                 route="{{ route('admin.translations.content.show', [$language, $content]) }}"
+            @foreach($languages as $__language)
+                <v-dropdown-item label="{{ $__language->native }}"
+                                 route="{{ route('admin.translations.content.show', [$__language, $content]) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
                 </v-dropdown-item>
             @endforeach
