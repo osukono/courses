@@ -26,6 +26,9 @@
         <v-button tooltip="{{ __('admin.menu.create.exercise') }}"
                   submit="#create-exercise"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+            <template v-slot:label>
+                Exercise
+            </template>
             <template v-slot:icon>
                 <icon-plus></icon-plus>
             </template>

@@ -26,6 +26,9 @@
         <v-button tooltip="Add Sentence"
                   submit="sentence-create"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+            <template v-slot:label>
+                Sentence
+            </template>
             <template v-slot:icon>
                 <icon-plus></icon-plus>
             </template>

@@ -9,6 +9,9 @@
         <v-button tooltip="{{ __('admin.menu.create.lesson') }}"
                   route="{{ route('admin.lessons.create', $content) }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+            <template v-slot:label>
+                Lesson
+            </template>
             <template v-slot:icon>
                 <icon-plus></icon-plus>
             </template>
