@@ -192,12 +192,12 @@ class CommitContent implements ShouldQueue
         }
 
         if (!isset($content['audio'])) {
-            $this->messages[] = $current . " doesn't have audio.";
+            $this->messages[] = $current . " doesn't have an audio.";
             $valid = false;
         }
 
         if (!isset($content['duration'])) {
-            $this->messages[] = $current . " doesn't have audio duration.";
+            $this->messages[] = $current . " doesn't have an audio duration.";
             $valid = false;
         }
 
