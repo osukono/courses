@@ -35,7 +35,7 @@
 
             <v-dropdown-group>
                 <v-dropdown-item label="Commit"
-                                 sumbit="#commit"
+                                 submit="#commit"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
                     @push('forms')
                         <form class="d-none" id="commit"
