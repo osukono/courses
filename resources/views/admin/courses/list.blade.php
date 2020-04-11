@@ -11,8 +11,8 @@
     </thead>
     <tbody>
     @foreach($courses as $course)
-        <tr class="clickable-row" data-href="{{ route('admin.courses.show', $course) }}">
-            <td>{{ $course }}</td>
+        <tr>
+            <td class="clickable-row" data-href="{{ route('admin.courses.show', $course) }}">{{ $course }}</td>
             <td class="d-none d-md-table-cell">{{ $course->course_lessons_count }}</td>
             <td class="d-none d-md-table-cell">{{ $course->player_version }}</td>
             <td class="text-nowrap text-right d-none d-md-table-cell">

@@ -363,13 +363,7 @@ class TranslationController extends Controller
         $this->authorize('access', $content);
         $this->authorize('access', $language);
 
-        $job = new CommitContent($content, $language);
-        $this->dispatch($job);
-        try {
-            $jobStatusId = $job->getJobStatusId();
-            Session::flash('job', $jobStatusId);
-        } catch (Exception $e) {
-        }
+        $this->dispatchJob(new CommitContent($content, $language), route('admin.translations.content.show', [$language, $content]));
 
         return redirect()->route('admin.translations.content.show', [$language, $content]);
     }

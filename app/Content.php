@@ -118,7 +118,8 @@ class Content extends Model implements Recordable
                 'topic_id'
             ],
             'fieldName' => 'version',
-            'orderFrom1' => true
+            'orderFrom1' => true,
+            'notUpdateOnDelete' => true,
         ];
     }
 

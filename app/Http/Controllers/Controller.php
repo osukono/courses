@@ -16,14 +16,16 @@ class Controller extends BaseController
 
     /**
      * @param $job mixed
+     * @param $redirect
      * @return RedirectResponse
      */
-    public function dispatchJob($job)
+    public function dispatchJob($job, $redirect)
     {
         $this->dispatch($job);
         try {
             $jobStatusId = $job->getJobStatusId();
-            Session::flash('job', $jobStatusId);
+            Session::flash('job-id', $jobStatusId);
+            Session::flash('job-redirect-url', $redirect);
         } catch (Exception $e) {
             return back()->with('error', $e->getMessage());
         }

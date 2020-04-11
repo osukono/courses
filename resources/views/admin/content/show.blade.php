@@ -127,13 +127,4 @@
             </div>
         </div>
     @endif
-
-    @if (Session::has('job'))
-        @push('progress')
-            <job-status job-id="{{ Session::get('job') }}"
-                        job-status-url="{{ route('admin.jobs.status', Session::get('job')) }}"
-                        redirect-url="{{ route('admin.content.show', $content) }}"
-            ></job-status>
-        @endpush
-    @endif
 @endsection

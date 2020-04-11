@@ -102,7 +102,7 @@ class AppLocaleController extends Controller
      */
     public function download()
     {
-        $this->dispatchJob(new LoadLocales());
+        $this->dispatchJob(new LoadLocales(), route('admin.app.locales.index'));
 
         return redirect()->route('admin.app.locales.index');
     }
@@ -112,7 +112,7 @@ class AppLocaleController extends Controller
      */
     public function upload()
     {
-        $this->dispatchJob(new UploadLocales());
+        $this->dispatchJob(new UploadLocales(), route('admin.app.locales.index'));
 
         return redirect()->route('admin.app.locales.index');
     }

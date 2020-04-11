@@ -286,7 +286,7 @@ class ContentController extends Controller
         $this->authorize('access', $content);
 
         $json = $request->file('json')->store('tmp');
-        $this->dispatchJob(new ImportContent($content, $json));
+        $this->dispatchJob(new ImportContent($content, $json), route('admin.content.show', $content));
 
         return redirect()->route('admin.content.show', $content);
     }

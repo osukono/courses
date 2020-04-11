@@ -105,7 +105,12 @@
                         @yield('toolbar')
                     </div>
                 </div>
-                @stack('progress')
+                @if (Session::has('job-id'))
+                    <job-status job-id="{{ Session::get('job-id') }}"
+                                job-status-url="{{ route('admin.jobs.status', Session::get('job-id')) }}"
+                                redirect-url="{{ Session::get('job-redirect-url') }}"
+                    ></job-status>
+                @endif
                 @if(session()->has('message') or session()->has('error'))
                     <div class="row">
                         <div class="col">
