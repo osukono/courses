@@ -132,7 +132,7 @@
 @stack('scripts')
 
 <script>
-    $(document).ready(function () {
+    $(function () {
         $('[data-toggle=confirmation]').confirmation({
             rootSelector: '[data-toggle^=confirmation]',
             singleton: true,
@@ -145,6 +145,26 @@
                 document.getElementById(form).submit();
             }
         });
+
+        $(document).keydown(function (e) {
+            switch (e.key) {
+                case 'Left':
+                case 'ArrowLeft':
+                    let previous = $('#previous');
+                    if (previous)
+                        previous.click();
+                    break;
+                case 'Right':
+                case 'ArrowRight':
+                    let next = $('#next');
+                    if (next)
+                        next.click();
+                    break;
+                default :
+                    return;
+            }
+            e.preventDefault();
+        })
     });
 </script>
 

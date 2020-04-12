@@ -7,14 +7,14 @@
 @section('toolbar')
     <v-button-group>
         @isset($previous)
-            <v-button route="{{ route('admin.exercises.show', $previous) }}">
+            <v-button id="previous" route="{{ route('admin.exercises.show', $previous) }}">
                 <template v-slot:icon>
                     <icon-chevron-left></icon-chevron-left>
                 </template>
             </v-button>
         @endisset
         @isset($next)
-            <v-button route="{{ route('admin.exercises.show', $next) }}">
+            <v-button id="next" route="{{ route('admin.exercises.show', $next) }}">
                 <template v-slot:icon>
                     <icon-chevron-right></icon-chevron-right>
                 </template>
