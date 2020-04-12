@@ -147,6 +147,10 @@
         });
 
         $(document).keydown(function (e) {
+            let focused = document.activeElement;
+            if (focused.tagName.toLowerCase() === 'input')
+                return;
+
             switch (e.key) {
                 case 'Left':
                 case 'ArrowLeft':
@@ -164,7 +168,7 @@
                     return;
             }
             e.preventDefault();
-        })
+        });
     });
 </script>
 
