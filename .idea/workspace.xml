@@ -11,11 +11,12 @@
       <change beforePath="$PROJECT_DIR$/public/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/admin_vue_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin_vue_3x0xof.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/app/locales/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/topics/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/topics/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/form/input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/html/form/input.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/components/confirmation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/components/confirmation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/exercises/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/lessons/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/html/form/submit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/html/form/submit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,7 +296,7 @@
       <workItem from="1583756510275" duration="133019000" />
       <workItem from="1585196723007" duration="125697000" />
       <workItem from="1586357017517" duration="8638000" />
-      <workItem from="1586419981663" duration="14226000" />
+      <workItem from="1586419981663" duration="15366000" />
     </task>
     <servers />
   </component>

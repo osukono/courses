@@ -126,5 +126,5 @@
         </div>
     @endif
 
-    @include('admin.components.confirmation', ['id' => 'content-' . $content->id . '-modal-delete', 'body' => __('admin.form.delete_confirmation', ['object' => $content]), 'form' =>  'content-' . $content->id . '-delete', 'action' => 'Delete'])
+    @include('admin.components.confirmation', ['id' => 'content-' . $content->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $content]), 'form' =>  'content-' . $content->id . '-delete', 'action' => 'Delete'])
 @endsection

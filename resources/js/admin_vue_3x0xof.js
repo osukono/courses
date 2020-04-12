@@ -25,6 +25,10 @@ Vue.component('v-dropdown-modal', require('./components/bootstrap/VDropdownModal
  * Player
  */
 Vue.component('course-player', require('./components/CoursePlayer.vue').default);
+
+/**
+ * Jobs
+ */
 Vue.component('job-status', require('./components/JobStatus.vue').default);
 
 /**
