@@ -104,9 +104,7 @@
     @if($exercises->count())
         <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">
-                    @include('admin.content.title')
-                </h5>
+                <h5 class="card-title">{{ $lesson->title }}</h5>
                 @if($lesson->isDisabled($content->language))
                     <h6 class="card-subtitle"><span class="badge badge-warning text-uppercase">Disabled</span></h6>
                 @endif

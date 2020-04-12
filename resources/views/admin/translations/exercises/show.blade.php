@@ -73,7 +73,7 @@
     @if($exerciseData->count())
         <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">@include('admin.translations.title')</h5>
+                <h5 class="card-title">Exercise {{ $exercise->index . ' › ' . $language->native }}</h5>
                 @if($exercise->isDisabled($content->language) or $exercise->isDisabled($language))
                     <h6 class="card-subtitle">
                         @if($exercise->isDisabled($content->language))

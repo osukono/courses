@@ -100,7 +100,7 @@
     @if($exerciseData->count() > 0)
         <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">@include('admin.content.title')</h5>
+                <h5 class="card-title">Exercise {{ $exercise->index }}</h5>
                 @if($exercise->isDisabled($content->language))
                     <h6 class="card-subtitle">
                         <span class="badge badge-warning text-uppercase">Disabled</span>
