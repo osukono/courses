@@ -5,7 +5,7 @@ window.feather = require('feather-icons');
 require('bootstrap-confirmation2');
 require('./sidebar');
 
-$(document).ready(function () {
+$(function () {
     bsCustomFileInput.init();
 
     $(`.clickable-row`).click(function (e) {
@@ -17,4 +17,28 @@ $(document).ready(function () {
     });
 
     feather.replace();
+
+    $(document).keydown(function (e) {
+        let focused = document.activeElement;
+        if (focused.tagName.toLowerCase() === 'input')
+            return;
+
+        switch (e.key) {
+            case 'Left':
+            case 'ArrowLeft':
+                let previous = $('#previous');
+                if (previous)
+                    previous.click();
+                break;
+            case 'Right':
+            case 'ArrowRight':
+                let next = $('#next');
+                if (next)
+                    next.click();
+                break;
+            default :
+                return;
+        }
+        e.preventDefault();
+    });
 });

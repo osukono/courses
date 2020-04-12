@@ -101,7 +101,7 @@
                     <div class="col text-nowrap align-self-center">
                         @yield('breadcrumbs')
                     </div>
-                    <div id="toolbar" class="col-auto">
+                    <div id="toolbar" class="text-right pt-3 pt-md-0 col-12 col-md-auto">
                         @yield('toolbar')
                     </div>
                 </div>
@@ -144,30 +144,6 @@
                 let form = $(this)[0].getAttribute('data-form');
                 document.getElementById(form).submit();
             }
-        });
-
-        $(document).keydown(function (e) {
-            let focused = document.activeElement;
-            if (focused.tagName.toLowerCase() === 'input')
-                return;
-
-            switch (e.key) {
-                case 'Left':
-                case 'ArrowLeft':
-                    let previous = $('#previous');
-                    if (previous)
-                        previous.click();
-                    break;
-                case 'Right':
-                case 'ArrowRight':
-                    let next = $('#next');
-                    if (next)
-                        next.click();
-                    break;
-                default :
-                    return;
-            }
-            e.preventDefault();
         });
     });
 </script>
