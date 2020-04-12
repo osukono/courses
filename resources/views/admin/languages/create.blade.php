@@ -10,7 +10,7 @@
             <h5 class="card-title mb-4">Add a Language</h5>
             <form action="{{ route('admin.languages.store') }}" method="post" autocomplete="off">
                 @csrf
-                @input(['name' => 'name', 'label' => 'Name'])
+                @input(['name' => 'name', 'label' => 'Name', 'autofocus' => true])
                 @input(['name' => 'native', 'label' => 'Native name'])
                 @input(['name' => 'code', 'label' => 'Regional Code'])
                 @input(['name' => 'locale', 'label' => 'Locale Code'])

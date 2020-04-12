@@ -11,7 +11,7 @@
             <form action="{{ route('admin.topics.store') }}" method="post" autocomplete="off">
                 @csrf
 
-                @input(['name' => 'name', 'label' => 'Name'])
+                @input(['name' => 'name', 'label' => 'Name', 'autofocus' => true])
                 @input(['name' => 'identifier', 'label' => 'Identifier'])
 
                 @submit(['text' => 'Save'])

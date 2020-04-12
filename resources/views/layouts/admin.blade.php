@@ -145,11 +145,6 @@
                 document.getElementById(form).submit();
             }
         });
-
-        // $('.toast').toast({
-        //     autohide: false
-        // });
-        // $('.toast').toast('show');
     });
 </script>
 

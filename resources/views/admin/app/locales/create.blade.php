@@ -10,7 +10,7 @@
             <form action="{{ route('admin.app.locales.store') }}" method="post" autocomplete="off">
                 @csrf
 
-                @input(['name' => 'key', 'label' => 'Key',])
+                @input(['name' => 'key', 'label' => 'Key', 'autofocus' => true])
                 @input(['name' => 'description', 'label' => 'Description'])
                 @select(['name' => 'locale_group_id', 'label' => 'Group', 'options' => $localeGroups])
                 @foreach($languages as $language)

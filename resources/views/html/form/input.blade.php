@@ -2,7 +2,7 @@
     @isset($label)<label for="{{ $name }}">{{ $label }}</label>@endisset
     <input type="{{ isset($type) ? $type : 'text' }}"
            class="form-control {{ !empty($lg) ? 'form-control-lg' : '' }} @error($name) is-invalid @enderror"
-           name="{{ $name }}" @isset($label) placeholder="{{ $label }}" @endisset
+           id="{{ $name }}" name="{{ $name }}" @isset($label) placeholder="{{ $label }}" @endisset
            @isset($lang) lang="{{ $lang }}" @endisset
            value="{{ isset($default) ? old($name, $default) : old($name) }}"{{ !empty($autofocus) ? ' autofocus' : '' }}
     >
