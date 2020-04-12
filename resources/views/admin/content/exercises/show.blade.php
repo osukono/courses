@@ -63,19 +63,17 @@
             </v-dropdown-group>
 
             <v-dropdown-group>
-                <v-dropdown-confirmation label="Delete Exercise"
-                                         title="{{ __('admin.form.delete_confirmation', ['object' => 'Exercise ' . $exercise->index]) }}"
-                                         btn-ok-label="{{ __('admin.form.delete') }}"
-                                         form="delete-exercise"
-                                         visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                <v-dropdown-modal label="Delete Exercise"
+                                  modal="exercise-{{ $exercise->id }}-modal-delete"
+                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                     @push('forms')
-                        <form class="d-none" id="delete-exercise" action="{{ route('admin.exercises.destroy', $exercise) }}"
+                        <form class="d-none" id="exercise-{{ $exercise->id }}-delete" action="{{ route('admin.exercises.destroy', $exercise) }}"
                               method="post">
                             @method('delete')
                             @csrf
                         </form>
                     @endpush
-                </v-dropdown-confirmation>
+                </v-dropdown-modal>
                 <v-dropdown-item label="Trash"
                                  route="{{ route('admin.exercise.data.trash', $exercise) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
@@ -112,6 +110,8 @@
             </div>
         </div>
     @endif
+
+    @include('admin.components.confirmation', ['id' => 'exercise-' . $exercise->id . '-modal-delete', 'body' => __('admin.form.delete_confirmation', ['object' => $exercise]), 'form' =>  'exercise-' . $exercise->id . '-delete', 'action' => 'Delete'])
 @endsection
 
 @push('scripts')

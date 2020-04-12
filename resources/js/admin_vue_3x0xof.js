@@ -19,7 +19,7 @@ Vue.component('v-button', require('./components/bootstrap/VButton').default);
 Vue.component('v-dropdown', require('./components/bootstrap/VDropdown').default);
 Vue.component('v-dropdown-group', require('./components/bootstrap/VDropdownGroup').default);
 Vue.component('v-dropdown-item', require('./components/bootstrap/VDropdownItem').default);
-Vue.component('v-dropdown-confirmation', require('./components/bootstrap/VDropdownConfirmation').default);
+Vue.component('v-dropdown-modal', require('./components/bootstrap/VDropdownModal').default);
 
 /**
  * Player

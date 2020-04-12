@@ -26,8 +26,8 @@
                         @foreach($exercises as $exercise)
                             <tr>
                                 <td>
-                                    @foreach($exercise->exerciseFields as $exerciseField)
-                                        @include('admin.content.exercises.fields.show')
+                                    @foreach($exercise->exerciseData as $data)
+                                        @include('admin.content.exercises.data.show')
                                     @endforeach
                                 </td>
                                 <td class="text-nowrap text-right">{{ $exercise->deleted_at->diffForHumans() }}</td>

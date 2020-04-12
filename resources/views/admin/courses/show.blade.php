@@ -60,10 +60,8 @@
             </v-dropdown-group>
 
             <v-dropdown-group>
-                <v-dropdown-confirmation label="Delete Course"
-                                         title="{{ __('admin.form.delete_confirmation', ['object' => $course]) }}"
-                                         btn-ok-label="{{ __('admin.form.delete') }}"
-                                         form="#course-{{ $course->id }}-delete">
+                <v-dropdown-modal label="Delete Course"
+                                  modal="course-{{ $course->id }}-modal-delete">
                     @push('forms')
                         <form class="d-none" id="course-{{ $course->id }}-delete"
                               action="{{ route('admin.courses.delete', $course) }}"
@@ -72,7 +70,7 @@
                             @method('delete')
                         </form>
                     @endpush
-                </v-dropdown-confirmation>
+                </v-dropdown-modal>
             </v-dropdown-group>
         </v-dropdown>
     </v-button-group>
@@ -118,4 +116,6 @@
             @include('admin.courses.lessons')
         </div>
     </div>
+
+    @include('admin.components.confirmation', ['id' => 'course-' . $course->id . '-modal-delete', 'body' => __('admin.form.delete_confirmation', ['object' => $course]), 'form' =>  'course-' . $course->id . '-delete', 'action' => 'Delete'])
 @endsection

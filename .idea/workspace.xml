@@ -2,19 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/components/bootstrap/VDropdownModal.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/components/confirmation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Content.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Content.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AppLocaleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AppLocaleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/app/locales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/admin_3x0xof.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin_3x0xof.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_3x0xof.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin_vue_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_vue_3x0xof.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin_vue_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin_vue_3x0xof.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/exercises/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/exercises/trash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/lessons/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/html/form/cancel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/html/form/cancel.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +299,7 @@
       <workItem from="1583756510275" duration="133019000" />
       <workItem from="1585196723007" duration="125697000" />
       <workItem from="1586357017517" duration="8638000" />
-      <workItem from="1586419981663" duration="7868000" />
+      <workItem from="1586419981663" duration="12035000" />
     </task>
     <servers />
   </component>
@@ -320,10 +325,11 @@
     </state>
     <state x="34" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.795@0.23.1440.795" timestamp="1582542691325" />
     <state x="378" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.801@0.23.1440.801" timestamp="1582114324477" />
-    <state x="458" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586151228821">
-      <screen x="0" y="23" width="1440" height="801" />
+    <state x="458" y="175" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586678595626">
+      <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state x="458" y="175" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.795@0.23.1440.795" timestamp="1582010828719" />
+    <state x="458" y="175" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.798@0.23.1440.798" timestamp="1586678595626" />
     <state x="458" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.801@0.23.1440.801" timestamp="1586151228820" />
     <state x="458" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586192492530">
       <screen x="0" y="23" width="1440" height="795" />
@@ -350,11 +356,11 @@
     <state x="482" y="244" key="NewPhpClassDialog/0.23.1440.795@0.23.1440.795" timestamp="1585730204048" />
     <state x="537" y="315" key="NewPhpClassDialog/0.23.1440.798@0.23.1440.798" timestamp="1585982594040" />
     <state x="482" y="246" key="NewPhpClassDialog/0.23.1440.801@0.23.1440.801" timestamp="1583735780264" />
-    <state x="541" y="351" key="NewPhpFileDialog" timestamp="1586189944694">
-      <screen x="0" y="23" width="1440" height="795" />
+    <state x="541" y="352" key="NewPhpFileDialog" timestamp="1586672979661">
+      <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state x="541" y="351" key="NewPhpFileDialog/0.23.1440.795@0.23.1440.795" timestamp="1586189944694" />
-    <state x="541" y="352" key="NewPhpFileDialog/0.23.1440.798@0.23.1440.798" timestamp="1584870338856" />
+    <state x="541" y="352" key="NewPhpFileDialog/0.23.1440.798@0.23.1440.798" timestamp="1586672979661" />
     <state x="541" y="353" key="NewPhpFileDialog/0.23.1440.801@0.23.1440.801" timestamp="1585129141434" />
     <state x="541" y="354" key="NewPhpFileDialog/0.23.1440.804@0.23.1440.804" timestamp="1582533691334" />
     <state x="229" y="61" key="SettingsEditor" timestamp="1586428796268">

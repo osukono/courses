@@ -69,11 +69,9 @@
             </v-dropdown-group>
 
             <v-dropdown-group>
-                <v-dropdown-confirmation label="Delete Content"
-                                         title="{{ __('admin.form.delete_confirmation', ['object' => $content]) }}"
-                                         btn-ok-label="{{ __('admin.form.delete') }}"
-                                         form="content-{{ $content->id }}-delete"
-                                         visible="{{ Auth::getUser()->can(\App\Library\Permissions::delete_content) }}">
+                <v-dropdown-modal label="Delete Content"
+                                  modal="content-{{ $content->id }}-modal-delete"
+                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::delete_content) }}">
                     @push('forms')
                         <form class="d-none" id="content-{{ $content->id }}-delete"
                               action="{{ route('admin.content.destroy', $content) }}"
@@ -82,7 +80,7 @@
                             @csrf
                         </form>
                     @endpush
-                </v-dropdown-confirmation>
+                </v-dropdown-modal>
                 <v-dropdown-item label="Trash"
                                  route="{{ route('admin.lessons.trash', $content) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
@@ -127,4 +125,6 @@
             </div>
         </div>
     @endif
+
+    @include('admin.components.confirmation', ['id' => 'content-' . $content->id . '-modal-delete', 'body' => __('admin.form.delete_confirmation', ['object' => $content]), 'form' =>  'content-' . $content->id . '-delete', 'action' => 'Delete'])
 @endsection

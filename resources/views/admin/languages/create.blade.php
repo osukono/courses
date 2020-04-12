@@ -15,7 +15,7 @@
                 @input(['name' => 'code', 'label' => 'Regional Code'])
                 @input(['name' => 'locale', 'label' => 'Locale Code'])
 
-                @submit(['text' => 'Save'])
+                @submit(['text' => 'Create'])
                 @cancel(['route' => route('admin.languages.index')])
             </form>
         </div>
