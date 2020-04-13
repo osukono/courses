@@ -4,7 +4,9 @@
            class="form-control {{ !empty($lg) ? 'form-control-lg' : '' }} @error($name) is-invalid @enderror"
            id="{{ $name }}" name="{{ $name }}" @isset($label) placeholder="{{ $label }}" @endisset
            @isset($lang) lang="{{ $lang }}" @endisset
-           value="{{ isset($default) ? old($name, $default) : old($name) }}"{{ !empty($autofocus) ? ' autofocus' : '' }}
+           value="{{ isset($default) ? old($name, $default) : old($name) }}"
+        {{ !empty($autofocus) ? ' autofocus' : '' }}
+        {{ !empty($required) ? ' required' : '' }}
     >
     @isset($helper)
         <small class="form-text text-muted">{{ $helper }}</small>

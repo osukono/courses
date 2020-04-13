@@ -315,3 +315,20 @@ Breadcrumbs::for('admin.users.show', function ($trail, \App\User $user) {
     $trail->parent('admin.users.index');
     $trail->push($user, route('admin.users.show', $user));
 });
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Profile
+ * ---------------------------------------------------------------------------------------------------------------------
+ */
+
+// [User]
+Breadcrumbs::for('admin.user', function ($trail, \App\User $user) {
+    $trail->push($user);
+});
+
+// [User] > Profile
+Breadcrumbs::for('admin.user.profile', function($trail, \App\User $user) {
+    $trail->parent('admin.user', $user);
+    $trail->push('Profile');
+});

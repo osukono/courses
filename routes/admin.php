@@ -233,6 +233,13 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         });
 
         /**
+         * Profile
+         */
+        Route::get('profile', 'ProfileController@index')->name('admin.profile');
+        Route::patch('profile/information', 'ProfileController@update')->name('admin.profile.update');
+        Route::patch('profile/password', 'ProfileController@updatePassword')->name('admin.profile.password.update');
+
+        /**
          * Jobs
          */
         Route::get('jobs/{jobStatus}/status', 'JobController@status')->name('admin.jobs.status');

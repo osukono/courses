@@ -13,4 +13,5 @@ class Sidebar
     public const topics = 'topics';
     public const locales = 'locales';
     public const users = 'users';
+    public const profile = 'profile';
 }

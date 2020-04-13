@@ -53,6 +53,19 @@ class UserRepository
         $this->model->removeRole($role);
     }
 
+    public function updateProfile(array $attributes)
+    {
+        $this->model->name = $attributes['name'];
+        $this->model->email = $attributes['email'];
+        $this->model->save();
+    }
+
+    public function updatePassword(array $attributes)
+    {
+        $this->model->password = bcrypt($attributes['new_password']);
+        $this->model->save();
+    }
+
     /**
      * @return User
      */
