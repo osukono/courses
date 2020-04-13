@@ -50,6 +50,7 @@ class TranslationController extends Controller
         $data['language'] = $language;
         $data['content'] = $content;
         $data['languages'] = LanguageRepository::all()
+            ->hasAccess(Auth::getUser())
             ->whereNotIn('id', [$content->language->id])
             ->ordered()->get();
         $data['lessons'] = $content->lessons()
@@ -82,6 +83,7 @@ class TranslationController extends Controller
         $data['content'] = $lesson->content;
         $data['lesson'] = $lesson;
         $data['languages'] = LanguageRepository::all()
+            ->hasAccess(Auth::getUser())
             ->whereNotIn('id', [$lesson->content->language->id])
             ->ordered()->get();
         $data['exercises'] = $lesson->exercises()
@@ -98,14 +100,6 @@ class TranslationController extends Controller
         $data['previous'] = $lesson->repository()->previous();
         $data['next'] = $lesson->repository()->next();
         $data['trashed'] = ExerciseRepository::trashed()->where('lesson_id', $lesson->id)->count();
-
-//        try {
-//            foreach ($data['exercises'] as $exercise)
-//                foreach ($exercise->exerciseData as $exerciseData)
-//                    $exerciseData->translations->first()->repository()->synthesizeAudio();
-//        } catch (Exception $ex) {
-//
-//        }
 
         return view('admin.translations.lessons.show')->with($data);
     }
@@ -161,7 +155,7 @@ class TranslationController extends Controller
         $this->authorize('access', $exercise->lesson->content);
         $this->authorize('access', $language);
 
-        if (Auth::getUser()->can(Permissions::update_content) && $request->has('data')) {
+        if (Auth::getUser()->can(Permissions::update_translations) && $request->has('data')) {
             $editData = ExerciseDataRepository::find($request->get('data'))->model();
 
             $data['editData'] = $editData;
@@ -176,6 +170,7 @@ class TranslationController extends Controller
         $data['exercise'] = $exercise;
         $data['content'] = $exercise->lesson->content;
         $data['languages'] = LanguageRepository::all()
+            ->hasAccess(Auth::getUser())
             ->whereNotIn('id', [$exercise->lesson->content->language->id])->get();
         $data['exerciseData'] = $exercise->exerciseData()
             ->with([
@@ -315,41 +310,31 @@ class TranslationController extends Controller
     /**
      * @param AssignEditorRequest $request
      * @param Language $language
-     * @param Content $content
      * @return RedirectResponse
-     * @throws AuthorizationException
      */
-    public function assignEditor(AssignEditorRequest $request, Language $language, Content $content)
+    public function assignEditor(AssignEditorRequest $request, Language $language)
     {
-        $this->authorize('access', $content);
-
         $user = User::findOrFail($request->get('user_id'));
 
-        $content->repository()->assignEditor($user);
         $language->repository()->assignEditor($user);
 
-        return redirect()->route('admin.translations.editors.index', [$language, $content])
-            ->with('message', __('admin.messages.editors.assigned', ['subject' => $user, 'object' => $language]));
+        return redirect()->back()
+            ->with('message', __('admin.messages.editors.assigned', ['subject' => $language, 'object' => $user]));
     }
 
     /**
      * @param RemoveEditorRequest $request
      * @param Language $language
-     * @param Content $content
      * @return RedirectResponse
-     * @throws AuthorizationException
      */
-    public function removeEditor(RemoveEditorRequest $request, Language $language, Content $content)
+    public function removeEditor(RemoveEditorRequest $request, Language $language)
     {
-        $this->authorize('access', $content);
-
         $user = User::findOrFail($request->get('user_id'));
 
         $language->repository()->removeEditor($user);
-        $content->repository()->removeEditor($user);
 
-        return redirect()->route('admin.translations.editors.index', [$language, $content])
-            ->with('message', __('admin.messages.editors.removed', ['object' => $user, 'subject' => $language]));
+        return redirect()->back()
+            ->with('message', __('admin.messages.editors.removed', ['object' => $language, 'subject' => $user]));
     }
 
     /**

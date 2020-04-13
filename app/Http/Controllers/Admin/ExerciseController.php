@@ -52,6 +52,7 @@ class ExerciseController extends Controller
         $data['previous'] = $exercise->repository()->previous();
         $data['next'] = $exercise->repository()->next();
         $data['languages'] = LanguageRepository::all()
+            ->hasAccess(Auth::getUser())
             ->whereNotIn('id', [$exercise->lesson->content->language->id])->ordered()->get();
         $data['exerciseData'] = $exercise->exerciseData()->ordered()->get();
 

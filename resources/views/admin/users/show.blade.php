@@ -4,23 +4,89 @@
     {{ Breadcrumbs::render('admin.users.show', $user) }}
 @endsection
 
-@section('toolbar')
-    @if($roles->isNotEmpty())
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-info"
-                    data-toggle="modal" data-target="#assignRole">
-                <icon-plus></icon-plus>
-            </button>
-        </div>
-    @endif
-@endsection
-
 @section('content')
     @if($assignedRoles->count())
         <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">Roles</h5>
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title">Roles</h5>
+                    </div>
+                    <div class="col text-right">
+                        @if($roles->isNotEmpty())
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-info"
+                                        data-toggle="modal" data-target="#assignRole">
+                                    <icon-plus></icon-plus>
+                                </button>
+                            </div>
+                        @endif
+                    </div>
+                </div>
                 @include('admin.users.roles')
+            </div>
+        </div>
+    @endif
+
+    @if($contents->count())
+        <div class="card shadow-sm mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Content Access</h5>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="col-11"></th>
+                        <th class="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($contents as $content)
+                        <tr>
+                            <td>{{ $content }}</td>
+                            <td>
+                                <form action="{{ route('admin.content.editors.remove', $content) }}" method="post">
+                                    @csrf
+                                    @method('patch')
+                                    <input type="hidden" id="user_id" name="user_id" value="{{ $user->id }}">
+                                    <button type="submit" class="btn btn-link btn-sm">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    @endif
+
+    @if($translations->count())
+        <div class="card shadow-sm mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Translations Access</h5>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="col-11"></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($translations as $translation)
+                        <tr>
+                            <td>{{ $translation }}</td>
+                            <td>
+                                <form action="{{ route('admin.translations.editors.remove', [$translation]) }}"
+                                      method="post">
+                                    @csrf
+                                    @method('patch')
+                                    <input type="hidden" id="user_id" name="user_id" value="{{ $user->id }}">
+                                    <button type="submit" class="btn btn-link btn-sm">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     @endif

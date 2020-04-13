@@ -42,6 +42,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @mixin \Eloquent
  * @property string|null $locale
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereLocale($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Language hasAccess(\App\User $user)
  */
 class Language extends Model
 {
@@ -103,6 +104,18 @@ class Language extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /**
+     * @param Builder $query
+     * @param User $user
+     * @return Builder
+     */
+    public function scopeHasAccess(Builder $query, User $user)
+    {
+        return $user->isAdmin() ? $query : $query->whereHas('editors', function (Builder $query) use ($user) {
+            $query->where('id', $user->id);
+        });
     }
 
     public function __toString()

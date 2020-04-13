@@ -34,9 +34,10 @@
                                 <td>{{ $editor->roles->implode('name', ', ') }}</td>
                                 <td class="text-right">
                                     <form class="mr-1"
-                                          action="{{ route('admin.translations.editors.remove', [$language, $content]) }}"
+                                          action="{{ route('admin.translations.editors.remove', [$language]) }}"
                                           method="post">
                                         @csrf
+                                        @method('patch')
                                         <input type="hidden" id="user_id" name="user_id" value="{{ $editor->id }}">
                                         <button type="submit" class="btn btn-link btn-sm">Remove</button>
                                     </form>
@@ -65,6 +66,7 @@
                           action="{{ route('admin.translations.editors.assign', [$language, $content]) }}"
                           method="post">
                         @csrf
+                        @method('patch')
                         @select(['name' => 'user_id', 'label' => 'Users', 'options' => $users])
                     </form>
                 </div>

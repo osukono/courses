@@ -41,8 +41,8 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         });
         Route::middleware('permission:' . Permissions::assign_editors)->group(function () {
             Route::get('content/{content}/editors', 'ContentController@editors')->name('admin.content.editors.index');
-            Route::post('content/{content}/editors/assign', 'ContentController@assignEditor')->name('admin.content.editors.assign');
-            Route::post('content/{content}/editors/remove', 'ContentController@removeEditor')->name('admin.content.editors.remove');
+            Route::patch('content/{content}/editors/assign', 'ContentController@assignEditor')->name('admin.content.editors.assign');
+            Route::patch('content/{content}/editors/remove', 'ContentController@removeEditor')->name('admin.content.editors.remove');
         });
 
         /**
@@ -118,8 +118,8 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         });
         Route::middleware('permission:' . Permissions::assign_editors)->group(function() {
             Route::get('translations/{language}/content/{content}/editors', 'TranslationController@editors')->name('admin.translations.editors.index');
-            Route::post('translations/{language}/content/{content}/editors/assign', 'TranslationController@assignEditor')->name('admin.translations.editors.assign');
-            Route::post('translations/{language}/content/{content}/editors/remove', 'TranslationController@removeEditor')->name('admin.translations.editors.remove');
+            Route::patch('translations/{language}/editors/assign', 'TranslationController@assignEditor')->name('admin.translations.editors.assign');
+            Route::patch('translations/{language}/editors/remove', 'TranslationController@removeEditor')->name('admin.translations.editors.remove');
         });
         Route::middleware('permission:' . Permissions::publish_courses)->group(function() {
             Route::post('translations/{language}/content/{content}/commit', 'TranslationController@commit')->name('admin.translations.commit');

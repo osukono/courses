@@ -68,11 +68,11 @@ class ContentController extends Controller
      */
     public function store(ContentCreateRequest $request)
     {
-        $targetContent = ContentRepository::create($request->all());
-        $targetContent->repository()->assignEditor(Auth::getUser());
+        $content = ContentRepository::create($request->all());
+        $content->repository()->assignEditor(Auth::getUser());
 
-        return redirect()->route('admin.content.show', $targetContent)
-            ->with('message', __('admin.messages.created', ['object' => $targetContent]));
+        return redirect()->route('admin.content.show', $content)
+            ->with('message', __('admin.messages.created', ['object' => $content]));
     }
 
     /**
@@ -86,6 +86,7 @@ class ContentController extends Controller
 
         $data['content'] = $content;
         $data['languages'] = LanguageRepository::all()
+            ->hasAccess(Auth::getUser())
             ->whereNotIn('id', [$content->language->id])
             ->ordered()->get();
         $data['lessons'] = $content->lessons()
@@ -209,7 +210,7 @@ class ContentController extends Controller
         $user = User::findOrFail($request->get('user_id'));
         $content->repository()->assignEditor($user);
 
-        return redirect()->route('admin.content.editors.index', $content)
+        return redirect()->back()
             ->with('message', __('admin.messages.editors.assigned', ['subject' => $user, 'object' => $content]));
     }
 
@@ -226,8 +227,8 @@ class ContentController extends Controller
         $user = User::findOrFail($request->get('user_id'));
         $content->repository()->removeEditor($user);
 
-        return redirect()->route('admin.content.editors.index', $content)
-            ->with('message', __('admin.messages.editors.removed', ['object' => $user, 'subject' => $content]));
+        return redirect()->back()
+            ->with('message', __('admin.messages.editors.removed', ['object' => $content, 'subject' => $user]));
     }
 
     /**

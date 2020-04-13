@@ -21,8 +21,11 @@
             </tr>
         @else
             <tr>
-                <td class="clickable-row"
+                <td
+                    @can(\App\Library\Permissions::update_translations)
+                    class="clickable-row"
                     data-href="{{ route('admin.translations.exercise.show', [$language, $exercise, 'data' => $data->id]) }}"
+                    @endcan
                 >
                     @include('admin.content.exercises.data.show')
                     @includeWhen(($translation = $data->translations->first()) != null, 'admin.translations.exercises.data.show')

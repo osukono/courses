@@ -37,6 +37,7 @@
                                           action="{{ route('admin.content.editors.remove', $content) }}"
                                           method="post">
                                         @csrf
+                                        @method('patch')
                                         <input type="hidden" id="user_id" name="user_id" value="{{ $editor->id }}">
                                         <button type="submit" class="btn btn-link btn-sm">Remove</button>
                                     </form>
@@ -64,6 +65,7 @@
                     <form id="users" action="{{ route('admin.content.editors.assign', $content) }}"
                           method="post">
                         @csrf
+                        @method('patch')
                         @select(['name' => 'user_id', 'label' => 'Users', 'options' => $users])
                     </form>
                 </div>

@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class LessonController extends Controller
@@ -48,6 +49,7 @@ class LessonController extends Controller
         $data['previous'] = $lesson->repository()->previous();
         $data['next'] = $lesson->repository()->next();
         $data['languages'] = LanguageRepository::all()
+            ->hasAccess(Auth::getUser())
             ->whereNotIn('id', [$lesson->content->language->id])
             ->ordered()->get();
         $data['exercises'] = $lesson->exercises()

@@ -46,8 +46,8 @@ return [
             'enabled' => ':object translation enabled'
         ],
         'editors' => [
-            'assigned' => ':subject assigned to :object\'s editors.',
-            'removed' => ':subject removed from :object\'s editors.',
+            'assigned' => ":subject assigned to :object' editors.",
+            'removed' => ":subject removed from :object' editors.",
         ],
     ],
 

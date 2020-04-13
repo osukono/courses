@@ -94,6 +94,11 @@ $custom-range-thumb-active-bg: $cyan !default;
     margin-bottom: 0 !important;
 }
 
+// Remove latest dropdown-divider from dropdown-menu items group
+.dropdown-menu :last-child .dropdown-divider {
+    display: none;
+}
+
 .context {
     //color: #858585;
 }

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserCreateRequest;
 use App\Library\Sidebar;
 use App\Mail\Admin\UserCreated;
+use App\Repositories\ContentRepository;
+use App\Repositories\LanguageRepository;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\User;
@@ -73,6 +75,7 @@ class UserController extends Controller
     {
         $data['user'] = $user;
         $data['assignedRoles'] = $user->roles()->orderBy('name')->get();
+
         $data['roles'] = RoleRepository::all()
             ->with([
                 'permissions' => function (BelongsToMany $query) {
@@ -81,6 +84,15 @@ class UserController extends Controller
             ])
             ->whereNotIn('id', $data['assignedRoles']->pluck('id'))
             ->orderBy('name')->get();
+
+        $data['contents'] = ContentRepository::all()
+            ->with(['language', 'level', 'topic'])
+            ->hasAccess($user)
+            ->ordered()->get();
+
+        $data['translations'] = LanguageRepository::all()
+            ->hasAccess($user)
+            ->ordered()->get();
 
         return view('admin.users.show')->with($data);
     }

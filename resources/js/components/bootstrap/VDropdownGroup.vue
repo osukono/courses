@@ -2,7 +2,7 @@
     <div v-if="visible">
         <h6 class="dropdown-header" v-if="header !== undefined">{{ header }}</h6>
         <slot></slot>
-        <div class="dropdown-divider" v-if="!latest"></div>
+        <div class="dropdown-divider"></div>
     </div>
 </template>
 
@@ -13,7 +13,6 @@
         data: function () {
             return {
                 visible: true,
-                latest: false,
             }
         },
 
@@ -28,10 +27,6 @@
                 if (child.visible !== undefined && child.visible)
                     return true;
             });
-            let parentsChildren = this.$parent.$children.filter(function (child) {
-                return child.visible !== undefined && child.visible;
-            });
-            this.latest = parentsChildren[parentsChildren.length - 1] === this;
         }
     }
 </script>
