@@ -28,7 +28,9 @@
                 if (child.visible !== undefined && child.visible)
                     return true;
             });
-            let parentsChildren = this.$parent.$children;
+            let parentsChildren = this.$parent.$children.filter(function (child) {
+                return child.visible !== undefined && child.visible;
+            });
             this.latest = parentsChildren[parentsChildren.length - 1] === this;
         }
     }
