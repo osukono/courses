@@ -2,18 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/UserCreateRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/Admin/UserCreated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/users/created.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/users/created_plain.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Library/Permissions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/Permissions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/app/locales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/breadcrumbs.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/breadcrumbs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/Admin/UserCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Admin/UserCreated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/users/created.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/users/created.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +291,7 @@
       <workItem from="1583756510275" duration="133019000" />
       <workItem from="1585196723007" duration="125697000" />
       <workItem from="1586357017517" duration="8638000" />
-      <workItem from="1586419981663" duration="27081000" />
+      <workItem from="1586419981663" duration="28200000" />
     </task>
     <servers />
   </component>
@@ -350,11 +348,11 @@
     <state x="482" y="244" key="NewPhpClassDialog/0.23.1440.795@0.23.1440.795" timestamp="1585730204048" />
     <state x="537" y="315" key="NewPhpClassDialog/0.23.1440.798@0.23.1440.798" timestamp="1586756688345" />
     <state x="482" y="246" key="NewPhpClassDialog/0.23.1440.801@0.23.1440.801" timestamp="1583735780264" />
-    <state x="541" y="352" key="NewPhpFileDialog" timestamp="1586760243862">
+    <state x="541" y="352" key="NewPhpFileDialog" timestamp="1586770617335">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state x="541" y="351" key="NewPhpFileDialog/0.23.1440.795@0.23.1440.795" timestamp="1586189944694" />
-    <state x="541" y="352" key="NewPhpFileDialog/0.23.1440.798@0.23.1440.798" timestamp="1586760243862" />
+    <state x="541" y="352" key="NewPhpFileDialog/0.23.1440.798@0.23.1440.798" timestamp="1586770617335" />
     <state x="541" y="353" key="NewPhpFileDialog/0.23.1440.801@0.23.1440.801" timestamp="1585129141434" />
     <state x="541" y="354" key="NewPhpFileDialog/0.23.1440.804@0.23.1440.804" timestamp="1582533691334" />
     <state x="229" y="61" key="SettingsEditor" timestamp="1586428796268">
@@ -375,11 +373,11 @@
     </state>
     <state x="374" y="182" width="761" height="486" key="find.popup/0.23.1440.795@0.23.1440.795" timestamp="1585387837782" />
     <state x="374" y="183" width="761" height="486" key="find.popup/0.23.1440.798@0.23.1440.798" timestamp="1583477391094" />
-    <state x="385" y="145" width="670" height="678" key="search.everywhere.popup" timestamp="1586760105381">
+    <state x="385" y="145" width="670" height="678" key="search.everywhere.popup" timestamp="1586770215160">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state x="385" y="145" width="670" height="675" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1586589600138" />
-    <state x="385" y="145" width="670" height="678" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1586760105381" />
+    <state x="385" y="145" width="670" height="678" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1586770215160" />
     <state x="385" y="145" width="670" height="681" key="search.everywhere.popup/0.23.1440.801@0.23.1440.801" timestamp="1586150642874" />
     <state x="385" y="146" width="670" height="684" key="search.everywhere.popup/0.23.1440.804@0.23.1440.804" timestamp="1582534906226" />
   </component>

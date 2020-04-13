@@ -35,6 +35,7 @@ class UserCreated extends Mailable
     public function build()
     {
         return $this->view('emails.users.created')
+            ->text('emails.users.created_plain')
             ->subject('You have been registered to Yummy Lingo Console')
             ->with(['password' => $this->password]);
     }

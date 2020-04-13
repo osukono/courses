@@ -25,14 +25,14 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/editors';
+    protected $redirectTo = '/console';
 
     protected function rules()
     {
         return [
             'token' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed|min:4',
+            'password' => 'required|confirmed|min:8',
         ];
     }
 }

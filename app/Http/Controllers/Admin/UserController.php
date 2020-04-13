@@ -61,7 +61,8 @@ class UserController extends Controller
 
         Mail::to($user)->send(new UserCreated($user, $password));
 
-        return redirect()->route('admin.users.index')->with('message', __('admin.messages.created', ['object' => 'User ' . $user]));
+        return redirect()->route('admin.users.index')
+            ->with('message', __('admin.messages.created', ['object' => 'User ' . $user]));
     }
 
     /**
