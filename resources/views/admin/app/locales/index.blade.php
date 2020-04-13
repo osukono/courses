@@ -18,7 +18,8 @@
                 <icon-download></icon-download>
             </template>
             @push('forms')
-                <form class="d-none" id="download-locales" action="{{ route('admin.app.locales.download') }}" method="post">
+                <form class="d-none" id="download-locales" action="{{ route('admin.app.locales.download') }}"
+                      method="post">
                     @csrf
                 </form>
             @endpush
@@ -28,6 +29,11 @@
             <template v-slot:icon>
                 <icon-upload></icon-upload>
             </template>
+            @push('forms')
+                <form class="d-none" id="upload-locales" action="{{ route('admin.app.locales.upload') }}" method="post">
+                    @csrf
+                </form>
+            @endpush
         </v-button>
         <v-button route="{{ route('admin.app.locale.groups.index') }}">
             <template v-slot:label>

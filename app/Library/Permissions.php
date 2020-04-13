@@ -25,6 +25,7 @@ class Permissions
 
     public const view_users = 'view users';
     public const create_users = 'create users';
+    public const suspend_users = 'suspend users';
     public const assign_roles = 'assign roles';
 
     public const assign_editors = 'assign editors';

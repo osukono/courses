@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UserCreateRequest;
 use App\Library\Sidebar;
+use App\Mail\Admin\UserCreated;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\User;
@@ -12,7 +14,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -39,6 +43,28 @@ class UserController extends Controller
     }
 
     /**
+     * @return Factory|\Illuminate\View\View
+     */
+    public function create()
+    {
+        return view('admin.users.create');
+    }
+
+    /**
+     * @param UserCreateRequest $request
+     * @return RedirectResponse
+     */
+    public function store(UserCreateRequest $request)
+    {
+        $password = Str::random(8);
+        $user = UserRepository::create($request->all(), $password);
+
+        Mail::to($user)->send(new UserCreated($user, $password));
+
+        return redirect()->route('admin.users.index')->with('message', __('admin.messages.created', ['object' => 'User ' . $user]));
+    }
+
+    /**
      * @param User $user
      * @return Factory|View
      */
@@ -48,7 +74,7 @@ class UserController extends Controller
         $data['assignedRoles'] = $user->roles()->orderBy('name')->get();
         $data['roles'] = RoleRepository::all()
             ->with([
-                'permissions' => function(BelongsToMany $query) {
+                'permissions' => function (BelongsToMany $query) {
                     $query->orderBy('name');
                 }
             ])

@@ -4,6 +4,18 @@
     {{ Breadcrumbs::render('admin.users.index') }}
 @endsection
 
+@section('toolbar')
+    <v-button-group>
+        <v-button tooltip="Create User"
+                  route="{{ route('admin.users.create') }}"
+                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::create_users) }}">
+            <template v-slot:icon>
+                <icon-plus></icon-plus>
+            </template>
+        </v-button>
+    </v-button-group>
+@endsection
+
 @section('content')
     @if($users->count())
         <div class="card shadow-sm">

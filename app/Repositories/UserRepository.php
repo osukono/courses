@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 
 class UserRepository
@@ -23,6 +24,17 @@ class UserRepository
     public static function all()
     {
         return User::query();
+    }
+
+    public static function create(array $attributes, $password)
+    {
+        $user = new User();
+        $user->name = $attributes['name'];
+        $user->email = $attributes['email'];
+        $user->password = bcrypt($password);
+        $user->save();
+
+        return $user;
     }
 
     /**
