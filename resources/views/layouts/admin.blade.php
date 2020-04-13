@@ -20,6 +20,7 @@
     <nav id="sidebar" {{--class="border-right border-light"--}}>
         <div class="sidebar-header text-center mt-2">
             <a href="{{ route('welcome') }}"><h3 class="brand">{{ env('APP_NAME') }}</h3></a>
+            {{ Auth::getUser()->name }}
         </div>
 
         <ul class="list-unstyled">
