@@ -31,7 +31,7 @@
                     @can(\App\Library\Permissions::view_admin_panel)
                         <a class="btn btn-lg btn-link mr-md-2 mr-0"
                            href="{{ route('admin.content.index') }}"
-                        >Content</a>
+                        >Console</a>
                     @endif
                     <a id="download" class="btn btn-lg btn-outline-primary rounded-pill"
                        href="#apps">{{ __('web.header.download') }}</a>

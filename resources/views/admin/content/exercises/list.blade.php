@@ -6,7 +6,7 @@
         <th class="text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
     </tr>
     </thead>
-    <tbody id="sortable">
+    <tbody id="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) ? 'sortable' : '' }}" data-route="{{ route('admin.exercises.move') }}">
     @foreach($exercises as $exercise)
         <tr data-id="{{ $exercise->id }}">
             <td>{{ $exercise->index }}</td>
@@ -26,5 +26,3 @@
     @endforeach
     </tbody>
 </table>
-
-@includeWhen(\App\Library\Permissions::update_content, 'admin.components.sortable', ['route' => route('admin.exercises.move')])

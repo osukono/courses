@@ -10,7 +10,7 @@
         @endcan
     </tr>
     </thead>
-    <tbody id="sortable">
+    <tbody id="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) ? 'sortable' : '' }}" data-route="{{ route('admin.lessons.move') }}">
     @foreach($lessons as $lesson)
         <tr data-id="{{ $lesson->id }}">
             <td>{{ $lesson->index }}</td>
@@ -35,4 +35,3 @@
     </tbody>
 </table>
 
-@includeWhen(\App\Library\Permissions::update_content, 'admin.components.sortable', ['route' => route('admin.lessons.move')])

@@ -12,7 +12,7 @@
         @endempty
     </tr>
     </thead>
-    <tbody id="sortable">
+    <tbody id="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) ? 'sortable' : '' }}" data-route="{{ route('admin.exercise.data.move') }}">
     @foreach($exerciseData as $data)
         @if(isset($editData) && $data->id == $editData->id)
             <tr>
@@ -64,5 +64,3 @@
     @endforeach
     </tbody>
 </table>
-
-@includeWhen(\App\Library\Permissions::update_content, 'admin.components.sortable', ['route' => route('admin.exercise.data.move')])

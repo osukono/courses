@@ -13,18 +13,18 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/admin_3x0xof.js', 'public/js')
     .sass('resources/sass/admin_3x0xof.scss', 'public/css')
-    .sourceMaps(false)
+    // .sourceMaps(false)
     .version();
 
 mix.js('resources/js/admin_vue_3x0xof.js', 'public/js')
-    .sourceMaps(false)
+    // .sourceMaps(false)
     .version();
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-    .sourceMaps(false)
+    // .sourceMaps(false)
     .version();
 
 mix.js('resources/js/vue.js', 'public/js')
-    .sourceMaps(false)
+    // .sourceMaps(false)
     .version();
