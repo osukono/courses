@@ -130,5 +130,6 @@
     </div>
 </div>
 @stack('scripts')
+@include('admin.components.audio.player')
 </body>
 </html>

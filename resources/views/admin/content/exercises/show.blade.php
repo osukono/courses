@@ -101,11 +101,9 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <h5 class="card-title">Exercise {{ $exercise->index }}</h5>
-                @if($exercise->isDisabled($content->language))
-                    <h6 class="card-subtitle">
-                        <span class="badge badge-warning text-uppercase">Disabled</span>
-                    </h6>
-                @endif
+                <h6 class="card-subtitle">
+                    @includeWhen($exercise->isDisabled($content->language), 'admin.components.disabled.content')
+                </h6>
                 @include('admin.content.exercises.data.list')
             </div>
         </div>
@@ -113,7 +111,3 @@
 
     @include('admin.components.confirmation', ['id' => 'exercise-' . $exercise->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $exercise]), 'form' =>  'exercise-' . $exercise->id . '-delete', 'action' => 'Delete'])
 @endsection
-
-@push('scripts')
-    @include('admin.components.audio.player')
-@endpush

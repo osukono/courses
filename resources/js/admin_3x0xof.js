@@ -1,7 +1,7 @@
 require('./bootstrap');
 
 import bsCustomFileInput from "bs-custom-file-input";
-// window.feather = require('feather-icons');
+window.feather = require('feather-icons');
 require('bootstrap-confirmation2');
 require('./sidebar');
 
@@ -49,7 +49,7 @@ $(document).ready(function () {
         update: function (event, ui) {
             axios.post($(this).data('route'), {
                 _method: 'patch',
-                id: ui.item.attr('data-id'),
+                id: ui.item.attr('data-sortable'),
                 index: ui.item.index() + 1,
             });
         },

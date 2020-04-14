@@ -9,16 +9,11 @@
     </thead>
     <tbody>
     @foreach($lessons as $lesson)
-        <tr>
+        <tr class="clickable-row" data-href="{{ route('admin.translations.lesson.show', [$language, $lesson]) }}">
             <td>{{ $lesson->index }}</td>
-            <td class="clickable-row"
-                data-href="{{ route('admin.translations.lesson.show', [$language, $lesson]) }}">
-                @if($lesson->isDisabled($content->language))
-                    <span class="badge badge-warning text-uppercase">Disabled</span>
-                @endif
-                @if($lesson->isDisabled($language))
-                    <span class="badge badge-light text-uppercase">Disabled</span>
-                @endif
+            <td>
+                @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
+                @includeWhen($lesson->isDisabled($language), 'admin.components.disabled.translation')
                 {{ $lesson }}
             </td>
             <td class="d-none d-md-table-cell">{{ $lesson->exercises_count }}</td>

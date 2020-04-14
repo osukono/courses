@@ -1,6 +1,4 @@
 <div>
-    @isset($translation->content['audio'])
-    @include('admin.components.audio.play', ['audio' => $translation->content['audio']])
-    @endisset
+    @includeWhen(isset($translation->content['audio']), 'admin.components.audio.play', ['audio' => $translation->content['audio']])
     <span>{!! \App\Library\Str::normalize(Arr::get($translation->content, 'value')) !!}</span>
 </div>

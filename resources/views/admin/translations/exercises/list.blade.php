@@ -3,25 +3,17 @@
     <tr>
         <th class="col-auto"></th>
         <th class="col"></th>
-        <th class="text-right text-nowrap d-none d-md-table-cell col-auto">Last Modified</th>
+        <th class="col-auto text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
     </tr>
     </thead>
     <tbody>
     @foreach($exercises as $exercise)
-        <tr>
+        <tr class="clickable-row" data-href="{{ route('admin.translations.exercise.show', [$language, $exercise]) }}">
             <td>{{ $exercise->index }}</td>
-            <td class="clickable-row last-child-mb-0"
-                data-href="{{ route('admin.translations.exercise.show', [$language, $exercise]) }}">
-                @if($exercise->isDisabled($content->language) or $exercise->isDisabled($language))
-                    <div>
-                        @if($exercise->isDisabled($content->language))
-                            <span class="badge badge-warning text-uppercase">Disabled</span>
-                        @endif
-                        @if($exercise->isDisabled($language))
-                            <span class="badge badge-light text-uppercase">Disabled</span>
-                        @endif
-                    </div>
-                @endif
+            <td class="last-child-mb-0">
+                @includeWhen($exercise->isDisabled($content->language), 'admin.components.disabled.content')
+                @includeWhen($exercise->isDisabled($language), 'admin.components.disabled.translation')
+
                 @foreach($exercise->exerciseData as $data)
                     @include('admin.content.exercises.data.show')
                     @if(($translation = $data->translations->first()) != null)

@@ -74,22 +74,12 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <h5 class="card-title">{{ $lesson->title . ' › ' . $language->native }}</h5>
-                @if($lesson->isDisabled($content->language) or $lesson->isDisabled($language))
-                    <h6 class="card-subtitle">
-                        @if($lesson->isDisabled($content->language))
-                            <span class="badge badge-warning text-uppercase">Disabled</span>
-                        @endif
-                        @if($lesson->isDisabled($language))
-                            <span class="badge badge-light text-uppercase">Disabled</span>
-                        @endif
-                    </h6>
-                @endif
+                <h6 class="card-subtitle">
+                    @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
+                    @includeWhen($lesson->isDisabled($language), 'admin.components.disabled.translation')
+                </h6>
                 @include('admin.translations.exercises.list')
             </div>
         </div>
     @endif
 @endsection
-
-@push('scripts')
-    @include('admin.components.audio.player')
-@endpush

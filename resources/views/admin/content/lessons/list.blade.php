@@ -10,16 +10,14 @@
         @endcan
     </tr>
     </thead>
-    <tbody id="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) ? 'sortable' : '' }}"
+    <tbody id="{{ can(\App\Library\Permissions::update_content, 'sortable') }}"
            data-route="{{ route('admin.lessons.move') }}">
     @foreach($lessons as $lesson)
-        <tr data-id="{{ $lesson->id }}">
+        <tr data-sortable="{{ $lesson->id }}" class="clickable-row"
+            data-href="{{ route('admin.lessons.show', $lesson) }}">
             <td>{{ $lesson->index }}</td>
-            <td class="clickable-row"
-                data-href="{{ route('admin.lessons.show', $lesson) }}">
-                @if($lesson->isDisabled($content->language))
-                    <span class="badge badge-warning text-uppercase">Disabled</span>
-                @endif
+            <td>
+                @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
                 {{ $lesson }}
             </td>
             <td class="d-none d-md-table-cell">{{ $lesson->exercises_count }}</td>

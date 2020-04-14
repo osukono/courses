@@ -105,9 +105,9 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <h5 class="card-title">{{ $lesson->title }}</h5>
-                @if($lesson->isDisabled($content->language))
-                    <h6 class="card-subtitle"><span class="badge badge-warning text-uppercase">Disabled</span></h6>
-                @endif
+                <h6 class="card-subtitle">
+                    @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
+                </h6>
                 @include('admin.content.exercises.list')
             </div>
         </div>
@@ -115,7 +115,3 @@
 
     @include('admin.components.confirmation', ['id' => 'lesson-' . $lesson->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $lesson]), 'form' =>  'lesson-' . $lesson->id . '-delete', 'action' => 'Delete'])
 @endsection
-
-@push('scripts')
-    @include('admin.components.audio.player')
-@endpush

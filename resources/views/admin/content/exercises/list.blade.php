@@ -6,17 +6,14 @@
         <th class="col-auto text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
     </tr>
     </thead>
-    <tbody id="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) ? 'sortable' : '' }}" data-route="{{ route('admin.exercises.move') }}">
+    <tbody id="{{ can(\App\Library\Permissions::update_content, 'sortable') }}"
+           data-route="{{ route('admin.exercises.move') }}">
     @foreach($exercises as $exercise)
-        <tr data-id="{{ $exercise->id }}">
+        <tr data-sortable="{{ $exercise->id }}" class="clickable-row"
+            data-href="{{ route('admin.exercises.show', $exercise) }}">
             <td>{{ $exercise->index }}</td>
-            <td class="clickable-row last-child-mb-0"
-                data-href="{{ route('admin.exercises.show', $exercise) }}">
-                @if($exercise->isDisabled($content->language))
-                    <div>
-                        <span class="badge badge-warning text-uppercase">Disabled</span>
-                    </div>
-                @endif
+            <td class="last-child-mb-0">
+                @includeWhen($exercise->isDisabled($content->language), 'admin.components.disabled.content')
                 @foreach($exercise->exerciseData as $data)
                     @include('admin.content.exercises.data.show')
                 @endforeach

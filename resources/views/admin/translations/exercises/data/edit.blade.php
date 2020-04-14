@@ -3,9 +3,10 @@
       enctype="multipart/form-data">
     @method('patch')
     @csrf
+
     @input(['name' => 'value', 'label' => '', 'default' => Arr::get($translation->content, 'value'), 'autofocus' => true, 'lg' => true, 'lang' => $translation->language->code])
 
-    @if(isset($translation->content['audio']))
+    @isset($translation->content['audio'])
         <span class="mr-3">
             @include('admin.components.audio.play', ['audio' => $translation->content['audio']])
             @include('admin.components.audio.download', ['audio' => $translation->content['audio']])
@@ -28,7 +29,7 @@
                 @csrf
             </form>
         @endpush
-    @endif
+    @endisset
     @file(['name' => 'audio', 'label' => 'Audio'])
     @submit(['text' => 'Save'])
     @cancel(['route' => route('admin.translations.exercise.show', [$language, $exercise])])

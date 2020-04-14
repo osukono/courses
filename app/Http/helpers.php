@@ -5,3 +5,9 @@ if (! function_exists('active_menu')) {
         return isset($active) && $active == $menu ? 'active' : '';
     }
 }
+
+if (! function_exists('can')) {
+    function can($permission, $string) {
+        return Auth::getUser()->can($permission) ? $string : '';
+    }
+}
