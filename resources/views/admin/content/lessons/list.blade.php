@@ -27,7 +27,7 @@
             @can(\App\Library\Permissions::update_content)
                 <td class="text-right">
                     <a href="{{ route('admin.lessons.edit', $lesson) }}">
-                        <i data-feather="edit"></i>
+                        <icon-edit></icon-edit>
                     </a>
                 </td>
             @endcan
