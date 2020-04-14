@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/helpers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/admin_3x0xof.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin_3x0xof.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_3x0xof.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin_vue_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_vue_3x0xof.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin_3x0xof.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/lessons/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/lessons/list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +291,7 @@
       <workItem from="1583756510275" duration="133019000" />
       <workItem from="1585196723007" duration="125697000" />
       <workItem from="1586357017517" duration="8638000" />
-      <workItem from="1586419981663" duration="48993000" />
+      <workItem from="1586419981663" duration="49921000" />
     </task>
     <servers />
   </component>
