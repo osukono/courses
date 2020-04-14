@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ URL::asset('favicon-16x16.png') }}">
 
     <link href="{{ mix('css/admin_3x0xof.css') }}" rel="stylesheet">
-    <script src="{{ mix('js/admin_3x0xof.js') }}" defer></script>
+    <script src="{{ mix('js/admin_3x0xof.js') }}"></script>
     <script src="{{ mix('js/admin_vue_3x0xof.js') }}" defer></script>
 </head>
 <body>
