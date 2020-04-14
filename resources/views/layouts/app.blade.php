@@ -15,8 +15,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ URL::asset('favicon-16x16.png') }}">
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <script src="{{ mix('js/app.js') }}"></script>
-    <script src="{{ mix('js/vue.js') }}" async defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/vue.js') }}" defer></script>
 </head>
 <body class="d-flex flex-column h-100">
 <header>
