@@ -19,7 +19,7 @@
     <!-- Sidebar -->
     <nav id="sidebar" {{--class="border-right border-light"--}}>
         <div class="sidebar-header text-center mt-2">
-            <a href="{{ route('welcome') }}"><h3 class="brand">Yummy Editors</h3></a>
+            <a href="{{ route('welcome') }}"><h3 class="brand">Console</h3></a>
             <a class="{{ (isset($current) && $current == \App\Library\Sidebar::profile) ? 'active' : '' }}" href="{{ route('admin.profile') }}">{{ Auth::getUser()->name }}</a>
         </div>
 
@@ -129,25 +129,6 @@
         </div>
     </div>
 </div>
-
 @stack('scripts')
-
-<script>
-    $(function () {
-        $('[data-toggle=confirmation]').confirmation({
-            rootSelector: '[data-toggle^=confirmation]',
-            singleton: true,
-            popout: true,
-            btnOkClass: 'btn btn-info btn-sm',
-            btnCancelLabel: '{{ __('admin.form.cancel') }}',
-            btnCancelClass: 'btn btn-outline-info btn-sm',
-            onConfirm: function () {
-                let form = $(this)[0].getAttribute('data-form');
-                document.getElementById(form).submit();
-            }
-        });
-    });
-</script>
-
 </body>
 </html>

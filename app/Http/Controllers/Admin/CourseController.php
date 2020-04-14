@@ -166,14 +166,14 @@ class CourseController extends Controller
         $data['previous'] = $courseLesson->repository()->previous();
         $data['next'] = $courseLesson->repository()->next();
 
-        $exercises['part_1']['title'] = __('Part') . ' A';
+        $exercises['part_1']['title'] = __('Lesson') . ' A';
         $exercises['part_1']['review'] = [];
         $exercises['part_1']['review'] = array_merge($exercises['part_1']['review'], $course->repository()->getReview($courseLesson->index - 7, 1));
         $exercises['part_1']['review'] = array_merge($exercises['part_1']['review'], $course->repository()->getReview($courseLesson->index - 3, 1));
         $exercises['part_1']['review'] = array_merge($exercises['part_1']['review'], $course->repository()->getReview($courseLesson->index - 1, 1));
         $exercises['part_1']['exercises'] = $courseLesson->repository()->part(1);
 
-        $exercises['part_2']['title'] = __('Part') . ' B';
+        $exercises['part_2']['title'] = __('Lesson') . ' B';
         $exercises['part_2']['review'] = [];
         $exercises['part_2']['review'] = array_merge($exercises['part_2']['review'], $course->repository()->getReview($courseLesson->index - 7, 2));
         $exercises['part_2']['review'] = array_merge($exercises['part_2']['review'], $course->repository()->getReview($courseLesson->index - 3, 2));

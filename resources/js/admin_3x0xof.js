@@ -6,7 +6,6 @@ require('bootstrap-confirmation2');
 require('./sidebar');
 
 $(document).ready(function () {
-    console.log('Document ready Start');
     $('.clickable-row').click(function () {
         window.location = $(this).data("href");
     });
@@ -61,5 +60,17 @@ $(document).ready(function () {
             return ui;
         }
     });
-    console.log('Document ready End');
+
+    $('[data-toggle=confirmation]').confirmation({
+        rootSelector: '[data-toggle^=confirmation]',
+        singleton: true,
+        popout: true,
+        btnOkClass: 'btn btn-info btn-sm',
+        btnCancelLabel: 'Cancel',
+        btnCancelClass: 'btn btn-outline-info btn-sm',
+        onConfirm: function () {
+            let form = $(this)[0].getAttribute('data-form');
+            document.getElementById(form).submit();
+        }
+    });
 });
