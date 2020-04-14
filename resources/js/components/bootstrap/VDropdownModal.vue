@@ -1,5 +1,5 @@
 <template>
-    <button type="button" class="dropdown-item text-danger" data-toggle="modal" :data-target="target" v-if="visible">
+    <button type="button" class="dropdown-item text-danger" data-toggle="modal" :data-target="target" v-show="visible">
         {{ label }}
     </button>
 </template>

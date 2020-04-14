@@ -1,5 +1,5 @@
 <template>
-    <div class="btn-group" role="group" v-if="visible">
+    <div class="btn-group" role="group" v-show="visible">
         <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
             <slot name="icon"></slot>

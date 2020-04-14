@@ -1,6 +1,6 @@
 <template>
     <button type="button" class="btn btn-info" :id="id"
-            data-toggle="tooltip" :data-title="tooltip" v-on:click="onclick" v-if="isVisible">
+            data-toggle="tooltip" :data-title="tooltip" v-on:click="onclick" v-show="isVisible">
         <slot name="label"></slot>
         <slot name="icon"></slot>
     </button>

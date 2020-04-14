@@ -1,5 +1,5 @@
 <template>
-    <div class="btn-group ml-2" role="group" v-if="visible">
+    <div class="btn-group ml-2" role="group" v-show="visible">
         <slot></slot>
     </div>
 </template>

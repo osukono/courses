@@ -1,6 +1,6 @@
 <template>
     <div v-if="visible">
-        <h6 class="dropdown-header" v-if="header !== undefined">{{ header }}</h6>
+        <h6 class="dropdown-header" v-show="header !== undefined">{{ header }}</h6>
         <slot></slot>
         <div class="dropdown-divider"></div>
     </div>

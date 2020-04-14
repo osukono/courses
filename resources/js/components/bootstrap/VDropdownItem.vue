@@ -1,5 +1,5 @@
 <template>
-    <button type="button" class="dropdown-item" v-on:click="onclick" v-if="visible">
+    <button type="button" class="dropdown-item" v-on:click="onclick" v-show="visible">
         {{ label }}
     </button>
 </template>
