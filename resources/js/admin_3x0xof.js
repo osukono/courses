@@ -6,6 +6,7 @@ require('bootstrap-confirmation2');
 require('./sidebar');
 
 $(document).ready(function () {
+    console.log('Document ready Start');
     $('.clickable-row').click(function () {
         window.location = $(this).data("href");
     });
@@ -60,4 +61,5 @@ $(document).ready(function () {
             return ui;
         }
     });
+    console.log('Document ready End');
 });
