@@ -35,8 +35,8 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th class="col-11"></th>
                         <th class="col"></th>
+                        <th class="col-auto"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -66,8 +66,8 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th class="col-11"></th>
-                        <th></th>
+                        <th class="col"></th>
+                        <th class="col-auto"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -95,13 +95,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{ $user }}</h5>
+                    <h5 class="modal-title">Roles</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <table class="table">
+                    <table class="table table-borderless">
                         <tbody>
                         @foreach($roles as $role)
                             <tr>

@@ -1,10 +1,10 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col-9"></th>
-        <th>Email</th>
-        <th>Roles</th>
-        <th class="text-right">Registered</th>
+        <th class="col"></th>
+        <th class="col-auto">Email</th>
+        <th class="col-auto">Roles</th>
+        <th class="text-right col-auto">Registered</th>
     </tr>
     </thead>
     <tbody>

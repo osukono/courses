@@ -1,10 +1,10 @@
 <table class="table">
     <thead>
     <tr>
-        <th>Group</th>
-        <th>Key</th>
-        <th class="col-9">Values</th>
-        <th></th>
+        <th class="col-auto">Group</th>
+        <th class="col-auto">Key</th>
+        <th class="col">Values</th>
+        <th class="col-auto"></th>
     </tr>
     </thead>
     <tbody>

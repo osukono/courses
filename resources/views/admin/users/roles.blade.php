@@ -1,9 +1,9 @@
 <table class="table">
     <thead>
     <tr>
-        <th></th>
-        <th>Permissions</th>
-        <th></th>
+        <th class="col-auto"></th>
+        <th class="col">Permissions</th>
+        <th class="col-auto"></th>
     </tr>
     </thead>
     <tbody>
@@ -12,7 +12,7 @@
             <td class="text-nowrap">{{ $role->name }}</td>
             <td>
                 @foreach($role->permissions as $permission)
-                    <span class="mx-2 text-nowrap rounded">{{ $permission->name }}</span>
+                    <span class="mr-3 text-nowrap rounded">{{ $permission->name }}</span>
                 @endforeach
             </td>
             <td class="text-right">

@@ -2,13 +2,13 @@
     <thead>
     <tr>
         @empty($editData)
-            <th class="col-{{ (Auth::getUser()->can(\App\Library\Permissions::update_content)) ? '10' : '11' }}"></th>
-            <th class="text-right text-nowrap">Last Modified</th>
+            <th class="col"></th>
+            <th class="text-right text-nowrap col-auto">Last Modified</th>
             @can(\App\Library\Permissions::update_content)
                 <th></th>
             @endcan
         @else
-            <th></th>
+            <th class="col"></th>
         @endempty
     </tr>
     </thead>

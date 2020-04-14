@@ -2,11 +2,11 @@
     <thead>
     <tr>
         @empty($editData)
-            <th class="col-12 col-md-10"></th>
-            <th class="text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
-            <th class="d-none d-md-table-cell"></th>
+            <th class="col"></th>
+            <th class="text-right text-nowrap d-none d-md-table-cell col-auto">Last Modified</th>
+            <th class="d-none d-md-table-cell col-auto"></th>
         @else
-            <th></th>
+            <th class="col"></th>
         @endempty
     </tr>
     </thead>

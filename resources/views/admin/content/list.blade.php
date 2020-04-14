@@ -1,10 +1,10 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col-12 col-md-9"></th>
-        <th class="d-none d-md-table-cell">Title</th>
-        <th class="d-none d-md-table-cell">Lessons</th>
-        <th class="text-nowrap text-right d-none d-md-table-cell">Last Modified</th>
+        <th class="col"></th>
+        <th class="col-auto d-none d-md-table-cell">Title</th>
+        <th class="col-auto d-none d-md-table-cell">Lessons</th>
+        <th class="col-auto text-nowrap text-right d-none d-md-table-cell">Last Modified</th>
     </tr>
     </thead>
     <tbody>

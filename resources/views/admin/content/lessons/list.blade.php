@@ -1,16 +1,17 @@
 <table class="table">
     <thead>
     <tr>
-        <th></th>
-        <th class="col-{{ (Auth::getUser()->can(\App\Library\Permissions::update_content)) ? '10' : '11'}} col-md-{{ (Auth::getUser()->can(\App\Library\Permissions::update_content)) ? '8' : '9'}}"></th>
-        <th class="d-none d-md-table-cell">Exercises</th>
-        <th class="text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
+        <th class="col-auto"></th>
+        <th class="col"></th>
+        <th class="col-auto d-none d-md-table-cell">Exercises</th>
+        <th class="col-auto text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
         @can(\App\Library\Permissions::update_content)
-            <th></th>
+            <th class="col-auto"></th>
         @endcan
     </tr>
     </thead>
-    <tbody id="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) ? 'sortable' : '' }}" data-route="{{ route('admin.lessons.move') }}">
+    <tbody id="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) ? 'sortable' : '' }}"
+           data-route="{{ route('admin.lessons.move') }}">
     @foreach($lessons as $lesson)
         <tr data-id="{{ $lesson->id }}">
             <td>{{ $lesson->index }}</td>

@@ -1,13 +1,13 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col-5"></th>
-        <th>Native</th>
-        <th>Code</th>
-        <th>Locale</th>
-        <th class="text-nowrap">Firestore ID</th>
-        <th class="text-nowrap">Player Settings</th>
-        <th class="text-nowrap">Icon</th>
+        <th class="col"></th>
+        <th class="col-auto">Native</th>
+        <th class="col-auto">Code</th>
+        <th class="col-auto">Locale</th>
+        <th class="text-nowrap col-auto">Firestore ID</th>
+        <th class="text-nowrap col-auto">Player Settings</th>
+        <th class="text-nowrap col-auto">Icon</th>
         <th></th>
     </tr>
     </thead>

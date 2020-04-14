@@ -1,9 +1,9 @@
 <table class="table">
     <thead>
     <tr>
-        <th class=""></th>
-        <th class="col-11 col-md-10"></th>
-        <th class="text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
+        <th class="col-auto"></th>
+        <th class="col"></th>
+        <th class="text-right text-nowrap d-none d-md-table-cell col-auto">Last Modified</th>
     </tr>
     </thead>
     <tbody>
