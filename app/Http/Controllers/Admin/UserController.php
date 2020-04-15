@@ -80,13 +80,14 @@ class UserController extends Controller
     {
         $data['user'] = $user;
 
-        $data['assignedRoles'] = $user->roles()->orderBy('name')->get();
-        $data['roles'] = RoleRepository::all()
+        $data['assignedRoles'] = $user->roles()
             ->with([
                 'permissions' => function (BelongsToMany $query) {
                     $query->orderBy('name');
                 }
             ])
+            ->orderBy('name')->get();
+        $data['roles'] = RoleRepository::all()
             ->whereNotIn('id', $data['assignedRoles']->pluck('id'))
             ->ordered()->get();
 

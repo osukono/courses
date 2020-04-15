@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PasswordUpdateRequest;
 use App\Http\Requests\Admin\ProfileUpdateRequest;
 use App\Library\Sidebar;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -17,12 +19,19 @@ class ProfileController extends Controller
         View::share('current', Sidebar::profile);
     }
 
+    /**
+     * @return Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('admin.profile.index')
             ->with(['user' => Auth::getUser()]);
     }
 
+    /**
+     * @param ProfileUpdateRequest $request
+     * @return RedirectResponse
+     */
     public function update(ProfileUpdateRequest $request)
     {
         Auth::getUser()->repository()->updateProfile($request->all());
@@ -30,6 +39,10 @@ class ProfileController extends Controller
         return redirect()->route('admin.profile')->with('message', 'Profile has successfully been updated.');
     }
 
+    /**
+     * @param PasswordUpdateRequest $request
+     * @return RedirectResponse
+     */
     public function updatePassword(PasswordUpdateRequest $request)
     {
         Auth::getUser()->repository()->updatePassword($request->all());

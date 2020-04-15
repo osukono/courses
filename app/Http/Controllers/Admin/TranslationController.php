@@ -247,7 +247,7 @@ class TranslationController extends Controller
 
         $translation->repository()->deleteAudio();
 
-        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseData->exercise, 'field' => $translation->exerciseField->id])
+        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseData->exercise, 'data' => $translation->exerciseData->id])
             ->with('message', __('admin.messages.deleted.success', ['object' => 'Audio']));
     }
 

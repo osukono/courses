@@ -5,12 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Library\Firebase;
 use App\Library\Sidebar;
-use App\Repositories\ContentRepository;
 use App\Repositories\CourseRepository;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class AdminController extends Controller
 {
+    /**
+     * @return Factory|View
+     */
     public function dashboard()
     {
         $data['current'] = Sidebar::dashboard;

@@ -46,12 +46,12 @@ class FirebaseCourseRepository
         return $firestore->collection(Firebase::courses_collection)
             ->add([
                 'is_updating' => true,
+                'hidden' => false,
                 'audio_storage' => 'https://yummy-lingo.s3.eu-central-1.amazonaws.com/',
                 'course_version' => $course->minor_version,
                 'description' => $course->description,
                 'icon' => $course->image,
                 'language' => $course->language->firebase_id,
-//                'lessons_count' => $course->course_lessons_count,
                 'level' => $course->level->scale,
                 'level_name' => $course->level->name,
                 'player_version' => $course->player_version,
@@ -96,7 +96,6 @@ class FirebaseCourseRepository
                 'course_version' => $course->minor_version,
                 'description' => $course->description,
                 'icon' => $course->image,
-//                'lessons_count' => $course->course_lessons_count,
                 'player_version' => $course->player_version,
                 'review_exercises' => $course->review_exercises,
                 'title' => $course->title
