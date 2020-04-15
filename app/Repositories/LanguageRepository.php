@@ -10,6 +10,7 @@ use App\User;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class LanguageRepository
@@ -27,11 +28,11 @@ class LanguageRepository
 
     /**
      * @param $id
-     * @return LanguageRepository
+     * @return Language|Model
      */
     public static function find($id)
     {
-        return Language::findOrFail($id)->repository();
+        return Language::findOrFail($id);
     }
 
     /**

@@ -117,5 +117,5 @@
         </div>
     </div>
 
-    @include('admin.components.confirmation', ['id' => 'course-' . $course->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $course]), 'form' =>  'course-' . $course->id . '-delete', 'action' => 'Delete'])
+    @include('admin.components.modals.confirmation', ['id' => 'course-' . $course->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $course]), 'form' =>  'course-' . $course->id . '-delete', 'action' => 'Delete'])
 @endsection

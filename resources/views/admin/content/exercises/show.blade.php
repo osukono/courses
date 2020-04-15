@@ -109,5 +109,5 @@
         </div>
     @endif
 
-    @include('admin.components.confirmation', ['id' => 'exercise-' . $exercise->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $exercise]), 'form' =>  'exercise-' . $exercise->id . '-delete', 'action' => 'Delete'])
+    @include('admin.components.modals.confirmation', ['id' => 'exercise-' . $exercise->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $exercise]), 'form' =>  'exercise-' . $exercise->id . '-delete', 'action' => 'Delete'])
 @endsection

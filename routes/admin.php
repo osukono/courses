@@ -228,8 +228,12 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::get('users/create', 'UserController@create')->name('admin.users.create');
             Route::post('users', 'UserController@store')->name('admin.users.store');
             Route::get('users/{user}', 'UserController@show')->name('admin.users.show');
-            Route::patch('users/{user}/roles/{role}/assign', 'UserController@assignRole')->name('admin.users.roles.assign');
+            Route::patch('users/{user}/roles/assign', 'UserController@assignRole')->name('admin.users.roles.assign');
             Route::patch('users/{user}/roles/{role}/remove', 'UserController@removeRole')->name('admin.users.roles.remove');
+            Route::patch('users/{user}/content/access/assign', 'UserController@assignContent')->name('admin.users.content.access.assign');
+            Route::patch('users/{user}/content/{content}/access/remove', 'UserController@removeContent')->name('admin.users.content.access.remove');
+            Route::patch('users/{user}/translations/access/assign', 'UserController@assignTranslation')->name('admin.users.translations.access.assign');
+            Route::patch('users/{user}/translations/{language}/access/remove', 'UserController@removeTranslation')->name('admin.users.translations.access.remove');
         });
 
         /**

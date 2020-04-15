@@ -4,8 +4,9 @@
 namespace App\Repositories;
 
 
+use App\Role;
 use Illuminate\Database\Eloquent\Builder;
-use Spatie\Permission\Models\Role;
+use Illuminate\Database\Eloquent\Model;
 
 class RoleRepository
 {
@@ -14,6 +15,15 @@ class RoleRepository
     public function __construct(Role $role)
     {
         $this->model = $role;
+    }
+
+    /**
+     * @param $id
+     * @return Model|Role
+     */
+    public static function find($id)
+    {
+        return Role::findOrFail($id);
     }
 
     /**

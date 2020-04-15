@@ -113,5 +113,5 @@
         </div>
     @endif
 
-    @include('admin.components.confirmation', ['id' => 'lesson-' . $lesson->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $lesson]), 'form' =>  'lesson-' . $lesson->id . '-delete', 'action' => 'Delete'])
+    @include('admin.components.modals.confirmation', ['id' => 'lesson-' . $lesson->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $lesson]), 'form' =>  'lesson-' . $lesson->id . '-delete', 'action' => 'Delete'])
 @endsection
