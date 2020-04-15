@@ -5,13 +5,13 @@
 @endsection
 
 @section('toolbar')
-    @if($users->isNotEmpty())
-        <div class="btn-group" role="group" aria-label="Editors">
-            <a class="btn btn-info" href="#" data-toggle="modal" data-target="#assign-editor">
+    <v-button-group>
+        <v-button-modal modal="#assign-editor" visible="{{ $users->isNotEmpty() }}">
+            <template v-slot:icon>
                 <icon-plus></icon-plus>
-            </a>
-        </div>
-    @endif
+            </template>
+        </v-button-modal>
+    </v-button-group>
 @endsection
 
 @section('content')

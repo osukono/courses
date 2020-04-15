@@ -5,13 +5,13 @@
 @endsection
 
 @section('toolbar')
-    @if($users->isNotEmpty())
-        <div class="btn-group" role="group" aria-label="Editors">
-            <a class="btn btn-info" href="#" data-toggle="modal" data-target="#usersModal">
+    <v-button-group>
+        <v-button-modal modal="#assign-editor" visible="{{ $users->isNotEmpty() }}">
+            <template v-slot:icon>
                 <icon-plus></icon-plus>
-            </a>
-        </div>
-    @endif
+            </template>
+        </v-button-modal>
+    </v-button-group>
 @endsection
 
 @section('content')
@@ -51,33 +51,11 @@
         </div>
     @endif
 
-    <div class="modal fade" id="usersModal" tabindex="-1" role="dialog" aria-labelledby="usersLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="usersLabel">Assign Editor</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="editors-assign"
-                          action="{{ route('admin.translations.editors.assign', [$language, $content]) }}"
-                          method="post">
-                        @csrf
-                        @method('patch')
-                        @select(['name' => 'user_id', 'label' => 'Users', 'options' => $users])
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-info" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-info"
-                            onclick="document.getElementById('editors-assign').submit();">
-                        Assign
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('admin.components.modals.select',[
+    'id' => 'assign-editor',
+    'title' => 'Assign Editor',
+    'route' => route('admin.translations.editors.assign', [$language, $content]),
+    'field' => 'user_id',
+    'options' => $users,
+    'submitLabel' => 'Assign'])
 @endsection

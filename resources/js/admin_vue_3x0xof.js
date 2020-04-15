@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 Vue.component('v-button-group', require('./components/bootstrap/VButtonGroup').default);
 Vue.component('v-button', require('./components/bootstrap/VButton').default);
+Vue.component('v-button-modal', require('./components/bootstrap/VButtonModal').default);
 Vue.component('v-dropdown', require('./components/bootstrap/VDropdown').default);
 Vue.component('v-dropdown-group', require('./components/bootstrap/VDropdownGroup').default);
 Vue.component('v-dropdown-item', require('./components/bootstrap/VDropdownItem').default);

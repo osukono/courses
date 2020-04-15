@@ -12,12 +12,11 @@
                     <h5 class="card-title">Roles</h5>
                 </div>
                 <div class="col-auto text-right">
-                    @if($roles->isNotEmpty())
-                        <button type="button" class="btn btn-info"
-                                data-toggle="modal" data-target="#assign-role">
+                    <v-button-modal modal="#assign-role" visible="{{ $roles->isNotEmpty() }}">
+                        <template v-slot:icon>
                             <icon-plus></icon-plus>
-                        </button>
-                    @endif
+                        </template>
+                    </v-button-modal>
                 </div>
             </div>
             @includeWhen($assignedRoles->isNotEmpty(), 'admin.users.assigned.roles')
@@ -31,12 +30,11 @@
                     <h5 class="card-title">Content Access</h5>
                 </div>
                 <div class="col-auto text-right">
-                    @if($contents->isNotEmpty())
-                        <button type="button" class="btn btn-info"
-                                data-toggle="modal" data-target="#assign-content">
+                    <v-button-modal modal="#assign-content" visible="{{ $contents->isNotEmpty() }}">
+                        <template v-slot:icon>
                             <icon-plus></icon-plus>
-                        </button>
-                    @endif
+                        </template>
+                    </v-button-modal>
                 </div>
             </div>
             @includeWhen($assignedContents->isNotEmpty(), 'admin.users.assigned.contents')
@@ -50,12 +48,11 @@
                     <h5 class="card-title">Translations Access</h5>
                 </div>
                 <div class="col-auto text-right">
-                    @if($translations->isNotEmpty())
-                        <button type="button" class="btn btn-info"
-                                data-toggle="modal" data-target="#assign-translation">
+                    <v-button-modal modal="#assign-translation" visible="{{ $translations->isNotEmpty() }}">
+                        <template v-slot:icon>
                             <icon-plus></icon-plus>
-                        </button>
-                    @endif
+                        </template>
+                    </v-button-modal>
                 </div>
             </div>
             @includeWhen($assignedTranslations->isNotEmpty(), 'admin.users.assigned.translations')
