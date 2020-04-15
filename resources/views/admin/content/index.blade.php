@@ -27,7 +27,7 @@
     @if($contents->count())
         <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">Content</h5>
+                <h5 class="card-title mb-4">Content</h5>
                 @include('admin.content.list')
             </div>
         </div>
