@@ -13,7 +13,7 @@ Breadcrumbs::for('admin.dashboard', function ($trail) {
 
 // Content
 Breadcrumbs::for('admin.content.index', function ($trail) {
-    $trail->push('Content', route('admin.content.index'));
+    $trail->push('Development', route('admin.content.index'));
 });
 
 // Content > Create
@@ -149,7 +149,7 @@ Breadcrumbs::for('admin.translations.exercise.show', function ($trail, \App\Lang
 
 // Courses
 Breadcrumbs::for('admin.courses.index', function ($trail) {
-    $trail->push('Courses', route('admin.courses.index'));
+    $trail->push('Production', route('admin.courses.index'));
 });
 
 // Courses > [Course]
