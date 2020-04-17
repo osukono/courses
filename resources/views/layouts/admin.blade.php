@@ -16,8 +16,7 @@
 </head>
 <body>
 <div id="app" class="wrapper">
-    <!-- Sidebar -->
-    <nav id="sidebar" {{--class="border-right border-light"--}}>
+    <nav id="sidebar">
         <div class="sidebar-header text-center mt-2">
             <a href="{{ route('welcome') }}"><h3 class="brand">Yummy Lingo</h3></a>
             <a class="{{ active_menu($current, \App\Library\Sidebar::profile) }}" href="{{ route('admin.profile') }}">{{ Auth::getUser()->name }}</a>
@@ -36,7 +35,7 @@
                     <a class="{{ active_menu($current, \App\Library\Sidebar::content) }}"
                        href="{{ route('admin.content.index') }}">
                         <icon-book-open></icon-book-open>
-                        <div class="link">Content</div>
+                        <div class="link">Development</div>
                     </a>
                 </li>
             @endcan
@@ -45,7 +44,7 @@
                     <a class="{{ active_menu($current, \App\Library\Sidebar::courses) }}"
                        href="{{ route('admin.courses.index') }}">
                         <icon-book></icon-book>
-                        <div class="link">Courses</div>
+                        <div class="link">Production</div>
                     </a>
                 </li>
             @endcan
@@ -84,12 +83,10 @@
             </li>
         </ul>
         @endrole
-
     </nav>
-    <!-- Page Content -->
+
     <div class="container-fluid pb-3">
         <div id="content" class="pt-0">
-
             <main role="main" class="">
                 <div class="row bg-white border-bottom pt-3 pb-3 mb-3" style="min-height: 70px">
                     <nav class="navbar navbar-expand-md bg-white navbar-light d-md-none pr-0 py-0">
