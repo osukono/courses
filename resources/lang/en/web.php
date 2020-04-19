@@ -26,7 +26,7 @@ return [
         'section' => [
             'top' => [
                 'header' => "Learn languages with pleasure!",
-                'text' => "Yummy Lingo provides you with a powerful method of learning languages with audio courses.",
+                'text' => "Yummy Lingo provides you with a new way of learning languages with audio courses.",
                 'button' => 'Learn more'
             ],
             'app' => [
