@@ -18,10 +18,10 @@ class Permissions
     public const restore_content = 'restore content';
 
     public const view_translations = 'view translations';
-    public const create_translations = 'create translations';
+    public const create_translations = 'create translations'; //redundant
     public const update_translations = 'update translations';
-    public const delete_translations = 'delete translations';
-    public const restore_translations = 'restore translations';
+    public const delete_translations = 'delete translations'; //redundant
+    public const restore_translations = 'restore translations'; //redundant
 
     public const view_users = 'view users';
     public const create_users = 'create users';
