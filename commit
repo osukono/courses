@@ -2,5 +2,10 @@
 
 yarn
 yarn run prod
-git commit -a -m "$1"
+if [ -z "$1" ]
+    then
+	git commit -a -m "Commit"
+    else
+	git commit -a -m "$1"
+fi
 git push origin master
