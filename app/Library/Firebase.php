@@ -78,6 +78,9 @@ final class Firebase
     {
     }
 
+    /**
+     * @return RemoteConfig
+     */
     public function remoteConfig(): RemoteConfig
     {
         if (! isset(static::$remoteConfig)) {
@@ -90,6 +93,9 @@ final class Firebase
         return static::$remoteConfig;
     }
 
+    /**
+     * @return FirestoreClient
+     */
     public function firestoreClient(): FirestoreClient
     {
         if (! isset(static::$firestoreClient)) {
@@ -125,6 +131,9 @@ final class Firebase
         return "https://firebasestorage.googleapis.com/v0/b/" . env('FIREBASE_STORAGE_BUCKET') . "/o/" . urlencode($fileName) . "?alt=media&token=" . $accessToken;
     }
 
+    /**
+     * @return Bucket
+     */
     private function getBucket(): Bucket
     {
         static::connectToStorage();
