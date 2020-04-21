@@ -35,3 +35,4 @@
     @submit(['text' => 'Save'])
     @cancel(['route' => route('admin.exercises.show', $exercise)])
 </form>
+

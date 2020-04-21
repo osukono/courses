@@ -24,7 +24,7 @@ class TranslationUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+
         ];
     }
 }

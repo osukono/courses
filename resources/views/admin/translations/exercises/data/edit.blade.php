@@ -30,7 +30,43 @@
             </form>
         @endpush
     @endisset
+    <span id="audio-duration" class="ml-3 text-secondary"></span>
     @file(['name' => 'audio', 'label' => 'Audio'])
+    <input type="hidden" name="duration" id="duration">
     @submit(['text' => 'Save'])
     @cancel(['route' => route('admin.translations.exercise.show', [$language, $exercise])])
 </form>
+
+@push('scripts')
+    <script>
+        let audio = document.createElement('audio');
+
+        $(document).ready(function () {
+            document.getElementById("audio").addEventListener('change', function (event) {
+                // console.log('changed');
+
+                let target = event.currentTarget;
+                let file = target.files[0];
+
+                if (target.files && file) {
+                    let reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        audio.src = e.target.result;
+
+                        audio.addEventListener('loadedmetadata', function () {
+                            // Obtain the duration in seconds of the audio file (with milliseconds as well, a float value)
+                            // example 12.3234 seconds
+                            let duration = audio.duration;
+
+                            document.getElementById('duration').value = Math.trunc(duration * 1000);
+                            document.getElementById('audio-duration').innerHTML = "Duration: " + Math.trunc(duration * 1000);
+                        }, false);
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            }, false);
+        });
+    </script>
+@endpush
