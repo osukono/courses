@@ -29,10 +29,10 @@
             </template>
             <v-dropdown-group>
                 <v-dropdown-item label="Upload to Firestore"
-                                 submit="#course-{{ $course->id }}->upload"
+                                 submit="#course-{{ $course->id }}-upload"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
                     @push('forms')
-                        <form class="d-none" id="course-{{ $course->id }}->upload"
+                        <form class="d-none" id="course-{{ $course->id }}-upload"
                               action="{{ route('admin.courses.firestore.upload', $course) }}"
                               method="post" autocomplete="off">
                             @csrf
