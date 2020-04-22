@@ -4,6 +4,7 @@ import bsCustomFileInput from "bs-custom-file-input";
 window.feather = require('feather-icons');
 require('bootstrap-confirmation2');
 require('./sidebar');
+import {Howl, Howler} from 'howler';
 
 $(document).ready(function () {
     $('.clickable-row').click(function () {

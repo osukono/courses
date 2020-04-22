@@ -65,7 +65,7 @@ class TranslationRepository
         if ($request->has('audio')) {
             $audio = $request->file('audio')->store('');
             $this->model->update(['content->audio' => $audio]);
-            $this->model->update(['content->duration' => $request->get('duration')]);
+            $this->model->update(['content->duration' => (int) $request->get('duration')]);
 //            $this->updateAudioDuration();
         }
     }
