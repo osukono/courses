@@ -158,11 +158,11 @@ class FirebaseCourseRepository
                     $data = [];
                     $data['c_value'] = $exerciseData['value'];
                     $data['c_audio'] = $exerciseData['audio'];
-                    $data['c_duration'] = (int) $exerciseData['duration'];
+                    $data['c_duration'] = intval($exerciseData['duration']);
                     if (isset($exerciseData['translation'])) {
                         $data['t_value'] = $exerciseData['translation']['value'];
                         $data['t_audio'] = $exerciseData['translation']['audio'];
-                        $data['t_duration'] = (int) $exerciseData['translation']['duration'];
+                        $data['t_duration'] = intval($exerciseData['translation']['duration']);
                     }
                     $dataArray[] = $data;
                 }
