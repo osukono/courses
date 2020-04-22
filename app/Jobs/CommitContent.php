@@ -255,7 +255,7 @@ class CommitContent implements ShouldQueue
     {
         $data['value'] = $exerciseData->content['value'];
         $data['audio'] = $exerciseData->content['audio'];
-        $data['duration'] = $exerciseData->content['duration'];
+        $data['duration'] = (int) $exerciseData->content['duration'];
 
         if ($exerciseData->translatable) {
             /** @var Translation $translation */
@@ -263,7 +263,7 @@ class CommitContent implements ShouldQueue
 
             $data['translation']['value'] = $translation->content['value'];
             $data['translation']['audio'] = $translation->content['audio'];
-            $data['translation']['duration'] = $translation->content['duration'];
+            $data['translation']['duration'] = (int) $translation->content['duration'];
         }
 
         return $data;
