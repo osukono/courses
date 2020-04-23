@@ -33,64 +33,39 @@
     <span id="audio-duration" class="ml-3 text-secondary"></span>
     @file(['name' => 'audio', 'label' => 'Audio'])
     <input type="hidden" name="duration" id="duration">
+
     @submit(['text' => 'Save'])
     @cancel(['route' => route('admin.translations.exercise.show', [$language, $exercise])])
 </form>
 
 @push('scripts')
     <script>
-        let audio = document.createElement('audio');
-
         $(document).ready(function () {
             document.getElementById("audio").addEventListener('change', function (event) {
-
                 let target = event.currentTarget;
 
                 if (target.files.length > 0) {
                     let file = target.files[0];
                     let reader = new FileReader();
                     reader.addEventListener('load', function () {
+
                         let data = reader.result;
-                        // console.log(data);
                         // Create a Howler sound
                         let sound = new Howl({
                             src: data,
-                            format: file.name.split('.').pop().toLowerCase()
+                            format: file.name.split('.').pop().toLowerCase(),
                         });
 
-                        sound.on('load', function () {
+                        sound.once('load', function () {
                             let duration = sound.duration();
                             document.getElementById('duration').value = Math.trunc(duration * 1000);
                             document.getElementById('audio-duration').innerHTML = Math.trunc(duration * 1000) + " ms";
-                            // console.log(sound.duration());
+
+                            sound.unload();
                         });
                     });
                     reader.readAsDataURL(file);
                 }
-
-                /*let target = event.currentTarget;
-                let file = target.files[0];
-
-                if (target.files && file) {
-                    let reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        audio.src = e.target.result;
-
-                        audio.addEventListener('canplay', function () {
-                            // Obtain the duration in seconds of the audio file (with milliseconds as well, a float value)
-                            // example 12.3234 seconds
-                            let duration = audio.duration;
-
-                            console.log(audio.duration);
-
-                            document.getElementById('duration').value = Math.trunc(duration * 1000);
-                            document.getElementById('audio-duration').innerHTML = "Duration: " + Math.trunc(duration * 1000);
-                        }, false);
-                    };
-
-                    reader.readAsDataURL(file);
-                }*/
             }, false);
         });
     </script>
