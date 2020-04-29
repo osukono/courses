@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="{{ $seo['keywords'] ?? ''}}">
     <meta name="description" content="{{ $seo['description'] ?? '' }}">
+    <meta name="google-site-verification" content="jegwJ_cqrwtqJCQQ47IEzRrv2FBYi_TYXoVtpy1s96M" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
