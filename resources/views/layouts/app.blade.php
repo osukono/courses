@@ -70,10 +70,12 @@
                 <div class="row">
                     <div class="col">
                         <a href="{{ __('web.index.section.app.links.android') }}" target="_blank"><img
-                                src="{{ URL::asset('images/google_play.svg') }}" alt="Google Play" width="148"
+                                src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
+                                alt="{{ __('web.index.section.app.badges.google_play.alt') }}" width="148"
                                 height="44"></a>
                         <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank"><img
-                                class="ml-1" src="{{ URL::asset('images/app_store.svg') }}" alt="App Store" width="148"
+                                class="ml-1" src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
+                                alt="{{ __('web.index.section.app.badges.app_store.alt') }}" width="148"
                                 height="44"></a>
                     </div>
                 </div>

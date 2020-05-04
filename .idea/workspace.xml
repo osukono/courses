@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/Download_on_the_App_Store_Badge_RU.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/Download_on_the_App_Store_Badge_US-UK.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/google-play-badge_en.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/google-play-badge_ru.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/google-play-badge_uk.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/iphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/uk/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/uk/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index/apps.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index/apps.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,26 +205,26 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="Configurable.PHP.Blade" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/js/components" />
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/app/Library" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/admin/users/assigned" />
       <recent name="$PROJECT_DIR$/resources/views/admin/components/modals" />
       <recent name="$PROJECT_DIR$/resources/js/components/icons" />
       <recent name="$PROJECT_DIR$/resources/views/admin/app/locales/groups" />
       <recent name="$PROJECT_DIR$/resources/views/admin/app" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/resources/js/components" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/app/Library" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -284,7 +296,7 @@
       <workItem from="1586357017517" duration="8638000" />
       <workItem from="1586419981663" duration="87007000" />
       <workItem from="1588164427154" duration="367000" />
-      <workItem from="1588502351708" duration="1762000" />
+      <workItem from="1588502351708" duration="4668000" />
     </task>
     <servers />
   </component>
@@ -295,9 +307,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="289" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580896213599">
-      <screen x="0" y="23" width="1440" height="798" />
+    <state x="289" y="230" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588571535001">
+      <screen x="0" y="23" width="1440" height="795" />
     </state>
+    <state x="289" y="230" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.795@0.23.1440.795" timestamp="1588571535001" />
     <state x="289" y="231" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.798@0.23.1440.798" timestamp="1580896213599" />
     <state x="408" y="156" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580544569953">
       <screen x="0" y="23" width="1440" height="795" />

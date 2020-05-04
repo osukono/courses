@@ -40,6 +40,16 @@ return [
                 'links' => [
                     'android' => "https://play.google.com/store/apps/details?id=com.yummylingo.app",
                     'ios' => "https://itunes.apple.com/app/apple-store/id1503356144"
+                ],
+                'badges' => [
+                    'google_play' => [
+                        'image' => 'google-play-badge_en.png',
+                        'alt' => 'Get it on Google Play'
+                    ],
+                    'app_store' => [
+                        'image' => 'Download_on_the_App_Store_Badge_US-UK.svg',
+                        'alt' => 'Download on the App Store'
+                    ]
                 ]
             ],
             'promo' => [
