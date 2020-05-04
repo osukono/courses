@@ -9,9 +9,10 @@
             <div class="lead mt-4">{!! __('web.index.section.app.description') !!}</div>
             <div class="mt-4 text-center text-md-left">
                 <a href="{{ __('web.index.section.app.links.android') }}" target="_blank"><img
-                        src="{{ URL::asset('images/google_play.svg') }}" alt="Google Play" width="148" height="44"></a>
+                         class="mb-1" src="{{ URL::asset('images/google_play.svg') }}"
+                        alt="Google Play" width="148" height="44"></a>
                 <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank"><img
-                        class="mt-md-0 ml-md-1 mt-1 ml-0" src="{{ URL::asset('images/app_store.svg') }}"
+                        class="ml-md-1 mb-1 ml-0" src="{{ URL::asset('images/app_store.svg') }}"
                         alt="App Store" width="148" height="44"></a>
             </div>
         </div>

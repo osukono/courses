@@ -3,15 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin_3x0xof.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin_3x0xof.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_3x0xof.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin_vue_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_vue_3x0xof.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +284,7 @@
       <workItem from="1586357017517" duration="8638000" />
       <workItem from="1586419981663" duration="87007000" />
       <workItem from="1588164427154" duration="367000" />
-      <workItem from="1588502351708" duration="1041000" />
+      <workItem from="1588502351708" duration="1762000" />
     </task>
     <servers />
   </component>
@@ -307,13 +298,11 @@
     <state x="289" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580896213599">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
-    <state x="289" y="230" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.795@0.23.1440.795" timestamp="1578852722575" />
     <state x="289" y="231" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.798@0.23.1440.798" timestamp="1580896213599" />
     <state x="408" y="156" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580544569953">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
     <state x="408" y="156" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.795@0.23.1440.795" timestamp="1580544569953" />
-    <state x="408" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.798@0.23.1440.798" timestamp="1579536678877" />
     <state x="34" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586935702548">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
@@ -340,10 +329,22 @@
       <screen x="0" y="23" width="1440" height="795" />
     </state>
     <state x="452" y="274" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.795@0.23.1440.795" timestamp="1586242925776" />
-    <state x="298" y="23" key="CommitChangelistDialog2" timestamp="1579260169517">
-      <screen x="0" y="23" width="1440" height="798" />
+    <state width="1398" height="220" key="GridCell.Tab.0.bottom" timestamp="1588504532782">
+      <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state x="298" y="23" key="CommitChangelistDialog2/0.23.1440.798@0.23.1440.798" timestamp="1579260169517" />
+    <state width="1398" height="220" key="GridCell.Tab.0.bottom/0.23.1440.795@0.23.1440.795" timestamp="1588504532782" />
+    <state width="1398" height="220" key="GridCell.Tab.0.center" timestamp="1588504532781">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1398" height="220" key="GridCell.Tab.0.center/0.23.1440.795@0.23.1440.795" timestamp="1588504532781" />
+    <state width="1398" height="220" key="GridCell.Tab.0.left" timestamp="1588504532780">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1398" height="220" key="GridCell.Tab.0.left/0.23.1440.795@0.23.1440.795" timestamp="1588504532780" />
+    <state width="1398" height="220" key="GridCell.Tab.0.right" timestamp="1588504532781">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1398" height="220" key="GridCell.Tab.0.right/0.23.1440.795@0.23.1440.795" timestamp="1588504532781" />
     <state x="537" y="315" key="NewPhpClassDialog" timestamp="1586756688345">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
