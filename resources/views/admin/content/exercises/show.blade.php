@@ -24,7 +24,7 @@
 
     <v-button-group>
         <v-button tooltip="Add Sentence"
-                  submit="sentence-create"
+                  submit="#create-sentence"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
             <template v-slot:label>
                 Sentence
@@ -33,7 +33,7 @@
                 <icon-plus></icon-plus>
             </template>
             @push('forms')
-                <form id="sentence-create" class="d-none" action="{{ route('admin.exercise.data.create', $exercise) }}"
+                <form id="create-sentence" class="d-none" action="{{ route('admin.exercise.data.create', $exercise) }}"
                       method="post" autocomplete="off">
                     @csrf
                 </form>
