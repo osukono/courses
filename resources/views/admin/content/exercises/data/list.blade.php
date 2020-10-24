@@ -22,13 +22,13 @@
                 </td>
             </tr>
         @else
-            <tr data-sortable="{{ $data->id }}"
-                @can(\App\Library\Permissions::update_content)
-                class="clickable-row"
-                data-href="{{ route('admin.exercises.show', [$exercise, 'data' => $data->id]) }}"
-                @endcan
-            >
-                <td>
+            <tr data-sortable="{{ $data->id }}">
+                <td
+                    @can(\App\Library\Permissions::update_content)
+                    class="clickable-row"
+                    data-href="{{ route('admin.exercises.show', [$exercise, 'data' => $data->id]) }}"
+                    @endcan
+                >
                     @include('admin.content.exercises.data.show')
                 </td>
                 @empty($editData)
