@@ -242,13 +242,13 @@ Breadcrumbs::for('admin.topics.edit', function ($trail, \App\Topic $topic) {
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------
- * App Localizations
+ * App Localization
  * ---------------------------------------------------------------------------------------------------------------------
  */
 
 // App Localizations
 Breadcrumbs::for('admin.app.locales.index', function ($trail) {
-    $trail->push('App Localizations', route('admin.app.locales.index'));
+    $trail->push('App Localization', route('admin.app.locales.index'));
 });
 
 // App Localizations > Create

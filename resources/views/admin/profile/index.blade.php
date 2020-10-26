@@ -4,6 +4,13 @@
     {{ Breadcrumbs::render('admin.user.profile', $user) }}
 @endsection
 
+@section('toolbar')
+    <button type="button" class="btn btn-outline-info" onclick="document.logout.submit()">Logout</button>
+    <form name="logout" action="{{ route('logout') }}" method="post">
+        @csrf
+    </form>
+@endsection
+
 @section('content')
     <div class="card shadow-sm">
         <div class="card-body">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PlayerSettingsRequest;
 use App\Language;
+use App\Library\Sidebar;
 use App\Repositories\FirebaseLanguageRepository;
 use App\Repositories\FirebasePlayerSettingsRepository;
 use App\Repositories\PlayerSettingsRepository;
@@ -16,6 +17,11 @@ use Kreait\Firebase\Exception\RemoteConfigException;
 
 class PlayerSettingsController extends Controller
 {
+    public function __construct()
+    {
+        \Illuminate\Support\Facades\View::share('current', Sidebar::languages);
+    }
+
     /**
      * @param Language $language
      * @return Factory|RedirectResponse|View

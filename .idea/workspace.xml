@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlayerSettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlayerSettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/data/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/exercises/data/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/profile/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/profile/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/breadcrumbs.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/breadcrumbs.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +281,7 @@
       <workItem from="1602516478840" duration="92000" />
       <workItem from="1602516592939" duration="1711000" />
       <workItem from="1603546166313" duration="249000" />
-      <workItem from="1603546491905" duration="1071000" />
+      <workItem from="1603546491905" duration="3170000" />
     </task>
     <servers />
   </component>
@@ -287,9 +292,13 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="385" y="143" width="670" height="676" key="search.everywhere.popup" timestamp="1603552278637">
+    <state x="458" y="181" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603724986920">
       <screen x="0" y="25" width="1440" height="794" />
     </state>
-    <state x="385" y="143" width="670" height="676" key="search.everywhere.popup/0.25.1440.794@0.25.1440.794" timestamp="1603552278637" />
+    <state x="458" y="181" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.794@0.25.1440.794" timestamp="1603724986920" />
+    <state x="385" y="143" width="670" height="676" key="search.everywhere.popup" timestamp="1603560488594">
+      <screen x="0" y="25" width="1440" height="794" />
+    </state>
+    <state x="385" y="143" width="670" height="676" key="search.everywhere.popup/0.25.1440.794@0.25.1440.794" timestamp="1603560488594" />
   </component>
 </project>

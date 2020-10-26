@@ -45,12 +45,10 @@
                                     @csrf
                                 </form>
                                 <a href="#"
-                                   data-toggle="confirmation"
-                                   data-btn-ok-label="{{ __('admin.form.delete') }}"
-                                   data-title="{{ __('admin.form.delete_confirmation', ['object' => $data]) }}"
-                                   data-form="data-{{ $data->id }}-delete">
+                                   data-toggle="modal" data-target="{{ '#data-' . $data->id . '-modal-delete' }}">
                                     <icon-delete></icon-delete>
                                 </a>
+                                @include('admin.components.modals.confirmation', ['id' => 'data-' . $data->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $data]), 'form' =>  'data-' . $data->id . '-delete', 'action' => 'Delete'])
                                 <form id="data-{{ $data->id }}-delete" class="d-none"
                                       action="{{ route('admin.exercise.data.destroy', $data) }}" method="post">
                                     @method('delete')

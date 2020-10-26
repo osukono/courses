@@ -6,6 +6,7 @@ use App\Content;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SpeechSettingsUpdateRequest;
 use App\Language;
+use App\Library\Sidebar;
 use App\Repositories\SpeechSettingsRepository;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\Factory;
@@ -15,6 +16,11 @@ use Illuminate\View\View;
 
 class SpeechSettingsController extends Controller
 {
+    public function __construct()
+    {
+        \Illuminate\Support\Facades\View::share('current', Sidebar::content);
+    }
+
     /**
      * @param Content $content
      * @return Factory|View
