@@ -12,7 +12,7 @@
         "ext-json": "*",
         "altek/accountant": "^2.0",
         "cviebrock/eloquent-sluggable": "^7.0",
-        "davejamesmiller/laravel-breadcrumbs": "^5.3",
+        "diglactic/laravel-breadcrumbs": "^6.0",
         "fideloper/proxy": "^4.0",
         "fruitcake/laravel-cors": "^1.0",
         "google/cloud-firestore": "^1.11",

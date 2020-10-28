@@ -15,7 +15,7 @@
                                 <h2 class="text-dark text-nowrap">{{ $course->language->name . ' ' . $course->level->name }}</h2>
                             </div>
                             <div class="col-6 order-3 col-md order-md-2 text-right">
-                                <a class="font-weight-bold text-nowrap align-middle" data-toggle="collapse"
+                                <a class="font-weight-bold text-nowrap align-middle trigger-more" data-toggle="collapse"
                                    href="#course-{{ $course->id }}-lessons" role="button" aria-expanded="false"
                                    aria-controls="course-{{ $course->id }}-lessons">
                                     {{ __('web.index.section.courses.learn_more') }}
@@ -32,11 +32,6 @@
                                         onclick="demo('{{ route('demo', [$course->language, $course->level, $course->topic]) }}', {{ $course->major_version }});">
                                     {{ __('web.index.section.courses.demo') }}
                                 </button>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <span class="lead">{!! nl2br(e($course->description)) !!}</span>
                             </div>
                         </div>
                         <div class="row collapse" id="course-{{ $course->id }}-lessons">
@@ -59,6 +54,11 @@
                                         </div>
                                     @endforeach
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <span class="lead">{!! nl2br(e($course->description)) !!}</span>
                             </div>
                         </div>
                         @if(! $loop->last)

@@ -5,8 +5,8 @@
 @endsection
 
 @section('toolbar')
-    <button type="button" class="btn btn-outline-info" onclick="document.logout.submit()">Logout</button>
-    <form name="logout" action="{{ route('logout') }}" method="post">
+    <button type="button" class="btn btn-outline-info" onclick="$('#logout-form').submit()">Logout</button>
+    <form id="logout-form" action="{{ route('logout') }}" method="post">
         @csrf
     </form>
 @endsection
@@ -36,7 +36,7 @@
                 @csrf
                 @method('patch')
 
-                @input(['type' => 'password', 'name' => 'old_password', 'label' => 'Old Password'])
+                @input(['type' => 'password', 'name' => 'old_password', 'label' => 'Current Password'])
                 @input(['type' => 'password', 'name' => 'new_password', 'label' => 'New Password'])
                 @input(['type' => 'password', 'name' => 'new_password_confirmation', 'label' => 'Confirm Password'])
 
