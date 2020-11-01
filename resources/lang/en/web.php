@@ -7,7 +7,11 @@ return [
     'footer' => [
         'copyright' => "Yummy Lingo © :year. All rights reserved.",
         'privacy' => "Privacy Policy",
-        'contact_us' => "Contact us"
+        'contact_us' => "Contact us",
+        'social' => [
+            'title' => 'Social Networks',
+            'instagram' => 'Follow us on Instagram'
+        ]
     ],
     'player' => [
         'instruction' => "Listen carefully trying to remember translation. After the listening part, you will have an opportunity to practice your speaking skills.",

@@ -15,7 +15,7 @@
                                 <h2 class="text-dark text-nowrap">{{ $course->language->name . ' ' . $course->level->name }}</h2>
                             </div>
                             <div class="col-6 order-3 col-md order-md-2 text-right">
-                                <a class="font-weight-bold text-nowrap align-middle trigger-more" data-toggle="collapse"
+                                <a class="font-weight-bold text-nowrap align-middle" data-toggle="collapse"
                                    href="#course-{{ $course->id }}-lessons" role="button" aria-expanded="false"
                                    aria-controls="course-{{ $course->id }}-lessons">
                                     {{ __('web.index.section.courses.learn_more') }}

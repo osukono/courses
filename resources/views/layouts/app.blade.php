@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="{{ $seo['keywords'] ?? ''}}">
     <meta name="description" content="{{ $seo['description'] ?? '' }}">
-    <meta name="google-site-verification" content="jegwJ_cqrwtqJCQQ47IEzRrv2FBYi_TYXoVtpy1s96M" />
+    <meta name="google-site-verification" content="jegwJ_cqrwtqJCQQ47IEzRrv2FBYi_TYXoVtpy1s96M"/>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -74,17 +74,30 @@
                                 alt="{{ __('web.index.section.app.badges.google_play.alt') }}" width="148"
                                 height="44"></a>
                         <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank"><img
-                                class="ml-1" src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
+                                class="ml-1"
+                                src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
                                 alt="{{ __('web.index.section.app.badges.app_store.alt') }}" width="148"
                                 height="44"></a>
                     </div>
                 </div>
             </div>
-            <div class="col-12 text-center pt-5 col-md-6 text-md-left pt-md-0">
+            <div class="col-12 text-center pt-5 col-md-3 text-md-left pt-md-0">
                 <div class="row">
                     <div class="col">
                         <h5 class="text-white mb-3">{{ __('web.footer.contact_us') }}</h5>
                         <div>support@yummylingo.com</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center pt-5 col-md-3 text-md-right pt-md-0">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="text-white mb-3">{{ __('web.footer.social.title') }}</h5>
+                        <div>
+                            <a target="_blank" href="https://www.instagram.com/yummy_lingo/">
+                                <img src="{{ URL::asset('images/instagram.svg') }}" data-toggle="tooltip" title="{{ __('web.footer.social.instagram') }}" alt="Instagram" width="20"
+                                     height="20"/>
+                            </a></div>
                     </div>
                 </div>
             </div>

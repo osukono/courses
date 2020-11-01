@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::include('html.form.file', 'file');
         Blade::include('html.form.submit', 'submit');
         Blade::include('html.form.cancel', 'cancel');
-        Blade::include('html.form.froala', 'froala');
+//        Blade::include('html.form.froala', 'froala');
+
+        Paginator::useBootstrap();
     }
 }

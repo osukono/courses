@@ -1,6 +1,7 @@
 <?php
 
-use App\Library\Permissions;
+namespace Database\Seeders;
+
 use App\Library\Roles;
 use App\User;
 use Illuminate\Database\Seeder;
