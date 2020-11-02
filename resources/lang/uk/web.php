@@ -10,7 +10,8 @@ return [
         'contact_us' => "Зв'яжіться з нами",
         'social' => [
             'title' => 'Соціальні мережі',
-            'instagram' => 'Слідкуйте за нами в Instagram'
+            'instagram' => 'Слідкуйте за нами в Instagram',
+            'telegram' => 'Следите за новостями в Telegram'
         ]
     ],
     'player' => [

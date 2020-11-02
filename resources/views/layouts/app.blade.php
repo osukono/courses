@@ -95,9 +95,14 @@
                         <h5 class="text-white mb-3">{{ __('web.footer.social.title') }}</h5>
                         <div>
                             <a target="_blank" href="https://www.instagram.com/yummy_lingo/">
-                                <img src="{{ URL::asset('images/instagram.svg') }}" data-toggle="tooltip" title="{{ __('web.footer.social.instagram') }}" alt="Instagram" width="20"
-                                     height="20"/>
-                            </a></div>
+                                <img src="{{ URL::asset('images/instagram.svg') }}" data-toggle="tooltip" title="{{ __('web.footer.social.instagram') }}" alt="Instagram"
+                                     width="24" height="24"/>
+                            </a>
+                            <a class="pl-1" target="_blank" href="https://t.me/yummy_lingo">
+                                <img src="{{ URL::asset('images/telegram.svg') }}" data-toggle="tooltip" title="{{ __('web.footer.social.telegram') }}" alt="Telegram"
+                                     width="24" height="24"/>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

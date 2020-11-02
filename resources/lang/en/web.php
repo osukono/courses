@@ -10,7 +10,8 @@ return [
         'contact_us' => "Contact us",
         'social' => [
             'title' => 'Social Networks',
-            'instagram' => 'Follow us on Instagram'
+            'instagram' => 'Follow us on Instagram',
+            'telegram' => 'Learn more on Telegram'
         ]
     ],
     'player' => [
