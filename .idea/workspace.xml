@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/telegram_white.sketch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/telegram_white.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_03_082558_courses_ios_android_id_demo_lessons.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/uk/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/uk/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +295,10 @@
       <workItem from="1604071040115" duration="673000" />
       <workItem from="1604154188331" duration="335000" />
       <workItem from="1604242771578" duration="3358000" />
-      <workItem from="1604340044887" duration="1172000" />
+      <workItem from="1604340044887" duration="1569000" />
+      <workItem from="1604383868901" duration="16000" />
+      <workItem from="1604389616057" duration="2669000" />
+      <workItem from="1604401931622" duration="232000" />
     </task>
     <servers />
   </component>
@@ -324,9 +321,10 @@
       <screen x="0" y="25" width="1440" height="797" />
     </state>
     <state x="421" y="178" width="597" height="490" key="find.popup/0.25.1440.797@0.25.1440.797" timestamp="1603995742112" />
-    <state x="385" y="143" width="670" height="676" key="search.everywhere.popup" timestamp="1603726947416">
-      <screen x="0" y="25" width="1440" height="794" />
+    <state x="385" y="144" width="670" height="681" key="search.everywhere.popup" timestamp="1604393146111">
+      <screen x="0" y="25" width="1440" height="799" />
     </state>
     <state x="385" y="143" width="670" height="676" key="search.everywhere.popup/0.25.1440.794@0.25.1440.794" timestamp="1603726947416" />
+    <state x="385" y="144" width="670" height="681" key="search.everywhere.popup/0.25.1440.799@0.25.1440.799" timestamp="1604393146111" />
   </component>
 </project>

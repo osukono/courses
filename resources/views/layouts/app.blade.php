@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ1NJVN9LJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EZ1NJVN9LJ');
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="{{ $seo['keywords'] ?? ''}}">
