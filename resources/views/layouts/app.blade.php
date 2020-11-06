@@ -47,19 +47,8 @@
                            href="{{ route('admin.content.index') }}"
                         >Console</a>
                     @endif
-                    <a id="download" class="btn btn-lg btn-outline-primary rounded-pill"
-                       href="#apps">{{ __('web.header.download') }}</a>
-                    @push('scripts')
-                        <script>
-                            $(document).ready(function () {
-                                if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
-                                    $('#download').attr('href', "{{ __('web.index.section.app.links.android') }}");
-                                } else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
-                                    $('#download').attr('href', "{{ __('web.index.section.app.links.ios') }}");
-                                }
-                            });
-                        </script>
-                    @endpush
+                    <a target="_blank" class="btn btn-lg btn-outline-primary rounded-pill"
+                       href="{{ route('download') }}">{{ __('web.header.download') }}</a>
                 </ul>
             </div>
         </div>
@@ -99,9 +88,8 @@
                         </div>
                     </div>
                     <div class="col text-center pt-md-6 d-none d-lg-block">
-                        <a target="_blank" href="{{ route('download') }}"><img class="shadow-sm" src="{{ URL::asset('images/download.svg') }}" width="100" height="100"
-                             alt="{{ __('web.footer.download') }}"></a>
-
+                        <img class="shadow-sm" src="{{ URL::asset('images/download.svg?v=2') }}" width="100" height="100"
+                             alt="{{ __('web.footer.download') }}">
                     </div>
                 </div>
             </div>
