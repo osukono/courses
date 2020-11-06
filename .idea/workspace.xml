@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/osukono.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/osukono.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/DownloadController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/download.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/courses.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/courses.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ru/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/uk/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/uk/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +201,9 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
       <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
+      <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
+      <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
     </include_path>
   </component>
   <component name="ProjectId" id="1SmXnrlxWgMWYX7CuC72XGd0KzX" />
@@ -303,6 +316,7 @@
       <workItem from="1604415992404" duration="438000" />
       <workItem from="1604423111199" duration="267000" />
       <workItem from="1604474444926" duration="1790000" />
+      <workItem from="1604589186204" duration="5977000" />
     </task>
     <servers />
   </component>
@@ -313,6 +327,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="357" y="89" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1604644072058">
+      <screen x="0" y="25" width="1440" height="791" />
+    </state>
+    <state x="357" y="89" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.25.1440.791@0.25.1440.791" timestamp="1604644072058" />
     <state x="408" y="162" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603994689156">
       <screen x="0" y="25" width="1440" height="797" />
     </state>
@@ -326,9 +344,10 @@
     </state>
     <state x="421" y="177" width="597" height="490" key="find.popup/0.25.1440.791@0.25.1440.791" timestamp="1604474511192" />
     <state x="421" y="178" width="597" height="490" key="find.popup/0.25.1440.797@0.25.1440.797" timestamp="1603995742112" />
-    <state x="385" y="144" width="670" height="681" key="search.everywhere.popup" timestamp="1604393146111">
-      <screen x="0" y="25" width="1440" height="799" />
+    <state x="385" y="143" width="670" height="675" key="search.everywhere.popup" timestamp="1604589342439">
+      <screen x="0" y="25" width="1440" height="791" />
     </state>
+    <state x="385" y="143" width="670" height="675" key="search.everywhere.popup/0.25.1440.791@0.25.1440.791" timestamp="1604589342439" />
     <state x="385" y="143" width="670" height="676" key="search.everywhere.popup/0.25.1440.794@0.25.1440.794" timestamp="1603726947416" />
     <state x="385" y="144" width="670" height="681" key="search.everywhere.popup/0.25.1440.799@0.25.1440.799" timestamp="1604393146111" />
   </component>

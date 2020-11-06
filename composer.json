@@ -22,6 +22,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "highsolutions/eloquent-sequence": "^3.7",
         "imtigger/laravel-job-status": "^0.2.2",
+        "jenssegers/agent": "^2.6",
         "kreait/laravel-firebase": "^2.0",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",

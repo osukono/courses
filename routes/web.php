@@ -11,6 +11,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
 
     Auth::routes();
 
+    Route::get('download', 'DownloadController@index')->name('download');
+
     Route::get('privacy-policy', 'DocumentController@privacy')->name('privacy');
 //    Route::get('terms-of-service', 'DocumentController@terms')->name('terms');
 

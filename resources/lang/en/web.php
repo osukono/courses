@@ -12,7 +12,8 @@ return [
             'title' => 'Social Networks',
             'instagram' => 'Follow us on Instagram',
             'telegram' => 'Learn more on Telegram'
-        ]
+        ],
+        'download' => "Download Yummy Lingo"
     ],
     'player' => [
         'instruction' => "Listen carefully trying to remember translation. After the listening part, you will have an opportunity to practice your speaking skills.",

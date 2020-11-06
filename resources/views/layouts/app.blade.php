@@ -11,7 +11,7 @@
         }
 
         gtag('js', new Date());
-        
+
         gtag('config', 'G-EZ1NJVN9LJ');
     </script>
     <meta charset="utf-8">
@@ -74,23 +74,34 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-12 text-center col-md-6 text-md-left">
-                <div class="row mb-4">
-                    <div class="col">
-                        <img src="{{ URL::asset('images/brand_footer.svg') }}" alt="Yummy Lingo" width="169"
-                             height="25">
-                    </div>
-                </div>
                 <div class="row">
-                    <div class="col">
-                        <a href="{{ __('web.index.section.app.links.android') }}" target="_blank"><img
-                                src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
-                                alt="{{ __('web.index.section.app.badges.google_play.alt') }}" width="148"
-                                height="44"></a>
-                        <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank"><img
-                                class="ml-1"
-                                src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
-                                alt="{{ __('web.index.section.app.badges.app_store.alt') }}" width="148"
-                                height="44"></a>
+                    <div class="col-12 col-lg-auto">
+                        <div class="row mb-4">
+                            <div class="col">
+                                <img src="{{ URL::asset('images/brand_footer.svg') }}" alt="Yummy Lingo" width="169"
+                                     height="25">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <span>
+                                    <a href="{{ __('web.index.section.app.links.android') }}" target="_blank"><img
+                                            src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
+                                            alt="{{ __('web.index.section.app.badges.google_play.alt') }}" width="148"
+                                            height="44"></a>
+                                    <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank"><img
+                                            class="ml-1"
+                                            src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
+                                            alt="{{ __('web.index.section.app.badges.app_store.alt') }}" width="148"
+                                            height="44"></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col text-center pt-md-6 d-none d-lg-block">
+                        <a target="_blank" href="{{ route('download') }}"><img class="shadow-sm" src="{{ URL::asset('images/download.svg') }}" width="100" height="100"
+                             alt="{{ __('web.footer.download') }}"></a>
+
                     </div>
                 </div>
             </div>
