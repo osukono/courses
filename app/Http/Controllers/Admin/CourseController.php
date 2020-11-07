@@ -20,6 +20,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
+use Kreait\Firebase\Exception\RemoteConfigException;
 
 class CourseController extends Controller
 {
@@ -134,7 +135,11 @@ class CourseController extends Controller
             CourseController::validateFields($course);
 
             $course->repository()->firestoreUpdate();
+
+            FirebaseCourseRepository::incrementCoursesVersion();
         } catch (Exception $e) {
+            return back()->with('error', $e->getMessage());
+        } catch (RemoteConfigException $e) {
             return back()->with('error', $e->getMessage());
         }
 
