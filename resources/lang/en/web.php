@@ -9,7 +9,7 @@ return [
         'privacy' => "Privacy Policy",
         'contact_us' => "Contact us",
         'social' => [
-            'title' => 'Social Networks',
+            'title' => 'Follow us on',
             'instagram' => 'Follow us on Instagram',
             'telegram' => 'Learn more on Telegram'
         ],

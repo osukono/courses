@@ -46,7 +46,7 @@
                         <a class="btn btn-lg btn-link mr-md-2 mr-0"
                            href="{{ route('admin.content.index') }}"
                         >Console</a>
-                    @endif
+                    @endcan
                     <a target="_blank" class="btn btn-lg btn-outline-primary rounded-pill"
                        href="{{ route('download') }}">{{ __('web.header.download') }}</a>
                 </ul>

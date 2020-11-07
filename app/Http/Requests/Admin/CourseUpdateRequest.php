@@ -27,7 +27,7 @@ class CourseUpdateRequest extends FormRequest
     {
         return [
             'title' => ['bail', 'required', 'string', 'max:255'],
-            'description' => ['bail', 'required', 'string', 'max:500'],
+            'description' => ['bail', 'required', 'string', 'max:1000'],
             'review_exercises' => ['bail', 'required', 'integer', 'min:0'],
             'version' => ['bail', 'required', 'integer', 'min:1'],
             'firebase_id' => ['bail', 'nullable', 'string', 'max:100']

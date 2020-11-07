@@ -54,7 +54,7 @@ class ContentCreateRequest extends FormRequest
                 'bail',
                 'nullable',
                 'string',
-                'max:500'
+                'max:1000'
             ]
         ];
     }
