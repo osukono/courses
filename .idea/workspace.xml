@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +304,7 @@
       <workItem from="1604415992404" duration="438000" />
       <workItem from="1604423111199" duration="267000" />
       <workItem from="1604474444926" duration="1790000" />
-      <workItem from="1604589186204" duration="14350000" />
+      <workItem from="1604589186204" duration="14659000" />
     </task>
     <servers />
   </component>
@@ -328,12 +327,13 @@
       <screen x="0" y="25" width="1440" height="794" />
     </state>
     <state x="458" y="181" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.794@0.25.1440.794" timestamp="1603725145358" />
-    <state x="421" y="178" width="597" height="492" key="find.popup" timestamp="1604688384346">
-      <screen x="0" y="25" width="1440" height="794" />
+    <state x="421" y="179" width="597" height="496" key="find.popup" timestamp="1604772205472">
+      <screen x="0" y="25" width="1440" height="799" />
     </state>
     <state x="421" y="177" width="597" height="490" key="find.popup/0.25.1440.791@0.25.1440.791" timestamp="1604474511192" />
     <state x="421" y="178" width="597" height="492" key="find.popup/0.25.1440.794@0.25.1440.794" timestamp="1604688384346" />
     <state x="421" y="178" width="597" height="490" key="find.popup/0.25.1440.797@0.25.1440.797" timestamp="1603995742112" />
+    <state x="421" y="179" width="597" height="496" key="find.popup/0.25.1440.799@0.25.1440.799" timestamp="1604772205472" />
     <state x="385" y="143" width="670" height="675" key="search.everywhere.popup" timestamp="1604589342439">
       <screen x="0" y="25" width="1440" height="791" />
     </state>
