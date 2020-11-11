@@ -16,7 +16,7 @@ class CoursesIosAndroidIdDemoLessons extends Migration
         Schema::table('courses', function (Blueprint $table) {
             $table->string('android_product_id')->nullable()->after('review_exercises');
             $table->string('ios_product_id')->nullable()->after('android_product_id');
-            $table->string('demo_lessons')->default(0)->after('ios_product_id');
+            $table->integer('demo_lessons')->default(0)->after('ios_product_id');
         });
     }
 

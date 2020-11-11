@@ -15,6 +15,9 @@
                 @input(['name' => 'title', 'label' => 'Title', 'default' => $course->title])
                 @textarea(['name' => 'description', 'label' => 'Description', 'default' => $course->description])
                 @input(['name' => 'review_exercises', 'label' => 'Review Exercises', 'default' => $course->review_exercises])
+                @input(['name' => 'android_product_id', 'label' => 'Android Product ID', 'default' => $course->android_product_id])
+                @input(['name' => 'ios_product_id', 'label' => 'iOS Product ID', 'default' => $course->ios_product_id])
+                @input(['name' => 'demo_lessons', 'label' => 'Demo Lessons', 'default'=> $course->demo_lessons])
                 @input(['name' => 'version', 'label' => 'Version', 'default' => $course->minor_version])
                 @input(['name' => 'firebase_id', 'label' => 'Firebase ID', 'default' => $course->firebase_id])
 

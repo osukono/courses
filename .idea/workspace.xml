@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/CourseUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/CourseUpdateRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Library/Firebase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/Firebase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/CourseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CourseRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_03_082558_courses_ios_android_id_demo_lessons.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_03_082558_courses_ios_android_id_demo_lessons.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/uk/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/uk/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +314,8 @@
       <workItem from="1604415992404" duration="438000" />
       <workItem from="1604423111199" duration="267000" />
       <workItem from="1604474444926" duration="1790000" />
-      <workItem from="1604589186204" duration="14659000" />
+      <workItem from="1604589186204" duration="15436000" />
+      <workItem from="1605075292800" duration="4769000" />
     </task>
     <servers />
   </component>
@@ -323,9 +334,10 @@
       <screen x="0" y="25" width="1440" height="797" />
     </state>
     <state x="408" y="162" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.25.1440.797@0.25.1440.797" timestamp="1603994689156" />
-    <state x="458" y="181" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603725145358">
-      <screen x="0" y="25" width="1440" height="794" />
+    <state x="458" y="180" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605098496678">
+      <screen x="0" y="25" width="1440" height="791" />
     </state>
+    <state x="458" y="180" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.791@0.25.1440.791" timestamp="1605098496678" />
     <state x="458" y="181" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.794@0.25.1440.794" timestamp="1603725145358" />
     <state x="421" y="179" width="597" height="496" key="find.popup" timestamp="1604772205472">
       <screen x="0" y="25" width="1440" height="799" />

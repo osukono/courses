@@ -9,6 +9,7 @@ use App\Course;
 use App\Language;
 use App\Library\Firebase;
 use Exception;
+use Google\Cloud\Firestore\FieldValue;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -76,6 +77,9 @@ class CourseRepository
         $this->model->title = $attributes['title'];
         $this->model->description = $attributes['description'];
         $this->model->review_exercises = $attributes['review_exercises'];
+        $this->model->android_product_id = $attributes['android_product_id'];
+        $this->model->ios_product_id = $attributes['ios_product_id'];
+        $this->model->demo_lessons = $attributes['demo_lessons'];
         $this->model->minor_version = $attributes['version'];
         $this->model->firebase_id = $attributes['firebase_id'];
         $this->model->save();
@@ -122,14 +126,19 @@ class CourseRepository
     {
         $firestore = Firebase::getInstance()->firestoreClient();
 
-        $firestore->collection(Firebase::courses_collection)->document($this->model->firebase_id)
-            ->set([
-                'title' => $this->model->title,
-                'description' => $this->model->description,
-                'icon' => $this->model->image,
-                'player_version' => $this->model->player_version,
-                'review_exercises' => $this->model->review_exercises,
-            ], ['merge' => true]);
+        $reference = $firestore->collection(Firebase::courses_collection)->document($this->model->firebase_id);
+
+        $reference->set([
+            'title' => $this->model->title,
+            'description' => $this->model->description,
+            'icon' => $this->model->image,
+            'demo' => $this->model->demo_lessons,
+            'player_version' => $this->model->player_version,
+            'review_exercises' => $this->model->review_exercises,
+        ], ['merge' => true]);
+
+        Firebase::updateOrDeleteField($reference, 'android_product_id', $this->model->android_product_id);
+        Firebase::updateOrDeleteField($reference, 'ios_product_id', $this->model->ios_product_id);
     }
 
     /**
@@ -137,7 +146,7 @@ class CourseRepository
      */
     public function switchIsUpdating()
     {
-        if (! isset($this->model->firebase_id))
+        if (!isset($this->model->firebase_id))
             throw new Exception($this->model . '. Firebase ID is not set.');
 
         FirebaseCourseRepository::setIsUpdating($this->model, !$this->model->is_updating);

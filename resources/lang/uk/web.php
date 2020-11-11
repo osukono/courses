@@ -9,7 +9,7 @@ return [
         'privacy' => "Конфіденційність",
         'contact_us' => "Зв'яжіться з нами",
         'social' => [
-            'title' => 'Соціальні мережі',
+            'title' => 'Слідуйте за нами на',
             'instagram' => 'Слідкуйте за нами в Instagram',
             'telegram' => 'Следите за новостями в Telegram'
         ],

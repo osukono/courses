@@ -58,6 +58,7 @@ class ContentRepository
         $content->topic()->associate($attributes['topic_id']);
         $content->title = $attributes['title'];
         $content->description = $attributes['description'];
+        $content->player_version = 1;
         $content->save();
 
         return $content;

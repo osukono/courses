@@ -64,6 +64,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @mixin \Eloquent
  * @property int $is_updating
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereIsUpdating($value)
+ * @property string|null $android_product_id
+ * @property string|null $ios_product_id
+ * @property string $demo_lessons
+ * @method static Builder|Course whereAndroidProductId($value)
+ * @method static Builder|Course whereDemoLessons($value)
+ * @method static Builder|Course whereIosProductId($value)
  */
 class Course extends Model
 {

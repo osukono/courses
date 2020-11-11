@@ -2,6 +2,8 @@
 
 namespace App\Library;
 
+use Google\Cloud\Firestore\DocumentReference;
+use Google\Cloud\Firestore\FieldValue;
 use Google\Cloud\Firestore\FirestoreClient;
 use Google\Cloud\Storage\Bucket;
 use Google\Cloud\Storage\StorageClient;
@@ -61,11 +63,11 @@ final class Firebase
             return $value->name() === $name;
         }, Parameter::named($name, "0"));
 
-        $value = (integer) $parameter->defaultValue()->jsonSerialize()['value'];
+        $value = (integer)$parameter->defaultValue()->jsonSerialize()['value'];
 
         $remoteConfig->publish(
             $template->withParameter(
-                Parameter::named($name, (string) ($value + 1))
+                Parameter::named($name, (string)($value + 1))
             )
         );
     }
@@ -83,7 +85,7 @@ final class Firebase
      */
     public function remoteConfig(): RemoteConfig
     {
-        if (! isset(static::$remoteConfig)) {
+        if (!isset(static::$remoteConfig)) {
             static::$remoteConfig = (new Factory())
                 ->withServiceAccount(static::$serviceAccount)
                 ->withDatabaseUri(new Uri(env('FIREBASE_URI')))
@@ -98,7 +100,7 @@ final class Firebase
      */
     public function firestoreClient(): FirestoreClient
     {
-        if (! isset(static::$firestoreClient)) {
+        if (!isset(static::$firestoreClient)) {
             static::$firestoreClient = (new Factory())
                 ->withServiceAccount(static::$serviceAccount)
                 ->withDatabaseUri(new Uri(env('FIREBASE_URI')))
@@ -129,6 +131,23 @@ final class Firebase
             ]
         ]);
         return "https://firebasestorage.googleapis.com/v0/b/" . env('FIREBASE_STORAGE_BUCKET') . "/o/" . urlencode($fileName) . "?alt=media&token=" . $accessToken;
+    }
+
+    /**
+     * @param DocumentReference $reference
+     * @param string $field
+     * @param string|null $value
+     */
+    public static function updateOrDeleteField(DocumentReference $reference, string $field, ?string $value)
+    {
+        if (isset($field))
+            $reference->set([
+                $field => $value
+            ], ['merge' => true]);
+        else
+            $reference->update([
+                ['path' => $field, 'value' => FieldValue::deleteField()]
+            ]);
     }
 
     /**
