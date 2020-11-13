@@ -12,7 +12,7 @@
                     <img src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
                          alt="{{ __('web.index.section.app.badges.google_play.alt') }}"
                          width="148" height="44"
-                         class="mr-2"
+                         class="mr-0 mr-sm-2"
                     >
                 </a>
                 <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank">
