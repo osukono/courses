@@ -13,10 +13,11 @@ class WebController extends Controller
 {
     public function index()
     {
-        //ToDo Only published courses
-        $data['courses'] = CourseRepository::all()->whereIn('id', Course::selectRaw('min(id)')
-            ->groupBy(['language_id', 'level_id', 'topic_id', 'major_version']))
-            ->ordered()
+        $data['courses'] = CourseRepository::all()
+            ->join('languages', 'courses.translation_id', '=', 'languages.id')
+            ->where('languages.code', 'like', \LaravelLocalization::getCurrentLocale() . '%')
+            ->orderBy('level_id')
+            ->select('courses.*')
             ->get();
 
         $data['seo']['title'] = __('web.index.seo.title');

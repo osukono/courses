@@ -36,7 +36,7 @@ return [
                 'button' => 'Learn more'
             ],
             'app' => [
-                'header' => 'Take your lessons wherever you go.',
+                'header' => 'Take your lessons wherever you go',
                 'text' => "Download the app and get access to the courses developed by the most experienced teachers we can offer.",
                 'screen' => "app_en.PNG",
                 'description' => "<p>Download the app and get access to the courses developed by the most experienced teachers we can offer.</p>" .
@@ -63,7 +63,7 @@ return [
                 'button' => "Get started"
             ],
             'courses' => [
-                'header' => "Developed with all the love.",
+                'header' => "Developed with all the love",
                 'learn_more' => "Learn more",
                 'demo' => "Demo",
                 'lessons' => "Topics"

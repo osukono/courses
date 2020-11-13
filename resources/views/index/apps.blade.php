@@ -1,4 +1,4 @@
-<div id="apps" class="container pt-4">
+<div id="apps" class="container pt-4 mb-5">
     <div class="row">
         <div class="d-none col-5 text-center d-lg-table-cell">
             <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen')) }}"

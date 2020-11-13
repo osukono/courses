@@ -1,4 +1,4 @@
-<div class="container-fluid mt-5" style="background-color: #D9DFF6;">
+<div class="container-fluid" style="background-color: #D9DFF6;">
     <div class="container">
         <div class="row py-3">
             <div class="col-12 col-md-8 text-center align-self-center">

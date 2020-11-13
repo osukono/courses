@@ -18,7 +18,6 @@
 
     @if(!$courses->isEmpty())
         @include('index.promo')
+        @include('index.courses')
     @endif
-
-    @include('index.courses')
 @endsection
