@@ -67,22 +67,23 @@
                     <div class="col-12 col-lg-auto">
                         <div class="row mb-4">
                             <div class="col">
-                                <img src="{{ URL::asset('images/brand_footer.svg') }}" alt="Yummy Lingo" width="169"
-                                     height="25">
+                                <img src="{{ URL::asset('images/brand_footer.svg') }}" alt="Yummy Lingo"
+                                     width="169" height="25">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <span>
-                                    <a href="{{ __('web.index.section.app.links.android') }}" target="_blank"><img
-                                            src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
-                                            alt="{{ __('web.index.section.app.badges.google_play.alt') }}" width="148"
-                                            height="44"></a>
-                                    <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank"><img
-                                            class="ml-1"
-                                            src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
-                                            alt="{{ __('web.index.section.app.badges.app_store.alt') }}" width="148"
-                                            height="44"></a>
+                                    <a href="{{ __('web.index.section.app.links.android') }}" target="_blank">
+                                        <img src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
+                                            alt="{{ __('web.index.section.app.badges.google_play.alt') }}"
+                                             width="148" height="44" class="mr-2"
+                                        ></a>
+                                    <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank">
+                                        <img src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
+                                            alt="{{ __('web.index.section.app.badges.app_store.alt') }}"
+                                             width="131.630477" height="44"
+                                        ></a>
                                 </span>
                             </div>
                         </div>

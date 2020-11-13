@@ -56,7 +56,7 @@ class User extends Authenticatable implements Identifiable
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var string[]
      */
     protected $fillable = [
         'name', 'email', 'password',
