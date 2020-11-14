@@ -4,7 +4,7 @@
             <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen')) }}"
                  class="w-50 border rounded shadow" alt="Yummy Lingo's application">
         </div>
-        <div class="col-10 offset-1 text-center col-lg-7 offset-lg-0 text-md-left">
+        <div class="col mx-3 text-center col-lg-7 mx-lg-0 offset-lg-0 text-md-left">
             <h1 class="text-primary">{{ __('web.index.section.app.header') }}</h1>
             <div class="lead mt-4">{!! __('web.index.section.app.description') !!}</div>
             <div class="mt-4 text-center text-md-left">
@@ -12,7 +12,7 @@
                     <img src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
                          alt="{{ __('web.index.section.app.badges.google_play.alt') }}"
                          width="148" height="44"
-                         class="mr-0 mr-sm-2"
+                         class="mr-2"
                     >
                 </a>
                 <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank">
