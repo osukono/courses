@@ -18,6 +18,8 @@ use Kreait\Firebase\RemoteConfig\Parameter;
 
 final class Firebase
 {
+    public const statistics_collection = 'statistics';
+
     public const languages_collection = 'languages';
     public const topics_collection = 'topics';
     public const courses_collection = 'courses';

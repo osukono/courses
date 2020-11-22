@@ -20,8 +20,9 @@ class AdminController extends Controller
         $data['current'] = Sidebar::dashboard;
 
         $firebase = Firebase::getInstance()->firestoreClient();
-        $data["users"] = $firebase->collection('collections')->document('users')
-            ->snapshot()->data()['numberOfDocs'];
+        $data["users"] = $firebase->collection(Firebase::statistics_collection)
+            ->document('users')
+            ->snapshot()->data()['count'];
 
         $data['courses'] = CourseRepository::all()->where('uploaded_at', '!=', null)->count();
 
