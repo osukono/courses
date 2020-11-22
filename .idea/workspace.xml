@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index/apps.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index/apps.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -306,7 +306,9 @@
       <workItem from="1604423111199" duration="267000" />
       <workItem from="1604474444926" duration="1790000" />
       <workItem from="1604589186204" duration="15436000" />
-      <workItem from="1605075292800" duration="13660000" />
+      <workItem from="1605075292800" duration="14293000" />
+      <workItem from="1605722554217" duration="9000" />
+      <workItem from="1606030294118" duration="316000" />
     </task>
     <servers />
   </component>
@@ -337,9 +339,10 @@
     <state x="421" y="178" width="597" height="492" key="find.popup/0.25.1440.794@0.25.1440.794" timestamp="1604688384346" />
     <state x="421" y="178" width="597" height="490" key="find.popup/0.25.1440.797@0.25.1440.797" timestamp="1603995742112" />
     <state x="421" y="179" width="597" height="496" key="find.popup/0.25.1440.799@0.25.1440.799" timestamp="1604772205472" />
-    <state x="385" y="143" width="670" height="675" key="search.everywhere.popup" timestamp="1604589342439">
-      <screen x="0" y="25" width="1440" height="791" />
+    <state x="385" y="143" width="670" height="673" key="search.everywhere.popup" timestamp="1605366139158">
+      <screen x="0" y="25" width="1440" height="788" />
     </state>
+    <state x="385" y="143" width="670" height="673" key="search.everywhere.popup/0.25.1440.788@0.25.1440.788" timestamp="1605366139158" />
     <state x="385" y="143" width="670" height="675" key="search.everywhere.popup/0.25.1440.791@0.25.1440.791" timestamp="1604589342439" />
     <state x="385" y="143" width="670" height="676" key="search.everywhere.popup/0.25.1440.794@0.25.1440.794" timestamp="1603726947416" />
     <state x="385" y="144" width="670" height="681" key="search.everywhere.popup/0.25.1440.799@0.25.1440.799" timestamp="1604393146111" />
