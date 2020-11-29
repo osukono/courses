@@ -26,7 +26,7 @@ return [
     'index' => [
         'seo' => [
             'title' => "Learn English with Yummy Lingo",
-            'keywords' => "Yummy Lingo, mobile application, learn English online, English grammar, practice English vocabulary, learn how to speak English, practice English, English pronunciation, English for Elementary, English for Pre-Intermediate, English for beginners, English for students",
+            'keywords' => "Yummy Lingo, English with mobile application, English online, English learning, English lessons, learn English, practice English, speak English, English course, Elementary English, Pre-Intermediate English, English for beginners, English for students, English for adults",
             'description' => "English speaking courses. Practice your speaking skills with Yummy Lingo's mobile application."
         ],
         'section' => [
