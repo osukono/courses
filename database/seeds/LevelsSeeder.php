@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\DB;
 
 class LevelsSeeder extends Seeder
 {
-    private $levels = [
+    private array $levels = [
         ['scale' => 'A0', 'name' => 'Beginner'],
         ['scale' => 'A1', 'name' => 'Elementary'],
         ['scale' => 'A2', 'name' => 'Pre-Intermediate'],
         ['scale' => 'B1', 'name' => 'Intermediate'],
-        ['scale' => 'B2', 'name' => 'Upper Intermediate'],
+        ['scale' => 'B2', 'name' => 'Upper-Intermediate'],
         ['scale' => 'C1', 'name' => 'Advanced'],
         ['scale' => 'C2', 'name' => 'Proficiency']
     ];

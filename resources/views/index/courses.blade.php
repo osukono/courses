@@ -12,10 +12,10 @@
                     <div class="col">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-7 order-1">
-                                <h2 class="text-dark text-nowrap">{{ $course->language->name . ' ' . $course->level->name }}</h2>
+                                <h2 class="text-dark text-nowrap">{{ $course->language->native . ' › ' . $course->title }}</h2>
                             </div>
-                            <div class="col-6 order-3 col-md order-md-2 text-right">
-                                <a class="font-weight-bold text-nowrap align-middle" data-toggle="collapse"
+                            <div class="col-12 order-3 col-md order-md-2 text-right">
+                                <a class="font-weight-bold mr-5 text-nowrap align-middle" data-toggle="collapse"
                                    href="#course-{{ $course->id }}-lessons" role="button" aria-expanded="false"
                                    aria-controls="course-{{ $course->id }}-lessons">
                                     {{ __('web.index.section.courses.learn_more') }}
@@ -27,12 +27,12 @@
                                     </svg>
                                 </a>
                             </div>
-                            <div class="col-6 order-2 col-md order-md-3">
-                                <button role="button" class="btn btn-outline-primary btn-lg rounded-pill"
-                                        onclick="demo('{{ route('demo', [$course->language, $course->level, $course->topic]) }}', {{ $course->major_version }});">
-                                    {{ __('web.index.section.courses.demo') }}
-                                </button>
-                            </div>
+{{--                            <div class="col-6 order-2 col-md order-md-3">--}}
+{{--                                <button role="button" class="btn btn-outline-primary btn-lg rounded-pill"--}}
+{{--                                        onclick="demo('{{ route('demo', [$course->language, $course->level, $course->topic]) }}', {{ $course->major_version }});">--}}
+{{--                                    {{ __('web.index.section.courses.demo') }}--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
                         </div>
                         <div class="row collapse" id="course-{{ $course->id }}-lessons">
                             <div class="col pt-3">
@@ -76,19 +76,19 @@
 </div>
 <div id="player-container"></div>
 
-@push('scripts')
-    <script>
-        async function demo(url, version) {
-            axios.get(url, {
-                params: {
-                    version: version
-                }
-            }).then(function (response) {
-                $('#player-container').html(response.data);
-                $('#player-modal').modal({
-                    show: true
-                })
-            });
-        }
-    </script>
-@endpush
+{{--@push('scripts')--}}
+{{--    <script>--}}
+{{--        async function demo(url, version) {--}}
+{{--            axios.get(url, {--}}
+{{--                params: {--}}
+{{--                    version: version--}}
+{{--                }--}}
+{{--            }).then(function (response) {--}}
+{{--                $('#player-container').html(response.data);--}}
+{{--                $('#player-modal').modal({--}}
+{{--                    show: true--}}
+{{--                })--}}
+{{--            });--}}
+{{--        }--}}
+{{--    </script>--}}
+{{--@endpush--}}

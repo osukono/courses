@@ -63,7 +63,7 @@ return [
                 'button' => "Get started"
             ],
             'courses' => [
-                'header' => "Developed with all the love",
+                'header' => "Start from the level that is right for you",
                 'learn_more' => "Learn more",
                 'demo' => "Demo",
                 'lessons' => "Topics"

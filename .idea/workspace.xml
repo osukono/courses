@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/LevelsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/LevelsSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ru/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/uk/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/uk/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index/courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index/courses.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,7 +317,14 @@
       <workItem from="1606049120827" duration="293000" />
       <workItem from="1606051854287" duration="180000" />
       <workItem from="1606054498804" duration="448000" />
-      <workItem from="1606632362401" duration="657000" />
+      <workItem from="1606632362401" duration="1051000" />
+      <workItem from="1606653650097" duration="263000" />
+      <workItem from="1607177822214" duration="3000" />
+      <workItem from="1607344060213" duration="368000" />
+      <workItem from="1608126603623" duration="40000" />
+      <workItem from="1608126674142" duration="74000" />
+      <workItem from="1608126791116" duration="144000" />
+      <workItem from="1608209311414" duration="1243000" />
     </task>
     <servers />
   </component>
@@ -331,9 +339,10 @@
       <screen x="0" y="25" width="1440" height="791" />
     </state>
     <state x="357" y="89" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.25.1440.791@0.25.1440.791" timestamp="1604644072058" />
-    <state x="408" y="162" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603994689156">
-      <screen x="0" y="25" width="1440" height="797" />
+    <state x="408" y="160" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1608126634156">
+      <screen x="0" y="25" width="1440" height="788" />
     </state>
+    <state x="408" y="160" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.25.1440.788@0.25.1440.788" timestamp="1608126634156" />
     <state x="408" y="162" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.25.1440.797@0.25.1440.797" timestamp="1603994689156" />
     <state x="458" y="180" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605098496678">
       <screen x="0" y="25" width="1440" height="791" />
