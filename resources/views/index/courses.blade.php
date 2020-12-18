@@ -5,17 +5,17 @@
         </div>
         <div class="col-10 offset-1 col-lg-7 offset-lg-0">
             <div class="row mb-4">
-                <div class="col"><h1 class="text-primary">{{ __('web.index.section.courses.header') }}</h1></div>
+                <div class="col"><h2 class="text-primary">{{ __('web.index.section.courses.header') }}</h2></div>
             </div>
             @foreach($courses as $course)
                 <div class="row">
                     <div class="col">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-7 order-1">
-                                <h2 class="text-dark text-nowrap">{{ $course->language->native . ' › ' . $course->title }}</h2>
+                                <h4 class="text-dark text-nowrap">{{ $course->language->native . ' › ' . $course->title }}</h4>
                             </div>
                             <div class="col-12 order-3 col-md order-md-2 text-right">
-                                <a class="font-weight-bold mr-5 text-nowrap align-middle" data-toggle="collapse"
+                                <a class="font-weight-bold mr-5 text-nowrap align-middle small" data-toggle="collapse"
                                    href="#course-{{ $course->id }}-lessons" role="button" aria-expanded="false"
                                    aria-controls="course-{{ $course->id }}-lessons">
                                     {{ __('web.index.section.courses.learn_more') }}
@@ -37,7 +37,7 @@
                         <div class="row collapse" id="course-{{ $course->id }}-lessons">
                             <div class="col pt-3">
                                 <div class="row">
-                                    <div class="col"><h5>{{ __('web.index.section.courses.lessons') }}</h5></div>
+                                    <div class="col"><h6>{{ __('web.index.section.courses.lessons') }}</h6></div>
                                 </div>
                                 <div class="row">
                                     @foreach($course->courseLessons->chunk(ceil($course->courseLessons->count() / 2)) as $chunk)
@@ -58,7 +58,7 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col">
-                                <span class="lead">{!! nl2br(e($course->description)) !!}</span>
+                                <span class="">{!! nl2br(e($course->description)) !!}</span>
                             </div>
                         </div>
                         @if(! $loop->last)

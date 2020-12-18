@@ -59,7 +59,7 @@
     @yield('content')
 </main>
 
-<footer class="footer mt-auto py-3">
+<footer class="footer mt-auto py-3 small">
     <div class="container">
         <div class="row mt-4">
             <div class="col-12 text-center col-md-6 text-md-left">
@@ -97,7 +97,7 @@
             <div class="col-12 text-center pt-5 col-md-3 text-md-left pt-md-0">
                 <div class="row">
                     <div class="col">
-                        <h5 class="text-white mb-3">{{ __('web.footer.contact_us') }}</h5>
+                        <h6 class="text-white mb-3">{{ __('web.footer.contact_us') }}</h6>
                         <div>support@yummylingo.com</div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
             <div class="col-12 text-center pt-5 col-md-3 text-md-right pt-md-0">
                 <div class="row">
                     <div class="col">
-                        <h5 class="text-white mb-3">{{ __('web.footer.social.title') }}</h5>
+                        <h6 class="text-white mb-3">{{ __('web.footer.social.title') }}</h6>
                         <div>
                             <a target="_blank" href="https://www.instagram.com/yummy_lingo/">
                                 <img src="{{ URL::asset('images/instagram.svg') }}" data-toggle="tooltip"
