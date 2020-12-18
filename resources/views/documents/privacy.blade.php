@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mb-5 lead">
-        <h1 class="my-5 text-center text-md-left">Privacy Policy</h1>
+    <div class="container mb-5">
+        <h2 class="my-5 text-center text-md-left">Privacy Policy</h2>
 
         <p>
             Yummy Lingo built the Yummy Lingo app as a Commercial app. This SERVICE is provided by Yummy Lingo and is intended for use as is.
@@ -19,7 +19,7 @@
 
         <hr class="my-5">
 
-        <h3>Information Collection and Use</h3>
+        <h4>Information Collection and Use</h4>
 
         <p>
             For a better experience, while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to email address, name. The information that we request will be retained by us and used as described in this privacy policy.
@@ -38,7 +38,7 @@
 
         <hr class="my-5">
 
-        <h3>Log Data</h3>
+        <h4>Log Data</h4>
 
         <p>
             We want to inform you that whenever you use our Service, in a case of an error in the app we collect data and information (through third party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app when utilizing our Service, the time and date of your use of the Service, and other statistics.
@@ -46,7 +46,7 @@
 
         <hr class="my-5">
 
-        <h3>Cookies</h3>
+        <h4>Cookies</h4>
 
         <p>
             Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
@@ -58,7 +58,7 @@
 
         <hr class="my-5">
 
-        <h3>Service Providers</h3>
+        <h4>Service Providers</h4>
 
         <p>
             We may employ third-party companies and individuals due to the following reasons:
@@ -75,7 +75,7 @@
 
         <hr class="my-5">
 
-        <h3>Security</h3>
+        <h4>Security</h4>
 
         <p>
             We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
@@ -83,7 +83,7 @@
 
         <hr class="my-5">
 
-        <h3>Links to Other Sites</h3>
+        <h4>Links to Other Sites</h4>
 
         <p>
             This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
@@ -91,7 +91,7 @@
 
         <hr class="my-5">
 
-        <h3>Children’s Privacy</h3>
+        <h4>Children’s Privacy</h4>
 
         <p>
             These Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. In the case we discover that a child under 13 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do necessary actions.
@@ -99,7 +99,7 @@
 
         <hr class="my-5">
 
-        <h3>Changes to This Privacy Policy</h3>
+        <h4>Changes to This Privacy Policy</h4>
 
         <p>
             We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted on this page.
@@ -107,7 +107,7 @@
 
         <hr class="my-5">
 
-        <h3>Contact Us</h3>
+        <h4>Contact Us</h4>
 
         <p>
             If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at support@yummylingo.com.
