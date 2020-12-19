@@ -83,7 +83,7 @@
 
             let less = `
                 {{ __('web.index.section.courses.less') }}
-                <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6.00013 3.02344L1.87513 7.14844L0.696798 5.9701L6.00013 0.666771L11.3035 5.9701L10.1251 7.14844L6.00013 3.02344Z" fill="currentColor"/>
                 </svg>
             `;
