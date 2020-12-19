@@ -2,7 +2,7 @@
     <div class="row">
         <div class="d-none text-right pr-4 d-lg-table-cell col-lg-5">
             <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen')) }}"
-                 class="w-50 border rounded shadow" alt="Yummy Lingo's application">
+                 class="w-50 border rounded-lg shadow-sm" alt="Yummy Lingo's application">
         </div>
         <div class="col-10 pr-0 offset-1 pr-lg-5 col-lg-7 offset-lg-0">
             <h2 class="text-primary">{{ __('web.index.section.app.header') }}</h2>
