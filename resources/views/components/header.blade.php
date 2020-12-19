@@ -8,7 +8,7 @@
         <div class="container">
             <div class="col-md-7 offset-md-0 col-10 offset-1">
                 <h2 class="text-primary">{{ $header_title }}</h2>
-                <div>{{ $header_text }}</div>
+                <div class="">{{ $header_text }}</div>
                 <a class="btn btn-primary btn-lg rounded-pill mt-4 shadow-sm"
                    href="{{ $header_button_link }}">{{ $header_button_caption }}</a>
             </div>
@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-10 offset-1">
             <h1 class="text-primary">{{ $header_title }}</h1>
-            <div class="lead">{{ $header_text }}</div>
+            <div>{{ $header_text }}</div>
             <a class="btn btn-primary btn-lg rounded-pill mt-4 shadow-sm"
                href="{{ $header_button_link }}">{{ $header_button_caption }}</a>
         </div>
