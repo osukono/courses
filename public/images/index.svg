@@ -27,8 +27,8 @@
             <rect id="Rectangle" fill="#C4C4C4" fill-rule="nonzero" x="1090.06" y="306.689" width="20.4459" height="13.6306"></rect>
             <rect id="Rectangle" fill="#C4C4C4" fill-rule="nonzero" x="1090.06" y="340.766" width="20.4459" height="13.6306"></rect>
             <rect id="Rectangle" fill="#C4C4C4" fill-rule="nonzero" x="1049.17" y="340.766" width="20.4459" height="13.6306"></rect>
-            <polygon id="Path" fill="#F3F2F2" fill-rule="nonzero" points="905 729.762 905 148.888 1080.09 201.377 1080.09 729.762"></polygon>
-            <polygon id="Path" fill="#ECEBEB" fill-rule="nonzero" points="1114.2 218.335 1077.81 197.877 1077.81 729.762 1114.2 712.266"></polygon>
+            <polygon id="Path" fill="#F3F2F2" fill-rule="nonzero" points="905 729.762 905 148.888 1077.81 200.960514 1077.81 729.762"></polygon>
+            <polygon id="Path" fill="#ECEBEB" fill-rule="nonzero" points="1114.2 218.335 1077.81 200.960514 1077.81 729.762 1114.2 712.266"></polygon>
             <rect id="Rectangle" fill="#ECEBEB" fill-rule="nonzero" x="932.287" y="225.872" width="22.7387" height="83.9818"></rect>
             <rect id="Rectangle" fill="#ECEBEB" fill-rule="nonzero" x="1023.24" y="225.872" width="22.7387" height="83.9818"></rect>
             <rect id="Rectangle" fill="#ECEBEB" fill-rule="nonzero" x="977.764" y="302.855" width="22.7387" height="83.9818"></rect>
@@ -43,7 +43,7 @@
             <polygon id="Path" fill="#C4C4C4" fill-rule="nonzero" opacity="0.6" points="1314.85 528.65 1314.85 126.933 1322.43 128.591 1322.43 528.65"></polygon>
             <polygon id="Path" fill="#C4C4C4" fill-rule="nonzero" opacity="0.6" points="1337.59 528.651 1337.59 131.986 1345.17 133.723 1345.17 528.651"></polygon>
             <polygon id="Path" fill="#C4C4C4" fill-rule="nonzero" opacity="0.6" points="1362.86 528.65 1362.86 137.039 1370.44 139.565 1370.44 528.65"></polygon>
-            <polygon id="Path" fill="#F0F0F0" fill-rule="nonzero" points="1545.65 184.079 1443.74 159.374 1422.13 786.28 1545.65 786.28"></polygon>
+            <polygon id="Path" fill="#F0F0F0" fill-rule="nonzero" points="1545.65 184.079 1421.73749 160 1422.13 786.28 1545.65 786.28"></polygon>
             <polygon id="Path" fill="#F2F2F2" fill-rule="nonzero" points="1539.48 783.191 1539.48 187.167 1675.36 214.961 1675.36 783.191"></polygon>
             <rect id="Rectangle" fill="#D5D4D2" fill-rule="nonzero" transform="translate(1607.356999, 255.134502) rotate(6.622650) translate(-1607.356999, -255.134502) " x="1564.78701" y="248.942902" width="85.1399772" height="12.3832006"></rect>
             <rect id="Rectangle" fill="#D5D4D2" fill-rule="nonzero" transform="translate(1607.356999, 276.566502) rotate(6.622650) translate(-1607.356999, -276.566502) " x="1564.78701" y="270.374902" width="85.1399772" height="12.3832006"></rect>
