@@ -3,7 +3,7 @@
         <div class="d-none d-lg-table-cell col-lg-5">
             <img src="{{ URL::asset('/images/courses.svg') }}" class="w-100">
         </div>
-        <div class="col-10 offset-1 col-lg-7 offset-lg-0">
+        <div class="col-10 pr-0 offset-1 pr-lg-5 col-lg-7 offset-lg-0">
             <div class="row mb-4">
                 <div class="col"><h2 class="text-primary">{{ __('web.index.section.courses.header') }}</h2></div>
             </div>

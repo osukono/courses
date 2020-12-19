@@ -1,10 +1,10 @@
-<div id="apps" class="container pt-4 mb-5">
+<div id="apps" class="container-fluid pt-4 mb-5">
     <div class="row">
-        <div class="d-none col-5 text-center d-lg-table-cell">
+        <div class="d-none text-right pr-4 d-lg-table-cell col-lg-5">
             <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen')) }}"
                  class="w-50 border rounded shadow" alt="Yummy Lingo's application">
         </div>
-        <div class="col mx-3 text-center col-lg-7 mx-lg-0 offset-lg-0 text-md-left">
+        <div class="col-10 pr-0 offset-1 pr-lg-5 col-lg-7 offset-lg-0">
             <h2 class="text-primary">{{ __('web.index.section.app.header') }}</h2>
             <div class="mt-4">{!! __('web.index.section.app.description') !!}</div>
             <div class="mt-4 text-center text-md-left">
