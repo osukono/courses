@@ -91,9 +91,7 @@
             $('[id^=course-more]').on('hidden.bs.collapse', function (event) {
                 let parent = $(event.target).data('parent');
                 $('' + parent).html(more);
-            })
-
-            $('[id^=course-more]').on('shown.bs.collapse', function (event) {
+            }).on('shown.bs.collapse', function (event) {
                 let parent = $(event.target).data('parent');
                 $('' + parent).html(less);
             })
