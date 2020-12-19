@@ -64,7 +64,8 @@ return [
             ],
             'courses' => [
                 'header' => "Start from the level that is right for you",
-                'learn_more' => "Learn more",
+                'more' => "More",
+                'less' => 'Less',
                 'demo' => "Demo",
                 'lessons' => "Topics"
             ]

@@ -15,10 +15,11 @@
                                 <h4 class="text-dark">{{ $course->language->native . ' › ' . $course->title }}</h4>
                             </div>
                             <div class="col-12 order-3 col-md order-md-2 text-right">
-                                <a class="font-weight-bold mr-5 text-nowrap align-middle small" data-toggle="collapse"
-                                   href="#course-{{ $course->id }}-lessons" role="button" aria-expanded="false"
-                                   aria-controls="course-{{ $course->id }}-lessons">
-                                    {{ __('web.index.section.courses.learn_more') }}
+                                <a id="course-{{ $course->id }}-collapse"
+                                   class="font-weight-bold mr-5 text-nowrap align-middle small" data-toggle="collapse"
+                                   href="#course-more-{{ $course->id }}" role="button" aria-expanded="false"
+                                   aria-controls="course-more-{{ $course->id }}">
+                                    {{ __('web.index.section.courses.more') }}
                                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -28,7 +29,8 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="row collapse" id="course-{{ $course->id }}-lessons">
+                        <div class="row collapse" id="course-more-{{ $course->id }}"
+                             data-parent="#course-{{ $course->id }}-collapse">
                             <div class="col pt-3">
                                 <div class="row">
                                     <div class="col"><h6>{{ __('web.index.section.courses.lessons') }}</h6></div>
@@ -68,4 +70,33 @@
         </div>
     </div>
 </div>
-<div id="player-container"></div>
+
+@push('scripts')
+    <script>
+        $(function () {
+            let more = `
+                {{ __('web.index.section.courses.more') }}
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.99987 4.97656L10.1249 0.851562L11.3032 2.0299L5.99987 7.33323L0.696533 2.0299L1.87487 0.851562L5.99987 4.97656Z" fill="currentColor"/>
+                </svg>
+            `;
+
+            let less = `
+                {{ __('web.index.section.courses.less') }}
+                <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.00013 3.02344L1.87513 7.14844L0.696798 5.9701L6.00013 0.666771L11.3035 5.9701L10.1251 7.14844L6.00013 3.02344Z" fill="currentColor"/>
+                </svg>
+            `;
+
+            $('[id^=course-more]').on('hidden.bs.collapse', function (event) {
+                let parent = $(event.target).data('parent');
+                $('' + parent).html(more);
+            })
+
+            $('[id^=course-more]').on('shown.bs.collapse', function (event) {
+                let parent = $(event.target).data('parent');
+                $('' + parent).html(less);
+            })
+        })
+    </script>
+@endpush
