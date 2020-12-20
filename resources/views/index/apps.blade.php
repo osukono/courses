@@ -1,6 +1,6 @@
 <div id="apps" class="container-fluid pt-4 mb-5">
     <div class="row">
-        <div class="d-none pr-4 d-lg-table-cell col-lg-5">
+        <div class="d-none pr-4 d-lg-table-cell col-lg-3 offset-1">
             <div id="screens" class="carousel slide carousel-fade float-right border rounded-lg shadow-sm"
                  data-ride="carousel" style="max-width: 278px">
                 <div class="carousel-inner">
