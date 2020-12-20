@@ -32,7 +32,7 @@ class CourseRepository
         return Course::findOrFail($id)->repository();
     }
 
-    public static function findOrCreate(Content $content, Language $translation)
+    public static function findOrCreate(Content $content, Language $translation): Course
     {
         /** @var Course $course */
         $course = Course::where('language_id', $content->language->id)
@@ -49,14 +49,10 @@ class CourseRepository
             $course->topic()->associate($content->topic);
             $course->major_version = $content->version;
             $course->minor_version = 0;
+            $course->title = $content->title;
+            $course->description = $content->description;
             $course->save();
         }
-
-        $course->title = $content->title;
-        $course->description = $content->description;
-        $course->player_version = $content->player_version;
-        $course->review_exercises = $content->review_exercises;
-        $course->save();
 
         return $course;
     }

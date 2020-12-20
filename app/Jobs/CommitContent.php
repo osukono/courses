@@ -86,6 +86,8 @@ class CommitContent implements ShouldQueue
 
         $course = CourseRepository::findOrCreate($this->content, $this->translation);
 
+        $course->player_version = $this->content->player_version;
+        $course->review_exercises = $this->content->review_exercises;
         $course->minor_version += 1;
         $course->committed_at = Carbon::now();
         $course->save();
