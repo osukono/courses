@@ -1,8 +1,26 @@
 <div id="apps" class="container-fluid pt-4 mb-5">
     <div class="row">
-        <div class="d-none text-right pr-4 d-lg-table-cell col-lg-5">
-            <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen')) }}"
-                 class="w-50 border rounded-lg shadow-sm" alt="Yummy Lingo's application">
+        <div class="d-none pr-4 d-lg-table-cell col-lg-5">
+            <div id="screens" class="carousel slide carousel-fade float-right border rounded-lg shadow-sm"
+                 data-ride="carousel" style="max-width: 278px">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen.library')) }}"
+                             style="max-height: 600px" class="rounded-lg"
+                             alt="Library">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen.course')) }}"
+                             style="max-height: 600px" class="rounded-lg"
+                             alt="Course">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen.player')) }}"
+                             style="max-height: 600px" class="rounded-lg"
+                             alt="Player">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-10 pr-0 offset-1 pr-lg-5 col-lg-7 offset-lg-0">
             <h2 class="text-primary">{{ __('web.index.section.app.header') }}</h2>
