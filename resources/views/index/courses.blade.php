@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row pt-5 pb-4">
         <div class="d-none d-lg-table-cell col-lg-5">
-            <img src="{{ URL::asset('/images/courses_en_' . LaravelLocalization::getCurrentLocale() . '.svg?v=7') }}" class="w-100">
+            <img src="{{ URL::asset('/images/courses_en_' . LaravelLocalization::getCurrentLocale() . '.svg?v=8') }}" class="w-100">
         </div>
         <div class="col-10 pr-0 offset-1 pr-lg-5 col-lg-7 offset-lg-0">
             <div class="row mb-4">
