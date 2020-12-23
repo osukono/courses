@@ -31,13 +31,12 @@ return [
         ],
         'section' => [
             'top' => [
-                'header' => "Learn languages with pleasure!",
-                'text' => "Yummy Lingo provides you with a new way of learning languages with audio courses.",
+                'header' => "English lessons in your pocket",
+                'text' => "Listen to the audio courses, memorize vocabulary and grammar, learn how to speak English.",
                 'button' => 'Learn more'
             ],
             'app' => [
-                'header' => 'Take your lessons wherever you go',
-                'text' => "Download the app and get access to the courses developed by the most experienced teachers we can offer.",
+                'header' => 'All courses in one app',
                 'screen' => [
                     'library' => 'app_library_en.PNG',
                     'course' => 'app_course_en.PNG',
