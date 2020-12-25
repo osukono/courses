@@ -14,7 +14,7 @@
         <hr>
     </div>
 
-    @include('index.apps')
+    @include('index.app')
 
     @if(!$courses->isEmpty())
         @include('index.promo')
