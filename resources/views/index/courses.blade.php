@@ -42,7 +42,7 @@
                                                 <tbody>
                                                 @foreach($chunk as $courseLesson)
                                                     <tr>
-                                                        <td>{{ $courseLesson->index . '. ' . $courseLesson->title }}</td>
+                                                        <td>{{ ($courseLesson->index < 10 ? '0' . $courseLesson->index : $courseLesson->index) . '. ' . $courseLesson->title }}</td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
