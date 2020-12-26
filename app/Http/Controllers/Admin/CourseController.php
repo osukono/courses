@@ -103,7 +103,7 @@ class CourseController extends Controller
     {
         try {
             if (!$course->is_updating)
-                throw new Exception($course . '. Is updating state is not set.');
+                throw new Exception($course . ' is in published mode.');
 
             FirebaseLanguageRepository::validateFirebaseID($course->language);
             FirebaseLanguageRepository::validateIcon($course->language);
