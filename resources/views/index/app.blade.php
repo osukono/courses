@@ -30,14 +30,13 @@
                 <a href="{{ __('web.index.section.app.links.android') }}" target="_blank">
                     <img src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
                          alt="{{ __('web.index.section.app.badges.google_play.alt') }}"
-                         width="148" height="44"
-                         class="mr-2"
+                         width="148" height="44" class="mr-2 mb-2"
                     >
                 </a>
                 <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank">
                     <img src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
                          alt="{{ __('web.index.section.app.badges.app_store.alt') }}"
-                         width="131.630477" height="44"
+                         width="131.630477" height="44" class="mr-2 mb-2"
                     >
                 </a>
             </div>

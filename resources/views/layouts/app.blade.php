@@ -73,23 +73,26 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <span>
+                                <span class="text-center">
                                     <a href="{{ __('web.index.section.app.links.android') }}" target="_blank">
-                                        <img src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
+                                        <img
+                                            src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
                                             alt="{{ __('web.index.section.app.badges.google_play.alt') }}"
-                                             width="148" height="44" class="mr-2"
-                                        ></a>
+                                            width="148" height="44" class="mx-1 mb-2">
+                                    </a>
                                     <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank">
-                                        <img src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
+                                        <img
+                                            src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
                                             alt="{{ __('web.index.section.app.badges.app_store.alt') }}"
-                                             width="131.630477" height="44"
-                                        ></a>
+                                            width="131.630477" height="44" class="mx-1 mb-2">
+                                    </a>
                                 </span>
                             </div>
                         </div>
                     </div>
                     <div class="col text-center pt-md-6 d-none d-lg-block">
-                        <img class="shadow-sm" src="{{ URL::asset('images/download.svg?v=2') }}" width="100" height="100"
+                        <img class="shadow-sm" src="{{ URL::asset('images/download.svg?v=2') }}" width="100"
+                             height="100"
                              alt="{{ __('web.footer.download') }}">
                     </div>
                 </div>
@@ -112,7 +115,7 @@
                                      title="{{ __('web.footer.social.instagram') }}" alt="Instagram"
                                      width="24" height="24"/>
                             </a>
-                            <a class="pl-1" target="_blank" href="https://t.me/yummy_lingo">
+                            <a class="pl-2" target="_blank" href="https://t.me/yummy_lingo">
                                 <img src="{{ URL::asset('images/telegram.svg') }}" data-toggle="tooltip"
                                      title="{{ __('web.footer.social.telegram') }}" alt="Telegram"
                                      width="24" height="24"/>
