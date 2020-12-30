@@ -22,8 +22,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-10 pr-0 offset-1 pr-lg-5 col-lg-7 offset-lg-0 card rounded-lg border-light" style="background-color: #fafafb">
-            <div class="card-body">
+        <div class="col-10 offset-1 col-lg-7 offset-lg-0 rounded-lg border-light py-4 px-lg-4 py-3"
+             style="background-color: #fafafb">
             <h2 class="text-primary">{{ __('web.index.section.app.header') }}</h2>
             <div class="mt-4">{!! __('web.index.section.app.description') !!}</div>
             <div class="mt-4 text-center text-md-left">
@@ -39,7 +39,6 @@
                          width="131.630477" height="44" class="mr-2 mb-2"
                     >
                 </a>
-            </div>
             </div>
         </div>
     </div>
