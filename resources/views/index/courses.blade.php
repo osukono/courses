@@ -21,7 +21,7 @@
                             </div>
                             <div class="col-12 order-4 col-md order-md-3 text-right">
                                 <a id="course-{{ $course->id }}-collapse"
-                                   class="font-weight-bold mr-5 text-nowrap align-middle small" data-toggle="collapse"
+                                   class="font-weight-bold mr-5 mr-md-0 text-nowrap align-middle small" data-toggle="collapse"
                                    href="#course-more-{{ $course->id }}" role="button" aria-expanded="false"
                                    aria-controls="course-more-{{ $course->id }}">
                                     {{ __('web.index.section.courses.more') }}
