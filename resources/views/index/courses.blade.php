@@ -14,7 +14,12 @@
                             <div class="col-12 col-md-7 order-1">
                                 <h4 class="text-dark">{{ $course->language->native . ' › ' . $course->title }}</h4>
                             </div>
-                            <div class="col-12 order-3 col-md order-md-2 text-right">
+                            <div class="col-12 d-flex d-md-none order-2 my-2">
+                                <div>
+                                <img width="100%" src="{{ $course->image }}" class="border rounded" alt="{{ $course->level }}">
+                                </div>
+                            </div>
+                            <div class="col-12 order-4 col-md order-md-3 text-right">
                                 <a id="course-{{ $course->id }}-collapse"
                                    class="font-weight-bold mr-5 text-nowrap align-middle small" data-toggle="collapse"
                                    href="#course-more-{{ $course->id }}" role="button" aria-expanded="false"
