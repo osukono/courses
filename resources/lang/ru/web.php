@@ -9,7 +9,7 @@ return [
         'privacy' => "Конфиденциальность",
         'contact_us' => "Свяжитесь с нами",
         'social' => [
-            'title' => 'Подпишитесь на нас в',
+            'title' => 'Подпишитесь на нас',
             'instagram' => 'Следите за нами в Instagram',
             'telegram' => 'Следите за новостями на Telegram'
         ],
