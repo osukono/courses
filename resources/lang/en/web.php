@@ -62,8 +62,8 @@ return [
                 ]
             ],
             'promo' => [
-                'text' => "Start learning :course course for FREE",
-                'button' => "Get started"
+                'text' => "students learn English with Yummy Lingo",
+                'button' => "Join"
             ],
             'courses' => [
                 'header' => "Start from the level that is right for you",

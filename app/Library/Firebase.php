@@ -44,11 +44,11 @@ final class Firebase
      */
     public static function getInstance(): Firebase
     {
-        if (static::$instance === null) {
-            static::$instance = new static();
+        if (Firebase::$instance === null) {
+            Firebase::$instance = new Firebase();
         }
 
-        return static::$instance;
+        return Firebase::$instance;
     }
 
     /**
@@ -87,14 +87,14 @@ final class Firebase
      */
     public function remoteConfig(): RemoteConfig
     {
-        if (!isset(static::$remoteConfig)) {
-            static::$remoteConfig = (new Factory())
-                ->withServiceAccount(static::$serviceAccount)
+        if (!isset(Firebase::$remoteConfig)) {
+            Firebase::$remoteConfig = (new Factory())
+                ->withServiceAccount(Firebase::$serviceAccount)
                 ->withDatabaseUri(new Uri(env('FIREBASE_URI')))
                 ->createRemoteConfig();
         }
 
-        return static::$remoteConfig;
+        return Firebase::$remoteConfig;
     }
 
     /**
@@ -102,14 +102,14 @@ final class Firebase
      */
     public function firestoreClient(): FirestoreClient
     {
-        if (!isset(static::$firestoreClient)) {
-            static::$firestoreClient = (new Factory())
-                ->withServiceAccount(static::$serviceAccount)
+        if (!isset(Firebase::$firestoreClient)) {
+            Firebase::$firestoreClient = (new Factory())
+                ->withServiceAccount(Firebase::$serviceAccount)
                 ->withDatabaseUri(new Uri(env('FIREBASE_URI')))
                 ->createFirestore()->database();
         }
 
-        return static::$firestoreClient;
+        return Firebase::$firestoreClient;
     }
 
     /**
@@ -118,7 +118,7 @@ final class Firebase
      * @return string
      * @throws FileNotFoundException
      */
-    public function uploadFile(UploadedFile $file, $path)
+    public function uploadFile(UploadedFile $file, $path): string
     {
         $fileName = $path . '/' . \Illuminate\Support\Str::random(42) . '.' . $file->clientExtension();
         $accessToken = (string)\Illuminate\Support\Str::uuid();
@@ -157,15 +157,15 @@ final class Firebase
      */
     private function getBucket(): Bucket
     {
-        static::connectToStorage();
+        Firebase::connectToStorage();
         return self::$storageClient->bucket(env('FIREBASE_STORAGE_BUCKET'));
     }
 
     private function connectToStorage()
     {
-        if (!isset(static::$storageClient)) {
+        if (!isset(Firebase::$storageClient)) {
             self::$storageClient = (new Factory())
-                ->withServiceAccount(static::$serviceAccount)
+                ->withServiceAccount(Firebase::$serviceAccount)
                 ->createStorage()->getStorageClient();
         }
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Language;
 use App\Level;
+use App\Library\Firebase;
 use App\Repositories\CourseRepository;
 use App\Topic;
 use Illuminate\Http\Request;
@@ -19,6 +20,11 @@ class WebController extends Controller
             ->orderBy('level_id')
             ->select('courses.*')
             ->get();
+
+        $firebase = Firebase::getInstance()->firestoreClient();
+        $data["users_count"] = $firebase->collection(Firebase::statistics_collection)
+            ->document('users')
+            ->snapshot()->data()['count'];
 
         $data['seo']['title'] = __('web.index.seo.title');
         $data['seo']['description'] = __('web.index.seo.description');

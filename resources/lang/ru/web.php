@@ -59,7 +59,7 @@ return [
 
             ],
             'promo' => [
-                'text' => "Начните изучать :course БЕСПЛАТНО",
+                'text' => "студентов изучают английский с Yummy Lingo",
                 'button' => "Начать"
             ],
             'courses' => [
