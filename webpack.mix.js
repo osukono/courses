@@ -17,6 +17,7 @@ mix.js('resources/js/admin_3x0xof.js', 'public/js')
     .version();
 
 mix.js('resources/js/admin_vue_3x0xof.js', 'public/js')
+    .vue()
     // .sourceMaps(false)
     .version();
 
