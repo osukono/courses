@@ -1,4 +1,5 @@
-window.Vue = require('vue');
+// window.Vue = require('vue');
+import Vue from 'vue'
 
 /**
  * The following block of code may be used to automatically register your
@@ -14,48 +15,49 @@ window.Vue = require('vue');
 /**
  * Bootstrap
  */
-Vue.component('v-button-group', require('./components/bootstrap/VButtonGroup').default);
-Vue.component('v-button', require('./components/bootstrap/VButton').default);
-Vue.component('v-button-modal', require('./components/bootstrap/VButtonModal').default);
-Vue.component('v-dropdown', require('./components/bootstrap/VDropdown').default);
-Vue.component('v-dropdown-group', require('./components/bootstrap/VDropdownGroup').default);
-Vue.component('v-dropdown-item', require('./components/bootstrap/VDropdownItem').default);
-Vue.component('v-dropdown-modal', require('./components/bootstrap/VDropdownModal').default);
+import VButtonGroup from './components/bootstrap/VButtonGroup'
+import VButton from "./components/bootstrap/VButton";
+import VButtonModal from "./components/bootstrap/VButtonModal";
+import VDropdown from "./components/bootstrap/VDropdown";
+import VDropdownGroup from "./components/bootstrap/VDropdownGroup";
+import VDropdownItem from "./components/bootstrap/VDropdownItem";
+import VDropdownModal from "./components/bootstrap/VDropdownModal";
 
 /**
  * Player
  */
-Vue.component('course-player', require('./components/CoursePlayer.vue').default);
+import CoursePlayer from "./components/CoursePlayer";
 
 /**
  * Jobs
  */
-Vue.component('job-status', require('./components/JobStatus.vue').default);
+import JobStatus from "./components/JobStatus";
 
 /**
  * Icons
  */
-Vue.component('icon-plus', require('./components/icons/IconPlus').default);
-Vue.component('icon-edit', require('./components/icons/IconEdit').default);
-Vue.component('icon-delete', require('./components/icons/IconDelete').default);
-Vue.component('icon-trash-empty', require('./components/icons/IconTrashEmpty').default);
-Vue.component('icon-trash', require('./components/icons/IconTrash').default);
-Vue.component('icon-more-vertical', require('./components/icons/IconMoreVertical').default);
-Vue.component('icon-chevron-left', require('./components/icons/IconChevronLeft').default);
-Vue.component('icon-chevron-right', require('./components/icons/IconChevronRight').default);
-Vue.component('icon-download', require('./components/icons/IconDownload').default);
-Vue.component('icon-play', require('./components/icons/IconPlay').default);
-Vue.component('icon-upload', require('./components/icons/IconUpload').default);
-Vue.component('icon-volume', require('./components/icons/IconVolume').default);
-Vue.component('icon-refresh', require('./components/icons/IconRefresh').default);
-Vue.component('icon-archive', require('./components/icons/IconArchive').default);
-Vue.component('icon-users', require('./components/icons/IconUsers').default);
-Vue.component('icon-globe', require('./components/icons/IconGlobe').default);
-Vue.component('icon-activity', require('./components/icons/IconActivity').default);
-Vue.component('icon-book', require('./components/icons/IconBook').default);
-Vue.component('icon-book-open', require('./components/icons/IconBookOpen').default);
-Vue.component('icon-message-square', require('./components/icons/IconMessageSquare').default);
-Vue.component('icon-list', require('./components/icons/IconList').default);
+import IconPlus from "./components/icons/IconPlus";
+import IconEdit from "./components/icons/IconEdit";
+import IconDelete from "./components/icons/IconDelete";
+import IconTrashEmpty from "./components/icons/IconTrashEmpty";
+import IconTrash from "./components/icons/IconTrash";
+import IconMoreVertical from "./components/icons/IconMoreVertical";
+import IconChevronLeft from "./components/icons/IconChevronLeft";
+import IconChevronRight from "./components/icons/IconChevronRight";
+import IconDownload from "./components/icons/IconDownload";
+import IconPlay from "./components/icons/IconPlay";
+import IconUpload from "./components/icons/IconUpload";
+import IconVolume from "./components/icons/IconVolume";
+import IconRefresh from "./components/icons/IconRefresh";
+import IconArchive from "./components/icons/IconArchive";
+import IconUsers from "./components/icons/IconUsers";
+import IconGlobe from "./components/icons/IconGlobe";
+import IconActivity from "./components/icons/IconActivity";
+import IconBook from "./components/icons/IconBook";
+import IconBookOpen from "./components/icons/IconBookOpen";
+import IconMessageSquare from "./components/icons/IconMessageSquare";
+import IconList from "./components/icons/IconList";
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -70,5 +72,37 @@ new Vue({
         if (input) {
             input.focus()
         }
+    },
+    components: {
+        'v-button-group' : VButtonGroup,
+        'v-button': VButton,
+        'v-button-modal': VButtonModal,
+        'v-dropdown': VDropdown,
+        'v-dropdown-group': VDropdownGroup,
+        'v-dropdown-item': VDropdownItem,
+        'v-dropdown-modal': VDropdownModal,
+        'course-player': CoursePlayer,
+        'job-status': JobStatus,
+        'icon-plus': IconPlus,
+        'icon-edit': IconEdit,
+        'icon-delete': IconDelete,
+        'icon-trash-empty': IconTrashEmpty,
+        'icon-trash': IconTrash,
+        'icon-more-vertical': IconMoreVertical,
+        'icon-chevron-left': IconChevronLeft,
+        'icon-chevron-right': IconChevronRight,
+        'icon-download': IconDownload,
+        'icon-play': IconPlay,
+        'icon-upload': IconUpload,
+        'icon-volume': IconVolume,
+        'icon-refresh': IconRefresh,
+        'icon-archive': IconArchive,
+        'icon-users': IconUsers,
+        'icon-globe': IconGlobe,
+        'icon-activity': IconActivity,
+        'icon-book': IconBook,
+        'icon-book-open': IconBookOpen,
+        'icon-message-square': IconMessageSquare,
+        'icon-list': IconList
     }
 });

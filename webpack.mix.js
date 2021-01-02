@@ -26,7 +26,7 @@ mix.js('resources/js/app.js', 'public/js')
     // .sourceMaps(false)
     .version();
 
-mix.js('resources/js/vue.js', 'public/js')
-    .vue()
+// mix.js('resources/js/vue.js', 'public/js')
+//     .vue()
     // .sourceMaps(false)
-    .version();
+    // .version();
