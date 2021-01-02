@@ -47,7 +47,7 @@
                            href="{{ route('admin.content.index') }}"
                         >Console</a>
                     @endcan
-                    <a target="_blank" class="btn btn-lg btn-outline-primary rounded-pill"
+                    <a target="_blank" class="btn btn-lg btn-outline-primary rounded-pill text-uppercase"
                        href="{{ route('download') }}">{{ __('web.header.download') }}</a>
                 </ul>
             </div>

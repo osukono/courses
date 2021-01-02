@@ -62,7 +62,7 @@ return [
                 ]
             ],
             'promo' => [
-                'text' => "students learn English with Yummy Lingo",
+                'text' => ":number students already learn English with Yummy Lingo",
                 'button' => "Join"
             ],
             'courses' => [
