@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row justify-content-center mt-3">
+    <div class="row justify-content-center my-3">
         <div class="col-md-8">
             <div class="card shadow-sm">
                 <h3 class="card-title text-center mb-4 font-weight-normal">{{ __('Verify Your Email Address') }}</h3>

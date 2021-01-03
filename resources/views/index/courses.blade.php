@@ -59,7 +59,7 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col">
-                                <span class="">{!! nl2br(e($course->description)) !!}</span>
+                                <span>{!! nl2br(e($course->description)) !!}</span>
                             </div>
                         </div>
                         @if(! $loop->last)
