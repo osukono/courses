@@ -42,10 +42,10 @@ return [
                     'course' => 'app_course_en.PNG',
                     'player' => 'app_player_en.PNG',
                 ],
-                'description' => "<p>Download the app and get access to the courses developed by the most experienced teachers we can offer.</p>" .
-                    "<p>Chose a level of difficulty that is the most appropriate for you and listen to our lessons practicing particular aspects of grammar until you gain confidence.</p>" .
-                    "<p>Each lesson starts with the review part built from the previously learned material that helps you keep your knowledge fresh and always ready to serve your needs. Next you will listen to the new material where you can easily obtain grammar with numerous examples of its actual usage. And finally, you will have an opportunity to practice your speaking skills.</p>" .
-                    "<p>The application built as a player in mind. You can either follow the material you are listening to or just use it as an audio player learning new languages while driving, doing sports and more.</p>",
+                'description' => "<p>Download the app and get access to the audio courses developed by a team of experienced English teachers. Our teachers have international certificates that confirm their knowledge of English at the level of native speakers.</p>" .
+                    "<p>Each lesson covers a separate topic with basic grammatical constructions and vocabulary. Studying regularly with the app, you will gradually learn how to structure English sentences. Over time, these skills will develop to a point until you will no longer need to think before responding to a question or maintaining a conversation in English.</p>" .
+                    "<p>The application developed as an extended player with extra functions. You can either listen to the lessons while driving, committing by transport, doing your home chores, or follow subtitles displayed on your mobile phone.</p>" .
+                    "<p>We wish you a productive and successful learning experience with Yummy Lingo.</p>",
                 'links' => [
                     'android' => "https://play.google.com/store/apps/details?id=com.yummylingo.app",
                     'ios' => "https://itunes.apple.com/app/apple-store/id1503356144"
