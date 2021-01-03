@@ -38,9 +38,9 @@ return [
             'app' => [
                 'header' => 'All courses in one app',
                 'screen' => [
-                    'library' => 'app_library_277_600_en.PNG',
-                    'course' => 'app_course_277_600_en.PNG',
-                    'player' => 'app_player_277_600_en.PNG',
+                    'library' => 'app_library_277_600_en.png',
+                    'course' => 'app_course_277_600_en.png',
+                    'player' => 'app_player_277_600_en.png',
                 ],
                 'description' => "<p>Download the app and get access to the audio courses developed by a team of experienced English teachers. Our teachers have international certificates that confirm their knowledge of English at the level of native speakers.</p>" .
                     "<p>Each lesson covers a separate topic with basic grammatical constructions and vocabulary. Studying regularly with the app, you will gradually learn how to structure English sentences. Over time, these skills will develop to a point until you will no longer need to think before responding to a question or maintaining a conversation in English.</p>" .
