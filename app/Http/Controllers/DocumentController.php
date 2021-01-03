@@ -14,9 +14,4 @@ class DocumentController extends Controller
 
         return view('documents.privacy')->with($data);
     }
-
-    /*public function terms()
-    {
-        return view('documents.terms')->with($data);
-    }*/
 }

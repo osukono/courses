@@ -65,13 +65,13 @@ return [
                 'lessons' => "Теми, що вивчаються в курсі"
             ]
         ],
-        'privacy' => [
-            'seo' => [
-                'title' => "Yummy Lingo - Політика конфіденційності",
-                'keywords' => "Yummy Lingo, політика конфіденційності",
-                'description' => "Політика конфіденційності Yummy Lingo"
-            ]
-        ],
+    ],
+    'privacy' => [
+        'seo' => [
+            'title' => "Yummy Lingo - Політика конфіденційності",
+            'keywords' => "Yummy Lingo, політика конфіденційності",
+            'description' => "Політика конфіденційності Yummy Lingo"
+        ]
     ],
     'errors' => [
         '401' => [
