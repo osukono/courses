@@ -1,7 +1,7 @@
 <div style="background-color: #F9F8F8; top: -65px; margin-bottom: -65px;" class="position-relative">
-    <img src="{{ $header_img }}" class="w-100 position-relative d-md-block d-none"
+    <img src="{{ $header_img }}" class="w-100 position-relative d-md-block d-none" alt=""
          style="right: 0;">
-    <img src="{{ $header_img_sm }}" class="w-100 position-relative d-md-none"
+    <img src="{{ $header_img_sm }}" class="w-100 position-relative d-md-none" alt=""
          style="right: 0;">
     <div class="w-100 position-absolute align-self-center d-md-block d-none"
          style="top: 35%;">
