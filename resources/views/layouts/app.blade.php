@@ -47,7 +47,7 @@
                            href="{{ route('admin.content.index') }}"
                         >Console</a>
                     @endcan
-                    <a target="_blank" class="btn btn-lg btn-outline-primary rounded-pill"
+                    <a target="_blank" rel="noopener" class="btn btn-lg btn-outline-primary rounded-pill"
                        href="{{ route('download') }}">{{ __('web.header.download') }}</a>
                 </ul>
             </div>
@@ -74,13 +74,13 @@
                         <div class="row">
                             <div class="col">
                                 <span class="text-center">
-                                    <a href="{{ __('web.index.section.app.links.android') }}" target="_blank">
+                                    <a href="{{ __('web.index.section.app.links.android') }}" target="_blank" rel="noopener">
                                         <img
                                             src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
                                             alt="{{ __('web.index.section.app.badges.google_play.alt') }}"
                                             width="148" height="44" class="mx-1 mb-2">
                                     </a>
-                                    <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank">
+                                    <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank" rel="noopener">
                                         <img
                                             src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
                                             alt="{{ __('web.index.section.app.badges.app_store.alt') }}"
@@ -110,7 +110,7 @@
                     <div class="col">
                         <h6 class="text-white mb-3">{{ __('web.footer.social.title') }}</h6>
                         <div>
-                            <a target="_blank" href="https://www.instagram.com/yummy_lingo/">
+                            <a target="_blank" rel="noopener" href="https://www.instagram.com/yummy_lingo/">
                                 <img src="{{ URL::asset('images/instagram.svg') }}" data-toggle="tooltip"
                                      title="{{ __('web.footer.social.instagram') }}" alt="Instagram"
                                      width="24" height="24"/>
