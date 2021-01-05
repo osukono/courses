@@ -66,7 +66,7 @@ return [
                 'button' => "Join"
             ],
             'courses' => [
-                'header' => "Start from the level that is right for you",
+                'header' => "Start from level that is right for you",
                 'more' => "More",
                 'less' => 'Less',
                 'demo' => "Demo",

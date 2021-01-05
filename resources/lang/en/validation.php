@@ -133,6 +133,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'locale.*' => [
+            'max' => 'The maximum length of localization message is :max.'
+        ]
     ],
 
     /*

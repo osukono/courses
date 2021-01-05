@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LocaleGroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LocaleGroupController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -330,7 +332,7 @@
       <workItem from="1608646825757" duration="13775000" />
       <workItem from="1609351248550" duration="1140000" />
       <workItem from="1609431274495" duration="1983000" />
-      <workItem from="1609495457530" duration="15559000" />
+      <workItem from="1609495457530" duration="16822000" />
     </task>
     <servers />
   </component>

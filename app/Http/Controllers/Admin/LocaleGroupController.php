@@ -42,7 +42,7 @@ class LocaleGroupController extends Controller
      * @param LocaleGroupCreateRequest $request
      * @return RedirectResponse
      */
-    public function store(LocaleGroupCreateRequest $request)
+    public function store(LocaleGroupCreateRequest $request): RedirectResponse
     {
         $localeGroup = LocaleGroupRepository::create($request->all());
 
@@ -62,7 +62,12 @@ class LocaleGroupController extends Controller
     }
 
 
-    public function update(LocaleGroupUpdateRequest $request, LocaleGroup $localeGroup)
+    /**
+     * @param LocaleGroupUpdateRequest $request
+     * @param LocaleGroup $localeGroup
+     * @return RedirectResponse
+     */
+    public function update(LocaleGroupUpdateRequest $request, LocaleGroup $localeGroup): RedirectResponse
     {
         $localeGroup->repository()->update($request->all());
 
