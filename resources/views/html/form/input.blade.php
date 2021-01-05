@@ -13,7 +13,7 @@
     @endisset
     @error($name)
     <div class="invalid-feedback">
-        {{ $errors->first($name) }}
+        {{ $errors->first(Str::of($name)->replace('[', '.')->replace(']', '')->__toString()) }}
     </div>
     @enderror
 </div>
