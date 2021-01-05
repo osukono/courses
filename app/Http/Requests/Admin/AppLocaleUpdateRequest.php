@@ -55,7 +55,7 @@ class AppLocaleUpdateRequest extends FormRequest
                 'bail',
                 'nullable',
                 'string',
-                'max:200'
+                'max:500'
             ]
         ];
     }
