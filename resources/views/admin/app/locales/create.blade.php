@@ -14,7 +14,7 @@
                 @input(['name' => 'description', 'label' => 'Description'])
                 @select(['name' => 'locale_group_id', 'label' => 'Group', 'options' => $localeGroups])
                 @foreach($languages as $language)
-                    @input(['name' => 'locale[' . $language->locale . ']', 'label' => $language->native])
+                    @input(['name' => 'locale.' . $language->locale . '', 'label' => $language->native])
                 @endforeach
 
                 @submit(['text' => 'Create'])
