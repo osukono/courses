@@ -26,7 +26,7 @@ class TopicController extends Controller
     /**
      * @return Factory|View
      */
-    public function index()
+    public function index(): Factory|View
     {
         $data['topics'] = TopicRepository::all()->ordered()->get();
 
@@ -63,7 +63,7 @@ class TopicController extends Controller
      * @param Topic $topic
      * @return Factory|View
      */
-    public function edit(Topic $topic)
+    public function edit(Topic $topic): Factory|View
     {
         $data['topic'] = $topic;
 

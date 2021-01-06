@@ -26,7 +26,7 @@ class SpeechSettingsController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function editContentSettings(Content $content)
+    public function editContentSettings(Content $content): Factory|View
     {
         $this->authorize('access', $content);
 
@@ -57,7 +57,7 @@ class SpeechSettingsController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function editTranslationSettings(Language $language, Content $content)
+    public function editTranslationSettings(Language $language, Content $content): Factory|View
     {
         $this->authorize('access', $content);
         $this->authorize('access', $language);

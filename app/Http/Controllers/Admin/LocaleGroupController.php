@@ -23,7 +23,7 @@ class LocaleGroupController extends Controller
     /**
      * @return Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(): Factory|\Illuminate\View\View
     {
         $data['localeGroups'] = LocaleGroupRepository::all()->ordered()->get();
 
@@ -33,7 +33,7 @@ class LocaleGroupController extends Controller
     /**
      * @return Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create(): Factory|\Illuminate\View\View
     {
         return view('admin.app.locales.groups.create');
     }
@@ -54,7 +54,7 @@ class LocaleGroupController extends Controller
      * @param LocaleGroup $localeGroup
      * @return Factory|\Illuminate\View\View
      */
-    public function edit(LocaleGroup $localeGroup)
+    public function edit(LocaleGroup $localeGroup): Factory|\Illuminate\View\View
     {
         $data['localeGroup'] = $localeGroup;
 

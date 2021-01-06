@@ -26,7 +26,7 @@ class PlayerSettingsController extends Controller
      * @param Language $language
      * @return Factory|RedirectResponse|View
      */
-    public function create(Language $language)
+    public function create(Language $language): Factory|View|RedirectResponse
     {
         if ($language->playerSettings !== null)
             return redirect()->route('admin.languages.index');
@@ -66,7 +66,7 @@ class PlayerSettingsController extends Controller
      * @param Language $language
      * @return Factory|View
      */
-    public function edit(Language $language)
+    public function edit(Language $language): Factory|View
     {
         $data['language'] = $language;
 

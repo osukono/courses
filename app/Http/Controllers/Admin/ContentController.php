@@ -39,7 +39,7 @@ class ContentController extends Controller
     /**
      * @return Factory|View
      */
-    public function index()
+    public function index(): Factory|View
     {
         $data['contents'] = ContentRepository::all()
             ->with(['language', 'level', 'topic'])
@@ -53,7 +53,7 @@ class ContentController extends Controller
     /**
      * @return Factory|View
      */
-    public function create()
+    public function create(): Factory|View
     {
         $data['languages'] = LanguageRepository::all()->ordered()->get();
         $data['levels'] = LevelRepository::all()->ordered()->get();
@@ -80,7 +80,7 @@ class ContentController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function show(Content $content)
+    public function show(Content $content): Factory|View
     {
         $this->authorize('access', $content);
 
@@ -102,7 +102,7 @@ class ContentController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function edit(Content $content)
+    public function edit(Content $content): Factory|View
     {
         $this->authorize('access', $content);
 
@@ -169,7 +169,7 @@ class ContentController extends Controller
     /**
      * @return Factory|View
      */
-    public function trash()
+    public function trash(): Factory|View
     {
         $data['contents'] = ContentRepository::trashed()
             ->hasAccess(Auth::user())
@@ -185,7 +185,7 @@ class ContentController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function editors(Content $content)
+    public function editors(Content $content): Factory|View
     {
         $this->authorize('access', $content);
 
@@ -236,7 +236,7 @@ class ContentController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function log(Content $content)
+    public function log(Content $content): Factory|View
     {
         $this->authorize('access', $content);
 
@@ -251,7 +251,7 @@ class ContentController extends Controller
      * @return ResponseFactory|Response
      * @throws AuthorizationException
      */
-    public function exportText(Content $content)
+    public function exportText(Content $content): Response|ResponseFactory
     {
         $this->authorize('access', $content);
 
@@ -265,7 +265,7 @@ class ContentController extends Controller
      * @return ResponseFactory|Response
      * @throws AuthorizationException
      */
-    public function exportJson(Content $content)
+    public function exportJson(Content $content): Response|ResponseFactory
     {
         $this->authorize('access', $content);
 

@@ -15,6 +15,7 @@ use App\Repositories\FirebaseLanguageRepository;
 use App\Repositories\FirebaseTopicRepository;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ class CourseController extends Controller
     /**
      * @return Factory|View
      */
-    public function index()
+    public function index(): Factory|View
     {
         $data['courses'] = CourseRepository::all()
             ->with([
@@ -49,7 +50,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return Factory|View
      */
-    public function show(Course $course)
+    public function show(Course $course): Factory|View
     {
         $data['course'] = $course;
         $data['lessons'] = $course->courseLessons;
@@ -61,7 +62,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return Factory|View
      */
-    public function edit(Course $course)
+    public function edit(Course $course): Factory|View
     {
         $data['course'] = $course;
 
@@ -164,7 +165,12 @@ class CourseController extends Controller
             throw new Exception($course . "Review exercises is not set.");
     }
 
-    public function practice(Course $course, CourseLesson $courseLesson)
+    /**
+     * @param Course $course
+     * @param CourseLesson $courseLesson
+     * @return Application|Factory|\Illuminate\Contracts\View\View
+     */
+    public function practice(Course $course, CourseLesson $courseLesson): Factory|\Illuminate\Contracts\View\View|Application
     {
         $data['course'] = $course;
         $data['courseLesson'] = $courseLesson;

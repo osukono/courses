@@ -33,7 +33,7 @@ class ExerciseController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function show(Request $request, Exercise $exercise)
+    public function show(Request $request, Exercise $exercise): Factory|View
     {
         $exercise->load([
             'lesson',
@@ -172,7 +172,7 @@ class ExerciseController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function trash(Lesson $lesson)
+    public function trash(Lesson $lesson): Factory|View
     {
         $this->authorize('access', $lesson->content);
 
@@ -191,7 +191,7 @@ class ExerciseController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function log(Exercise $exercise)
+    public function log(Exercise $exercise): Factory|View
     {
         $this->authorize('access', $exercise->lesson->content);
 

@@ -34,7 +34,7 @@ class LessonController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function show(Lesson $lesson)
+    public function show(Lesson $lesson): Factory|View
     {
         $lesson->load([
             'content',
@@ -69,7 +69,7 @@ class LessonController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function create(Content $content)
+    public function create(Content $content): Factory|View
     {
         $this->authorize('access', $content);
 
@@ -98,7 +98,7 @@ class LessonController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function edit(Lesson $lesson)
+    public function edit(Lesson $lesson): Factory|View
     {
         $this->authorize('access', $lesson->content);
 
@@ -218,7 +218,7 @@ class LessonController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function trash(Content $content)
+    public function trash(Content $content): Factory|View
     {
         $this->authorize('access', $content);
 
@@ -237,7 +237,7 @@ class LessonController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function log(Lesson $lesson)
+    public function log(Lesson $lesson): Factory|View
     {
         $this->authorize('access', $lesson->content);
 

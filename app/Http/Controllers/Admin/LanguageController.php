@@ -29,7 +29,7 @@ class LanguageController extends Controller
     /**
      * @return Factory|View
      */
-    public function index()
+    public function index(): Factory|View
     {
         $data['languages'] = LanguageRepository::all()
             ->with('playerSettings')
@@ -41,7 +41,7 @@ class LanguageController extends Controller
     /**
      * @return Factory|View
      */
-    public function create()
+    public function create(): Factory|View
     {
         return view('admin.languages.create');
     }
@@ -69,7 +69,7 @@ class LanguageController extends Controller
      * @param Language $language
      * @return Factory|View
      */
-    public function edit(Language $language)
+    public function edit(Language $language): Factory|View
     {
         $data['language'] = $language;
 

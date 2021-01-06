@@ -147,7 +147,7 @@ class ExerciseDataController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function trash(Exercise $exercise)
+    public function trash(Exercise $exercise): Factory|View
     {
         $this->authorize('access', $exercise->lesson->content);
 

@@ -22,7 +22,7 @@ class ProfileController extends Controller
     /**
      * @return Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(): Factory|\Illuminate\View\View
     {
         return view('admin.profile.index')
             ->with(['user' => Auth::getUser()]);

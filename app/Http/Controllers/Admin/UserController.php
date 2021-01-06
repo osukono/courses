@@ -36,7 +36,7 @@ class UserController extends Controller
     /**
      * @return Factory|View
      */
-    public function index()
+    public function index(): Factory|View
     {
         $data['users'] = UserRepository::all()
             ->with([
@@ -52,7 +52,7 @@ class UserController extends Controller
     /**
      * @return Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create(): Factory|\Illuminate\View\View
     {
         return view('admin.users.create');
     }
@@ -76,7 +76,7 @@ class UserController extends Controller
      * @param User $user
      * @return Factory|View
      */
-    public function show(User $user)
+    public function show(User $user): Factory|View
     {
         $data['user'] = $user;
 

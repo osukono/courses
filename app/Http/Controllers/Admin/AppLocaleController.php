@@ -28,7 +28,7 @@ class AppLocaleController extends Controller
     /**
      * @return Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(): Factory|\Illuminate\View\View
     {
         $data['appLocales'] = AppLocaleRepository::all()->with('localeGroup')
             ->ordered()->get();
@@ -39,7 +39,7 @@ class AppLocaleController extends Controller
     /**
      * @return Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create(): Factory|\Illuminate\View\View
     {
         $data['localeGroups'] = LocaleGroupRepository::all()->ordered()->get();
         $data['languages'] = LanguageRepository::all()->ordered()->get();
@@ -63,7 +63,7 @@ class AppLocaleController extends Controller
      * @param AppLocale $appLocale
      * @return Factory|\Illuminate\View\View
      */
-    public function edit(AppLocale $appLocale)
+    public function edit(AppLocale $appLocale): Factory|\Illuminate\View\View
     {
         $data['appLocale'] = $appLocale;
         $data['localeGroups'] = LocaleGroupRepository::all()->ordered()->get();

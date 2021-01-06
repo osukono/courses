@@ -41,7 +41,7 @@ class TranslationController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function showContent(Language $language, Content $content)
+    public function showContent(Language $language, Content $content): Factory|View
     {
         $this->authorize('access', $content);
         $this->authorize('access', $language);
@@ -67,7 +67,7 @@ class TranslationController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function showLesson(Language $language, Lesson $lesson)
+    public function showLesson(Language $language, Lesson $lesson): Factory|View
     {
         $lesson->load([
             'content',
@@ -143,7 +143,7 @@ class TranslationController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function showExercise(Request $request, Language $language, Exercise $exercise)
+    public function showExercise(Request $request, Language $language, Exercise $exercise): Factory|View
     {
         $exercise->load([
             'lesson',
@@ -277,7 +277,7 @@ class TranslationController extends Controller
      * @return ResponseFactory|Response
      * @throws AuthorizationException
      */
-    public function export(Request $request, Language $language, Content $content)
+    public function export(Request $request, Language $language, Content $content): Response|ResponseFactory
     {
         $this->authorize('access', $content);
         $this->authorize('access', $language);
@@ -293,7 +293,7 @@ class TranslationController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function editors(Language $language, Content $content)
+    public function editors(Language $language, Content $content): Factory|View
     {
         $this->authorize('access', $content);
 
