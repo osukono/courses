@@ -26,7 +26,7 @@ class TopicController extends Controller
     /**
      * @return Factory|View
      */
-    public function index(): Factory|View
+    public function index()
     {
         $data['topics'] = TopicRepository::all()->ordered()->get();
 
@@ -46,7 +46,7 @@ class TopicController extends Controller
      * @return RedirectResponse
      * @throws RemoteConfigException
      */
-    public function store(TopicCreateRequest $request): RedirectResponse
+    public function store(TopicCreateRequest $request)
     {
         try {
             $topic = TopicRepository::create($request->all());
@@ -63,7 +63,7 @@ class TopicController extends Controller
      * @param Topic $topic
      * @return Factory|View
      */
-    public function edit(Topic $topic): Factory|View
+    public function edit(Topic $topic)
     {
         $data['topic'] = $topic;
 
@@ -76,7 +76,7 @@ class TopicController extends Controller
      * @return RedirectResponse
      * @throws RemoteConfigException
      */
-    public function update(TopicUpdateRequest $request, Topic $topic): RedirectResponse
+    public function update(TopicUpdateRequest $request, Topic $topic)
     {
         try {
             $topic->repository()->update($request->all());
@@ -93,7 +93,7 @@ class TopicController extends Controller
      * @param Topic $topic
      * @return RedirectResponse
      */
-    public function sync(Topic $topic): RedirectResponse
+    public function sync(Topic $topic)
     {
         try {
             FirebaseTopicRepository::createOrUpdate($topic);

@@ -26,7 +26,7 @@ class SpeechSettingsController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function editContentSettings(Content $content): Factory|View
+    public function editContentSettings(Content $content)
     {
         $this->authorize('access', $content);
 
@@ -42,7 +42,7 @@ class SpeechSettingsController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function updateContentSettings(SpeechSettingsUpdateRequest $request, Content $content): RedirectResponse
+    public function updateContentSettings(SpeechSettingsUpdateRequest $request, Content $content)
     {
         $this->authorize('access', $content);
 
@@ -57,7 +57,7 @@ class SpeechSettingsController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function editTranslationSettings(Language $language, Content $content): Factory|View
+    public function editTranslationSettings(Language $language, Content $content)
     {
         $this->authorize('access', $content);
         $this->authorize('access', $language);
@@ -76,7 +76,7 @@ class SpeechSettingsController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function updateTranslationSettings(SpeechSettingsUpdateRequest $request, Language $language, Content $content): RedirectResponse
+    public function updateTranslationSettings(SpeechSettingsUpdateRequest $request, Language $language, Content $content)
     {
         $this->authorize('access', $content);
         $this->authorize('access', $language);

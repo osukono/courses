@@ -28,7 +28,7 @@ class AppLocaleController extends Controller
     /**
      * @return Factory|\Illuminate\View\View
      */
-    public function index(): Factory|\Illuminate\View\View
+    public function index()
     {
         $data['appLocales'] = AppLocaleRepository::all()->with('localeGroup')
             ->ordered()->get();
@@ -39,7 +39,7 @@ class AppLocaleController extends Controller
     /**
      * @return Factory|\Illuminate\View\View
      */
-    public function create(): Factory|\Illuminate\View\View
+    public function create()
     {
         $data['localeGroups'] = LocaleGroupRepository::all()->ordered()->get();
         $data['languages'] = LanguageRepository::all()->ordered()->get();
@@ -51,7 +51,7 @@ class AppLocaleController extends Controller
      * @param AppLocaleCreateRequest $request
      * @return RedirectResponse
      */
-    public function store(AppLocaleCreateRequest $request): RedirectResponse
+    public function store(AppLocaleCreateRequest $request)
     {
         $appLocale = AppLocaleRepository::create($request->all());
 
@@ -63,7 +63,7 @@ class AppLocaleController extends Controller
      * @param AppLocale $appLocale
      * @return Factory|\Illuminate\View\View
      */
-    public function edit(AppLocale $appLocale): Factory|\Illuminate\View\View
+    public function edit(AppLocale $appLocale)
     {
         $data['appLocale'] = $appLocale;
         $data['localeGroups'] = LocaleGroupRepository::all()->ordered()->get();
@@ -77,7 +77,7 @@ class AppLocaleController extends Controller
      * @param AppLocale $appLocale
      * @return RedirectResponse
      */
-    public function update(AppLocaleUpdateRequest $request, AppLocale $appLocale): RedirectResponse
+    public function update(AppLocaleUpdateRequest $request, AppLocale $appLocale)
     {
         $appLocale->repository()->update($request->all());
 
@@ -89,7 +89,7 @@ class AppLocaleController extends Controller
      * @return RedirectResponse
      * @throws Exception
      */
-    public function delete(AppLocale $appLocale): RedirectResponse
+    public function delete(AppLocale $appLocale)
     {
         $appLocale->delete();
 
@@ -100,7 +100,7 @@ class AppLocaleController extends Controller
     /**
      * @return RedirectResponse
      */
-    public function download(): RedirectResponse
+    public function download()
     {
         $this->dispatchJob(new LoadLocales(), route('admin.app.locales.index'));
 
@@ -110,7 +110,7 @@ class AppLocaleController extends Controller
     /**
      * @return RedirectResponse
      */
-    public function upload(): RedirectResponse
+    public function upload()
     {
         $this->dispatchJob(new UploadLocales(), route('admin.app.locales.index'));
 

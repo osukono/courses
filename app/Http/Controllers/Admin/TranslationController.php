@@ -41,7 +41,7 @@ class TranslationController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function showContent(Language $language, Content $content): Factory|View
+    public function showContent(Language $language, Content $content)
     {
         $this->authorize('access', $content);
         $this->authorize('access', $language);
@@ -67,7 +67,7 @@ class TranslationController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function showLesson(Language $language, Lesson $lesson): Factory|View
+    public function showLesson(Language $language, Lesson $lesson)
     {
         $lesson->load([
             'content',
@@ -110,7 +110,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function disableLesson(Language $language, Lesson $lesson): RedirectResponse
+    public function disableLesson(Language $language, Lesson $lesson)
     {
         $this->authorize('access', $lesson->content);
         $this->authorize('access', $language);
@@ -126,7 +126,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function enableLesson(Language $language, Lesson $lesson): RedirectResponse
+    public function enableLesson(Language $language, Lesson $lesson)
     {
         $this->authorize('access', $lesson->content);
         $this->authorize('access', $language);
@@ -143,7 +143,7 @@ class TranslationController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function showExercise(Request $request, Language $language, Exercise $exercise): Factory|View
+    public function showExercise(Request $request, Language $language, Exercise $exercise)
     {
         $exercise->load([
             'lesson',
@@ -192,7 +192,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function disableExercise(Language $language, Exercise $exercise): RedirectResponse
+    public function disableExercise(Language $language, Exercise $exercise)
     {
         $this->authorize('access', $exercise->lesson->content);
         $this->authorize('access', $language);
@@ -208,7 +208,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function enableExercise(Language $language, Exercise $exercise): RedirectResponse
+    public function enableExercise(Language $language, Exercise $exercise)
     {
         $this->authorize('access', $exercise->lesson->content);
         $this->authorize('access', $language);
@@ -224,7 +224,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function update(TranslationUpdateRequest $request, Translation $translation): RedirectResponse
+    public function update(TranslationUpdateRequest $request, Translation $translation)
     {
         $this->authorize('access', $translation->exerciseData->exercise->lesson->content);
         $this->authorize('access', $translation->language);
@@ -240,7 +240,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function deleteAudio(Translation $translation): RedirectResponse
+    public function deleteAudio(Translation $translation)
     {
         $this->authorize('access', $translation->exerciseData->exercise->lesson->content);
         $this->authorize('access', $translation->language);
@@ -256,7 +256,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function synthesizeAudio(Translation $translation): RedirectResponse
+    public function synthesizeAudio(Translation $translation)
     {
         $this->authorize('access', $translation->exerciseData->exercise->lesson->content);
         $this->authorize('access', $translation->language);
@@ -277,7 +277,7 @@ class TranslationController extends Controller
      * @return ResponseFactory|Response
      * @throws AuthorizationException
      */
-    public function export(Request $request, Language $language, Content $content): Response|ResponseFactory
+    public function export(Request $request, Language $language, Content $content)
     {
         $this->authorize('access', $content);
         $this->authorize('access', $language);
@@ -293,7 +293,7 @@ class TranslationController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function editors(Language $language, Content $content): Factory|View
+    public function editors(Language $language, Content $content)
     {
         $this->authorize('access', $content);
 
@@ -312,7 +312,7 @@ class TranslationController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function assignEditor(AssignEditorRequest $request, Language $language): RedirectResponse
+    public function assignEditor(AssignEditorRequest $request, Language $language)
     {
         $user = User::findOrFail($request->get('user_id'));
 
@@ -327,7 +327,7 @@ class TranslationController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function removeEditor(RemoveEditorRequest $request, Language $language): RedirectResponse
+    public function removeEditor(RemoveEditorRequest $request, Language $language)
     {
         $user = User::findOrFail($request->get('user_id'));
 
@@ -343,7 +343,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function commit(Language $language, Content $content): RedirectResponse
+    public function commit(Language $language, Content $content)
     {
         $this->authorize('access', $content);
         $this->authorize('access', $language);

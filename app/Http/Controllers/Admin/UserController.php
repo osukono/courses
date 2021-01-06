@@ -36,7 +36,7 @@ class UserController extends Controller
     /**
      * @return Factory|View
      */
-    public function index(): Factory|View
+    public function index()
     {
         $data['users'] = UserRepository::all()
             ->with([
@@ -52,7 +52,7 @@ class UserController extends Controller
     /**
      * @return Factory|\Illuminate\View\View
      */
-    public function create(): Factory|\Illuminate\View\View
+    public function create()
     {
         return view('admin.users.create');
     }
@@ -61,7 +61,7 @@ class UserController extends Controller
      * @param UserCreateRequest $request
      * @return RedirectResponse
      */
-    public function store(UserCreateRequest $request): RedirectResponse
+    public function store(UserCreateRequest $request)
     {
         $password = Str::random(8);
         $user = UserRepository::create($request->all(), $password);
@@ -76,7 +76,7 @@ class UserController extends Controller
      * @param User $user
      * @return Factory|View
      */
-    public function show(User $user): Factory|View
+    public function show(User $user)
     {
         $data['user'] = $user;
 
@@ -115,7 +115,7 @@ class UserController extends Controller
      * @param User $user
      * @return RedirectResponse
      */
-    public function assignRole(UserAssignRoleRequest $request, User $user): RedirectResponse
+    public function assignRole(UserAssignRoleRequest $request, User $user)
     {
         $role = RoleRepository::find($request->get('role_id'));
 
@@ -129,7 +129,7 @@ class UserController extends Controller
      * @param Role $role
      * @return RedirectResponse
      */
-    public function removeRole(User $user, Role $role): RedirectResponse
+    public function removeRole(User $user, Role $role)
     {
         $user->repository()->removeRole($role);
 
@@ -141,7 +141,7 @@ class UserController extends Controller
      * @param User $user
      * @return RedirectResponse
      */
-    public function assignContent(UserAssignContentRequest $request, User $user): RedirectResponse
+    public function assignContent(UserAssignContentRequest $request, User $user)
     {
         $content = ContentRepository::find($request->get('content_id'));
 
@@ -155,7 +155,7 @@ class UserController extends Controller
      * @param Content $content
      * @return RedirectResponse
      */
-    public function removeContent(User $user, Content $content): RedirectResponse
+    public function removeContent(User $user, Content $content)
     {
         $content->repository()->removeEditor($user);
 
@@ -167,7 +167,7 @@ class UserController extends Controller
      * @param User $user
      * @return RedirectResponse
      */
-    public function assignTranslation(UserAssignTranslationRequest $request, User $user): RedirectResponse
+    public function assignTranslation(UserAssignTranslationRequest $request, User $user)
     {
         $language = LanguageRepository::find($request->get('language_id'));
 
@@ -181,7 +181,7 @@ class UserController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function removeTranslation(User $user, Language $language): RedirectResponse
+    public function removeTranslation(User $user, Language $language)
     {
         $language->repository()->removeEditor($user);
 

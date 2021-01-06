@@ -22,7 +22,7 @@ class ProfileController extends Controller
     /**
      * @return Factory|\Illuminate\View\View
      */
-    public function index(): Factory|\Illuminate\View\View
+    public function index()
     {
         return view('admin.profile.index')
             ->with(['user' => Auth::getUser()]);
@@ -32,7 +32,7 @@ class ProfileController extends Controller
      * @param ProfileUpdateRequest $request
      * @return RedirectResponse
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(ProfileUpdateRequest $request)
     {
         Auth::getUser()->repository()->updateProfile($request->all());
 
@@ -43,7 +43,7 @@ class ProfileController extends Controller
      * @param PasswordUpdateRequest $request
      * @return RedirectResponse
      */
-    public function updatePassword(PasswordUpdateRequest $request): RedirectResponse
+    public function updatePassword(PasswordUpdateRequest $request)
     {
         Auth::getUser()->repository()->updatePassword($request->all());
 

@@ -33,7 +33,7 @@ class ExerciseController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function show(Request $request, Exercise $exercise): Factory|View
+    public function show(Request $request, Exercise $exercise)
     {
         $exercise->load([
             'lesson',
@@ -64,7 +64,7 @@ class ExerciseController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function store(Lesson $lesson): RedirectResponse
+    public function store(Lesson $lesson)
     {
         $this->authorize('access', $lesson->content);
 
@@ -92,7 +92,7 @@ class ExerciseController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function destroy(Exercise $exercise): RedirectResponse
+    public function destroy(Exercise $exercise)
     {
         $this->authorize('access', $exercise->lesson->content);
 
@@ -111,7 +111,7 @@ class ExerciseController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function restore(ExerciseRestoreRequest $request): RedirectResponse
+    public function restore(ExerciseRestoreRequest $request)
     {
         $exercise = Exercise::withTrashed()->find($request['id']);
 
@@ -132,7 +132,7 @@ class ExerciseController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function disable(Exercise $exercise): RedirectResponse
+    public function disable(Exercise $exercise)
     {
         $exercise->load([
             'lesson',
@@ -152,7 +152,7 @@ class ExerciseController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function enable(Exercise $exercise): RedirectResponse
+    public function enable(Exercise $exercise)
     {
         $exercise->load([
             'lesson',
@@ -172,7 +172,7 @@ class ExerciseController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function trash(Lesson $lesson): Factory|View
+    public function trash(Lesson $lesson)
     {
         $this->authorize('access', $lesson->content);
 
@@ -191,7 +191,7 @@ class ExerciseController extends Controller
      * @return Factory|View
      * @throws AuthorizationException
      */
-    public function log(Exercise $exercise): Factory|View
+    public function log(Exercise $exercise)
     {
         $this->authorize('access', $exercise->lesson->content);
 

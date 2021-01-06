@@ -29,7 +29,7 @@ class LanguageController extends Controller
     /**
      * @return Factory|View
      */
-    public function index(): Factory|View
+    public function index()
     {
         $data['languages'] = LanguageRepository::all()
             ->with('playerSettings')
@@ -41,7 +41,7 @@ class LanguageController extends Controller
     /**
      * @return Factory|View
      */
-    public function create(): Factory|View
+    public function create()
     {
         return view('admin.languages.create');
     }
@@ -50,7 +50,7 @@ class LanguageController extends Controller
      * @param LanguageCreateRequest $request
      * @return RedirectResponse
      */
-    public function store(LanguageCreateRequest $request): RedirectResponse
+    public function store(LanguageCreateRequest $request)
     {
         try {
             $language = LanguageRepository::create($request->all());
@@ -69,7 +69,7 @@ class LanguageController extends Controller
      * @param Language $language
      * @return Factory|View
      */
-    public function edit(Language $language): Factory|View
+    public function edit(Language $language)
     {
         $data['language'] = $language;
 
@@ -81,7 +81,7 @@ class LanguageController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function update(LanguageUpdateRequest $request, Language $language): RedirectResponse
+    public function update(LanguageUpdateRequest $request, Language $language)
     {
         try {
             $language->repository()->update($request->all());
@@ -102,7 +102,7 @@ class LanguageController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function uploadIcon(LanguageUploadIconRequest $request, Language $language): RedirectResponse
+    public function uploadIcon(LanguageUploadIconRequest $request, Language $language)
     {
         try {
             $language->repository()->uploadIcon($request);
@@ -123,7 +123,7 @@ class LanguageController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function sync(Language $language): RedirectResponse
+    public function sync(Language $language)
     {
         try {
             FirebaseLanguageRepository::createOrUpdate($language);

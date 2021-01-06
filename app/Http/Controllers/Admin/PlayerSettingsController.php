@@ -26,7 +26,7 @@ class PlayerSettingsController extends Controller
      * @param Language $language
      * @return Factory|RedirectResponse|View
      */
-    public function create(Language $language): Factory|View|RedirectResponse
+    public function create(Language $language)
     {
         if ($language->playerSettings !== null)
             return redirect()->route('admin.languages.index');
@@ -41,7 +41,7 @@ class PlayerSettingsController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function store(PlayerSettingsRequest $request, Language $language): RedirectResponse
+    public function store(PlayerSettingsRequest $request, Language $language)
     {
         if ($language->playerSettings !== null)
             return redirect()->route('admin.languages.index');
@@ -66,7 +66,7 @@ class PlayerSettingsController extends Controller
      * @param Language $language
      * @return Factory|View
      */
-    public function edit(Language $language): Factory|View
+    public function edit(Language $language)
     {
         $data['language'] = $language;
 
@@ -78,7 +78,7 @@ class PlayerSettingsController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function update(PlayerSettingsRequest $request, Language $language): RedirectResponse
+    public function update(PlayerSettingsRequest $request, Language $language)
     {
         try {
             $language->playerSettings->repository()->update($request->all());

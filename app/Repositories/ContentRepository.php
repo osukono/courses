@@ -25,7 +25,7 @@ class ContentRepository
      * @param int $id
      * @return Content
      */
-    public static function find($id): Content
+    public static function find($id)
     {
         return Content::findOrFail($id);
     }
@@ -33,7 +33,7 @@ class ContentRepository
     /**
      * @return Builder|Content
      */
-    public static function all(): Content|Builder
+    public static function all()
     {
         return Content::query();
     }
@@ -41,7 +41,7 @@ class ContentRepository
     /**
      * @return Builder|Content
      */
-    public static function trashed(): Content|Builder
+    public static function trashed()
     {
         return Content::onlyTrashed();
     }
@@ -50,7 +50,7 @@ class ContentRepository
      * @param array $attributes
      * @return Content
      */
-    public static function create(array $attributes): Content
+    public static function create(array $attributes)
     {
         $content = new Content();
         $content->language()->associate($attributes['language_id']);
@@ -119,7 +119,7 @@ class ContentRepository
      * @param bool $withTarget
      * @return string
      */
-    public function toPlainText(Language $language = null, bool $withTarget = true): string
+    public function toPlainText(Language $language = null, bool $withTarget = true)
     {
         $content = $this->toArray();
 
@@ -157,7 +157,7 @@ class ContentRepository
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         $this->model->loadMissing([
             'lessons' => function (HasMany $query) {
@@ -194,7 +194,7 @@ class ContentRepository
     /**
      * @return Content
      */
-    public function model(): Content
+    public function model()
     {
         return $this->model;
     }

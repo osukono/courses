@@ -33,7 +33,7 @@ class CourseController extends Controller
     /**
      * @return Factory|View
      */
-    public function index(): Factory|View
+    public function index()
     {
         $data['courses'] = CourseRepository::all()
             ->with([
@@ -50,7 +50,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return Factory|View
      */
-    public function show(Course $course): Factory|View
+    public function show(Course $course)
     {
         $data['course'] = $course;
         $data['lessons'] = $course->courseLessons;
@@ -62,7 +62,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return Factory|View
      */
-    public function edit(Course $course): Factory|View
+    public function edit(Course $course)
     {
         $data['course'] = $course;
 
@@ -74,7 +74,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return RedirectResponse
      */
-    public function update(CourseUpdateRequest $request, Course $course): RedirectResponse
+    public function update(CourseUpdateRequest $request, Course $course)
     {
         $course->repository()->update($request->all());
 
@@ -86,7 +86,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return RedirectResponse
      */
-    public function uploadImage(CourseUploadImageRequest $request, Course $course): RedirectResponse
+    public function uploadImage(CourseUploadImageRequest $request, Course $course)
     {
         try {
             $course->repository()->uploadImage($request);
@@ -100,7 +100,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return RedirectResponse
      */
-    public function firestoreUpload(Course $course): RedirectResponse
+    public function firestoreUpload(Course $course)
     {
         try {
             if (!$course->is_updating)
@@ -129,7 +129,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return RedirectResponse
      */
-    public function firestoreUpdate(Course $course): RedirectResponse
+    public function firestoreUpdate(Course $course)
     {
         try {
             FirebaseCourseRepository::validateFirestoreID($course);
@@ -170,7 +170,7 @@ class CourseController extends Controller
      * @param CourseLesson $courseLesson
      * @return Application|Factory|\Illuminate\Contracts\View\View
      */
-    public function practice(Course $course, CourseLesson $courseLesson): Factory|\Illuminate\Contracts\View\View|Application
+    public function practice(Course $course, CourseLesson $courseLesson)
     {
         $data['course'] = $course;
         $data['courseLesson'] = $courseLesson;
@@ -215,7 +215,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return RedirectResponse
      */
-    public function switchIsUpdating(Course $course): RedirectResponse
+    public function switchIsUpdating(Course $course)
     {
         try {
             $course->repository()->switchIsUpdating();
@@ -230,7 +230,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return RedirectResponse
      */
-    public function delete(Course $course): RedirectResponse
+    public function delete(Course $course)
     {
         try {
             $course->courseLessons()->delete();

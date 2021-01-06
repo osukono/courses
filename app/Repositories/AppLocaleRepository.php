@@ -19,7 +19,7 @@ class AppLocaleRepository
     /**
      * @return AppLocale|Builder
      */
-    public static function all(): AppLocale|Builder
+    public static function all()
     {
         return AppLocale::query();
     }
@@ -28,7 +28,7 @@ class AppLocaleRepository
      * @param array $attributes
      * @return AppLocale
      */
-    public static function create(array $attributes): AppLocale
+    public static function create(array $attributes)
     {
         $appLocale = new AppLocale();
         $appLocale->key = $attributes['key'];
@@ -59,7 +59,7 @@ class AppLocaleRepository
     /**
      * @return AppLocale
      */
-    public function model(): AppLocale
+    public function model()
     {
         return $this->model;
     }

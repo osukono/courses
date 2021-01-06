@@ -13,7 +13,7 @@ class JobController extends Controller
      * @param JobStatus $jobStatus
      * @return JsonResponse
      */
-    public function status(JobStatus $jobStatus): JsonResponse
+    public function status(JobStatus $jobStatus)
     {
         return response()->json([
             'displayName' => $jobStatus->type,

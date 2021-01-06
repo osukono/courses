@@ -15,7 +15,7 @@ class AdminController extends Controller
     /**
      * @return Factory|View
      */
-    public function dashboard(): Factory|View
+    public function dashboard()
     {
         $data['current'] = Sidebar::dashboard;
 

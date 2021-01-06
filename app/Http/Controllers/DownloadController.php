@@ -11,7 +11,7 @@ class DownloadController extends Controller
     /**
      * @return RedirectResponse
      */
-    public function index(): RedirectResponse
+    public function index()
     {
         if ($this->isAppleDevice())
             return redirect()->to(__('web.index.section.app.links.ios'));
