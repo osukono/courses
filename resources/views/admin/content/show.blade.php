@@ -120,7 +120,7 @@
     @if($lessons->count())
         <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title mb-4">{{ $content->language->native . ' ' . $content->level->name }}</h5>
+                <h5 class="card-title mb-4">{{ $content->language->native . ' › ' . $content->level->name }}</h5>
                 @include('admin.content.lessons.list')
             </div>
         </div>
