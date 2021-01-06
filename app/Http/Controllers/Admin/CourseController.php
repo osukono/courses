@@ -73,7 +73,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return RedirectResponse
      */
-    public function update(CourseUpdateRequest $request, Course $course)
+    public function update(CourseUpdateRequest $request, Course $course): RedirectResponse
     {
         $course->repository()->update($request->all());
 
@@ -85,7 +85,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return RedirectResponse
      */
-    public function uploadImage(CourseUploadImageRequest $request, Course $course)
+    public function uploadImage(CourseUploadImageRequest $request, Course $course): RedirectResponse
     {
         try {
             $course->repository()->uploadImage($request);
@@ -99,7 +99,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return RedirectResponse
      */
-    public function firestoreUpload(Course $course)
+    public function firestoreUpload(Course $course): RedirectResponse
     {
         try {
             if (!$course->is_updating)
@@ -128,7 +128,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return RedirectResponse
      */
-    public function firestoreUpdate(Course $course)
+    public function firestoreUpdate(Course $course): RedirectResponse
     {
         try {
             FirebaseCourseRepository::validateFirestoreID($course);
@@ -205,7 +205,11 @@ class CourseController extends Controller
         return view('admin.courses.practice')->with($data);
     }
 
-    public function switchIsUpdating(Course $course)
+    /**
+     * @param Course $course
+     * @return RedirectResponse
+     */
+    public function switchIsUpdating(Course $course): RedirectResponse
     {
         try {
             $course->repository()->switchIsUpdating();
@@ -220,7 +224,7 @@ class CourseController extends Controller
      * @param Course $course
      * @return RedirectResponse
      */
-    public function delete(Course $course)
+    public function delete(Course $course): RedirectResponse
     {
         try {
             $course->courseLessons()->delete();

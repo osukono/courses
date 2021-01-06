@@ -51,7 +51,7 @@ class AppLocaleController extends Controller
      * @param AppLocaleCreateRequest $request
      * @return RedirectResponse
      */
-    public function store(AppLocaleCreateRequest $request)
+    public function store(AppLocaleCreateRequest $request): RedirectResponse
     {
         $appLocale = AppLocaleRepository::create($request->all());
 
@@ -77,7 +77,7 @@ class AppLocaleController extends Controller
      * @param AppLocale $appLocale
      * @return RedirectResponse
      */
-    public function update(AppLocaleUpdateRequest $request, AppLocale $appLocale)
+    public function update(AppLocaleUpdateRequest $request, AppLocale $appLocale): RedirectResponse
     {
         $appLocale->repository()->update($request->all());
 
@@ -89,7 +89,7 @@ class AppLocaleController extends Controller
      * @return RedirectResponse
      * @throws Exception
      */
-    public function delete(AppLocale $appLocale)
+    public function delete(AppLocale $appLocale): RedirectResponse
     {
         $appLocale->delete();
 
@@ -100,7 +100,7 @@ class AppLocaleController extends Controller
     /**
      * @return RedirectResponse
      */
-    public function download()
+    public function download(): RedirectResponse
     {
         $this->dispatchJob(new LoadLocales(), route('admin.app.locales.index'));
 
@@ -110,7 +110,7 @@ class AppLocaleController extends Controller
     /**
      * @return RedirectResponse
      */
-    public function upload()
+    public function upload(): RedirectResponse
     {
         $this->dispatchJob(new UploadLocales(), route('admin.app.locales.index'));
 

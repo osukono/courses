@@ -46,7 +46,7 @@ class TopicController extends Controller
      * @return RedirectResponse
      * @throws RemoteConfigException
      */
-    public function store(TopicCreateRequest $request)
+    public function store(TopicCreateRequest $request): RedirectResponse
     {
         try {
             $topic = TopicRepository::create($request->all());
@@ -76,7 +76,7 @@ class TopicController extends Controller
      * @return RedirectResponse
      * @throws RemoteConfigException
      */
-    public function update(TopicUpdateRequest $request, Topic $topic)
+    public function update(TopicUpdateRequest $request, Topic $topic): RedirectResponse
     {
         try {
             $topic->repository()->update($request->all());
@@ -93,7 +93,7 @@ class TopicController extends Controller
      * @param Topic $topic
      * @return RedirectResponse
      */
-    public function sync(Topic $topic)
+    public function sync(Topic $topic): RedirectResponse
     {
         try {
             FirebaseTopicRepository::createOrUpdate($topic);

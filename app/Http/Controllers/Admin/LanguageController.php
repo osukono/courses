@@ -50,7 +50,7 @@ class LanguageController extends Controller
      * @param LanguageCreateRequest $request
      * @return RedirectResponse
      */
-    public function store(LanguageCreateRequest $request)
+    public function store(LanguageCreateRequest $request): RedirectResponse
     {
         try {
             $language = LanguageRepository::create($request->all());
@@ -81,7 +81,7 @@ class LanguageController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function update(LanguageUpdateRequest $request, Language $language)
+    public function update(LanguageUpdateRequest $request, Language $language): RedirectResponse
     {
         try {
             $language->repository()->update($request->all());
@@ -102,7 +102,7 @@ class LanguageController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function uploadIcon(LanguageUploadIconRequest $request, Language $language)
+    public function uploadIcon(LanguageUploadIconRequest $request, Language $language): RedirectResponse
     {
         try {
             $language->repository()->uploadIcon($request);
@@ -123,7 +123,7 @@ class LanguageController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function sync(Language $language)
+    public function sync(Language $language): RedirectResponse
     {
         try {
             FirebaseLanguageRepository::createOrUpdate($language);

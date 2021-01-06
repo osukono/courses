@@ -3,18 +3,12 @@
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function () {
 
     Route::get('/', 'WebController@index')->name('welcome');
-    Route::get('demo/{language}/{level}/{topic}', 'WebController@demo')->name('demo');
-//    Route::get('courses/{course}', 'CourseController@show')->name('courses.show');
-//    Route::get('courses/{course}/lesson-{number}', 'CourseController@showLesson')->name('courses.show.lesson');
-
-//    Route::get('seed', 'WebController@seed')->name('seed');
 
     Auth::routes();
 
     Route::get('download', 'DownloadController@index')->name('download');
 
     Route::get('privacy-policy', 'DocumentController@privacy')->name('privacy');
-//    Route::get('terms-of-service', 'DocumentController@terms')->name('terms');
 
     Route::middleware('auth')->group(function () {
 //        Route::get('/home', 'HomeController@index')->name('home');

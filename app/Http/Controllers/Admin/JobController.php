@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Imtigger\LaravelJobStatus\JobStatus;
 
 class JobController extends Controller
 {
-    public function status(JobStatus $jobStatus)
+    /**
+     * @param JobStatus $jobStatus
+     * @return JsonResponse
+     */
+    public function status(JobStatus $jobStatus): JsonResponse
     {
         return response()->json([
             'displayName' => $jobStatus->type,

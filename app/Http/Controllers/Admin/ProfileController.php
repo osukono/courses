@@ -32,7 +32,7 @@ class ProfileController extends Controller
      * @param ProfileUpdateRequest $request
      * @return RedirectResponse
      */
-    public function update(ProfileUpdateRequest $request)
+    public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         Auth::getUser()->repository()->updateProfile($request->all());
 
@@ -43,7 +43,7 @@ class ProfileController extends Controller
      * @param PasswordUpdateRequest $request
      * @return RedirectResponse
      */
-    public function updatePassword(PasswordUpdateRequest $request)
+    public function updatePassword(PasswordUpdateRequest $request): RedirectResponse
     {
         Auth::getUser()->repository()->updatePassword($request->all());
 

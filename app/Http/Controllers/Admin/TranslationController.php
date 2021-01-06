@@ -110,7 +110,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function disableLesson(Language $language, Lesson $lesson)
+    public function disableLesson(Language $language, Lesson $lesson): RedirectResponse
     {
         $this->authorize('access', $lesson->content);
         $this->authorize('access', $language);
@@ -126,7 +126,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function enableLesson(Language $language, Lesson $lesson)
+    public function enableLesson(Language $language, Lesson $lesson): RedirectResponse
     {
         $this->authorize('access', $lesson->content);
         $this->authorize('access', $language);
@@ -192,7 +192,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function disableExercise(Language $language, Exercise $exercise)
+    public function disableExercise(Language $language, Exercise $exercise): RedirectResponse
     {
         $this->authorize('access', $exercise->lesson->content);
         $this->authorize('access', $language);
@@ -208,7 +208,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function enableExercise(Language $language, Exercise $exercise)
+    public function enableExercise(Language $language, Exercise $exercise): RedirectResponse
     {
         $this->authorize('access', $exercise->lesson->content);
         $this->authorize('access', $language);
@@ -224,7 +224,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function update(TranslationUpdateRequest $request, Translation $translation)
+    public function update(TranslationUpdateRequest $request, Translation $translation): RedirectResponse
     {
         $this->authorize('access', $translation->exerciseData->exercise->lesson->content);
         $this->authorize('access', $translation->language);
@@ -240,7 +240,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function deleteAudio(Translation $translation)
+    public function deleteAudio(Translation $translation): RedirectResponse
     {
         $this->authorize('access', $translation->exerciseData->exercise->lesson->content);
         $this->authorize('access', $translation->language);
@@ -256,7 +256,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function synthesizeAudio(Translation $translation)
+    public function synthesizeAudio(Translation $translation): RedirectResponse
     {
         $this->authorize('access', $translation->exerciseData->exercise->lesson->content);
         $this->authorize('access', $translation->language);
@@ -312,7 +312,7 @@ class TranslationController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function assignEditor(AssignEditorRequest $request, Language $language)
+    public function assignEditor(AssignEditorRequest $request, Language $language): RedirectResponse
     {
         $user = User::findOrFail($request->get('user_id'));
 
@@ -327,7 +327,7 @@ class TranslationController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function removeEditor(RemoveEditorRequest $request, Language $language)
+    public function removeEditor(RemoveEditorRequest $request, Language $language): RedirectResponse
     {
         $user = User::findOrFail($request->get('user_id'));
 
@@ -343,7 +343,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function commit(Language $language, Content $content)
+    public function commit(Language $language, Content $content): RedirectResponse
     {
         $this->authorize('access', $content);
         $this->authorize('access', $language);

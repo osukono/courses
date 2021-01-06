@@ -66,7 +66,7 @@ class ContentController extends Controller
      * @param ContentCreateRequest $request
      * @return RedirectResponse
      */
-    public function store(ContentCreateRequest $request)
+    public function store(ContentCreateRequest $request): RedirectResponse
     {
         $content = ContentRepository::create($request->all());
         $content->repository()->assignEditor(Auth::getUser());
@@ -118,7 +118,7 @@ class ContentController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function update(ContentUpdateRequest $request, Content $content)
+    public function update(ContentUpdateRequest $request, Content $content): RedirectResponse
     {
         $this->authorize('access', $content);
 
@@ -132,7 +132,7 @@ class ContentController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function destroy(Content $content)
+    public function destroy(Content $content): RedirectResponse
     {
         $this->authorize('access', $content);
 
@@ -151,7 +151,7 @@ class ContentController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function restore(ContentRestoreRequest $request)
+    public function restore(ContentRestoreRequest $request): RedirectResponse
     {
         $content = Content::withTrashed()->find($request->get('id'));
         $this->authorize('access', $content);
@@ -203,7 +203,7 @@ class ContentController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function assignEditor(AssignEditorRequest $request, Content $content)
+    public function assignEditor(AssignEditorRequest $request, Content $content): RedirectResponse
     {
         $this->authorize('access', $content);
 
@@ -220,7 +220,7 @@ class ContentController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function removeEditor(RemoveEditorRequest $request, Content $content)
+    public function removeEditor(RemoveEditorRequest $request, Content $content): RedirectResponse
     {
         $this->authorize('access', $content);
 
@@ -282,7 +282,7 @@ class ContentController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function importJson(Request $request, Content $content)
+    public function importJson(Request $request, Content $content): RedirectResponse
     {
         $this->authorize('access', $content);
 

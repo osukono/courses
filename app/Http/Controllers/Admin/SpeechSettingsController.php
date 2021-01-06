@@ -42,7 +42,7 @@ class SpeechSettingsController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function updateContentSettings(SpeechSettingsUpdateRequest $request, Content $content)
+    public function updateContentSettings(SpeechSettingsUpdateRequest $request, Content $content): RedirectResponse
     {
         $this->authorize('access', $content);
 
@@ -76,7 +76,7 @@ class SpeechSettingsController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function updateTranslationSettings(SpeechSettingsUpdateRequest $request, Language $language, Content $content)
+    public function updateTranslationSettings(SpeechSettingsUpdateRequest $request, Language $language, Content $content): RedirectResponse
     {
         $this->authorize('access', $content);
         $this->authorize('access', $language);

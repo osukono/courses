@@ -64,7 +64,7 @@ class ExerciseController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function store(Lesson $lesson)
+    public function store(Lesson $lesson): RedirectResponse
     {
         $this->authorize('access', $lesson->content);
 
@@ -92,7 +92,7 @@ class ExerciseController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function destroy(Exercise $exercise)
+    public function destroy(Exercise $exercise): RedirectResponse
     {
         $this->authorize('access', $exercise->lesson->content);
 
@@ -111,7 +111,7 @@ class ExerciseController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function restore(ExerciseRestoreRequest $request)
+    public function restore(ExerciseRestoreRequest $request): RedirectResponse
     {
         $exercise = Exercise::withTrashed()->find($request['id']);
 
@@ -132,7 +132,7 @@ class ExerciseController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function disable(Exercise $exercise)
+    public function disable(Exercise $exercise): RedirectResponse
     {
         $exercise->load([
             'lesson',
@@ -152,7 +152,7 @@ class ExerciseController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function enable(Exercise $exercise)
+    public function enable(Exercise $exercise): RedirectResponse
     {
         $exercise->load([
             'lesson',

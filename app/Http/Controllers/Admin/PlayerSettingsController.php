@@ -41,7 +41,7 @@ class PlayerSettingsController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function store(PlayerSettingsRequest $request, Language $language)
+    public function store(PlayerSettingsRequest $request, Language $language): RedirectResponse
     {
         if ($language->playerSettings !== null)
             return redirect()->route('admin.languages.index');
@@ -78,7 +78,7 @@ class PlayerSettingsController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function update(PlayerSettingsRequest $request, Language $language)
+    public function update(PlayerSettingsRequest $request, Language $language): RedirectResponse
     {
         try {
             $language->playerSettings->repository()->update($request->all());

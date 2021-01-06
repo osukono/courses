@@ -61,7 +61,7 @@ class UserController extends Controller
      * @param UserCreateRequest $request
      * @return RedirectResponse
      */
-    public function store(UserCreateRequest $request)
+    public function store(UserCreateRequest $request): RedirectResponse
     {
         $password = Str::random(8);
         $user = UserRepository::create($request->all(), $password);
@@ -115,7 +115,7 @@ class UserController extends Controller
      * @param User $user
      * @return RedirectResponse
      */
-    public function assignRole(UserAssignRoleRequest $request, User $user)
+    public function assignRole(UserAssignRoleRequest $request, User $user): RedirectResponse
     {
         $role = RoleRepository::find($request->get('role_id'));
 
@@ -129,7 +129,7 @@ class UserController extends Controller
      * @param Role $role
      * @return RedirectResponse
      */
-    public function removeRole(User $user, Role $role)
+    public function removeRole(User $user, Role $role): RedirectResponse
     {
         $user->repository()->removeRole($role);
 
@@ -141,7 +141,7 @@ class UserController extends Controller
      * @param User $user
      * @return RedirectResponse
      */
-    public function assignContent(UserAssignContentRequest $request, User $user)
+    public function assignContent(UserAssignContentRequest $request, User $user): RedirectResponse
     {
         $content = ContentRepository::find($request->get('content_id'));
 
@@ -155,7 +155,7 @@ class UserController extends Controller
      * @param Content $content
      * @return RedirectResponse
      */
-    public function removeContent(User $user, Content $content)
+    public function removeContent(User $user, Content $content): RedirectResponse
     {
         $content->repository()->removeEditor($user);
 
@@ -167,7 +167,7 @@ class UserController extends Controller
      * @param User $user
      * @return RedirectResponse
      */
-    public function assignTranslation(UserAssignTranslationRequest $request, User $user)
+    public function assignTranslation(UserAssignTranslationRequest $request, User $user): RedirectResponse
     {
         $language = LanguageRepository::find($request->get('language_id'));
 
@@ -181,7 +181,7 @@ class UserController extends Controller
      * @param Language $language
      * @return RedirectResponse
      */
-    public function removeTranslation(User $user, Language $language)
+    public function removeTranslation(User $user, Language $language): RedirectResponse
     {
         $language->repository()->removeEditor($user);
 

@@ -84,7 +84,7 @@ class LessonController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function store(LessonCreateRequest $request, Content $content)
+    public function store(LessonCreateRequest $request, Content $content): RedirectResponse
     {
         $this->authorize('access', $content);
 
@@ -113,7 +113,7 @@ class LessonController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function update(LessonUpdateRequest $request, Lesson $lesson)
+    public function update(LessonUpdateRequest $request, Lesson $lesson): RedirectResponse
     {
         $this->authorize('access', $lesson->content);
 
@@ -140,7 +140,7 @@ class LessonController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function destroy(Lesson $lesson)
+    public function destroy(Lesson $lesson): RedirectResponse
     {
         $this->authorize('access', $lesson->content);
 
@@ -159,7 +159,7 @@ class LessonController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function restore(LessonRestoreRequest $request)
+    public function restore(LessonRestoreRequest $request): RedirectResponse
     {
         $lesson = Lesson::withTrashed()->find($request['id']);
 
@@ -180,7 +180,7 @@ class LessonController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function disable(Lesson $lesson)
+    public function disable(Lesson $lesson): RedirectResponse
     {
         $lesson->load([
             'content',
@@ -199,7 +199,7 @@ class LessonController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function enable(Lesson $lesson)
+    public function enable(Lesson $lesson): RedirectResponse
     {
         $lesson->load([
             'content',

@@ -30,7 +30,7 @@ class ExerciseDataController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function store(Exercise $exercise)
+    public function store(Exercise $exercise): RedirectResponse
     {
         $this->authorize('access', $exercise->lesson->content);
 
@@ -45,7 +45,7 @@ class ExerciseDataController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function update(Request $request, ExerciseData $exerciseData)
+    public function update(Request $request, ExerciseData $exerciseData): RedirectResponse
     {
         $this->authorize('access', $exerciseData->exercise->lesson->content);
 
@@ -60,7 +60,7 @@ class ExerciseDataController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function deleteAudio(ExerciseData $exerciseData)
+    public function deleteAudio(ExerciseData $exerciseData): RedirectResponse
     {
         $this->authorize('access', $exerciseData->exercise->lesson->content);
 
@@ -75,7 +75,7 @@ class ExerciseDataController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function destroy(ExerciseData $exerciseData)
+    public function destroy(ExerciseData $exerciseData): RedirectResponse
     {
         $this->authorize('access', $exerciseData->exercise->lesson->content);
 
@@ -94,7 +94,7 @@ class ExerciseDataController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function restore(ExerciseDataRestoreRequest $request)
+    public function restore(ExerciseDataRestoreRequest $request): RedirectResponse
     {
         $exerciseData = ExerciseData::withTrashed()->find($request['id']);
 
@@ -116,7 +116,7 @@ class ExerciseDataController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function disable(ExerciseData $exerciseData, Language $language)
+    public function disable(ExerciseData $exerciseData, Language $language): RedirectResponse
     {
         $this->authorize('access', $exerciseData->exercise->lesson->content);
         $this->authorize('access', $language);
@@ -132,7 +132,7 @@ class ExerciseDataController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function enable(ExerciseData $exerciseData, Language $language)
+    public function enable(ExerciseData $exerciseData, Language $language): RedirectResponse
     {
         $this->authorize('access', $exerciseData->exercise->lesson->content);
         $this->authorize('access', $language);
@@ -179,7 +179,7 @@ class ExerciseDataController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function synthesizeAudio(ExerciseData $exerciseData)
+    public function synthesizeAudio(ExerciseData $exerciseData): RedirectResponse
     {
         $this->authorize('access', $exerciseData->exercise->lesson->content);
 
