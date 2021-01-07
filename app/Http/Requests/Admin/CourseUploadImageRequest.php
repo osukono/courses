@@ -30,7 +30,7 @@ class CourseUploadImageRequest extends FormRequest
                 'required',
                 'file',
                 'image',
-                'mimetypes:image/png,image/jpeg,image/svg',
+                //'mimetypes:image/png,image/jpeg,image/svg',
                 //ToDo 16:9 ratio
                 //Rule::dimensions()->width(4000)->height(2250)
             ]
