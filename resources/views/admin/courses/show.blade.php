@@ -98,7 +98,7 @@
                           action="{{ route('admin.courses.image.upload', $course) }}"
                           method="post" autocomplete="off" enctype="multipart/form-data">
                         @csrf
-                        <input type="file" id="course-{{ $course->id }}-image" name="image" accept="image/png"
+                        <input type="file" id="course-{{ $course->id }}-image" name="image" accept="image/svg+xml"
                                onchange="$('#course-{{ $course->id }}-upload-image').submit();">
                     </form>
                 </div>
