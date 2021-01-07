@@ -127,7 +127,7 @@ class CourseRepository
         $reference->set([
             'title' => $this->model->title,
             'description' => $this->model->description,
-            'icon' => $this->model->image,
+            'image' => $this->model->image,
             'demo' => $this->model->demo_lessons,
             'player_version' => $this->model->player_version,
             'review_exercises' => $this->model->review_exercises,
