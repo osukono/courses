@@ -1,6 +1,6 @@
 <div class="col-auto mb-4 px-0 mx-3" style="min-width: 300px">
-    <div class="card shadow-sm">
-        <div class="card-header">
+    <div class="card">
+        <div class="card-header bg-white">
             {{ $title }}
         </div>
         <div class="card-body">
