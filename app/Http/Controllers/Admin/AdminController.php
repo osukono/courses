@@ -35,8 +35,8 @@ class AdminController extends Controller
             ->snapshot()->data()['learned'];
 
         $data['devActivity'] =
-            ExerciseData::whereRaw('updated_at >= DATE(NOW()) - INTERVAL 7 DAY')->count() +
-            Translation::whereRaw('updated_at >= DATE(NOW()) - INTERVAL 7 DAY')->count();
+            ExerciseData::whereRaw('updated_at >= DATE(NOW()) - INTERVAL 1 MONTH')->count() +
+            Translation::whereRaw('updated_at >= DATE(NOW()) - INTERVAL 1 MONTH')->count();
 
         return view('admin.dashboard')->with($data);
     }

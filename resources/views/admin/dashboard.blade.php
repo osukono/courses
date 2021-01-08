@@ -39,7 +39,7 @@
         <div class="col-auto mb-4 px-0 mx-3" style="min-width: 300px">
             <div class="card shadow-sm">
                 <div class="card-header">
-                    Development Activity (last 7 days)
+                    Development Activity (last month)
                 </div>
                 <div class="card-body">
                     <h3>{{ $devActivity }} changes</h3>
