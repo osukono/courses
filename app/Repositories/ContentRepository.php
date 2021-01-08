@@ -6,7 +6,7 @@ namespace App\Repositories;
 
 use App\Content;
 use App\Language;
-use App\Library\Str;
+use App\Library\StrUtils;
 use App\User;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
@@ -134,13 +134,13 @@ class ContentRepository
 
                 foreach ($exercise['data'] as $fieldKey => $field) {
                     if ($withTarget && isset($field['content']['value']))
-                        $data .= Str::toPlainText($field['content']['value']) . PHP_EOL;
+                        $data .= StrUtils::toPlainText($field['content']['value']) . PHP_EOL;
 
                     if ($language != null && isset($field['translations'])) {
                         foreach ($field['translations'] as $translation)
                             if ($translation['language'] == $language->code) {
                                 if (isset($translation['content']['value']))
-                                    $data .= Str::toPlainText($translation['content']['value']) . PHP_EOL;
+                                    $data .= StrUtils::toPlainText($translation['content']['value']) . PHP_EOL;
 
                                 break;
                             }

@@ -5,5 +5,5 @@
     @isset($data->content['audio'])
         @include('admin.components.audio.play', ['audio' => $data->content['audio']])
     @endisset
-    {!! \App\Library\Str::normalize(Arr::get($data->content, 'value')) !!}
+    {!! \App\Library\StrUtils::normalize(Arr::get($data->content, 'value')) !!}
 </div>

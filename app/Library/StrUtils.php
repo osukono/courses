@@ -4,23 +4,27 @@
 namespace App\Library;
 
 
-class Str
+class StrUtils
 {
-    public static function normalize($str)
+    /**
+     * @param string $str
+     * @return string
+     */
+    public static function normalize(string $str)
     {
-        $str = Str::em_dashes($str);
-        $str = Str::en_dashes($str);
-        $str = Str::grammar($str);
+        $str = StrUtils::em_dashes($str);
+        $str = StrUtils::en_dashes($str);
+        $str = StrUtils::grammar($str);
 
         return $str;
     }
 
     /**
      * The em dash introduces quoted text at line start.
-     * @param $str
+     * @param string $str
      * @return string
      */
-    public static function em_dashes($str)
+    public static function em_dashes(string $str)
     {
         $hyphen = '-';
         $em_dash = '—';
@@ -30,10 +34,10 @@ class Str
 
     /**
      * A spaced en dash marks a break in a sentence.
-     * @param $str
+     * @param string $str
      * @return string
      */
-    public static function en_dashes($str)
+    public static function en_dashes(string $str)
     {
         $hyphen = '-';
         $en_dash = '–';
@@ -41,12 +45,20 @@ class Str
         return preg_replace("/( $hyphen )/", " $en_dash ", $str);
     }
 
-    public static function grammar($str)
+    /**
+     * @param string $str
+     * @return string
+     */
+    public static function grammar(string $str)
     {
         return preg_replace('/(.*?)(\[)(.*?)(])(.*?)/', '$1<strong>$3</strong>$5', $str);
     }
 
-    public static function toPlainText($str)
+    /**
+     * @param string $str
+     * @return string
+     */
+    public static function toPlainText(string $str)
     {
         $str = preg_replace('/(\[)/', '', $str);
         $str = preg_replace('/(])/', '', $str);

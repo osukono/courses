@@ -8,7 +8,7 @@ use App\Exercise;
 use App\ExerciseData;
 use App\Language;
 use App\Library\Audio;
-use App\Library\Str;
+use App\Library\StrUtils;
 use App\Library\TextToSpeech;
 use Exception;
 use Google\ApiCore\ApiException;
@@ -114,7 +114,7 @@ class ExerciseDataRepository
             throw new Exception('Speech Settings is not set.');
 
         $audioContent = TextToSpeech::synthesizeSpeech(
-            $speechSettings, Str::toPlainText($this->model->content['value']));
+            $speechSettings, StrUtils::toPlainText($this->model->content['value']));
 
         // It is important file names do not contain dashes.
         $path = \Illuminate\Support\Str::random(42) . '.wav';

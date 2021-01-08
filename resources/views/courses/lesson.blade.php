@@ -17,11 +17,11 @@
                         @include('admin.components.audio.play', ['audio' => $field['audio']])
 {{--                        @include('components.audio.play', ['audio' => $field['audio'], 'sentence' => \App\Library\Str::normalize($field['value']), 'lang' => $course->language->code])--}}
                         <span lang="{{ $course->language->code }}">
-                        {!! \App\Library\Str::normalize($field['value']) !!}
+                        {!! \App\Library\StrUtils::normalize($field['value']) !!}
                         </span>
                         @if($field['identifier'] == 'translation')
                             <span lang="{{ $course->translation->code }}" class="text-muted">
-                                – {!! \App\Library\Str::normalize($field['translation']['value']) !!}
+                                – {!! \App\Library\StrUtils::normalize($field['translation']['value']) !!}
                             </span>
                         @endif
                     </div>
