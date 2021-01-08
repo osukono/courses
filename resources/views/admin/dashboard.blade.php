@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 mb-3 pr-0">
+        <div class="col-auto mb-4 px-0 mx-3" style="min-width: 300px">
             <div class="card shadow-sm">
                 <div class="card-header">
                     Users
@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-3 pr-0">
+        <div class="col-auto mb-4 px-0 mx-3" style="min-width: 300px">
             <div class="card shadow-sm">
                 <div class="card-header">
                     Courses
@@ -26,13 +26,23 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="col-auto mb-4 px-0 mx-3" style="min-width: 300px">
             <div class="card shadow-sm">
                 <div class="card-header">
                     Lessons Learned
                 </div>
                 <div class="card-body">
                     <h3>{{ $lessons_learned }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-auto mb-4 px-0 mx-3" style="min-width: 300px">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    Development Activity (last 7 days)
+                </div>
+                <div class="card-body">
+                    <h3>{{ $devActivity }} changes</h3>
                 </div>
             </div>
         </div>

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\ExerciseData;
 use App\Http\Controllers\Controller;
 use App\Library\Firebase;
 use App\Library\Sidebar;
 use App\Repositories\CourseRepository;
+use App\Repositories\ExerciseDataRepository;
+use App\Repositories\LessonRepository;
+use App\Translation;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -29,6 +33,10 @@ class AdminController extends Controller
         $data['lessons_learned'] = $firebase->collection(Firebase::statistics_collection)
             ->document('lessons')
             ->snapshot()->data()['learned'];
+
+        $data['devActivity'] =
+            ExerciseData::whereRaw('updated_at >= DATE(NOW()) - INTERVAL 7 DAY')->count() +
+            Translation::whereRaw('updated_at >= DATE(NOW()) - INTERVAL 7 DAY')->count();
 
         return view('admin.dashboard')->with($data);
     }
