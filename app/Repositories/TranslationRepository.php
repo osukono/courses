@@ -88,13 +88,13 @@ class TranslationRepository
             $this->model->language);
 
         if ($speechSettings == null)
-            throw new Exception('Speech Settings is not set.');
+            throw new Exception('Speech Settings are not set.');
 
         $audioContent = TextToSpeech::synthesizeSpeech(
             $speechSettings, StrUtils::toPlainText($this->model->content['value']));
 
         // It is important file names do not contain dashes.
-        $path = \Illuminate\Support\Str::random(42) . '.wav';
+        $path = \Illuminate\Support\Str::random(42) . '.opus';
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
             $this->updateAudioDuration();

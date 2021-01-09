@@ -49,12 +49,10 @@ class TextToSpeech
         $voice = (new VoiceSelectionParams())
             ->setLanguageCode($speechSettings->language->code)
             ->setName($speechSettings->voice_name);
-//        ->setName('en-US-Wavenet-D');
-//        ->setName('ru-RU-Wavenet-E');
 
         // select the type of audio file you want returned
         $audioConfig = (new AudioConfig())
-            ->setAudioEncoding(AudioEncoding::LINEAR16)
+            ->setAudioEncoding(AudioEncoding::OGG_OPUS)
             ->setSampleRateHertz($speechSettings->sample_rate)
             ->setSpeakingRate($speechSettings->speaking_rate)
             ->setPitch($speechSettings->pitch)
