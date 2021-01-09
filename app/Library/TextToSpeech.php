@@ -52,10 +52,14 @@ class TextToSpeech
 
         // select the type of audio file you want returned
         $audioConfig = (new AudioConfig())
-            ->setAudioEncoding(AudioEncoding::LINEAR16)
+            ->setAudioEncoding(AudioEncoding::OGG_OPUS)
             ->setSampleRateHertz($speechSettings->sample_rate)
             ->setSpeakingRate($speechSettings->speaking_rate)
             ->setPitch($speechSettings->pitch)
+            //https://cloud.google.com/text-to-speech/docs/audio-profiles
+                //handset-class-device
+                //headphone-class-device
+            ->setEffectsProfileId(['handset-class-device'])
             ->setVolumeGainDb($speechSettings->volume_gain_db);
 
         // perform text-to-speech request on the text input with selected voice
