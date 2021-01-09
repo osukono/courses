@@ -25,6 +25,8 @@ if [ -n "$seconds" ]; then
 	result=$(($seconds * 1000))
 	result=$(($result + $milliseconds))
 
+	#printf "$result"
+
 	printf "%d" "$result"
 	exit
 fi
