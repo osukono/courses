@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/length-of-audio-file-in-ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/length-of-audio-file-in-ms.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sox-14.4.2.tar.gz" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -340,7 +339,7 @@
       <workItem from="1609351248550" duration="1140000" />
       <workItem from="1609431274495" duration="1983000" />
       <workItem from="1609495457530" duration="22921000" />
-      <workItem from="1609935304299" duration="15663000" />
+      <workItem from="1609935304299" duration="16051000" />
     </task>
     <servers />
   </component>
