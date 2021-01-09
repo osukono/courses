@@ -49,6 +49,9 @@ return [
             'assigned' => ":subject assigned to :object' editors.",
             'removed' => ":subject removed from :object' editors.",
         ],
+        'audio' => [
+            'synthesized' => 'The audio has successfully been synthesized.',
+        ],
     ],
 
     'pagination' => [

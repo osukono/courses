@@ -267,7 +267,7 @@ class TranslationController extends Controller
             return back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseData->exercise]);
+        return back()->with('message', __('admin.messages.audio.synthesized'));
     }
 
     /**
