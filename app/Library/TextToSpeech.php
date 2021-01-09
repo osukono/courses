@@ -52,7 +52,7 @@ class TextToSpeech
 
         // select the type of audio file you want returned
         $audioConfig = (new AudioConfig())
-            ->setAudioEncoding(AudioEncoding::OGG_OPUS)
+            ->setAudioEncoding(AudioEncoding::MP3)
             //->setSampleRateHertz($speechSettings->sample_rate)
             ->setSpeakingRate($speechSettings->speaking_rate)
             ->setPitch($speechSettings->pitch)
