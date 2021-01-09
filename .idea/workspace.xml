@@ -4,7 +4,6 @@
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Library/TextToSpeech.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/TextToSpeech.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ExerciseDataRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ExerciseDataRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/TranslationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/TranslationRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -342,7 +341,7 @@
       <workItem from="1609351248550" duration="1140000" />
       <workItem from="1609431274495" duration="1983000" />
       <workItem from="1609495457530" duration="22921000" />
-      <workItem from="1609935304299" duration="13109000" />
+      <workItem from="1609935304299" duration="13754000" />
     </task>
     <servers />
   </component>
