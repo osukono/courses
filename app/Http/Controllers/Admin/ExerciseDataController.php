@@ -189,6 +189,6 @@ class ExerciseDataController extends Controller
             return back()->with('error', $ex->getMessage());
         }
 
-        return redirect()->route('admin.exercises.show', $exerciseData->exercise);
+        return back()->with('The audio has successfully been synthesized?');
     }
 }
