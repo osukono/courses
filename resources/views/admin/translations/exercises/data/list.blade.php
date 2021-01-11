@@ -34,7 +34,7 @@
                     <td class="text-nowrap text-right d-none d-md-table-cell">{{ $data->updated_at->diffForHumans() }}</td>
                     <td class="text-nowrap d-none d-md-table-cell">
                         @if($data->translations->first() != null)
-                            <a class="mr-2" href="#"
+                            <a class="mr-2 btn btn-sm btn-primary" href="#"
                                onclick="event.preventDefault(); document.getElementById('translation-{{ $data->translations->first()->id }}-synthesize').submit();">
                                 Synthesize Audio
                             </a>
