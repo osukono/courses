@@ -36,7 +36,7 @@
                         @if($data->translations->first() != null)
                             <a class="mr-2 btn btn-sm btn-info" href="#"
                                onclick="event.preventDefault(); document.getElementById('translation-{{ $data->translations->first()->id }}-synthesize').submit();">
-                                Synthesize Audio
+                                Text to Speech
                             </a>
                             <form id="translation-{{ $data->translations->first()->id }}-synthesize" class="d-none"
                                   action="{{ route('admin.translations.audio.synthesize', $data->translations->first()) }}"

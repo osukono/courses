@@ -37,8 +37,9 @@
                         <td class="text-right">
                             <div class="text-nowrap">
                                 <a class="mr-2 btn btn-sm btn-info" href="#"
-                                   onclick="event.preventDefault(); document.getElementById('data-{{ $data->id }}-synthesize').submit();">Synthesize
-                                    Audio</a>
+                                   onclick="event.preventDefault(); document.getElementById('data-{{ $data->id }}-synthesize').submit();">
+                                    Text to Speech
+                                </a>
                                 <form id="data-{{ $data->id }}-synthesize" class="d-none"
                                       action="{{ route('admin.exercise.data.audio.synthesize', $data) }}" method="post">
                                     @method('patch')
