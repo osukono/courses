@@ -173,14 +173,14 @@ final class Firebase
     /**
      * prevent the instance from being cloned (which would create a second instance of it)
      */
-    private function __clone()
-    {
-    }
+//    private function __clone()
+//    {
+//    }
 
     /**
      * prevent from being unserialized (which would create a second instance of it)
      */
-    private function __wakeup()
-    {
-    }
+//    private function __wakeup()
+//    {
+//    }
 }
