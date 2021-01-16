@@ -57,6 +57,9 @@ import IconBook from "./components/icons/IconBook";
 import IconBookOpen from "./components/icons/IconBookOpen";
 import IconMessageSquare from "./components/icons/IconMessageSquare";
 import IconList from "./components/icons/IconList";
+import IconLogOut from "./components/icons/IconLogOut";
+import IconDownloadCloud from "./components/icons/IconDownloadCloud";
+import IconUploadCloud from "./components/icons/IconUploadCloud";
 
 
 /**
@@ -103,6 +106,9 @@ new Vue({
         'icon-book': IconBook,
         'icon-book-open': IconBookOpen,
         'icon-message-square': IconMessageSquare,
-        'icon-list': IconList
+        'icon-list': IconList,
+        'icon-log-out': IconLogOut,
+        'icon-download-cloud': IconDownloadCloud,
+        'icon-upload-cloud': IconUploadCloud
     }
 });

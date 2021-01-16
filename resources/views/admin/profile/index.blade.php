@@ -5,7 +5,10 @@
 @endsection
 
 @section('toolbar')
-    <button type="button" class="btn btn-outline-info" onclick="$('#logout-form').submit();">Logout</button>
+    <button type="button" class="btn btn-outline-info" onclick="$('#logout-form').submit();">
+        Logout
+        <icon-log-out></icon-log-out>
+    </button>
     <form id="logout-form" action="{{ route('logout') }}" method="post">
         @csrf
     </form>
@@ -45,3 +48,9 @@
         </div>
     </div>
 @endsection
+<script>
+    import IconLogOut from "../../../js/components/icons/IconLogOut";
+    export default {
+        components: {IconLogOut}
+    }
+</script>

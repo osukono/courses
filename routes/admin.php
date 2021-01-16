@@ -237,6 +237,13 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         });
 
         /**
+         * Firebase Users
+         */
+        Route::middleware('role:' . Roles::admin)->group(function() {
+            Route::get('firebase/users', 'FirebaseUserController@index')->name('admin.firebase.users.index');
+        });
+
+        /**
          * Profile
          */
         Route::get('profile', 'ProfileController@index')->name('admin.profile');

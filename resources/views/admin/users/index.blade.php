@@ -13,6 +13,11 @@
                 <icon-plus></icon-plus>
             </template>
         </v-button>
+        <v-button route="{{ route('admin.firebase.users.index') }}">
+            <template v-slot:label>
+                Firebase
+            </template>
+        </v-button>
     </v-button-group>
 @endsection
 

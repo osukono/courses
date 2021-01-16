@@ -15,7 +15,7 @@
         <v-button tooltip="Download from Firebase"
                   submit="#download-locales">
             <template v-slot:icon>
-                <icon-download></icon-download>
+                <icon-download-cloud></icon-download-cloud>
             </template>
             @push('forms')
                 <form class="d-none" id="download-locales" action="{{ route('admin.app.locales.download') }}"
@@ -27,7 +27,7 @@
         <v-button tooltip="Upload to Firebase"
                   submit="#upload-locales">
             <template v-slot:icon>
-                <icon-upload></icon-upload>
+                <icon-upload-cloud></icon-upload-cloud>
             </template>
             @push('forms')
                 <form class="d-none" id="upload-locales" action="{{ route('admin.app.locales.upload') }}" method="post">
@@ -53,3 +53,10 @@
         </div>
     @endif
 @endsection
+<script>
+    import IconDownloadCloud from "../../../../js/components/icons/IconDownloadCloud";
+    import IconUploadCloud from "../../../../js/components/icons/IconUploadCloud";
+    export default {
+        components: {IconUploadCloud, IconDownloadCloud}
+    }
+</script>
