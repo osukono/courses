@@ -33,6 +33,9 @@ class UploadCourseToFirestore implements ShouldQueue
         $this->course = $course;
     }
 
+    /**
+     * @return string
+     */
     public function getDisplayName()
     {
         return 'Uploading course to Firebase.';

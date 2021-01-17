@@ -148,6 +148,7 @@ class FirebaseCourseRepository
                 'course' => $course->firebase_id,
                 'order' => $courseLesson->index - 1,
                 'title' => $courseLesson->title,
+                'image' => $courseLesson->image
             ]);
 
             $content = $courseLesson->content;
