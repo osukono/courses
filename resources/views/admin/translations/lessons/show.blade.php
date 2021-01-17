@@ -42,6 +42,21 @@
                         </form>
                     @endpush
                 </v-dropdown-item>
+                @isset($image)
+                    <v-dropdown-item label="Delete Image"
+                                     submit="#lesson-{{ $lesson->id }}-image-delete"
+                                     visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
+                        @push('forms')
+                            <form class="d-none"
+                                  id="lesson-{{ $lesson->id }}-image-delete"
+                                  action="{{ route('admin.lessons.image.delete', [$lesson, $language]) }}"
+                                  method="post">
+                                @method('delete')
+                                @csrf
+                            </form>
+                        @endpush
+                    </v-dropdown-item>
+                @endisset
             </v-dropdown-group>
         </v-dropdown>
 
@@ -74,29 +89,32 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-auto">
-                        @isset($image)
-                            <img width="208" height="117" class="rounded" src="{{ $image->image }}"
-                                 alt="Course Image"
-                                 onclick="$('#lesson-{{ $lesson->id }}-image').click();" style="cursor: pointer;">
-                        @else
-                            <div class="text-center border rounded bg-white align-middle d-table-cell"
-                                 style="width: 208px; height: 117px;">
-                                <button type="button" class="btn btn-info btn-sm"
-                                        onclick="$('#lesson-{{ $lesson->id }}-image').click();">
-                                    Upload Image
-                                </button>
-                            </div>
-                        @endisset
-                        <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
-                              action="{{ route('admin.lessons.image.upload', [$lesson, $language]) }}"
-                              method="post" autocomplete="off" enctype="multipart/form-data">
-                            @csrf
-                            @method('patch')
-                            <input type="file" id="lesson-{{ $lesson->id }}-image" name="image" accept="image/svg+xml"
-                                   onchange="$('#lesson-{{ $lesson->id }}-upload-image').submit();">
-                        </form>
-                    </div>
+                    @can(\App\Library\Permissions::update_translations)
+                        <div class="col-auto">
+                            @isset($image)
+                                <img width="208" height="117" class="rounded" src="{{ $image->image }}"
+                                     alt="Course Image"
+                                     onclick="$('#lesson-{{ $lesson->id }}-image').click();" style="cursor: pointer;">
+                            @else
+                                <div class="text-center border rounded bg-white align-middle d-table-cell"
+                                     style="width: 208px; height: 117px;">
+                                    <button type="button" class="btn btn-info btn-sm"
+                                            onclick="$('#lesson-{{ $lesson->id }}-image').click();">
+                                        Upload Image
+                                    </button>
+                                </div>
+                            @endisset
+                            <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
+                                  action="{{ route('admin.lessons.image.upload', [$lesson, $language]) }}"
+                                  method="post" autocomplete="off" enctype="multipart/form-data">
+                                @csrf
+                                @method('patch')
+                                <input type="file" id="lesson-{{ $lesson->id }}-image" name="image"
+                                       accept="image/svg+xml"
+                                       onchange="$('#lesson-{{ $lesson->id }}-upload-image').submit();">
+                            </form>
+                        </div>
+                    @endcan
                     <div class="col">
                         <h5 class="card-title">{{ $lesson->title . ' › ' . $language->native }}</h5>
                         <h6 class="card-subtitle">
