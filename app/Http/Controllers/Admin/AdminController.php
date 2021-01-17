@@ -23,16 +23,21 @@ class AdminController extends Controller
     {
         $data['current'] = Sidebar::dashboard;
 
-        $firebase = Firebase::getInstance()->firestoreClient();
-        $data["users_count"] = $firebase->collection(Firebase::statistics_collection)
-            ->document('users')
-            ->snapshot()->data()['count'];
+        try {
+            $firebase = Firebase::getInstance()->firestoreClient();
+
+            $data["users_count"] = $firebase->collection(Firebase::statistics_collection)
+                ->document('users')
+                ->snapshot()->data()['count'];
+            $data['lessons_learned'] = $firebase->collection(Firebase::statistics_collection)
+                ->document('lessons')
+                ->snapshot()->data()['learned'];
+        } catch (\Exception $ex) {
+            $data['users_count'] = 0;
+            $data['lessons_learned'] = 0;
+        }
 
         $data['courses_count'] = CourseRepository::all()->where('uploaded_at', '!=', null)->count();
-
-        $data['lessons_learned'] = $firebase->collection(Firebase::statistics_collection)
-            ->document('lessons')
-            ->snapshot()->data()['learned'];
 
         $data['devActivity'] =
             ExerciseData::whereRaw('updated_at >= DATE(NOW()) - INTERVAL 1 MONTH')->count() +
