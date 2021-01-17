@@ -13,7 +13,7 @@ class LessonImageUploadRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class LessonImageUploadRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'image' => [
+                'bail',
+                'required',
+                'file',
+                'image',
+            ]
         ];
     }
 }
