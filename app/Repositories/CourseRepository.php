@@ -50,7 +50,6 @@ class CourseRepository
             $course->major_version = $content->version;
             $course->minor_version = 0;
             $course->title = $content->title;
-            $course->description = $content->description;
             $course->save();
         }
 

@@ -20,7 +20,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $level_id
  * @property int $topic_id
  * @property string|null $title
- * @property string|null $description
  * @property int $version
  * @property int $player_version
  * @property int $review_exercises
@@ -47,7 +46,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Content sequenced($direction = 'asc')
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereLanguageId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereLevelId($value)

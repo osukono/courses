@@ -30,12 +30,6 @@ class ContentUpdateRequest extends FormRequest
                 'string',
                 'max:255'
             ],
-            'description' => [
-                'bail',
-                'nullable',
-                'string',
-                'max:1000'
-            ],
             'player_version' => [
                 'bail',
                 'required',

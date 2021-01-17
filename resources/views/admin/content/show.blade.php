@@ -104,19 +104,6 @@
 @endsection
 
 @section('content')
-    <div class="card mb-4" style="cursor: pointer"
-         onclick="window.location.href='{{ route('admin.content.edit', $content) }}';">
-        <div class="card-body">
-            @isset($content->title)
-                <h5 class="card-title">{{ $content->title }}</h5>
-                <p class="card-text">{!! nl2br(e($content->description)) !!}</p>
-            @else
-                <h5 class="card-title text-muted">Title</h5>
-                <p class="card-text text-muted">Description</p>
-            @endisset
-        </div>
-    </div>
-
     @if($lessons->count())
         <div class="card shadow-sm">
             <div class="card-body">

@@ -50,12 +50,6 @@ class ContentCreateRequest extends FormRequest
                 'string',
                 'max:255'
             ],
-            'description' => [
-                'bail',
-                'nullable',
-                'string',
-                'max:1000'
-            ]
         ];
     }
 }

@@ -57,7 +57,6 @@ class ContentRepository
         $content->level()->associate($attributes['level_id']);
         $content->topic()->associate($attributes['topic_id']);
         $content->title = $attributes['title'];
-        $content->description = $attributes['description'];
         $content->player_version = 1;
         $content->save();
 
@@ -92,7 +91,6 @@ class ContentRepository
     public function update(array $attributes)
     {
         $this->model->title = $attributes['title'];
-        $this->model->description = $attributes['description'];
         $this->model->player_version = $attributes['player_version'];
         $this->model->review_exercises = $attributes['review_exercises'];
         $this->model->save();
@@ -178,7 +176,6 @@ class ContentRepository
         ]);
 
         $content['title'] = isset($this->model->title) ? $this->model->title : (string)$this->model;
-        $content['description'] = isset($this->model->description) ? $this->model->description : "";
         $content['language'] = $this->model->language->code;
         $content['level'] = $this->model->level->scale;
         $content['topic'] = $this->model->topic->identifier;
