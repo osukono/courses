@@ -8,12 +8,17 @@ use App\Http\Requests\Admin\Content\LessonCreateRequest;
 use App\Http\Requests\Admin\Content\LessonMoveRequest;
 use App\Http\Requests\Admin\Content\LessonRestoreRequest;
 use App\Http\Requests\Admin\Content\LessonUpdateRequest;
+use App\Http\Requests\Admin\LessonImageUploadRequest;
+use App\Language;
 use App\Lesson;
+use App\LessonImage;
 use App\Library\Sidebar;
 use App\Repositories\LanguageRepository;
+use App\Repositories\LessonImageRepository;
 use App\Repositories\LessonRepository;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -60,6 +65,9 @@ class LessonController extends Controller
                 'disabled'
             ])
             ->ordered()->get();
+        $data['image'] = LessonImage::where('lesson_id', $lesson->id)
+            ->where('language_id', $lesson->content->language->id)
+            ->first();
 
         return view('admin.content.lessons.show')->with($data);
     }
@@ -120,6 +128,20 @@ class LessonController extends Controller
         $lesson->repository()->update($request->all());
 
         return redirect()->route('admin.lessons.show', $lesson);
+    }
+
+    /**
+     * @param LessonImageUploadRequest $request
+     * @param Lesson $lesson
+     * @param Language $language
+     * @return RedirectResponse
+     * @throws FileNotFoundException
+     */
+    public function uploadImage(LessonImageUploadRequest $request, Lesson $lesson, Language $language)
+    {
+        LessonImageRepository::upload($lesson, $language, $request);
+
+        return back();
     }
 
     /**

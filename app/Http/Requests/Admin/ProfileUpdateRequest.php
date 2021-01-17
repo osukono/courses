@@ -30,7 +30,8 @@ class ProfileUpdateRequest extends FormRequest
                 'bail',
                 'required',
                 'string',
-                'max:100'
+                'min:2',
+                'max:50'
             ],
             'email' => [
                 'bail',

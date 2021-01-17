@@ -29,6 +29,7 @@ class UserCreateRequest extends FormRequest
                 'bail',
                 'required',
                 'string',
+                'min:2',
                 'max:50'
             ],
             'email' => [

@@ -63,6 +63,7 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::post('content/lessons/restore', 'LessonController@restore')->name('admin.lessons.restore');
             Route::patch('content/lessons/{lesson}/disable', 'LessonController@disable')->name('admin.lessons.disable');
             Route::patch('content/lessons/{lesson}/enable', 'LessonController@enable')->name('admin.lessons.enable');
+            Route::patch('content/lessons/{lesson}/language/{language}/image/upload', 'LessonController@uploadImage')->name('admin.lessons.image.upload');
         });
 
         /**

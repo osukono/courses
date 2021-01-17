@@ -104,10 +104,37 @@
     @if($exercises->count())
         <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">{{ $lesson->title }}</h5>
-                <h6 class="card-subtitle">
-                    @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
-                </h6>
+                <div class="row">
+                    <div class="col-auto">
+                        @isset($image)
+                            <img width="208" height="117" class="border rounded" src="{{ $image->image }}"
+                                 alt="Course Image"
+                                 onclick="$('#lesson-{{ $lesson->id }}-image').click();" style="cursor: pointer;">
+                        @else
+                            <div class="text-center border rounded bg-white align-middle d-table-cell"
+                                 style="width: 208px; height: 117px;">
+                                <button type="button" class="btn btn-info btn-sm"
+                                        onclick="$('#lesson-{{ $lesson->id }}-image').click();">
+                                    Upload Image
+                                </button>
+                            </div>
+                        @endisset
+                        <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
+                              action="{{ route('admin.lessons.image.upload', [$lesson, $content->language]) }}"
+                              method="post" autocomplete="off" enctype="multipart/form-data">
+                            @csrf
+                            @method('patch')
+                            <input type="file" id="lesson-{{ $lesson->id }}-image" name="image" accept="image/svg+xml"
+                                   onchange="$('#lesson-{{ $lesson->id }}-upload-image').submit();">
+                        </form>
+                    </div>
+                    <div class="col">
+                        <h5 class="card-title">{{ $lesson->title }}</h5>
+                        <h6 class="card-subtitle">
+                            @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
+                        </h6>
+                    </div>
+                </div>
                 @include('admin.content.exercises.list')
             </div>
         </div>

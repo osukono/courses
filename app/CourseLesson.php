@@ -33,6 +33,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereUpdatedAt($value)
+ * @property string|null $image
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereImage($value)
  */
 class CourseLesson extends Model
 {
