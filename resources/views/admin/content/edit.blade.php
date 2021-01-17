@@ -13,7 +13,6 @@
                 @csrf
 
                 @input(['name' => 'title', 'label' => 'Title', 'default' => $content->title])
-                @textarea(['name' => 'description', 'label' => 'Description', 'default' => $content->description])
                 @input(['name' => 'player_version', 'label' => 'Player Version', 'default' => $content->player_version])
                 @input(['name' => 'review_exercises', 'label' => 'Review Exercises', 'default' => $content->review_exercises])
 
