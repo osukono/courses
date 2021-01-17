@@ -43,8 +43,8 @@
                     @endpush
                 </v-dropdown-item>
                 @isset($image)
-                    <v-dropdown-item label="Delete Image"
-                                     submit="#lesson-{{ $lesson->id }}-image-delete"
+                    <v-dropdown-modal label="Delete Image"
+                                     submit="lesson-{{ $lesson->id }}-image-modal-delete"
                                      visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
                         @push('forms')
                             <form class="d-none"
@@ -55,7 +55,7 @@
                                 @csrf
                             </form>
                         @endpush
-                    </v-dropdown-item>
+                    </v-dropdown-modal>
                 @endisset
             </v-dropdown-group>
         </v-dropdown>
@@ -128,4 +128,7 @@
             </div>
         </div>
     @endif
+
+    @include('admin.components.modals.confirmation', ['id' => 'lesson-' . $lesson->id . '-image-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $lesson->title . ' › ' . $language->native . ' image']), 'form' =>  'lesson-' . $lesson->id . '-image-delete', 'action' => 'Delete'])
+
 @endsection
