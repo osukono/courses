@@ -9,6 +9,7 @@ use App\Exercise;
 use App\ExerciseData;
 use App\Language;
 use App\Lesson;
+use App\LessonImage;
 use App\Repositories\CourseRepository;
 use App\Translation;
 use Illuminate\Bus\Queueable;
@@ -216,6 +217,17 @@ class CommitContent implements ShouldQueue
             $courseLesson = new CourseLesson();
             $courseLesson->course()->associate($course);
             $courseLesson->title = $lesson->title;
+
+            $lessonImage = LessonImage::where('lesson_id', $lesson->id)
+                ->where('language_id', $this->content->language->id)
+                ->first();
+            $lessonTranslationImage = LessonImage::where('lesson_id', $lesson->id)
+                ->where('language_id', $this->translation->id)
+                ->first();
+            if ($lessonTranslationImage !== null)
+                $courseLesson->image = $lessonTranslationImage->image;
+            else if ($lessonImage !== null)
+                $courseLesson->image = $lessonImage->image;
 
             $content = $this->commitLesson($lesson);
 
