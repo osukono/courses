@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\Content\TranslationUpdateRequest;
 use App\Jobs\CommitContent;
 use App\Language;
 use App\Lesson;
+use App\LessonImage;
 use App\Library\Permissions;
 use App\Library\Sidebar;
 use App\Repositories\ExerciseDataRepository;
@@ -100,6 +101,9 @@ class TranslationController extends Controller
         $data['previous'] = $lesson->repository()->previous();
         $data['next'] = $lesson->repository()->next();
         $data['trashed'] = ExerciseRepository::trashed()->where('lesson_id', $lesson->id)->count();
+        $data['image'] = LessonImage::where('lesson_id', $lesson->id)
+            ->where('language_id', $language->id)
+            ->first();
 
         return view('admin.translations.lessons.show')->with($data);
     }
