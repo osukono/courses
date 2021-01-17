@@ -65,7 +65,7 @@
                 </v-dropdown-item>
                 @isset($image)
                     <v-dropdown-modal label="Delete Image"
-                                     modal="#lesson-{{ $lesson->id }}-image-modal-delete"
+                                     modal="lesson-{{ $lesson->id }}-image-modal-delete"
                                      visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                         @push('forms')
                             <form class="d-none"
