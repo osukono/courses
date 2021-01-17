@@ -38,7 +38,13 @@ class ProfileUpdateRequest extends FormRequest
                 'email',
                 'max:100',
                 Rule::unique('users', 'email')->ignore(Auth::id())
-            ]
+            ],
+            'old_password' => [
+                'bail',
+                'required',
+                'string',
+                'password'
+            ],
         ];
     }
 }
