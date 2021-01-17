@@ -13,7 +13,10 @@
             <td>
                 {{ $lesson->title }}
                 @isset($lesson->image)
-                    <img src="{{ $lesson->image }}" width="48" height="27" alt="{{ $lesson->title }}" />
+                    <div>
+                        <img src="{{ $lesson->image }}" width="160" height="90" class="rounded"
+                             alt="{{ $lesson->title }}"/>
+                    </div>
                 @endisset
             </td>
             <td class="d-none d-md-table-cell">{{ $lesson->exercises_count }}</td>
