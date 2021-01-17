@@ -11,13 +11,16 @@
         <tr class="clickable-row" data-href="{{ route('admin.courses.practice', [$course, $lesson]) }}">
             <td>{{ $lesson->index }}</td>
             <td>
-                {{ $lesson->title }}
-                @isset($lesson->image)
-                    <div>
-                        <img src="{{ $lesson->image }}" width="160" height="90" class="rounded"
-                             alt="{{ $lesson->title }}"/>
-                    </div>
-                @endisset
+                <div class="row">
+                    @isset($lesson->image)
+                        <div class="col-auto">
+                            <img src="{{ $lesson->image }}" width="160" height="90" class="rounded"
+                                 alt="{{ $lesson->title }}"/>
+                        </div>
+                    @endisset
+                    <div class="col">{{ $lesson->title }}</div>
+                </div>
+
             </td>
             <td class="d-none d-md-table-cell">{{ $lesson->exercises_count }}</td>
         </tr>
