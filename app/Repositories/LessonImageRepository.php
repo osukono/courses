@@ -29,4 +29,16 @@ class LessonImageRepository
         $lessonImage->image = $image;
         $lessonImage->save();
     }
+
+    /**
+     * @param Lesson $lesson
+     * @param Language $language
+     * @throws \Exception
+     */
+    public static function delete(Lesson $lesson, Language $language)
+    {
+        LessonImage::where('lesson_id', $lesson->id)
+            ->where('language_id', $language->id)
+            ->delete();
+    }
 }

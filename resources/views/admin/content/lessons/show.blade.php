@@ -63,6 +63,21 @@
                                  route="{{ route('admin.lessons.edit', $lesson) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
+                @isset($image)
+                    <v-dropdown-item label="Delete Image"
+                                     submit="#lesson-{{ $lesson->id }}-image-delete"
+                                     visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                        @push('forms')
+                            <form class="d-none"
+                                  id="lesson-{{ $lesson->id }}-image-delete"
+                                  action="{{ route('admin.lessons.image.delete', [$lesson, $content->language]) }}"
+                                  method="post">
+                                @method('delete')
+                                @csrf
+                            </form>
+                        @endpush
+                    </v-dropdown-item>
+                @endisset
             </v-dropdown-group>
 
             <v-dropdown-group>

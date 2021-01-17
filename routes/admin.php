@@ -64,6 +64,7 @@ Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
             Route::patch('content/lessons/{lesson}/disable', 'LessonController@disable')->name('admin.lessons.disable');
             Route::patch('content/lessons/{lesson}/enable', 'LessonController@enable')->name('admin.lessons.enable');
             Route::patch('content/lessons/{lesson}/language/{language}/image/upload', 'LessonController@uploadImage')->name('admin.lessons.image.upload');
+            Route::delete('content/lessons/{lesson}/language/{language}/image/delete', 'LessonController@deleteImage')->name('admin.lessons.image.delete');
         });
 
         /**

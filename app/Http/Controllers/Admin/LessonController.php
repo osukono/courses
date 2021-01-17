@@ -8,7 +8,7 @@ use App\Http\Requests\Admin\Content\LessonCreateRequest;
 use App\Http\Requests\Admin\Content\LessonMoveRequest;
 use App\Http\Requests\Admin\Content\LessonRestoreRequest;
 use App\Http\Requests\Admin\Content\LessonUpdateRequest;
-use App\Http\Requests\Admin\LessonImageUploadRequest;
+use App\Http\Requests\Admin\LessonUploadImageRequest;
 use App\Language;
 use App\Lesson;
 use App\LessonImage;
@@ -131,15 +131,32 @@ class LessonController extends Controller
     }
 
     /**
-     * @param LessonImageUploadRequest $request
+     * @param LessonUploadImageRequest $request
      * @param Lesson $lesson
      * @param Language $language
      * @return RedirectResponse
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException|AuthorizationException
      */
-    public function uploadImage(LessonImageUploadRequest $request, Lesson $lesson, Language $language)
+    public function uploadImage(LessonUploadImageRequest $request, Lesson $lesson, Language $language)
     {
+        $this->authorize('access', $lesson->content);
+
         LessonImageRepository::upload($lesson, $language, $request);
+
+        return back();
+    }
+
+    /**
+     * @param Lesson $lesson
+     * @param Language $language
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function deleteImage(Lesson $lesson, Language $language)
+    {
+        $this->authorize('access', $lesson->content);
+
+        LessonImageRepository::delete($lesson, $language);
 
         return back();
     }
