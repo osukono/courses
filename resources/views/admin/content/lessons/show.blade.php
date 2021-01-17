@@ -64,8 +64,8 @@
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
                 @isset($image)
-                    <v-dropdown-item label="Delete Image"
-                                     submit="#lesson-{{ $lesson->id }}-image-delete"
+                    <v-dropdown-modal label="Delete Image"
+                                     modal="#lesson-{{ $lesson->id }}-image-modal-delete"
                                      visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                         @push('forms')
                             <form class="d-none"
@@ -76,7 +76,7 @@
                                 @csrf
                             </form>
                         @endpush
-                    </v-dropdown-item>
+                    </v-dropdown-modal>
                 @endisset
             </v-dropdown-group>
 
@@ -159,4 +159,5 @@
     @endif
 
     @include('admin.components.modals.confirmation', ['id' => 'lesson-' . $lesson->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $lesson]), 'form' =>  'lesson-' . $lesson->id . '-delete', 'action' => 'Delete'])
+    @include('admin.components.modals.confirmation', ['id' => 'lesson-' . $lesson->id . '-image-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $lesson->title . ' image']), 'form' =>  'lesson-' . $lesson->id . '-image-delete', 'action' => 'Delete'])
 @endsection
