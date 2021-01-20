@@ -12,7 +12,19 @@
     <tbody>
     @foreach($courses as $course)
         <tr>
-            <td class="clickable-row" data-href="{{ route('admin.courses.show', $course) }}">{{ $course }}</td>
+            <td class="clickable-row" data-href="{{ route('admin.courses.show', $course) }}">
+                <div class="row">
+                    @isset($course->image)
+                        <div class="col-auto">
+                            <img src="{{ $course->image }}" width="160" height="90" class="rounded"
+                                 alt="{{ $course->title }}"/>
+                        </div>
+                    @endisset
+                    <div class="col">
+                        {{ $course }}
+                    </div>
+                </div>
+            </td>
             <td class="d-none d-md-table-cell">{{ $course->demo_lessons . ' | ' . $course->course_lessons_count }}</td>
             <td class="d-none d-md-table-cell">{{ $course->player_version }}</td>
             <td class="text-nowrap text-right d-none d-md-table-cell">
