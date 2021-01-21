@@ -21,7 +21,7 @@
                         </div>
                     @endisset
                     <div class="col">
-                        {{ $course }}
+                        <h5>{{ $course }}</h5>
                         <div class=" text-muted small" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
                             {{ $course->description }}
                         </div>
