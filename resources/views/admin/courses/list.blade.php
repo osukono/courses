@@ -1,12 +1,12 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col-12 col-md-7"></th>
+        <th class="col-12 col-md-8"></th>
         <th class="d-none d-md-table-cell">Lessons</th>
         <th class="d-none d-md-table-cell">Player</th>
         <th class="text-right d-none d-md-table-cell">Committed</th>
         <th class="text-right d-none d-md-table-cell">Status</th>
-        <th class="text-nowrap d-none d-md-table-cell">Firebase ID</th>
+{{--        <th class="text-nowrap d-none d-md-table-cell">Firebase ID</th>--}}
     </tr>
     </thead>
     <tbody>
@@ -22,7 +22,7 @@
                     @endisset
                     <div class="col">
                         {{ $course }}
-                        <div class=" text-muted small" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
+                        <div class=" text-muted small" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
                             {{ $course->description }}
                         </div>
                     </div>
@@ -41,16 +41,16 @@
                         Updating
                     @else
                         @isset($course->uploaded_at)
-                            {{ 'Published ' . $course->uploaded_at->diffForHumans() }}
+                            {{ 'Published ' /*. $course->uploaded_at->diffForHumans()*/ }}
                         @endisset
                     @endif
                 @else
                     New
                 @endisset
             </td>
-            <td class="d-none d-md-table-cell">
-                {{ $course->firebase_id }}
-            </td>
+{{--            <td class="d-none d-md-table-cell">--}}
+{{--                {{ $course->firebase_id }}--}}
+{{--            </td>--}}
         </tr>
     @endforeach
     </tbody>
