@@ -16,7 +16,7 @@ return [
         'download' => "Download Yummy Lingo"
     ],
     'player' => [
-        'instruction' => "This is a demo version. Click START to test lesson.",
+        'instruction' => "",
         'speed' => [
             'slower' => "Slower",
             'normal' => "Normal",
