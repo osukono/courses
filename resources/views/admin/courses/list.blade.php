@@ -22,6 +22,9 @@
                     @endisset
                     <div class="col">
                         {{ $course }}
+                        <div class=" text-muted small" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
+                            {{ $course->description }}
+                        </div>
                     </div>
                 </div>
             </td>
