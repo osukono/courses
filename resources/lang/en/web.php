@@ -16,7 +16,7 @@ return [
         'download' => "Download Yummy Lingo"
     ],
     'player' => [
-        'instruction' => "Listen carefully trying to remember translation. After the listening part, you will have an opportunity to practice your speaking skills.",
+        'instruction' => "This is a demo version. Click START to test lesson.",
         'speed' => [
             'slower' => "Slower",
             'normal' => "Normal",
