@@ -5,7 +5,7 @@
         <th class="d-none d-md-table-cell">Lessons</th>
         <th class="d-none d-md-table-cell">Player</th>
         <th class="text-right d-none d-md-table-cell">Committed</th>
-        <th class="text-right d-none d-md-table-cell">Status</th>
+        <th class="text-right d-none d-md-table-cell">State</th>
 {{--        <th class="text-nowrap d-none d-md-table-cell">Firebase ID</th>--}}
     </tr>
     </thead>
