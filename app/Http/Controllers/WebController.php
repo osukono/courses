@@ -34,4 +34,9 @@ class WebController extends Controller
 
         return view('index')->with($data);
     }
+
+    public function teachers()
+    {
+
+    }
 }

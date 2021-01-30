@@ -2,7 +2,10 @@
 
 return [
     'header' => [
-        'download' => "Download"
+        'download' => "Download",
+        'console' => "Dev Console",
+        'teachers' => "For teachers",
+        'logout' => "Log Out",
     ],
     'footer' => [
         'copyright' => "Yummy Lingo © :year. All rights reserved.",
@@ -89,8 +92,8 @@ return [
         ],
         '403' => [
             'title' => "Forbidden (403)",
-            'text' => "The requested operation is forbidden and cannot be completed.",
-            "button" => "Go home"
+            'text' => "The requested operation is forbidden and cannot be completed. In order to get access, please contact us at support@yummylingo.com",
+            "button" => "Home page"
         ],
         '404' => [
             'title' => "Not found (404)",

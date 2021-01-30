@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row justify-content-center my-3">
-        <div class="col-md-8">
-            <div class="card shadow-sm">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8">
+            <div class="card shadow-sm my-5">
                 <div class="card-body">
                     <h3 class="card-title text-center mb-4 font-weight-normal">{{ __('Reset Password') }}</h3>
 

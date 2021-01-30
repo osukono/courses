@@ -3,7 +3,7 @@
 @section('content')
     @include('components.header', [
     'header_img' => URL::asset('images/500.svg?v=3'),
-    'header_img_sm' => URL::asset('images/500_sm.svg?v=4'),
+    'header_img_sm' => URL::asset('images/500_sm.svg?v=5'),
     'header_title' => __('web.errors.500.title'),
     'header_text' => __('web.errors.500.text'),
     'header_button_link' => route("welcome"),

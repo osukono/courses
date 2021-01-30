@@ -22,6 +22,7 @@
                     @endisset
                     <div class="col">
                         <h5>{{ $course }}</h5>
+                        <h3>{{ $course->title }}</h3>
                         <div class=" text-muted" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
                             {{ $course->description }}
                         </div>

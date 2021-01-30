@@ -30,27 +30,40 @@
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <script src="{{ mix('js/app.js') }}"></script>
-{{--    <script src="{{ mix('js/vue.js') }}" defer></script>--}}
 </head>
 <body class="d-flex flex-column h-100">
 <header>
     <nav class="navbar navbar-expand-md navbar-light">
         <div class="container mt-2 mb-2" style="z-index: 100;">
+            <button class="navbar-toggler float-left" type="button" data-toggle="collapse"
+                    data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <a class="navbar-brand" href="{{ route('welcome') }}">
-                <img src="{{ URL::asset('images/brand_header.svg') }}" alt="Yummy Lingo">
+                <img src="{{ URL::asset('images/brand_header.svg?v=2') }}" alt="Yummy Lingo">
             </a>
-
-            <div>
-                <ul class="navbar-nav ml-auto">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto mr-md-2 mr-0">
+{{--                    <a href="{{ route('teachers') }}" class="btn btn-lg btn-link">--}}
+{{--                        {{ __('web.header.teachers') }}--}}
+{{--                    </a>--}}
                     @can(\App\Library\Permissions::view_admin_panel)
-                        <a class="btn btn-lg btn-link mr-md-2 mr-0"
-                           href="{{ route('admin.content.index') }}"
-                        >Console</a>
+                        <a class="btn btn-lg btn-link" href="{{ route('admin.content.index') }}">
+                            {{ __('web.header.console') }}
+                        </a>
                     @endcan
-                    <a target="_blank" rel="noopener" class="btn btn-lg btn-outline-primary rounded-pill"
-                       href="{{ route('download') }}">{{ __('web.header.download') }}</a>
-                </ul>
+                    @auth()
+                        <a class="btn btn-lg btn-link" href="#"
+                           onclick="document.getElementById('logout').submit()">{{ __('web.header.logout') }}</a>
+                        <form class="d-none" action="{{ route('logout') }}" method="post" id="logout">
+                            @csrf
+                        </form>
+                    @endauth
+                </div>
             </div>
+            <a target="_blank" rel="noopener" class="btn btn-lg btn-outline-primary rounded-pill d-none d-md-block"
+               href="{{ route('download') }}">{{ __('web.header.download') }}</a>
         </div>
     </nav>
 </header>
@@ -67,20 +80,22 @@
                     <div class="col-12 col-lg-auto">
                         <div class="row mb-4">
                             <div class="col">
-                                <img src="{{ URL::asset('images/brand_footer.svg') }}" alt="Yummy Lingo"
+                                <img src="{{ URL::asset('images/brand_footer.svg?v=2') }}" alt="Yummy Lingo"
                                      width="169" height="25">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <span class="text-center">
-                                    <a href="{{ __('web.index.section.app.links.android') }}" target="_blank" rel="noopener">
+                                    <a href="{{ __('web.index.section.app.links.android') }}" target="_blank"
+                                       rel="noopener">
                                         <img
                                             src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
                                             alt="{{ __('web.index.section.app.badges.google_play.alt') }}"
                                             width="148" height="44" class="mx-1 mb-2">
                                     </a>
-                                    <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank" rel="noopener">
+                                    <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank"
+                                       rel="noopener">
                                         <img
                                             src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
                                             alt="{{ __('web.index.section.app.badges.app_store.alt') }}"
@@ -115,7 +130,7 @@
                                      title="{{ __('web.footer.social.instagram') }}" alt="Instagram"
                                      width="24" height="24"/>
                             </a>
-                            <a class="pl-2" target="_blank" href="https://t.me/yummy_lingo">
+                            <a class="pl-2" target="_blank" rel="noopener" href="https://t.me/yummy_lingo">
                                 <img src="{{ URL::asset('images/telegram.svg') }}" data-toggle="tooltip"
                                      title="{{ __('web.footer.social.telegram') }}" alt="Telegram"
                                      width="24" height="24"/>
