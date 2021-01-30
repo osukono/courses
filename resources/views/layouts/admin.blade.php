@@ -27,7 +27,7 @@
                 <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::dashboard) }}"
                    href="{{ route('admin.dashboard') }}">
                     <icon-activity></icon-activity>
-                    <div class="link">Dashboard</div>
+                    <div class="link">{{ __('admin.dashboard.title') }}</div>
                 </a>
             </li>
             @can(\App\Library\Permissions::view_content)
@@ -35,7 +35,7 @@
                     <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::content) }}"
                        href="{{ route('admin.content.index') }}">
                         <icon-book-open></icon-book-open>
-                        <div class="link">Development</div>
+                        <div class="link">{{ __('admin.development.title') }}</div>
                     </a>
                 </li>
             @endcan
@@ -44,7 +44,7 @@
                     <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::courses) }}"
                        href="{{ route('admin.courses.index') }}">
                         <icon-book></icon-book>
-                        <div class="link">Production</div>
+                        <div class="link">{{ __('admin.production.title') }}</div>
                     </a>
                 </li>
             @endcan
@@ -55,21 +55,21 @@
                 <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::languages) }}"
                    href="{{ route('admin.languages.index') }}">
                     <icon-globe></icon-globe>
-                    <div class="link">Languages</div>
+                    <div class="link">{{ __('admin.languages.title') }}</div>
                 </a>
             </li>
             <li>
                 <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::topics) }}"
                    href="{{ route('admin.topics.index') }}">
                     <icon-message-square></icon-message-square>
-                    <div class="link">Topics</div>
+                    <div class="link">{{ __('admin.topics.title') }}</div>
                 </a>
             </li>
             <li>
                 <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::locales) }}"
                    href="{{ route('admin.app.locales.index') }}">
                     <icon-list></icon-list>
-                    <div class="link">Localizations</div>
+                    <div class="link">{{ __('admin.localizations.title') }}</div>
                 </a>
             </li>
         </ul>
@@ -78,7 +78,7 @@
                 <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::users) }}"
                    href="{{ route('admin.users.index') }}">
                     <icon-users></icon-users>
-                    <div class="link">Users</div>
+                    <div class="link">{{ __('admin.users.title') }}</div>
                 </a>
             </li>
         </ul>

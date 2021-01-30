@@ -14,7 +14,7 @@ use App\User;
 
 // Dashboard
 Breadcrumbs::for('admin.dashboard', function ($trail) {
-    $trail->push('Dashboard', route('admin.dashboard'));
+    $trail->push(__('admin.dashboard.title'), route('admin.dashboard'));
 });
 
 /**
@@ -25,7 +25,7 @@ Breadcrumbs::for('admin.dashboard', function ($trail) {
 
 // Content
 Breadcrumbs::for('admin.content.index', function ($trail) {
-    $trail->push('Development', route('admin.content.index'));
+    $trail->push(__('admin.development.title'), route('admin.content.index'));
 });
 
 // Content > Create
@@ -161,7 +161,7 @@ Breadcrumbs::for('admin.translations.exercise.show', function ($trail, Language 
 
 // Courses
 Breadcrumbs::for('admin.courses.index', function ($trail) {
-    $trail->push('Production', route('admin.courses.index'));
+    $trail->push(__('admin.production.title'), route('admin.courses.index'));
 });
 
 // Courses > [Course]
@@ -190,7 +190,7 @@ Breadcrumbs::for('admin.courses.practice', function ($trail, Course $course, Cou
 
 // Languages
 Breadcrumbs::for('admin.languages.index', function ($trail) {
-    $trail->push('Languages', route('admin.languages.index'));
+    $trail->push(__('admin.languages.title'), route('admin.languages.index'));
 });
 
 // Languages > Create
@@ -231,7 +231,7 @@ Breadcrumbs::for('admin.player.settings.edit', function($trail, Language $langua
 
 // Topics
 Breadcrumbs::for('admin.topics.index', function ($trail) {
-    $trail->push('Topics', route('admin.topics.index'));
+    $trail->push(__('admin.topics.title'), route('admin.topics.index'));
 });
 
 // Topics > Create
@@ -260,7 +260,7 @@ Breadcrumbs::for('admin.topics.edit', function ($trail, Topic $topic) {
 
 // App Localizations
 Breadcrumbs::for('admin.app.locales.index', function ($trail) {
-    $trail->push('App Localization', route('admin.app.locales.index'));
+    $trail->push(__('admin.localizations.title'), route('admin.app.locales.index'));
 });
 
 // App Localizations > Create
@@ -313,7 +313,7 @@ Breadcrumbs::for('admin.app.locale.groups.edit', function ($trail, LocaleGroup $
 
 // Users
 Breadcrumbs::for('admin.users.index', function ($trail) {
-    $trail->push('Users', route('admin.users.index'));
+    $trail->push(__('admin.users.title'), route('admin.users.index'));
 });
 
 // Users > Create

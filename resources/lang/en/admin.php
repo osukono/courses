@@ -11,6 +11,39 @@ return [
         'delete_confirmation' => 'Do you want to delete :object?',
     ],
 
+    'dashboard' => [
+        'title' => 'Dashboard',
+        'cards' => [
+            'users' => [
+                'title' => 'Users',
+            ],
+            'courses' => [
+                'title' => 'Courses',
+            ],
+            'statistics' => [
+                'lessons' => [
+                    'title' => 'Lessons Learned',
+                ],
+                'development' => [
+                    'title' => 'Development Activity (last month)',
+                    'value' => ':num changes'
+                ],
+            ],
+        ],
+    ],
+
+    'development' => [
+        'title' => 'Development',
+        'subtitle' => 'Content',
+        'content' => [
+            'title' => 'Content',
+            'toolbar' => [
+                'create' => 'Create Content',
+                'trash' => 'Trash'
+            ]
+        ]
+    ],
+
     'menu' => [
         'properties' => 'Properties',
         'log' => 'Changelog',
