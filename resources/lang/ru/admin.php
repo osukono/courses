@@ -1,6 +1,25 @@
 <?php
 
 return [
+    'menu' => [
+        'dashboard' => 'Статистика',
+        'courses' => [
+            'header' => 'Курсы',
+            'development' => 'В разработке',
+            'production' => 'В продаже',
+        ],
+        'app' => [
+            'header' => 'Приложение',
+            'languages' => 'Языки',
+            'topics' => 'Темы',
+            'localization' => 'Локализация'
+        ],
+        'console' => [
+            'header' => 'Консоль',
+            'users' => 'Пользователи'
+        ],
+    ],
+
     'dashboard' => [
         'title' => 'Статистика',
         'cards' => [
@@ -27,7 +46,7 @@ return [
     ],
 
     'production' => [
-        'title' => 'Готовые к продаже'
+        'title' => 'В продаже'
     ],
 
     'application' => [
@@ -43,7 +62,7 @@ return [
     ],
 
     'localizations' => [
-        'title' => 'Локализации'
+        'title' => 'Локализация'
     ],
 
     'users' => [

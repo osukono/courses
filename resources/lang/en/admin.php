@@ -45,7 +45,7 @@ return [
     ],
 
     'production' => [
-        'title' => 'Ready for Sale'
+        'title' => 'Production'
     ],
 
     'application' => [
@@ -61,7 +61,7 @@ return [
     ],
 
     'localizations' => [
-        'title' => 'Localizations'
+        'title' => 'Localization'
     ],
 
     'users' => [
@@ -69,6 +69,24 @@ return [
     ],
 
     'menu' => [
+        'dashboard' => 'Dashboard',
+        'courses' => [
+            'header' => 'Courses',
+            'development' => 'Development',
+            'production' => 'Production',
+        ],
+        'app' => [
+            'header' => 'Application',
+            'languages' => 'Languages',
+            'topics' => 'Topics',
+            'localization' => 'Localization'
+        ],
+        'console' => [
+            'header' => 'Console',
+            'users' => 'Users'
+        ],
+
+
         'properties' => 'Properties',
         'log' => 'Changelog',
         'create' => [
