@@ -44,6 +44,30 @@ return [
         ]
     ],
 
+    'production' => [
+        'title' => 'Ready for Sale'
+    ],
+
+    'application' => [
+        'title' => 'Application'
+    ],
+
+    'languages' => [
+        'title' => 'Languages',
+    ],
+
+    'topics' => [
+        'title' => 'Topics',
+    ],
+
+    'localizations' => [
+        'title' => 'Localizations'
+    ],
+
+    'users' => [
+        'title' => 'Users'
+    ],
+
     'menu' => [
         'properties' => 'Properties',
         'log' => 'Changelog',

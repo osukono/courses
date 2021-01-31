@@ -23,11 +23,15 @@ return [
     ],
 
     'development' => [
-        'title' => 'Разработка'
+        'title' => 'В разработке'
     ],
 
     'production' => [
-        'title' => 'Публикации'
+        'title' => 'Готовые к продаже'
+    ],
+
+    'application' => [
+        'title' => 'Приложение'
     ],
 
     'languages' => [
