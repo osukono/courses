@@ -23,11 +23,19 @@
         </div>
 
         <ul class="list-unstyled">
+            <p>{{ __('admin.menu.console.header') }}</p>
             <li>
                 <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::dashboard) }}"
                    href="{{ route('admin.dashboard') }}">
                     <icon-activity></icon-activity>
                     <div class="link">{{ __('admin.menu.dashboard') }}</div>
+                </a>
+            </li>
+            <li>
+                <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::users) }}"
+                   href="{{ route('admin.users.index') }}">
+                    <icon-users></icon-users>
+                    <div class="link">{{ __('admin.menu.console.users') }}</div>
                 </a>
             </li>
         </ul>
@@ -75,16 +83,6 @@
                    href="{{ route('admin.app.locales.index') }}">
                     <icon-list></icon-list>
                     <div class="link">{{ __('admin.menu.app.localization') }}</div>
-                </a>
-            </li>
-        </ul>
-        <ul class="list-unstyled">
-            <p>{{ __('admin.menu.console.header') }}</p>
-            <li>
-                <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::users) }}"
-                   href="{{ route('admin.users.index') }}">
-                    <icon-users></icon-users>
-                    <div class="link">{{ __('admin.menu.console.users') }}</div>
                 </a>
             </li>
         </ul>

@@ -6,7 +6,7 @@ return [
         'courses' => [
             'header' => 'Курсы',
             'development' => 'В разработке',
-            'production' => 'В продаже',
+            'production' => 'Опубликованные',
         ],
         'app' => [
             'header' => 'Приложение',
