@@ -69,7 +69,11 @@ return [
     ],
 
     'menu' => [
-        'dashboard' => 'Dashboard',
+        'console' => [
+            'header' => 'Console',
+            'dashboard' => 'Dashboard',
+            'users' => 'Users'
+        ],
         'courses' => [
             'header' => 'Courses',
             'development' => 'Development',
@@ -79,11 +83,7 @@ return [
             'header' => 'App Settings',
             'languages' => 'Languages',
             'topics' => 'Course Topics',
-            'localization' => 'Localization'
-        ],
-        'console' => [
-            'header' => 'Console',
-            'users' => 'Users'
+            'localization' => 'Localizations'
         ],
 
 

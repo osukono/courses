@@ -28,7 +28,7 @@
                 <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::dashboard) }}"
                    href="{{ route('admin.dashboard') }}">
                     <icon-activity></icon-activity>
-                    <div class="link">{{ __('admin.menu.dashboard') }}</div>
+                    <div class="link">{{ __('admin.menu.console.dashboard') }}</div>
                 </a>
             </li>
             <li>

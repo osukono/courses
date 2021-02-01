@@ -2,7 +2,11 @@
 
 return [
     'menu' => [
-        'dashboard' => 'Статистика',
+        'console' => [
+            'header' => 'Консоль',
+            'dashboard' => 'Статистика',
+            'users' => 'Пользователи'
+        ],
         'courses' => [
             'header' => 'Курсы',
             'development' => 'В разработке',
@@ -12,11 +16,7 @@ return [
             'header' => 'Настройки приложения',
             'languages' => 'Языки',
             'topics' => 'Темы курсов',
-            'localization' => 'Локализация'
-        ],
-        'console' => [
-            'header' => 'Консоль',
-            'users' => 'Пользователи'
+            'localization' => 'Локализации'
         ],
     ],
 
