@@ -9,9 +9,9 @@ return [
             'production' => 'Опубликованные',
         ],
         'app' => [
-            'header' => 'Приложение',
+            'header' => 'Настройки приложения',
             'languages' => 'Языки',
-            'topics' => 'Темы',
+            'topics' => 'Темы курсов',
             'localization' => 'Локализация'
         ],
         'console' => [

@@ -76,9 +76,9 @@ return [
             'production' => 'Production',
         ],
         'app' => [
-            'header' => 'Application',
+            'header' => 'App Settings',
             'languages' => 'Languages',
-            'topics' => 'Topics',
+            'topics' => 'Course Topics',
             'localization' => 'Localization'
         ],
         'console' => [
