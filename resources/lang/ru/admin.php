@@ -16,7 +16,7 @@ return [
             'header' => 'Настройки приложения',
             'languages' => 'Языки',
             'topics' => 'Темы курсов',
-            'localization' => 'Локализации'
+            'localization' => 'Локализация'
         ],
     ],
 
