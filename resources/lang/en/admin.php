@@ -25,7 +25,7 @@ return [
                     'title' => 'Lessons Learned',
                 ],
                 'development' => [
-                    'title' => 'Development Activity (last month)',
+                    'title' => 'Development (last month)',
                     'value' => ':num changes'
                 ],
             ],
