@@ -13,7 +13,7 @@ return [
             'production' => 'Опубликованные',
         ],
         'app' => [
-            'header' => 'Настройки приложения',
+            'header' => 'Приложение',
             'languages' => 'Языки',
             'topics' => 'Темы курсов',
             'localization' => 'Локализация'
