@@ -3,7 +3,7 @@
 return [
     'header' => [
         'download' => "Загрузить",
-        'console' => "Разработка",
+        'console' => "Разработка курсов",
         'teachers' => "Учителям",
         'logout' => "Выйти",
     ],

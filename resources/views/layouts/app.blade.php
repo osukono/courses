@@ -48,11 +48,11 @@
 {{--                    <a href="{{ route('teachers') }}" class="btn btn-lg btn-link">--}}
 {{--                        {{ __('web.header.teachers') }}--}}
 {{--                    </a>--}}
-                    @can(\App\Library\Permissions::view_admin_panel)
+{{--                    @can(\App\Library\Permissions::view_admin_panel)--}}
                         <a class="btn btn-lg btn-link" href="{{ route('admin.content.index') }}">
                             {{ __('web.header.console') }}
                         </a>
-                    @endcan
+{{--                    @endcan--}}
                     @auth()
                         <a class="btn btn-lg btn-link" href="#"
                            onclick="document.getElementById('logout').submit()">{{ __('web.header.logout') }}</a>
