@@ -10,7 +10,7 @@ class StrUtils
      * @param string $str
      * @return string
      */
-    public static function normalize(string $str)
+    public static function normalize($str)
     {
         $str = StrUtils::em_dashes($str);
         $str = StrUtils::en_dashes($str);
@@ -24,7 +24,7 @@ class StrUtils
      * @param string $str
      * @return string
      */
-    public static function em_dashes(string $str)
+    public static function em_dashes($str)
     {
         $hyphen = '-';
         $em_dash = '—';
@@ -37,7 +37,7 @@ class StrUtils
      * @param string $str
      * @return string
      */
-    public static function en_dashes(string $str)
+    public static function en_dashes($str)
     {
         $hyphen = '-';
         $en_dash = '–';
@@ -49,7 +49,7 @@ class StrUtils
      * @param string $str
      * @return string
      */
-    public static function grammar(string $str)
+    public static function grammar($str)
     {
         return preg_replace('/(.*?)(\[)(.*?)(])(.*?)/', '$1<strong>$3</strong>$5', $str);
     }
@@ -58,7 +58,7 @@ class StrUtils
      * @param string $str
      * @return string
      */
-    public static function toPlainText(string $str)
+    public static function toPlainText($str)
     {
         $str = preg_replace('/(\[)/', '', $str);
         $str = preg_replace('/(])/', '', $str);
