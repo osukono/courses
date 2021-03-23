@@ -6,14 +6,11 @@
 
 @section('toolbar')
     <v-button-group>
-        <v-button tooltip="{{ __('admin.menu.create.lesson') }}"
+        <v-button tooltip="{{ __('admin.dev.lessons.toolbar.create') }}"
                   route="{{ route('admin.lessons.create', $content) }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
             <template v-slot:label>
-                Lesson
-            </template>
-            <template v-slot:icon>
-                <icon-plus></icon-plus>
+                {{ __('admin.dev.lessons.toolbar.create') }}
             </template>
         </v-button>
 
@@ -23,25 +20,25 @@
             </template>
 
             <v-dropdown-group>
-                <v-dropdown-item label="Content Editors"
+                <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.editors') }}"
                                  route="{{ route('admin.content.editors.index', $content) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::assign_editors) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
 
-            <v-dropdown-group header="Download">
-                <v-dropdown-item label="{{ $content->language }}"
+            <v-dropdown-group header="{{ __('admin.dev.lessons.toolbar.more.export.title') }}">
+                <v-dropdown-item label="{{ $content->language . ' TXT' }}"
                                  route="{{ route('admin.content.export', $content) }}">
                 </v-dropdown-item>
-                <v-dropdown-item label="Content"
+                <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.export.backup') }}"
                                  route="{{ route('admin.content.export.json', $content) }}"
                                  visible="{{ Auth::getUser()->hasRole(\App\Library\Roles::admin) }}">
 
                 </v-dropdown-item>
             </v-dropdown-group>
 
-            <v-dropdown-group header="Import">
-                <v-dropdown-item label="Content"
+            <v-dropdown-group header="{{ __('admin.dev.lessons.toolbar.more.import.title') }}">
+                <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.import.backup') }}"
                                  click="#content-{{ $content->id }}-import-json"
                                  visible="{{ Auth::getUser()->hasRole(\App\Library\Roles::admin) }}">
                     @push('forms')
@@ -57,19 +54,19 @@
                 </v-dropdown-item>
             </v-dropdown-group>
 
-            <v-dropdown-group>
-                <v-dropdown-item label="Properties"
+            <v-dropdown-group header="{{ __('admin.dev.lessons.toolbar.more.properties.title') }}">
+                <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.properties.course') }}"
                                  route="{{ route('admin.content.edit', $content) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
-                <v-dropdown-item label="Speech Settings"
+                <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.properties.speech') }}"
                                  route="{{ route('admin.content.speech.settings.edit', $content) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
 
             <v-dropdown-group>
-                <v-dropdown-modal label="Delete Content"
+                <v-dropdown-modal label="{{ __('admin.dev.lessons.toolbar.more.delete') }}"
                                   modal="content-{{ $content->id }}-modal-delete"
                                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::delete_content) }}">
                     @push('forms')
@@ -81,7 +78,7 @@
                         </form>
                     @endpush
                 </v-dropdown-modal>
-                <v-dropdown-item label="Trash"
+                <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.trash') }}"
                                  route="{{ route('admin.lessons.trash', $content) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
                 </v-dropdown-item>
@@ -90,7 +87,7 @@
 
         <v-dropdown>
             <template v-slot:label>
-                Translations
+                {{ __('admin.dev.lessons.toolbar.translations') }}
             </template>
 
             @foreach($languages as $__language)

@@ -32,7 +32,7 @@ return [
         ],
     ],
 
-    'development' => [
+    'dev' => [
         'title' => 'Development',
         'courses' => [
             'title' => 'Courses',
@@ -58,6 +58,30 @@ return [
             ],
             'trash' => [
                 'title' => 'Trash'
+            ]
+        ],
+        'lessons' => [
+            'toolbar' => [
+                'create' => 'Create Lesson',
+                'more' => [
+                    'editors' => 'Course Editors',
+                    'export' => [
+                        'title' => 'Export',
+                        'backup' => 'Backup'
+                    ],
+                    'import' => [
+                        'title' => 'Import',
+                        'backup' => 'Backup'
+                    ],
+                    'properties' => [
+                        'title' => 'Properties',
+                        'course' => 'Course',
+                        'speech' => 'Text to Speech',
+                    ],
+                    'delete' => 'Delete Course',
+                    'trash' => 'Trash'
+                ],
+                'translations' => 'Translation'
             ]
         ]
     ],

@@ -1,6 +1,16 @@
 <?php
 
 return [
+    'form' => [
+        'create' => 'Создать',
+        'save' => 'Сохранить',
+        'delete' => 'Удалить',
+        'cancel' => 'Отмена',
+        'restore' => 'Восстановить',
+        'custom_file_text' => 'Обзор',
+        'delete_confirmation' => 'Вы хотите удалить :object?',
+    ],
+
     'menu' => [
         'console' => [
             'header' => 'Консоль',
@@ -41,7 +51,7 @@ return [
         ],
     ],
 
-    'development' => [
+    'dev' => [
         'title' => 'Разработка',
         'courses' => [
             'title' => 'Курсы',
@@ -52,7 +62,7 @@ return [
             'list' => [
                 'columns' => [
                     'title' => 'Название',
-                    'lessons' => 'Уроков',
+                    'lessons' => 'Уроки',
                     'modified' => 'Изменен'
                 ]
             ],
@@ -67,6 +77,30 @@ return [
             ],
             'trash' => [
                 'title' => 'Корзина'
+            ]
+        ],
+        'lessons' => [
+            'toolbar' => [
+                'create' => 'Добавить урок',
+                'more' => [
+                    'editors' => 'Редакторы курса',
+                    'export' => [
+                        'title' => 'Экспорт',
+                        'backup' => 'Резервная копия'
+                    ],
+                    'import' => [
+                        'title' => 'Импорт',
+                        'backup' => 'Резервная копия'
+                    ],
+                    'properties' => [
+                        'title' => 'Свойства',
+                        'course' => 'Курс',
+                        'speech' => 'Синтезатор',
+                    ],
+                    'delete' => 'Удалить курс',
+                    'trash' => 'Корзина'
+                ],
+                'translations' => 'Перевод'
             ]
         ]
     ],

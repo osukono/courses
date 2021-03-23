@@ -25,19 +25,19 @@ Breadcrumbs::for('admin.dashboard', function ($trail) {
 
 // Development
 Breadcrumbs::for('admin.content.index', function ($trail) {
-    $trail->push(__('admin.development.title'), route('admin.content.index'));
+    $trail->push(__('admin.dev.title'), route('admin.content.index'));
 });
 
 // Development > Create Course
 Breadcrumbs::for('admin.content.create', function ($trail) {
     $trail->parent('admin.content.index');
-    $trail->push(__('admin.development.courses.create.title'));
+    $trail->push(__('admin.dev.courses.create.title'));
 });
 
 // Development > Trash
 Breadcrumbs::for('admin.content.trash', function ($trail) {
     $trail->parent('admin.content.index');
-    $trail->push(__('admin.development.courses.trash.title'));
+    $trail->push(__('admin.dev.courses.trash.title'));
 });
 
 // [Content]
