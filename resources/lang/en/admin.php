@@ -34,12 +34,30 @@ return [
 
     'development' => [
         'title' => 'Development',
-        'subtitle' => 'Content',
-        'content' => [
-            'title' => 'Content',
+        'courses' => [
+            'title' => 'Courses',
             'toolbar' => [
-                'create' => 'Create Content',
+                'create' => 'Create Course',
                 'trash' => 'Trash'
+            ],
+            'list' => [
+                'columns' => [
+                    'title' => 'Title',
+                    'lessons' => 'Lessons',
+                    'modified' => 'Last Modified'
+                ]
+            ],
+            'create' => [
+                'title' => 'Create Course',
+                'fields' => [
+                    'language' => 'Language',
+                    'level' => 'Level',
+                    'topic' => 'Topic',
+                    'title' => 'Title'
+                ]
+            ],
+            'trash' => [
+                'title' => 'Trash'
             ]
         ]
     ],

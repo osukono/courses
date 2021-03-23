@@ -23,21 +23,21 @@ Breadcrumbs::for('admin.dashboard', function ($trail) {
  * ---------------------------------------------------------------------------------------------------------------------
  */
 
-// Content
+// Development
 Breadcrumbs::for('admin.content.index', function ($trail) {
     $trail->push(__('admin.development.title'), route('admin.content.index'));
 });
 
-// Content > Create
+// Development > Create Course
 Breadcrumbs::for('admin.content.create', function ($trail) {
     $trail->parent('admin.content.index');
-    $trail->push('Create');
+    $trail->push(__('admin.development.courses.create.title'));
 });
 
-// Content > Trash
+// Development > Trash
 Breadcrumbs::for('admin.content.trash', function ($trail) {
     $trail->parent('admin.content.index');
-    $trail->push('Trash');
+    $trail->push(__('admin.development.courses.trash.title'));
 });
 
 // [Content]

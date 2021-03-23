@@ -2,9 +2,9 @@
     <thead>
     <tr>
         <th class="col"></th>
-        <th class="col-auto d-none d-md-table-cell">Title</th>
-        <th class="col-auto d-none d-md-table-cell">Lessons</th>
-        <th class="col-auto text-nowrap text-right d-none d-md-table-cell">Last Modified</th>
+        <th class="col-auto d-none d-md-table-cell">{{ __('admin.development.courses.list.columns.title') }}</th>
+        <th class="col-auto d-none d-md-table-cell">{{ __('admin.development.courses.list.columns.lessons') }}</th>
+        <th class="col-auto text-nowrap text-right d-none d-md-table-cell">{{ __('admin.development.courses.list.columns.modified') }}</th>
     </tr>
     </thead>
     <tbody>

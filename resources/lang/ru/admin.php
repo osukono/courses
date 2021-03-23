@@ -9,7 +9,7 @@ return [
         ],
         'courses' => [
             'header' => 'Курсы',
-            'development' => 'В разработке',
+            'development' => 'Разработка',
             'production' => 'Опубликованные',
         ],
         'app' => [
@@ -42,11 +42,37 @@ return [
     ],
 
     'development' => [
-        'title' => 'В разработке'
+        'title' => 'Разработка',
+        'courses' => [
+            'title' => 'Курсы',
+            'toolbar' => [
+                'create' => 'Добавить курс',
+                'trash' => 'Корзина'
+            ],
+            'list' => [
+                'columns' => [
+                    'title' => 'Название',
+                    'lessons' => 'Уроков',
+                    'modified' => 'Изменен'
+                ]
+            ],
+            'create' => [
+                'title' => 'Добавление курса',
+                'fields' => [
+                    'language' => 'Язык',
+                    'level' => 'Уровень',
+                    'topic' => 'Тема',
+                    'title' => 'Название'
+                ]
+            ],
+            'trash' => [
+                'title' => 'Корзина'
+            ]
+        ]
     ],
 
     'production' => [
-        'title' => 'В продаже'
+        'title' => 'Опубликованные'
     ],
 
     'application' => [
