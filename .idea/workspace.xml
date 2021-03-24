@@ -5,11 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ru/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/breadcrumbs.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/breadcrumbs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/exercises/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/exercises/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -398,6 +396,9 @@
       <workItem from="1616506804695" duration="1808000" />
       <workItem from="1616508997158" duration="1136000" />
       <workItem from="1616513919072" duration="1757000" />
+      <workItem from="1616515770316" duration="367000" />
+      <workItem from="1616590088790" duration="1087000" />
+      <workItem from="1616592009106" duration="297000" />
     </task>
     <servers />
   </component>

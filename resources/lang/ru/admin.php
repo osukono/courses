@@ -101,7 +101,22 @@ return [
                     'trash' => 'Корзина'
                 ],
                 'translations' => 'Перевод'
-            ]
+            ],
+            'trans' => [
+                'toolbar' => [
+                    'more' => [
+                        'editors' => 'Редакторы перевода',
+                        'export' => [
+                            'title' => 'Экспорт',
+                        ],
+                        'properties' => [
+                            'title' => 'Свойства',
+                            'speech' => 'Синтезатор',
+                        ],
+                        'commit' => 'Опубликовать',
+                    ],
+                ],
+            ],
         ]
     ],
 

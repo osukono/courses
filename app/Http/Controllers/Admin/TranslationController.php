@@ -53,6 +53,7 @@ class TranslationController extends Controller
         $data['languages'] = LanguageRepository::all()
             ->hasAccess(Auth::getUser())
             ->whereNotIn('id', [$content->language->id])
+            ->whereNotIn('id', [$language->id])
             ->ordered()->get();
         $data['lessons'] = $content->lessons()
             ->with('disabled')
@@ -86,6 +87,7 @@ class TranslationController extends Controller
         $data['languages'] = LanguageRepository::all()
             ->hasAccess(Auth::getUser())
             ->whereNotIn('id', [$lesson->content->language->id])
+            ->whereNotIn('id', [$language->id])
             ->ordered()->get();
         $data['exercises'] = $lesson->exercises()
             ->with([
@@ -175,7 +177,9 @@ class TranslationController extends Controller
         $data['content'] = $exercise->lesson->content;
         $data['languages'] = LanguageRepository::all()
             ->hasAccess(Auth::getUser())
-            ->whereNotIn('id', [$exercise->lesson->content->language->id])->get();
+            ->whereNotIn('id', [$exercise->lesson->content->language->id])
+            ->whereNotIn('id', [$language->id])
+            ->get();
         $data['exerciseData'] = $exercise->exerciseData()
             ->with([
                 'translations' => function (HasMany $query) use ($language) {

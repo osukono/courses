@@ -38,13 +38,13 @@ return [
             'title' => 'Courses',
             'toolbar' => [
                 'create' => 'Create Course',
-                'trash' => 'Trash'
+                'trash' => 'Trash',
             ],
             'list' => [
                 'columns' => [
                     'title' => 'Title',
                     'lessons' => 'Lessons',
-                    'modified' => 'Last Modified'
+                    'modified' => 'Last Modified',
                 ]
             ],
             'create' => [
@@ -53,11 +53,11 @@ return [
                     'language' => 'Language',
                     'level' => 'Level',
                     'topic' => 'Topic',
-                    'title' => 'Title'
+                    'title' => 'Title',
                 ]
             ],
             'trash' => [
-                'title' => 'Trash'
+                'title' => 'Trash',
             ]
         ],
         'lessons' => [
@@ -81,9 +81,24 @@ return [
                     'delete' => 'Delete Course',
                     'trash' => 'Trash'
                 ],
-                'translations' => 'Translation'
-            ]
-        ]
+                'translations' => 'Translation',
+            ],
+            'trans' => [
+                'toolbar' => [
+                    'more' => [
+                        'editors' => 'Translation Editors',
+                        'export' => [
+                            'title' => 'Export',
+                        ],
+                        'properties' => [
+                            'title' => 'Properties',
+                            'speech' => 'Text to Speech',
+                        ],
+                        'commit' => 'Commit',
+                    ],
+                ],
+            ],
+        ],
     ],
 
     'production' => [
@@ -173,6 +188,6 @@ return [
 
     'pagination' => [
         'previous' => 'Previous',
-        'next' => 'Next'
-    ]
+        'next' => 'Next',
+    ],
 ];

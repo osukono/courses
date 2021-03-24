@@ -11,36 +11,34 @@
                 <icon-more-vertical></icon-more-vertical>
             </template>
             <v-dropdown-group>
-                <v-dropdown-item label="Translation Editors"
+                <v-dropdown-item label="{{ __('admin.dev.lessons.trans.toolbar.more.editors') }}"
                                  route="{{ route('admin.translations.editors.index', [$language, $content]) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::assign_editors) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
 
-            <v-dropdown-group header="Download">
-                <v-dropdown-item label="{{ $language->native }}"
-                                 route="{{ route('admin.translations.content.export', [$language, $content]) }}">
-                </v-dropdown-item>
+            <v-dropdown-group header="{{ __('admin.dev.lessons.trans.toolbar.more.export.title') }}">
                 <v-dropdown-item label="{{ $content->language->native . ' + ' . $language->native }}"
                                  route="{{ route('admin.translations.content.export', [$language, $content]) }}?target=1">
                 </v-dropdown-item>
+                <v-dropdown-item label="{{ $language->native }}"
+                                 route="{{ route('admin.translations.content.export', [$language, $content]) }}">
+                </v-dropdown-item>
             </v-dropdown-group>
 
-            <v-dropdown-group>
-                <v-dropdown-item label="Speech Settings"
+            <v-dropdown-group header="{{ __('admin.dev.lessons.trans.toolbar.more.properties.title') }}">
+                <v-dropdown-item label="{{ __('admin.dev.lessons.trans.toolbar.more.properties.speech') }}"
                                  route="{{ route('admin.translations.speech.settings.edit', [$language, $content]) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
 
             <v-dropdown-group>
-                <v-dropdown-item label="Commit"
-                                 submit="#commit"
+                <v-dropdown-item label="{{ __('admin.dev.lessons.trans.toolbar.more.commit') }}" submit="#commit"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
                     @push('forms')
                         <form class="d-none" id="commit"
-                              action="{{ route('admin.translations.commit', [$language, $content]) }}"
-                              method="post">
+                              action="{{ route('admin.translations.commit', [$language, $content]) }}" method="post">
                             @csrf
                         </form>
                     @endpush
@@ -48,9 +46,9 @@
             </v-dropdown-group>
         </v-dropdown>
 
-        <v-dropdown>
+        <v-dropdown visible="{{ $languages->isNotEmpty() }}">
             <template v-slot:label>
-                Translations
+                {{ $language->native }}
             </template>
 
             @foreach($languages as $__language)
@@ -62,7 +60,7 @@
 
         <v-button route="{{ route('admin.content.show', $content) }}">
             <template v-slot:label>
-                Content
+                {{ $content->language->native }}
             </template>
             <template v-slot:icon>
                 <icon-chevron-right></icon-chevron-right>

@@ -60,9 +60,9 @@
             </v-dropdown-group>
         </v-dropdown>
 
-        <v-dropdown>
+        <v-dropdown visible="{{ $languages->isNotEmpty() }}">
             <template v-slot:label>
-                Translations
+                {{ $language->native }}
             </template>
 
             @foreach($languages as $__language)
@@ -75,7 +75,7 @@
         <v-button route="{{ route('admin.lessons.show', $lesson) }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_content) }}">
             <template v-slot:label>
-                Content
+                {{ $content->language->native }}
             </template>
             <template v-slot:icon>
                 <icon-chevron-right></icon-chevron-right>
