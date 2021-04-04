@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Schemas/course-0.0.1.schema.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Schemas/course-description-0.0.1.schema.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Schemas/exercise-0.0.1.schema.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Schemas/lesson-0.0.1.schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/exercises/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/exercises/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +228,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -240,11 +241,11 @@
       <recent name="$PROJECT_DIR$/app/Library" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Schemas" />
       <recent name="$PROJECT_DIR$/resources/views/admin/users/assigned" />
       <recent name="$PROJECT_DIR$/resources/views/admin/components/modals" />
       <recent name="$PROJECT_DIR$/resources/js/components/icons" />
       <recent name="$PROJECT_DIR$/resources/views/admin/app/locales/groups" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/app" />
     </key>
   </component>
   <component name="RunManager">
@@ -398,7 +399,10 @@
       <workItem from="1616513919072" duration="1757000" />
       <workItem from="1616515770316" duration="367000" />
       <workItem from="1616590088790" duration="1087000" />
-      <workItem from="1616592009106" duration="297000" />
+      <workItem from="1616592009106" duration="812000" />
+      <workItem from="1616769165811" duration="1108000" />
+      <workItem from="1616770976309" duration="1079000" />
+      <workItem from="1617554308533" duration="309000" />
     </task>
     <servers />
   </component>

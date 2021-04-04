@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.19.0.
+ * Generated for Laravel 8.33.1.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -198,6 +198,18 @@
                         return $instance->langPath();
         }
                     /**
+         * Set the language file directory.
+         *
+         * @param string $path
+         * @return \Illuminate\Foundation\Application 
+         * @static 
+         */ 
+        public static function useLangPath($path)
+        {
+                        /** @var \Illuminate\Foundation\Application $instance */
+                        return $instance->useLangPath($path);
+        }
+                    /**
          * Get the path to the public / web directory.
          *
          * @return string 
@@ -242,6 +254,20 @@
         {
                         /** @var \Illuminate\Foundation\Application $instance */
                         return $instance->resourcePath($path);
+        }
+                    /**
+         * Get the path to the views directory.
+         * 
+         * This method returns the first configured path in the array of view paths.
+         *
+         * @param string $path
+         * @return string 
+         * @static 
+         */ 
+        public static function viewPath($path = '')
+        {
+                        /** @var \Illuminate\Foundation\Application $instance */
+                        return $instance->viewPath($path);
         }
                     /**
          * Get the path to the environment file directory.
@@ -313,7 +339,7 @@
                         return $instance->environment(...$environments);
         }
                     /**
-         * Determine if application is in local environment.
+         * Determine if the application is in the local environment.
          *
          * @return bool 
          * @static 
@@ -324,7 +350,7 @@
                         return $instance->isLocal();
         }
                     /**
-         * Determine if application is in production environment.
+         * Determine if the application is in the production environment.
          *
          * @return bool 
          * @static 
@@ -846,7 +872,7 @@
                         $instance->setFallbackLocale($fallbackLocale);
         }
                     /**
-         * Determine if application locale is the given locale.
+         * Determine if the application locale is the given locale.
          *
          * @param string $locale
          * @return bool 
@@ -1229,6 +1255,7 @@
          * @param \Closure|string $concrete
          * @return mixed 
          * @throws \Illuminate\Contracts\Container\BindingResolutionException
+         * @throws \Illuminate\Contracts\Container\CircularDependencyException
          * @static 
          */ 
         public static function build($concrete)
@@ -1871,6 +1898,7 @@
          * @param string $password
          * @param string $attribute
          * @return bool|null 
+         * @throws \Illuminate\Auth\AuthenticationException
          * @static 
          */ 
         public static function logoutOtherDevices($password, $attribute = 'password')
@@ -2039,7 +2067,7 @@
                         return $instance->setRequest($request);
         }
                     /**
-         * Determine if current user is authenticated. If not, throw an exception.
+         * Determine if the current user is authenticated. If not, throw an exception.
          *
          * @return \App\User 
          * @throws \Illuminate\Auth\AuthenticationException
@@ -4544,6 +4572,17 @@
                         $instance->recordsHaveBeenModified($value);
         }
                     /**
+         * Reset the record modification state.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function forgetRecordModificationState()
+        {            //Method inherited from \Illuminate\Database\Connection         
+                        /** @var \Illuminate\Database\MySqlConnection $instance */
+                        $instance->forgetRecordModificationState();
+        }
+                    /**
          * Is Doctrine available?
          *
          * @return bool 
@@ -5050,7 +5089,7 @@
          * Register an event listener with the dispatcher.
          *
          * @param \Closure|string|array $events
-         * @param \Closure|string|null $listener
+         * @param \Closure|string|array|null $listener
          * @return void 
          * @static 
          */ 
@@ -5294,6 +5333,17 @@
         {
                         /** @var \Illuminate\Support\Testing\Fakes\EventFake $instance */
                         $instance->assertNotDispatched($event, $callback);
+        }
+                    /**
+         * Assert that no events were dispatched.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function assertNothingDispatched()
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\EventFake $instance */
+                        $instance->assertNothingDispatched();
         }
                     /**
          * Get all of the events matching a truth-test callback.
@@ -6836,7 +6886,7 @@
          * Get a mailer instance by name.
          *
          * @param string|null $name
-         * @return \Illuminate\Mail\Mailer 
+         * @return \Illuminate\Contracts\Mail\Mailer 
          * @static 
          */ 
         public static function mailer($name = null)
@@ -7080,7 +7130,7 @@
                     /**
          * Send a new message using a view.
          *
-         * @param string|array $view
+         * @param \Illuminate\Contracts\Mail\Mailable|string|array $view
          * @param array $data
          * @param \Closure|string|null $callback
          * @return void 
@@ -7094,7 +7144,7 @@
                     /**
          * Queue a new e-mail message for sending.
          *
-         * @param string|array $view
+         * @param \Illuminate\Contracts\Mail\Mailable|string|array $view
          * @param string|null $queue
          * @return mixed 
          * @static 
@@ -7396,7 +7446,7 @@
      * 
      *
      * @method static mixed reset(array $credentials, \Closure $callback)
-     * @method static string sendResetLink(array $credentials)
+     * @method static string sendResetLink(array $credentials, \Closure $callback = null)
      * @method static \Illuminate\Contracts\Auth\CanResetPassword getUser(array $credentials)
      * @method static string createToken(\Illuminate\Contracts\Auth\CanResetPassword $user)
      * @method static void deleteToken(\Illuminate\Contracts\Auth\CanResetPassword $user)
@@ -7967,7 +8017,7 @@
                     /**
          * Register a callback to be executed when creating job payloads.
          *
-         * @param callable $callback
+         * @param callable|null $callback
          * @return void 
          * @static 
          */ 
@@ -8503,7 +8553,7 @@
                         return $instance->routeIs(...$patterns);
         }
                     /**
-         * Determine if the current request URL and query string matches a pattern.
+         * Determine if the current request URL and query string match a pattern.
          *
          * @param mixed $patterns
          * @return bool 
@@ -8526,7 +8576,7 @@
                         return $instance->ajax();
         }
                     /**
-         * Determine if the request is the result of an PJAX call.
+         * Determine if the request is the result of a PJAX call.
          *
          * @return bool 
          * @static 
@@ -8537,7 +8587,7 @@
                         return $instance->pjax();
         }
                     /**
-         * Determine if the request is the result of an prefetch call.
+         * Determine if the request is the result of a prefetch call.
          *
          * @return bool 
          * @static 
@@ -8955,7 +9005,6 @@
          *
          * @param array $proxies A list of trusted proxies, the string 'REMOTE_ADDR' will be replaced with $_SERVER['REMOTE_ADDR']
          * @param int $trustedHeaderSet A bit field of Request::HEADER_*, to set which headers to trust from your proxies
-         * @throws \InvalidArgumentException When $trustedHeaderSet is invalid
          * @static 
          */ 
         public static function setTrustedProxies($proxies, $trustedHeaderSet)
@@ -9625,7 +9674,6 @@
          *
          * @param bool $asResource If true, a resource will be returned
          * @return string|resource The request body content or a resource to read the body stream
-         * @throws \LogicException
          * @static 
          */ 
         public static function getContent($asResource = false)
@@ -9727,7 +9775,7 @@
                         return $instance->getAcceptableContentTypes();
         }
                     /**
-         * Returns true if the request is a XMLHttpRequest.
+         * Returns true if the request is an XMLHttpRequest.
          * 
          * It works if your JavaScript library sets an X-Requested-With HTTP header.
          * It is known to work with common JavaScript frameworks:
@@ -11111,6 +11159,17 @@
                         return $instance->pushMiddlewareToGroup($group, $middleware);
         }
                     /**
+         * Flush the router's middleware groups.
+         *
+         * @return \Illuminate\Routing\Router 
+         * @static 
+         */ 
+        public static function flushMiddlewareGroups()
+        {
+                        /** @var \Illuminate\Routing\Router $instance */
+                        return $instance->flushMiddlewareGroups();
+        }
+                    /**
          * Add a new route parameter binder.
          *
          * @param string $key
@@ -11516,6 +11575,30 @@
      * @see \Illuminate\Database\Schema\Builder
      */ 
         class Schema {
+                    /**
+         * Create a database in the schema.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function createDatabase($name)
+        {
+                        /** @var \Illuminate\Database\Schema\MySqlBuilder $instance */
+                        return $instance->createDatabase($name);
+        }
+                    /**
+         * Drop a database from the schema if the database exists.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function dropDatabaseIfExists($name)
+        {
+                        /** @var \Illuminate\Database\Schema\MySqlBuilder $instance */
+                        return $instance->dropDatabaseIfExists($name);
+        }
                     /**
          * Determine if the given table exists.
          *
@@ -14295,7 +14378,7 @@
                         return \Illuminate\View\Factory::parentPlaceholder($section);
         }
                     /**
-         * Check if section exists.
+         * Check if the section exists.
          *
          * @param string $name
          * @return bool 
@@ -14526,6 +14609,23 @@
         class Str {
          
     }
+            /**
+     * 
+     *
+     */ 
+        class Collection {
+                    /**
+         * 
+         *
+         * @see \Barryvdh\Debugbar\ServiceProvider::register()
+         * @static 
+         */ 
+        public static function debug()
+        {
+                        return \Illuminate\Support\Collection::debug();
+        }
+         
+    }
      
 }
 
@@ -14559,7 +14659,7 @@
                     /**
          * 
          *
-         * @return \Jenssegers\Agent\CrawlerDetect 
+         * @return \Jaybizzle\CrawlerDetect\CrawlerDetect 
          * @static 
          */ 
         public static function getCrawlerDetect()
@@ -15114,7 +15214,7 @@
                     /**
          * Adds a data collector
          *
-         * @param \Barryvdh\Debugbar\DataCollectorInterface $collector
+         * @param \DebugBar\DataCollector\DataCollectorInterface $collector
          * @throws DebugBarException
          * @return \Barryvdh\Debugbar\LaravelDebugbar 
          * @static 
@@ -15323,7 +15423,7 @@
          * Returns a data collector
          *
          * @param string $name
-         * @return \DebugBar\DataCollectorInterface 
+         * @return \DebugBar\DataCollector\DataCollectorInterface 
          * @throws DebugBarException
          * @static 
          */ 
@@ -16071,10 +16171,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Uid|string $uid
-         * @throws UserNotFound
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function getUser($uid)
@@ -16085,10 +16181,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\array<Uid|\Kreait\Firebase\string> $uids
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
-         * @return \Kreait\Firebase\array<string, UserRecord|null>
          * @static 
          */ 
         public static function getUsers($uids)
@@ -16099,9 +16191,6 @@
                     /**
          * 
          *
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
-         * @return \Kreait\Firebase\Traversable<UserRecord>|\Kreait\Firebase\UserRecord[] 
          * @static 
          */ 
         public static function listUsers($maxResults = 1000, $batchSize = 1000)
@@ -16110,11 +16199,8 @@
                         return $instance->listUsers($maxResults, $batchSize);
         }
                     /**
-         * Creates a new user with the provided properties.
+         * 
          *
-         * @param \Kreait\Firebase\array<string,  mixed>|Request\CreateUser $properties
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function createUser($properties)
@@ -16123,12 +16209,8 @@
                         return $instance->createUser($properties);
         }
                     /**
-         * Updates the given user with the given properties.
+         * 
          *
-         * @param \Kreait\Firebase\Uid|string $uid
-         * @param \Kreait\Firebase\array<string,  mixed>|Request\UpdateUser $properties
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function updateUser($uid, $properties)
@@ -16139,10 +16221,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Email|string $email
-         * @param \Kreait\Firebase\ClearTextPassword|string $password
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function createUserWithEmailAndPassword($email, $password)
@@ -16153,10 +16231,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Email|string $email
-         * @throws UserNotFound
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function getUserByEmail($email)
@@ -16167,9 +16241,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\PhoneNumber|string $phoneNumber
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function getUserByPhoneNumber($phoneNumber)
@@ -16180,8 +16251,6 @@
                     /**
          * 
          *
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function createAnonymousUser()
@@ -16192,10 +16261,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Uid|string $uid
-         * @param \Kreait\Firebase\ClearTextPassword|string $newPassword
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function changeUserPassword($uid, $newPassword)
@@ -16206,10 +16271,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Uid|string $uid
-         * @param \Kreait\Firebase\Email|string $newEmail
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function changeUserEmail($uid, $newEmail)
@@ -16220,9 +16281,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Uid|string $uid
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function enableUser($uid)
@@ -16233,9 +16291,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Uid|string $uid
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function disableUser($uid)
@@ -16246,10 +16301,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Uid|string $uid
-         * @throws UserNotFound
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function deleteUser($uid)
@@ -16260,9 +16311,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Email|string $email
-         * @param \Kreait\Firebase\ActionCodeSettings|\Kreait\Firebase\array<string,  mixed>|null $actionCodeSettings
-         * @throws FailedToCreateActionLink
          * @static 
          */ 
         public static function getEmailActionLink($type, $email, $actionCodeSettings = null)
@@ -16273,10 +16321,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Email|string $email
-         * @param \Kreait\Firebase\ActionCodeSettings|\Kreait\Firebase\array<string,  mixed>|null $actionCodeSettings
-         * @throws UserNotFound
-         * @throws FailedToSendActionLink
          * @static 
          */ 
         public static function sendEmailActionLink($type, $email, $actionCodeSettings = null, $locale = null)
@@ -16287,9 +16331,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Email|string $email
-         * @param \Kreait\Firebase\ActionCodeSettings|\Kreait\Firebase\array<string,  mixed>|null $actionCodeSettings
-         * @throws FailedToCreateActionLink
          * @static 
          */ 
         public static function getEmailVerificationLink($email, $actionCodeSettings = null)
@@ -16300,9 +16341,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Email|string $email
-         * @param \Kreait\Firebase\ActionCodeSettings|\Kreait\Firebase\array<string,  mixed>|null $actionCodeSettings
-         * @throws FailedToSendActionLink
          * @static 
          */ 
         public static function sendEmailVerificationLink($email, $actionCodeSettings = null, $locale = null)
@@ -16313,9 +16351,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Email|string $email
-         * @param \Kreait\Firebase\ActionCodeSettings|\Kreait\Firebase\array<string,  mixed>|null $actionCodeSettings
-         * @throws FailedToCreateActionLink
          * @static 
          */ 
         public static function getPasswordResetLink($email, $actionCodeSettings = null)
@@ -16326,9 +16361,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Email|string $email
-         * @param \Kreait\Firebase\ActionCodeSettings|\Kreait\Firebase\array<string,  mixed>|null $actionCodeSettings
-         * @throws FailedToSendActionLink
          * @static 
          */ 
         public static function sendPasswordResetLink($email, $actionCodeSettings = null, $locale = null)
@@ -16339,9 +16371,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Email|string $email
-         * @param \Kreait\Firebase\ActionCodeSettings|\Kreait\Firebase\array<string,  mixed>|null $actionCodeSettings
-         * @throws FailedToCreateActionLink
          * @static 
          */ 
         public static function getSignInWithEmailLink($email, $actionCodeSettings = null)
@@ -16352,9 +16381,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Email|string $email
-         * @param \Kreait\Firebase\ActionCodeSettings|\Kreait\Firebase\array<string,  mixed>|null $actionCodeSettings
-         * @throws FailedToSendActionLink
          * @static 
          */ 
         public static function sendSignInWithEmailLink($email, $actionCodeSettings = null, $locale = null)
@@ -16366,12 +16392,13 @@
          * 
          *
          * @deprecated 5.4.0 use {@see setCustomUserClaims}($id, array $claims) instead
-         * @see setCustomUserClaims
-         * @codeCoverageIgnore 
-         * @param \Kreait\Firebase\Uid|string $uid
-         * @param \Kreait\Firebase\array<string,  mixed> $attributes
+         * @param \Kreait\Firebase\Value\Uid|string $uid
+         * @param \Kreait\Firebase\Contract\array<string,  mixed> $attributes
          * @throws Exception\AuthException
          * @throws Exception\FirebaseException
+         * @deprecated 5.4.0 use {@see setCustomUserClaims}($id, array $claims) instead
+         * @see setCustomUserClaims
+         * @codeCoverageIgnore 
          * @static 
          */ 
         public static function setCustomUserAttributes($uid, $attributes)
@@ -16383,10 +16410,11 @@
          * 
          *
          * @deprecated 5.4.0 use {@see setCustomUserClaims}($uid) instead
-         * @see removeCustomUserClaims
-         * @param \Kreait\Firebase\Uid|string $uid
+         * @param \Kreait\Firebase\Value\Uid|string $uid
          * @throws Exception\AuthException
          * @throws Exception\FirebaseException
+         * @see removeCustomUserClaims
+         * @deprecated 5.4.0 use {@see setCustomUserClaims}($uid) instead
          * @static 
          */ 
         public static function deleteCustomUserAttributes($uid)
@@ -16395,13 +16423,8 @@
                         return $instance->deleteCustomUserAttributes($uid);
         }
                     /**
-         * Sets additional developer claims on an existing user identified by the provided UID.
+         * 
          *
-         * @see https://firebase.google.com/docs/auth/admin/custom-claims
-         * @param \Kreait\Firebase\Uid|string $uid
-         * @param \Kreait\Firebase\array<string,  mixed>|null $claims
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function setCustomUserClaims($uid, $claims)
@@ -16412,8 +16435,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Uid|string $uid
-         * @param \Kreait\Firebase\array<string,  mixed> $claims
          * @static 
          */ 
         public static function createCustomToken($uid, $claims = [])
@@ -16432,24 +16453,8 @@
                         return $instance->parseToken($tokenString);
         }
                     /**
-         * Verifies a JWT auth token. Returns a Promise with the tokens claims. Rejects the promise if the token
-         * could not be verified. If checkRevoked is set to true, verifies if the session corresponding to the
-         * ID token was revoked. If the corresponding user's session was invalidated, a RevokedToken
-         * exception is thrown. If not specified the check is not applied.
          * 
-         * NOTE: Allowing time inconsistencies might impose a security risk. Do this only when you are not able
-         * to fix your environment's time to be consistent with Google's servers. This parameter is here
-         * for backwards compatibility reasons, and will be removed in the next major version. You
-         * shouldn't rely on it.
          *
-         * @param \Kreait\Firebase\Token|string $idToken the JWT to verify
-         * @param bool $checkIfRevoked whether to check if the ID token is revoked
-         * @throws \InvalidArgumentException if the token could not be parsed
-         * @throws InvalidToken if the token could be parsed, but is invalid for any reason (invalid signature, expired, time errors)
-         * @throws InvalidSignature if the signature doesn't match
-         * @throws ExpiredToken if the token is expired
-         * @throws IssuedInTheFuture if the token is issued in the future
-         * @throws UnknownKey if the token's kid header doesnt' contain a known key
          * @static 
          */ 
         public static function verifyIdToken($idToken, $checkIfRevoked = false)
@@ -16458,14 +16463,8 @@
                         return $instance->verifyIdToken($idToken, $checkIfRevoked);
         }
                     /**
-         * Verifies the given password reset code.
+         * 
          *
-         * @see https://firebase.google.com/docs/reference/rest/auth#section-verify-password-reset-code
-         * @throws ExpiredOobCode
-         * @throws InvalidOobCode
-         * @throws OperationNotAllowed
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function verifyPasswordResetCode($oobCode)
@@ -16474,14 +16473,8 @@
                         return $instance->verifyPasswordResetCode($oobCode);
         }
                     /**
-         * Verifies the given password reset code and returns the associated user's email address.
+         * 
          *
-         * @see https://firebase.google.com/docs/reference/rest/auth#section-verify-password-reset-code
-         * @throws ExpiredOobCode
-         * @throws InvalidOobCode
-         * @throws OperationNotAllowed
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function verifyPasswordResetCodeAndReturnEmail($oobCode)
@@ -16490,18 +16483,8 @@
                         return $instance->verifyPasswordResetCodeAndReturnEmail($oobCode);
         }
                     /**
-         * Applies the password reset requested via the given OOB code.
+         * 
          *
-         * @see https://firebase.google.com/docs/reference/rest/auth#section-confirm-reset-password
-         * @param string $oobCode the email action code sent to the user's email for resetting the password
-         * @param \Kreait\Firebase\ClearTextPassword|string $newPassword
-         * @param bool $invalidatePreviousSessions Invalidate sessions initialized with the previous credentials
-         * @throws ExpiredOobCode
-         * @throws InvalidOobCode
-         * @throws OperationNotAllowed
-         * @throws UserDisabled
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function confirmPasswordReset($oobCode, $newPassword, $invalidatePreviousSessions = true)
@@ -16510,18 +16493,8 @@
                         return $instance->confirmPasswordReset($oobCode, $newPassword, $invalidatePreviousSessions);
         }
                     /**
-         * Applies the password reset requested via the given OOB code and returns the associated user's email address.
+         * 
          *
-         * @see https://firebase.google.com/docs/reference/rest/auth#section-confirm-reset-password
-         * @param string $oobCode the email action code sent to the user's email for resetting the password
-         * @param \Kreait\Firebase\ClearTextPassword|string $newPassword
-         * @param bool $invalidatePreviousSessions Invalidate sessions initialized with the previous credentials
-         * @throws ExpiredOobCode
-         * @throws InvalidOobCode
-         * @throws OperationNotAllowed
-         * @throws UserDisabled
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function confirmPasswordResetAndReturnEmail($oobCode, $newPassword, $invalidatePreviousSessions = true)
@@ -16530,15 +16503,8 @@
                         return $instance->confirmPasswordResetAndReturnEmail($oobCode, $newPassword, $invalidatePreviousSessions);
         }
                     /**
-         * Revokes all refresh tokens for the specified user identified by the uid provided.
          * 
-         * In addition to revoking all refresh tokens for a user, all ID tokens issued
-         * before revocation will also be revoked on the Auth backend. Any request with an
-         * ID token generated before revocation will be rejected with a token expired error.
          *
-         * @param \Kreait\Firebase\Uid|string $uid the user whose tokens are to be revoked
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function revokeRefreshTokens($uid)
@@ -16549,10 +16515,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Uid|string $uid
-         * @param \Kreait\Firebase\Provider[]|string[]|string $provider
-         * @throws Exception\AuthException
-         * @throws Exception\FirebaseException
          * @static 
          */ 
         public static function unlinkProvider($uid, $provider)
@@ -16563,9 +16525,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\UserRecord|\Kreait\Firebase\Uid|string $user
-         * @param \Kreait\Firebase\array<string,  mixed>|null $claims
-         * @throws FailedToSignIn
          * @static 
          */ 
         public static function signInAsUser($user, $claims = null)
@@ -16576,8 +16535,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Token|string $token
-         * @throws FailedToSignIn
          * @static 
          */ 
         public static function signInWithCustomToken($token)
@@ -16588,7 +16545,6 @@
                     /**
          * 
          *
-         * @throws FailedToSignIn
          * @static 
          */ 
         public static function signInWithRefreshToken($refreshToken)
@@ -16599,9 +16555,6 @@
                     /**
          * 
          *
-         * @param string|\Kreait\Firebase\Email $email
-         * @param string|\Kreait\Firebase\ClearTextPassword $clearTextPassword
-         * @throws FailedToSignIn
          * @static 
          */ 
         public static function signInWithEmailAndPassword($email, $clearTextPassword)
@@ -16612,9 +16565,6 @@
                     /**
          * 
          *
-         * @param string|\Kreait\Firebase\Email $email
-         * @param string $oobCode
-         * @throws FailedToSignIn
          * @static 
          */ 
         public static function signInWithEmailAndOobCode($email, $oobCode)
@@ -16625,7 +16575,6 @@
                     /**
          * 
          *
-         * @throws FailedToSignIn
          * @static 
          */ 
         public static function signInAnonymously()
@@ -16666,10 +16615,6 @@
                     /**
          * 
          *
-         * @see https://cloud.google.com/identity-platform/docs/reference/rest/v1/accounts/signInWithIdp
-         * @param \Kreait\Firebase\Provider|string $provider
-         * @param \Kreait\Firebase\UriInterface|string|null $redirectUrl
-         * @throws FailedToSignIn
          * @static 
          */ 
         public static function signInWithIdpAccessToken($provider, $accessToken, $redirectUrl = null, $oauthTokenSecret = null)
@@ -16680,10 +16625,6 @@
                     /**
          * 
          *
-         * @param \Kreait\Firebase\Provider|string $provider
-         * @param \Kreait\Firebase\Token|string $idToken
-         * @param \Kreait\Firebase\UriInterface|string|null $redirectUrl
-         * @throws FailedToSignIn
          * @static 
          */ 
         public static function signInWithIdpIdToken($provider, $idToken, $redirectUrl = null)
@@ -16721,9 +16662,6 @@
                     /**
          * 
          *
-         * @param string|\Url|\Kreait\Firebase\UriInterface|\Kreait\Firebase\CreateDynamicLink|array|mixed $url
-         * @throws InvalidArgumentException
-         * @throws FailedToCreateDynamicLink
          * @static 
          */ 
         public static function createUnguessableLink($url)
@@ -16734,9 +16672,6 @@
                     /**
          * 
          *
-         * @param string|\Url|\Kreait\Firebase\UriInterface|\Kreait\Firebase\CreateDynamicLink|array|mixed $url
-         * @throws InvalidArgumentException
-         * @throws FailedToCreateDynamicLink
          * @static 
          */ 
         public static function createShortLink($url)
@@ -16747,9 +16682,6 @@
                     /**
          * 
          *
-         * @param string|\Url|\Kreait\Firebase\UriInterface|\Kreait\Firebase\CreateDynamicLink|array|mixed $actionOrParametersOrUrl
-         * @throws InvalidArgumentException
-         * @throws FailedToCreateDynamicLink
          * @static 
          */ 
         public static function createDynamicLink($actionOrParametersOrUrl, $suffixType = null)
@@ -16760,9 +16692,6 @@
                     /**
          * 
          *
-         * @param string|\Url|\Kreait\Firebase\UriInterface|\Kreait\Firebase\ShortenLongDynamicLink|array|mixed $longDynamicLinkOrAction
-         * @throws InvalidArgumentException
-         * @throws FailedToShortenLongDynamicLink
          * @static 
          */ 
         public static function shortenLongDynamicLink($longDynamicLinkOrAction, $suffixType = null)
@@ -16773,9 +16702,6 @@
                     /**
          * 
          *
-         * @param string|\Url|\Kreait\Firebase\UriInterface|\Kreait\Firebase\GetStatisticsForDynamicLink|mixed $mixedLinkOrAction
-         * @throws InvalidArgumentException
-         * @throws GetStatisticsForDynamicLink\FailedToGetStatisticsForDynamicLink
          * @static 
          */ 
         public static function getStatistics($dynamicLinkOrAction, $durationInDays = null)
@@ -17127,7 +17053,7 @@
                     /**
          * Returns the config repository for this instance.
          *
-         * @return \Mcamara\LaravelLocalization\Repository Configuration repository
+         * @return \Illuminate\Config\Repository Configuration repository
          * @static 
          */ 
         public static function getConfigRepository()
@@ -17681,6 +17607,21 @@ namespace  {
             }
              
                 /**
+             * Execute the query and get the first result if it's the sole matching record.
+             *
+             * @param array|string $columns
+             * @return \Illuminate\Database\Eloquent\Model 
+             * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+             * @throws \Illuminate\Database\MultipleRecordsFoundException
+             * @static 
+             */ 
+            public static function sole($columns = [])
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->sole($columns);
+            }
+             
+                /**
              * Get a single column's value from the first result of a query.
              *
              * @param string|\Illuminate\Database\Query\Expression $column
@@ -18047,122 +17988,6 @@ namespace  {
             }
              
                 /**
-             * Chunk the results of the query.
-             *
-             * @param int $count
-             * @param callable $callback
-             * @return bool 
-             * @static 
-             */ 
-            public static function chunk($count, $callback)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->chunk($count, $callback);
-            }
-             
-                /**
-             * Execute a callback over each item while chunking.
-             *
-             * @param callable $callback
-             * @param int $count
-             * @return bool 
-             * @static 
-             */ 
-            public static function each($callback, $count = 1000)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->each($callback, $count);
-            }
-             
-                /**
-             * Chunk the results of a query by comparing IDs.
-             *
-             * @param int $count
-             * @param callable $callback
-             * @param string|null $column
-             * @param string|null $alias
-             * @return bool 
-             * @static 
-             */ 
-            public static function chunkById($count, $callback, $column = null, $alias = null)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->chunkById($count, $callback, $column, $alias);
-            }
-             
-                /**
-             * Execute a callback over each item while chunking by ID.
-             *
-             * @param callable $callback
-             * @param int $count
-             * @param string|null $column
-             * @param string|null $alias
-             * @return bool 
-             * @static 
-             */ 
-            public static function eachById($callback, $count = 1000, $column = null, $alias = null)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->eachById($callback, $count, $column, $alias);
-            }
-             
-                /**
-             * Execute the query and get the first result.
-             *
-             * @param array|string $columns
-             * @return \Illuminate\Database\Eloquent\Model|object|static|null 
-             * @static 
-             */ 
-            public static function first($columns = [])
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->first($columns);
-            }
-             
-                /**
-             * Apply the callback's query changes if the given "value" is true.
-             *
-             * @param mixed $value
-             * @param callable $callback
-             * @param callable|null $default
-             * @return mixed|$this 
-             * @static 
-             */ 
-            public static function when($value, $callback, $default = null)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->when($value, $callback, $default);
-            }
-             
-                /**
-             * Pass the query to a given callback.
-             *
-             * @param callable $callback
-             * @return \Illuminate\Database\Eloquent\Builder|static 
-             * @static 
-             */ 
-            public static function tap($callback)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->tap($callback);
-            }
-             
-                /**
-             * Apply the callback's query changes if the given "value" is false.
-             *
-             * @param mixed $value
-             * @param callable $callback
-             * @param callable|null $default
-             * @return mixed|$this 
-             * @static 
-             */ 
-            public static function unless($value, $callback, $default = null)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->unless($value, $callback, $default);
-            }
-             
-                /**
              * Add a relationship count / exists condition to the query.
              *
              * @param \Illuminate\Database\Eloquent\Relations\Relation|string $relation
@@ -18521,6 +18346,151 @@ namespace  {
             }
              
                 /**
+             * Chunk the results of the query.
+             *
+             * @param int $count
+             * @param callable $callback
+             * @return bool 
+             * @static 
+             */ 
+            public static function chunk($count, $callback)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->chunk($count, $callback);
+            }
+             
+                /**
+             * Run a map over each item while chunking.
+             *
+             * @param callable $callback
+             * @param int $count
+             * @return \Illuminate\Support\Collection 
+             * @static 
+             */ 
+            public static function chunkMap($callback, $count = 1000)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->chunkMap($callback, $count);
+            }
+             
+                /**
+             * Execute a callback over each item while chunking.
+             *
+             * @param callable $callback
+             * @param int $count
+             * @return bool 
+             * @static 
+             */ 
+            public static function each($callback, $count = 1000)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->each($callback, $count);
+            }
+             
+                /**
+             * Chunk the results of a query by comparing IDs.
+             *
+             * @param int $count
+             * @param callable $callback
+             * @param string|null $column
+             * @param string|null $alias
+             * @return bool 
+             * @static 
+             */ 
+            public static function chunkById($count, $callback, $column = null, $alias = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->chunkById($count, $callback, $column, $alias);
+            }
+             
+                /**
+             * Execute a callback over each item while chunking by ID.
+             *
+             * @param callable $callback
+             * @param int $count
+             * @param string|null $column
+             * @param string|null $alias
+             * @return bool 
+             * @static 
+             */ 
+            public static function eachById($callback, $count = 1000, $column = null, $alias = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->eachById($callback, $count, $column, $alias);
+            }
+             
+                /**
+             * Execute the query and get the first result.
+             *
+             * @param array|string $columns
+             * @return \Illuminate\Database\Eloquent\Model|object|static|null 
+             * @static 
+             */ 
+            public static function first($columns = [])
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->first($columns);
+            }
+             
+                /**
+             * Execute the query and get the first result if it's the sole matching record.
+             *
+             * @param array|string $columns
+             * @return \Illuminate\Database\Eloquent\Model|object|static|null 
+             * @throws \Illuminate\Database\RecordsNotFoundException
+             * @throws \Illuminate\Database\MultipleRecordsFoundException
+             * @static 
+             */ 
+            public static function baseSole($columns = [])
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->baseSole($columns);
+            }
+             
+                /**
+             * Apply the callback's query changes if the given "value" is true.
+             *
+             * @param mixed $value
+             * @param callable $callback
+             * @param callable|null $default
+             * @return mixed|$this 
+             * @static 
+             */ 
+            public static function when($value, $callback, $default = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->when($value, $callback, $default);
+            }
+             
+                /**
+             * Pass the query to a given callback.
+             *
+             * @param callable $callback
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function tap($callback)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->tap($callback);
+            }
+             
+                /**
+             * Apply the callback's query changes if the given "value" is false.
+             *
+             * @param mixed $value
+             * @param callable $callback
+             * @param callable|null $default
+             * @return mixed|$this 
+             * @static 
+             */ 
+            public static function unless($value, $callback, $default = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->unless($value, $callback, $default);
+            }
+             
+                /**
              * Set the columns to be selected.
              *
              * @param array|mixed $columns
@@ -18668,7 +18638,7 @@ namespace  {
                 /**
              * Add a subquery join clause to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $query
              * @param string $as
              * @param \Closure|string $first
              * @param string|null $operator
@@ -18720,7 +18690,7 @@ namespace  {
                 /**
              * Add a subquery left join to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $query
              * @param string $as
              * @param \Closure|string $first
              * @param string|null $operator
@@ -18769,7 +18739,7 @@ namespace  {
                 /**
              * Add a subquery right join to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $query
              * @param string $as
              * @param \Closure|string $first
              * @param string|null $operator

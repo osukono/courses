@@ -58,7 +58,8 @@ class FirebaseCourseRepository
                 'review_exercises' => $course->review_exercises,
                 'title' => $course->title,
                 'topic' => $course->topic->firebase_id,
-                'translation' => $course->translation->firebase_id
+                'translation' => $course->translation->firebase_id,
+                'lessons_count' => $course->course_lessons_count
             ]);
     }
 
@@ -98,7 +99,8 @@ class FirebaseCourseRepository
                 'icon' => $course->image,
                 'player_version' => $course->player_version,
                 'review_exercises' => $course->review_exercises,
-                'title' => $course->title
+                'title' => $course->title,
+                'lessons_count' => $course->course_lessons_count
             ], ['merge' => true]);
     }
 

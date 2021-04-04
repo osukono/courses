@@ -1,0 +1,17 @@
+{
+    "title": "Lesson",
+    "type": "object",
+    "version": "0.0.1",
+    "properties": {
+        "title": {
+            "type": "string",
+            "required": true
+        }
+    },
+    "exercises": {
+        "type": "array",
+        "items": {
+            "type": "object"
+        }
+    }
+}

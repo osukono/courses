@@ -1,0 +1,32 @@
+{
+    "title": "Course",
+    "type": "object",
+    "version": "0.0.1",
+    "properties": {
+        "language": {
+            "type": "string",
+            "required": true
+        },
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "descriptions": {
+            "type": "array",
+            "items": {
+                "type": "object"
+            }
+        },
+        "level": {
+            "type": "string",
+            "required": true
+        },
+        "topic": {
+            "type": "string",
+            "required": true
+        }
+    },
+    "lessons": {
+        "type": "array"
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "title": "Course description",
+    "type": "object",
+    "version": "0.0.1",
+    "properties": {
+        "language": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "string",
+            "required": true
+        }
+    }
+}
