@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Schemas/course-0.0.1.schema.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Schemas/course-description-0.0.1.schema.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Schemas/exercise-0.0.1.schema.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Schemas/lesson-0.0.1.schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/courses.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/courses.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,8 +168,6 @@
       <path value="$PROJECT_DIR$/vendor/riverline/multipart-parser" />
       <path value="$PROJECT_DIR$/vendor/rize/uri-template" />
       <path value="$PROJECT_DIR$/vendor/fig/http-message-util" />
-      <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
-      <path value="$PROJECT_DIR$/vendor/giggsey/locale" />
       <path value="$PROJECT_DIR$/vendor/google/cloud-storage" />
       <path value="$PROJECT_DIR$/vendor/google/crc32" />
       <path value="$PROJECT_DIR$/vendor/google/cloud-core" />
@@ -402,7 +396,8 @@
       <workItem from="1616592009106" duration="812000" />
       <workItem from="1616769165811" duration="1108000" />
       <workItem from="1616770976309" duration="1079000" />
-      <workItem from="1617554308533" duration="309000" />
+      <workItem from="1617554308533" duration="696000" />
+      <workItem from="1617555746262" duration="34000" />
     </task>
     <servers />
   </component>

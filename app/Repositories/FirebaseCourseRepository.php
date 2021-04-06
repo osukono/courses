@@ -96,7 +96,7 @@ class FirebaseCourseRepository
                 'audio_storage' => 'https://yummy-lingo.s3.eu-central-1.amazonaws.com/',
                 'course_version' => $course->minor_version,
                 'description' => $course->description,
-                'icon' => $course->image,
+                'image' => $course->image,
                 'player_version' => $course->player_version,
                 'review_exercises' => $course->review_exercises,
                 'title' => $course->title,
