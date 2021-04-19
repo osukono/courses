@@ -8,16 +8,12 @@
     <v-button-group>
         @isset($previous)
             <v-button id="previous" route="{{ route('admin.exercises.show', $previous) }}">
-                <template v-slot:icon>
-                    <icon-chevron-left></icon-chevron-left>
-                </template>
+                <icon-chevron-left></icon-chevron-left>
             </v-button>
         @endisset
         @isset($next)
             <v-button id="next" route="{{ route('admin.exercises.show', $next) }}">
-                <template v-slot:icon>
-                    <icon-chevron-right></icon-chevron-right>
-                </template>
+                <icon-chevron-right></icon-chevron-right>
             </v-button>
         @endisset
     </v-button-group>
@@ -26,12 +22,8 @@
         <v-button tooltip="Add Sentence"
                   submit="#create-sentence"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
-            <template v-slot:label>
-                Sentence
-            </template>
-            <template v-slot:icon>
-                <icon-plus></icon-plus>
-            </template>
+            <icon-plus></icon-plus> 
+            Sentence
             @push('forms')
                 <form id="create-sentence" class="d-none" action="{{ route('admin.exercise.data.create', $exercise) }}"
                       method="post" autocomplete="off">
@@ -39,6 +31,19 @@
                 </form>
             @endpush
         </v-button>
+
+        <v-dropdown>
+            <template v-slot:label>
+                Translation
+            </template>
+
+            @foreach($languages as $__language)
+                <v-dropdown-item label="{{ $__language->native }}"
+                                 route="{{ route('admin.translations.exercise.show', [$__language, $exercise]) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
+                </v-dropdown-item>
+            @endforeach
+        </v-dropdown>
 
         <v-dropdown>
             <template v-slot:icon>
@@ -79,19 +84,6 @@
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
-        </v-dropdown>
-
-        <v-dropdown>
-            <template v-slot:label>
-                Translations
-            </template>
-
-            @foreach($languages as $__language)
-                <v-dropdown-item label="{{ $__language->native }}"
-                                 route="{{ route('admin.translations.exercise.show', [$__language, $exercise]) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
-                </v-dropdown-item>
-            @endforeach
         </v-dropdown>
     </v-button-group>
 @endsection

@@ -9,10 +9,21 @@
         <v-button tooltip="{{ __('admin.dev.lessons.toolbar.create') }}"
                   route="{{ route('admin.lessons.create', $content) }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
-            <template v-slot:label>
-                {{ __('admin.dev.lessons.toolbar.create') }}
-            </template>
+            {{ __('admin.dev.lessons.toolbar.create') }}
         </v-button>
+
+        <v-dropdown>
+            <template v-slot:label>
+                {{ __('admin.dev.lessons.toolbar.translations') }}
+            </template>
+
+            @foreach($languages as $__language)
+                <v-dropdown-item label="{{ $__language->native }}"
+                                 route="{{ route('admin.translations.content.show', [$__language, $content]) }}"
+                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
+                </v-dropdown-item>
+            @endforeach
+        </v-dropdown>
 
         <v-dropdown>
             <template v-slot:icon>
@@ -83,19 +94,6 @@
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
-        </v-dropdown>
-
-        <v-dropdown>
-            <template v-slot:label>
-                {{ __('admin.dev.lessons.toolbar.translations') }}
-            </template>
-
-            @foreach($languages as $__language)
-                <v-dropdown-item label="{{ $__language->native }}"
-                                 route="{{ route('admin.translations.content.show', [$__language, $content]) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
-                </v-dropdown-item>
-            @endforeach
         </v-dropdown>
     </v-button-group>
 @endsection

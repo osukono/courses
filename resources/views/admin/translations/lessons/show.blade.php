@@ -8,21 +8,29 @@
     <v-button-group>
         @isset($previous)
             <v-button id="previous" route="{{ route('admin.translations.lesson.show', [$language, $previous]) }}">
-                <template v-slot:icon>
-                    <icon-chevron-left></icon-chevron-left>
-                </template>
+                <icon-chevron-left></icon-chevron-left>
             </v-button>
         @endisset
         @isset($next)
             <v-button id="next" route="{{ route('admin.translations.lesson.show', [$language, $next]) }}">
-                <template v-slot:icon>
-                    <icon-chevron-right></icon-chevron-right>
-                </template>
+                <icon-chevron-right></icon-chevron-right>
             </v-button>
         @endisset
     </v-button-group>
 
     <v-button-group>
+        <v-dropdown visible="{{ $languages->isNotEmpty() }}">
+            <template v-slot:label>
+                {{ $language->native }}
+            </template>
+
+            @foreach($languages as $__language)
+                <v-dropdown-item label="{{ $__language->native }}"
+                                 route="{{ route('admin.translations.lesson.show', [$__language, $lesson]) }}">
+                </v-dropdown-item>
+            @endforeach
+        </v-dropdown>
+
         <v-dropdown>
             <template v-slot:icon>
                 <icon-more-vertical></icon-more-vertical>
@@ -44,8 +52,8 @@
                 </v-dropdown-item>
                 @isset($image)
                     <v-dropdown-modal label="Delete Image"
-                                     modal="lesson-{{ $lesson->id }}-image-modal-delete"
-                                     visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
+                                      modal="lesson-{{ $lesson->id }}-image-modal-delete"
+                                      visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
                         @push('forms')
                             <form class="d-none"
                                   id="lesson-{{ $lesson->id }}-image-delete"
@@ -60,26 +68,10 @@
             </v-dropdown-group>
         </v-dropdown>
 
-        <v-dropdown visible="{{ $languages->isNotEmpty() }}">
-            <template v-slot:label>
-                {{ $language->native }}
-            </template>
-
-            @foreach($languages as $__language)
-                <v-dropdown-item label="{{ $__language->native }}"
-                                 route="{{ route('admin.translations.lesson.show', [$__language, $lesson]) }}">
-                </v-dropdown-item>
-            @endforeach
-        </v-dropdown>
-
         <v-button route="{{ route('admin.lessons.show', $lesson) }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_content) }}">
-            <template v-slot:label>
-                {{ $content->language->native }}
-            </template>
-            <template v-slot:icon>
-                <icon-chevron-right></icon-chevron-right>
-            </template>
+            {{ $content->language->native }}
+            <icon-chevron-right></icon-chevron-right>
         </v-button>
     </v-button-group>
 @endsection

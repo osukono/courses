@@ -9,16 +9,12 @@
         <v-button tooltip="{{ __('admin.dev.courses.toolbar.create') }}"
                   route="{{ route('admin.content.create') }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::create_content) }}">
-            <template v-slot:label>
-                {{ __('admin.dev.courses.toolbar.create') }}
-            </template>
+            {{ __('admin.dev.courses.toolbar.create') }}
         </v-button>
         <v-button tooltip="{{ __('admin.dev.courses.toolbar.trash') }}"
                   route="{{ route('admin.content.trash') }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
-            <template v-slot:icon>
-                <icon-trash trashed="{{ $trashed }}"></icon-trash>
-            </template>
+            <icon-trash trashed="{{ $trashed }}"></icon-trash>
         </v-button>
     </v-button-group>
 @endsection

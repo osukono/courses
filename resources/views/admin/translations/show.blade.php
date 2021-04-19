@@ -6,6 +6,18 @@
 
 @section('toolbar')
     <v-button-group>
+        <v-dropdown visible="{{ $languages->isNotEmpty() }}">
+            <template v-slot:label>
+                {{ $language->native }}
+            </template>
+
+            @foreach($languages as $__language)
+                <v-dropdown-item label="{{ $__language->native }}"
+                                 route="{{ route('admin.translations.content.show', [$__language, $content]) }}">
+                </v-dropdown-item>
+            @endforeach
+        </v-dropdown>
+
         <v-dropdown>
             <template v-slot:icon>
                 <icon-more-vertical></icon-more-vertical>
@@ -46,25 +58,9 @@
             </v-dropdown-group>
         </v-dropdown>
 
-        <v-dropdown visible="{{ $languages->isNotEmpty() }}">
-            <template v-slot:label>
-                {{ $language->native }}
-            </template>
-
-            @foreach($languages as $__language)
-                <v-dropdown-item label="{{ $__language->native }}"
-                                 route="{{ route('admin.translations.content.show', [$__language, $content]) }}">
-                </v-dropdown-item>
-            @endforeach
-        </v-dropdown>
-
         <v-button route="{{ route('admin.content.show', $content) }}">
-            <template v-slot:label>
-                {{ $content->language->native }}
-            </template>
-            <template v-slot:icon>
-                <icon-chevron-right></icon-chevron-right>
-            </template>
+            {{ $content->language->native }}
+            <icon-chevron-right></icon-chevron-right>
         </v-button>
     </v-button-group>
 @endsection

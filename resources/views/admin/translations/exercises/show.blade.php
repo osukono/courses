@@ -8,21 +8,29 @@
     <v-button-group>
         @isset($previous)
             <v-button id="previous" route="{{ route('admin.translations.exercise.show', [$language, $previous]) }}">
-                <template v-slot:icon>
-                    <icon-chevron-left></icon-chevron-left>
-                </template>
+                <icon-chevron-left></icon-chevron-left>
             </v-button>
         @endisset
         @isset($next)
             <v-button id="next" route="{{ route('admin.translations.exercise.show', [$language, $next]) }}">
-                <template v-slot:icon>
-                    <icon-chevron-right></icon-chevron-right>
-                </template>
+                <icon-chevron-right></icon-chevron-right>
             </v-button>
         @endisset
     </v-button-group>
 
     <v-button-group>
+        <v-dropdown visible="{{ $languages->isNotEmpty() }}">
+            <template v-slot:label>
+                {{ $language->native }}
+            </template>
+
+            @foreach($languages as $__language)
+                <v-dropdown-item label="{{ $__language->native }}"
+                                 route="{{ route('admin.translations.exercise.show', [$__language, $exercise]) }}">
+                </v-dropdown-item>
+            @endforeach
+        </v-dropdown>
+
         <v-dropdown>
             <template v-slot:icon>
                 <icon-more-vertical></icon-more-vertical>
@@ -45,26 +53,10 @@
             </v-dropdown-group>
         </v-dropdown>
 
-        <v-dropdown visible="{{ $languages->isNotEmpty() }}">
-            <template v-slot:label>
-                {{ $language->native }}
-            </template>
-
-            @foreach($languages as $__language)
-                <v-dropdown-item label="{{ $__language->native }}"
-                                 route="{{ route('admin.translations.exercise.show', [$__language, $exercise]) }}">
-                </v-dropdown-item>
-            @endforeach
-        </v-dropdown>
-
         <v-button route="{{ route('admin.exercises.show', $exercise) }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_content) }}">
-            <template v-slot:label>
-                {{ $content->language->native }}
-            </template>
-            <template v-slot:icon>
-                <icon-chevron-right></icon-chevron-right>
-            </template>
+            {{ $content->language->native }}
+            <icon-chevron-right></icon-chevron-right>
         </v-button>
     </v-button-group>
 @endsection
