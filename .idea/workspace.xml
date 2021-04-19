@@ -9,14 +9,7 @@
       <change beforePath="$PROJECT_DIR$/public/js/admin_vue_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_vue_3x0xof.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/bootstrap/VButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/bootstrap/VButton.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/exercises/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/lessons/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/exercises/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/exercises/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -412,7 +405,7 @@
       <workItem from="1617555746262" duration="34000" />
       <workItem from="1617709340424" duration="208000" />
       <workItem from="1618840573548" duration="42000" />
-      <workItem from="1618840685768" duration="2481000" />
+      <workItem from="1618840685768" duration="2783000" />
     </task>
     <servers />
   </component>

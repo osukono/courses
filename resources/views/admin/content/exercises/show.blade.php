@@ -22,7 +22,7 @@
         <v-button tooltip="Add Sentence"
                   submit="#create-sentence"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
-            <icon-plus></icon-plus> 
+            <icon-plus></icon-plus>
             Sentence
             @push('forms')
                 <form id="create-sentence" class="d-none" action="{{ route('admin.exercise.data.create', $exercise) }}"
