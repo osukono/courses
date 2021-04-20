@@ -59,7 +59,7 @@ class TextToSpeech
             //https://cloud.google.com/text-to-speech/docs/audio-profiles
             //handset-class-device
             //headphone-class-device
-            ->setEffectsProfileId(['headphone-class-device'])
+//            ->setEffectsProfileId(['headphone-class-device'])
             ->setVolumeGainDb($speechSettings->volume_gain_db);
 
         // perform text-to-speech request on the text input with selected voice
