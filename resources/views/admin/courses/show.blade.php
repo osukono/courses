@@ -10,9 +10,7 @@
             <v-button tooltip="{{ $course->is_updating ? 'Switch to published' : 'Switch to updating' }}"
                       submit="#course-{{ $course->id }}-updating"
                       visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
-                <template v-slot:label>
-                    {{ $course->is_updating ? 'Updating' : 'Published' }}
-                </template>
+                {{ $course->is_updating ? 'Updating' : 'Published' }}
                 @push('forms')
                     <form id="course-{{ $course->id }}-updating"
                           action="{{ route('admin.courses.updating.switch', $course) }}" method="post"

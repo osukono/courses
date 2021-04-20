@@ -8,9 +8,7 @@
     <v-button-group>
         <v-button tooltip="Create Group"
                   route="{{ route('admin.app.locale.groups.create') }}">
-            <template v-slot:icon>
-                <icon-plus></icon-plus>
-            </template>
+            <icon-plus></icon-plus>
         </v-button>
     </v-button-group>
 @endsection

@@ -9,14 +9,10 @@
         <v-button tooltip="Create User"
                   route="{{ route('admin.users.create') }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::create_users) }}">
-            <template v-slot:icon>
-                <icon-plus></icon-plus>
-            </template>
+            <icon-plus></icon-plus>
         </v-button>
         <v-button route="{{ route('admin.firebase.users.index') }}">
-            <template v-slot:label>
-                Firebase
-            </template>
+            Firebase
         </v-button>
     </v-button-group>
 @endsection
