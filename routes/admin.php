@@ -14,119 +14,119 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
              * ContentController
              */
             Route::middleware('permission:' . Permissions::create_content)->group(function () {
-                Route::get('content/create', 'ContentController@create')->name('admin.content.create');
-                Route::post('content', 'ContentController@store')->name('admin.content.store');
+                Route::get('dev/create', 'ContentController@create')->name('admin.content.create');
+                Route::post('dev', 'ContentController@store')->name('admin.content.store');
             });
             Route::middleware('permission:' . Permissions::update_content)->group(function () {
-                Route::get('content/{content}/edit', 'ContentController@edit')->name('admin.content.edit');
-                Route::patch('content/{content}', 'ContentController@update')->name('admin.content.update');
+                Route::get('dev/{content}/edit', 'ContentController@edit')->name('admin.content.edit');
+                Route::patch('dev/{content}', 'ContentController@update')->name('admin.content.update');
             });
             Route::middleware('permission:' . Permissions::restore_content)->group(function () {
-                Route::get('content/trash', 'ContentController@trash')->name('admin.content.trash');
-                Route::post('content/restore', 'ContentController@restore')->name('admin.content.restore');
+                Route::get('dev/trash', 'ContentController@trash')->name('admin.content.trash');
+                Route::post('dev/restore', 'ContentController@restore')->name('admin.content.restore');
             });
             Route::middleware('permission:' . Permissions::view_content)->group(function () {
-                Route::get('content', 'ContentController@index')->name('admin.content.index');
-                Route::get('content/{content}', 'ContentController@show')->name('admin.content.show');
-                Route::get('content/{content}/log', 'ContentController@log')->name('admin.content.log');
-//            Route::get('content/{content}/audio/move', 'ContentController@moveAudio')->name('admin.content.audio.move');
-                Route::get('content/{content}/export', 'ContentController@exportText')->name('admin.content.export');
-                Route::get('content/{content}/export/json', 'ContentController@exportJson')->name('admin.content.export.json');
-                Route::post('content/{content}/import/json', 'ContentController@importJson')->name('admin.content.import.json');
+                Route::get('dev', 'ContentController@index')->name('admin.content.index');
+                Route::get('dev/{content}', 'ContentController@show')->name('admin.content.show');
+                Route::get('dev/{content}/log', 'ContentController@log')->name('admin.content.log');
+//            Route::get('dev/{content}/audio/move', 'ContentController@moveAudio')->name('admin.content.audio.move');
+                Route::get('dev/{content}/export', 'ContentController@exportText')->name('admin.content.export');
+                Route::get('dev/{content}/export/json', 'ContentController@exportJson')->name('admin.content.export.json');
+                Route::post('dev/{content}/import/json', 'ContentController@importJson')->name('admin.content.import.json');
             });
 //        Route::middleware('permission:' . Permissions::update_content)->group(function () {
-//            Route::get('content/{content}/edit', 'ContentController@edit')->name('admin.content.edit');
-//            Route::patch('content/{content}', 'ContentController@update')->name('admin.content.update');
+//            Route::get('dev/{content}/edit', 'ContentController@edit')->name('admin.content.edit');
+//            Route::patch('dev/{content}', 'ContentController@update')->name('admin.content.update');
 //        });
             Route::middleware('permission:' . Permissions::delete_content)->group(function () {
-                Route::delete('content/{content}', 'ContentController@destroy')->name('admin.content.destroy');
+                Route::delete('dev/{content}', 'ContentController@destroy')->name('admin.content.destroy');
             });
             Route::middleware('permission:' . Permissions::assign_editors)->group(function () {
-                Route::get('content/{content}/editors', 'ContentController@editors')->name('admin.content.editors.index');
-                Route::patch('content/{content}/editors/assign', 'ContentController@assignEditor')->name('admin.content.editors.assign');
-                Route::patch('content/{content}/editors/remove', 'ContentController@removeEditor')->name('admin.content.editors.remove');
+                Route::get('dev/{content}/editors', 'ContentController@editors')->name('admin.content.editors.index');
+                Route::patch('dev/{content}/editors/assign', 'ContentController@assignEditor')->name('admin.content.editors.assign');
+                Route::patch('dev/{content}/editors/remove', 'ContentController@removeEditor')->name('admin.content.editors.remove');
             });
 
             /**
              * LessonController
              */
             Route::middleware('permission:' . Permissions::view_content)->group(function () {
-                Route::get('content/lessons/{lesson}', 'LessonController@show')->name('admin.lessons.show');
-                Route::get('content/lessons/{lesson}/log', 'LessonController@log')->name('admin.lessons.log');
+                Route::get('dev/lessons/{lesson}', 'LessonController@show')->name('admin.lessons.show');
+                Route::get('dev/lessons/{lesson}/log', 'LessonController@log')->name('admin.lessons.log');
             });
             Route::middleware('permission:' . Permissions::update_content)->group(function () {
-                Route::get('content/{content}/lessons/create', 'LessonController@create')->name('admin.lessons.create');
-                Route::post('content/{content}/lessons', 'LessonController@store')->name('admin.lessons.store');
-                Route::get('content/lessons/{lesson}/edit', 'LessonController@edit')->name('admin.lessons.edit');
-                Route::patch('content/lessons/{lesson}', 'LessonController@update')->name('admin.lessons.update');
-                Route::patch('content/lessons/move', 'LessonController@move')->name('admin.lessons.move');
-                Route::delete('content/lessons/{lesson}', 'LessonController@destroy')->name('admin.lessons.destroy');
-                Route::get('content/{content}/lessons/trash', 'LessonController@trash')->name('admin.lessons.trash');
-                Route::post('content/lessons/restore', 'LessonController@restore')->name('admin.lessons.restore');
-                Route::patch('content/lessons/{lesson}/disable', 'LessonController@disable')->name('admin.lessons.disable');
-                Route::patch('content/lessons/{lesson}/enable', 'LessonController@enable')->name('admin.lessons.enable');
-                Route::patch('content/lessons/{lesson}/language/{language}/image/upload', 'LessonController@uploadImage')->name('admin.lessons.image.upload');
-                Route::delete('content/lessons/{lesson}/language/{language}/image/delete', 'LessonController@deleteImage')->name('admin.lessons.image.delete');
+                Route::get('dev/{content}/lessons/create', 'LessonController@create')->name('admin.lessons.create');
+                Route::post('dev/{content}/lessons', 'LessonController@store')->name('admin.lessons.store');
+                Route::get('dev/lessons/{lesson}/edit', 'LessonController@edit')->name('admin.lessons.edit');
+                Route::patch('dev/lessons/{lesson}', 'LessonController@update')->name('admin.lessons.update');
+                Route::patch('dev/lessons/move', 'LessonController@move')->name('admin.lessons.move');
+                Route::delete('dev/lessons/{lesson}', 'LessonController@destroy')->name('admin.lessons.destroy');
+                Route::get('dev/{content}/lessons/trash', 'LessonController@trash')->name('admin.lessons.trash');
+                Route::post('dev/lessons/restore', 'LessonController@restore')->name('admin.lessons.restore');
+                Route::patch('dev/lessons/{lesson}/disable', 'LessonController@disable')->name('admin.lessons.disable');
+                Route::patch('dev/lessons/{lesson}/enable', 'LessonController@enable')->name('admin.lessons.enable');
+                Route::patch('dev/lessons/{lesson}/language/{language}/image/upload', 'LessonController@uploadImage')->name('admin.lessons.image.upload');
+                Route::delete('dev/lessons/{lesson}/language/{language}/image/delete', 'LessonController@deleteImage')->name('admin.lessons.image.delete');
             });
 
             /**
              * ExerciseController
              */
             Route::middleware('permission:' . Permissions::view_content)->group(function () {
-                Route::get('content/exercises/{exercise}', 'ExerciseController@show')->name('admin.exercises.show');
-                Route::get('content/exercises/{exercise}/log', 'ExerciseController@log')->name('admin.exercises.log');
+                Route::get('dev/exercises/{exercise}', 'ExerciseController@show')->name('admin.exercises.show');
+                Route::get('dev/exercises/{exercise}/log', 'ExerciseController@log')->name('admin.exercises.log');
             });
             Route::middleware('permission:' . Permissions::update_content)->group(function () {
-                Route::post('content/lessons/{lesson}/exercises', 'ExerciseController@store')->name('admin.exercises.store');
-                Route::patch('content/exercises/move', 'ExerciseController@move')->name('admin.exercises.move');
-                Route::delete('content/exercises/{exercise}', 'ExerciseController@destroy')->name('admin.exercises.destroy');
-                Route::get('content/lessons/{lesson}/exercises/trash', 'ExerciseController@trash')->name('admin.exercises.trash');
-                Route::post('content/exercises/restore', 'ExerciseController@restore')->name('admin.exercises.restore');
-                Route::patch('content/exercises/{exercise}/disable', 'ExerciseController@disable')->name('admin.exercises.disable');
-                Route::patch('content/exercises/{exercise}/enable', 'ExerciseController@enable')->name('admin.exercises.enable');
+                Route::post('dev/lessons/{lesson}/exercises', 'ExerciseController@store')->name('admin.exercises.store');
+                Route::patch('dev/exercises/move', 'ExerciseController@move')->name('admin.exercises.move');
+                Route::delete('dev/exercises/{exercise}', 'ExerciseController@destroy')->name('admin.exercises.destroy');
+                Route::get('dev/lessons/{lesson}/exercises/trash', 'ExerciseController@trash')->name('admin.exercises.trash');
+                Route::post('dev/exercises/restore', 'ExerciseController@restore')->name('admin.exercises.restore');
+                Route::patch('dev/exercises/{exercise}/disable', 'ExerciseController@disable')->name('admin.exercises.disable');
+                Route::patch('dev/exercises/{exercise}/enable', 'ExerciseController@enable')->name('admin.exercises.enable');
             });
 
             /**
              * ExerciseDataController
              */
             Route::middleware('permission:' . Permissions::update_content)->group(function () {
-                Route::post('content/exercises/{exercise}/data/create', 'ExerciseDataController@store')->name('admin.exercise.data.create');
-                Route::patch('content/exercise/data/{exerciseData}', 'ExerciseDataController@update')->name('admin.exercise.data.update');
-                Route::patch('content/exercise/data/{exerciseData}/audio/synthesize', 'ExerciseDataController@synthesizeAudio')->name('admin.exercise.data.audio.synthesize');
-                Route::patch('content/exercise/data/{exerciseData}/audio/delete', 'ExerciseDataController@deleteAudio')->name('admin.exercise.data.audio.delete');
-                Route::patch('content/exercise/data/move', 'ExerciseDataController@move')->name('admin.exercise.data.move');
-                Route::delete('content/exercise/data/{exerciseData}', 'ExerciseDataController@destroy')->name('admin.exercise.data.destroy');
-                Route::get('content/exercises/{exercise}/data/trash', 'ExerciseDataController@trash')->name('admin.exercise.data.trash');
-                Route::post('content/exercise/data/restore', 'ExerciseDataController@restore')->name('admin.exercise.data.restore');
-                Route::patch('content/exercise/data/{exerciseData/disable/{language}', 'ExerciseDataController@disable')->name('admin.exercise.data.disable');
-                Route::patch('content/exercise/data/{exerciseData/enable/{language}', 'ExerciseDataController@enable')->name('admin.exercise.data.enable');
+                Route::post('dev/exercises/{exercise}/data/create', 'ExerciseDataController@store')->name('admin.exercise.data.create');
+                Route::patch('dev/exercise/data/{exerciseData}', 'ExerciseDataController@update')->name('admin.exercise.data.update');
+                Route::patch('dev/exercise/data/{exerciseData}/audio/synthesize', 'ExerciseDataController@synthesizeAudio')->name('admin.exercise.data.audio.synthesize');
+                Route::patch('dev/exercise/data/{exerciseData}/audio/delete', 'ExerciseDataController@deleteAudio')->name('admin.exercise.data.audio.delete');
+                Route::patch('dev/exercise/data/move', 'ExerciseDataController@move')->name('admin.exercise.data.move');
+                Route::delete('dev/exercise/data/{exerciseData}', 'ExerciseDataController@destroy')->name('admin.exercise.data.destroy');
+                Route::get('dev/exercises/{exercise}/data/trash', 'ExerciseDataController@trash')->name('admin.exercise.data.trash');
+                Route::post('dev/exercise/data/restore', 'ExerciseDataController@restore')->name('admin.exercise.data.restore');
+                Route::patch('dev/exercise/data/{exerciseData/disable/{language}', 'ExerciseDataController@disable')->name('admin.exercise.data.disable');
+                Route::patch('dev/exercise/data/{exerciseData/enable/{language}', 'ExerciseDataController@enable')->name('admin.exercise.data.enable');
             });
 
             /**
              * TranslationController
              */
             Route::middleware('permission:' . Permissions::view_translations)->group(function () {
-                Route::get('translations/{language}/content/{content}', 'TranslationController@showContent')->name('admin.translations.content.show');
-                Route::get('translations/{language}/lessons/{lesson}', 'TranslationController@showLesson')->name('admin.translations.lesson.show');
-                Route::get('translations/{language}/exercises/{exercise}', 'TranslationController@showExercise')->name('admin.translations.exercise.show');
-                Route::get('translations/{language}/content/{content}/export', 'TranslationController@export')->name('admin.translations.content.export');
+                Route::get('trans/{language}/content/{content}', 'TranslationController@showContent')->name('admin.translations.content.show');
+                Route::get('trans/{language}/lessons/{lesson}', 'TranslationController@showLesson')->name('admin.translations.lesson.show');
+                Route::get('trans/{language}/exercises/{exercise}', 'TranslationController@showExercise')->name('admin.translations.exercise.show');
+                Route::get('trans/{language}/content/{content}/export', 'TranslationController@export')->name('admin.translations.content.export');
             });
             Route::middleware('permission:' . Permissions::update_translations)->group(function () {
-                Route::patch('translations/{translation}', 'TranslationController@update')->name('admin.translations.exercise.data.update');
-                Route::patch('translations/{translation}/audio/synthesize', 'TranslationController@synthesizeAudio')->name('admin.translations.audio.synthesize');
-                Route::patch('translations/{translation}/audio/delete', 'TranslationController@deleteAudio')->name('admin.translations.audio.delete');
-                Route::patch('translations/{language}/lessons/{lesson}/disable', 'TranslationController@disableLesson')->name('admin.translations.lesson.disable');
-                Route::patch('translations/{language}/lessons/{lesson}/enable', 'TranslationController@enableLesson')->name('admin.translations.lesson.enable');
-                Route::patch('translations/{language}/exercises/{exercise}/disable', 'TranslationController@disableExercise')->name('admin.translations.exercise.disable');
-                Route::patch('translations/{language}/exercises/{exercise}/enable', 'TranslationController@enableExercise')->name('admin.translations.exercise.enable');
+                Route::patch('trans/{translation}', 'TranslationController@update')->name('admin.translations.exercise.data.update');
+                Route::patch('trans/{translation}/audio/synthesize', 'TranslationController@synthesizeAudio')->name('admin.translations.audio.synthesize');
+                Route::patch('trans/{translation}/audio/delete', 'TranslationController@deleteAudio')->name('admin.translations.audio.delete');
+                Route::patch('trans/{language}/lessons/{lesson}/disable', 'TranslationController@disableLesson')->name('admin.translations.lesson.disable');
+                Route::patch('trans/{language}/lessons/{lesson}/enable', 'TranslationController@enableLesson')->name('admin.translations.lesson.enable');
+                Route::patch('trans/{language}/exercises/{exercise}/disable', 'TranslationController@disableExercise')->name('admin.translations.exercise.disable');
+                Route::patch('trans/{language}/exercises/{exercise}/enable', 'TranslationController@enableExercise')->name('admin.translations.exercise.enable');
             });
             Route::middleware('permission:' . Permissions::assign_editors)->group(function () {
-                Route::get('translations/{language}/content/{content}/editors', 'TranslationController@editors')->name('admin.translations.editors.index');
-                Route::patch('translations/{language}/editors/assign', 'TranslationController@assignEditor')->name('admin.translations.editors.assign');
-                Route::patch('translations/{language}/editors/remove', 'TranslationController@removeEditor')->name('admin.translations.editors.remove');
+                Route::get('trans/{language}/content/{content}/editors', 'TranslationController@editors')->name('admin.translations.editors.index');
+                Route::patch('trans/{language}/editors/assign', 'TranslationController@assignEditor')->name('admin.translations.editors.assign');
+                Route::patch('trans/{language}/editors/remove', 'TranslationController@removeEditor')->name('admin.translations.editors.remove');
             });
             Route::middleware('permission:' . Permissions::publish_courses)->group(function () {
-                Route::post('translations/{language}/content/{content}/commit', 'TranslationController@commit')->name('admin.translations.commit');
+                Route::post('trans/{language}/content/{content}/commit', 'TranslationController@commit')->name('admin.translations.commit');
             });
 
             /**
@@ -141,20 +141,20 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
              * Courses
              */
             Route::middleware('permission:' . Permissions::view_courses)->group(function () {
-                Route::get('courses', 'CourseController@index')->name('admin.courses.index');
-                Route::get('courses/{course}', 'CourseController@show')->name('admin.courses.show');
-                Route::get('courses/{course}/practice/lessons/{courseLesson}', 'CourseController@practice')->name('admin.courses.practice');
+                Route::get('prod', 'CourseController@index')->name('admin.courses.index');
+                Route::get('prod/{course}', 'CourseController@show')->name('admin.courses.show');
+                Route::get('prod/{course}/practice/lessons/{courseLesson}', 'CourseController@practice')->name('admin.courses.practice');
             });
             Route::middleware('permission:' . Permissions::publish_courses)->group(function () {
-                Route::post('courses/{course}/firestore/upload', 'CourseController@firestoreUpload')->name('admin.courses.firestore.upload');
-                Route::post('courses/{course}/firestore/update', 'CourseController@firestoreUpdate')->name('admin.courses.firestore.update');
-                Route::delete('courses/{course}/delete', 'CourseController@delete')->name('admin.courses.delete');
-                Route::post('courses/{course}/image/upload', 'CourseController@uploadImage')->name('admin.courses.image.upload');
-                Route::post('courses/{course}/updating/switch', 'CourseController@switchIsUpdating')->name("admin.courses.updating.switch");
+                Route::post('prod/{course}/firestore/upload', 'CourseController@firestoreUpload')->name('admin.courses.firestore.upload');
+                Route::post('prod/{course}/firestore/update', 'CourseController@firestoreUpdate')->name('admin.courses.firestore.update');
+                Route::delete('prod/{course}/delete', 'CourseController@delete')->name('admin.courses.delete');
+                Route::post('prod/{course}/image/upload', 'CourseController@uploadImage')->name('admin.courses.image.upload');
+                Route::post('prod/{course}/updating/switch', 'CourseController@switchIsUpdating')->name("admin.courses.updating.switch");
             });
             Route::middleware('permission:' . Permissions::update_courses)->group(function () {
-                Route::get('courses/{course}/edit', 'CourseController@edit')->name('admin.courses.edit');
-                Route::patch('courses/{course}', 'CourseController@update')->name('admin.courses.update');
+                Route::get('prod/{course}/edit', 'CourseController@edit')->name('admin.courses.edit');
+                Route::patch('prod/{course}', 'CourseController@update')->name('admin.courses.update');
             });
 
             /**
