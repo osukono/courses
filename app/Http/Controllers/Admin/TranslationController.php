@@ -306,7 +306,7 @@ class TranslationController extends Controller
     public function editors(Language $language, Content $content)
     {
         $this->authorize('access', $content);
-        
+
         $data['content'] = $content;
         $data['language'] = $language;
         $data['editors'] = $language->editors()->ordered()->get();

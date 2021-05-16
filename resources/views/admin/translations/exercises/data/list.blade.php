@@ -15,7 +15,7 @@
         @if(isset($editData) && $data->id == $editData->id)
             <tr>
                 <td colspan="3">
-                    @include('admin.content.exercises.data.show')
+                    @include('admin.development.exercises.data.show')
                     @include('admin.translations.exercises.data.edit', ['translation' => $data->translations->first()])
                 </td>
             </tr>
@@ -27,7 +27,7 @@
                     data-href="{{ route('admin.translations.exercise.show', [$language, $exercise, 'data' => $data->id]) }}"
                     @endcan
                 >
-                    @include('admin.content.exercises.data.show')
+                    @include('admin.development.exercises.data.show')
                     @includeWhen(($translation = $data->translations->first()) != null, 'admin.translations.exercises.data.show')
                 </td>
                 @empty($editData)

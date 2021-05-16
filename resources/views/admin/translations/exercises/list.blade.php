@@ -15,7 +15,7 @@
                 @includeWhen($exercise->isDisabled($language), 'admin.components.disabled.translation')
 
                 @foreach($exercise->exerciseData as $data)
-                    @include('admin.content.exercises.data.show')
+                    @include('admin.development.exercises.data.show')
                     @if(($translation = $data->translations->first()) != null)
                         <div class="mb-1">
                             @include('admin.translations.exercises.data.show')
