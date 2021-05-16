@@ -61,6 +61,6 @@ class SpeechSettings extends Model
      */
     public function repository()
     {
-        return isset($this->repository) ? $this->repository : $this->repository = new SpeechSettingsRepository($this);
+        return $this->repository ?? $this->repository = new SpeechSettingsRepository($this);
     }
 }

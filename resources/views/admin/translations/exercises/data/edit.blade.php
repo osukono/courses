@@ -35,7 +35,7 @@
     <input type="hidden" name="duration" id="duration">
 
     @submit(['text' => 'Save'])
-    @cancel(['route' => route('admin.translations.exercise.show', [$language, $exercise])])
+    @cancel(['route' => route('admin.translations.exercises.show', [$language, $exercise])])
 </form>
 
 @push('scripts')

@@ -242,7 +242,7 @@ class TranslationController extends Controller
         $translation->repository()->update($request->all());
         $translation->repository()->updateAudio($request);
 
-        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseData->exercise]);
+        return redirect()->route('admin.translations.exercises.show', [$translation->language, $translation->exerciseData->exercise]);
     }
 
     /**
@@ -257,7 +257,7 @@ class TranslationController extends Controller
 
         $translation->repository()->deleteAudio();
 
-        return redirect()->route('admin.translations.exercise.show', [$translation->language, $translation->exerciseData->exercise, 'data' => $translation->exerciseData->id])
+        return redirect()->route('admin.translations.exercises.show', [$translation->language, $translation->exerciseData->exercise, 'data' => $translation->exerciseData->id])
             ->with('message', __('admin.messages.deleted.success', ['object' => 'Audio']));
     }
 
@@ -357,8 +357,8 @@ class TranslationController extends Controller
         $this->authorize('access', $content);
         $this->authorize('access', $language);
 
-        $this->dispatchJob(new CommitContent($content, $language), route('admin.translations.content.show', [$language, $content]));
+        $this->dispatchJob(new CommitContent($content, $language), route('admin.translations.show', [$language, $content]));
 
-        return redirect()->route('admin.translations.content.show', [$language, $content]);
+        return redirect()->route('admin.translations.show', [$language, $content]);
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('admin.translations.content.show', $language, $content) }}
+    {{ Breadcrumbs::render('admin.translations.show', $language, $content) }}
 @endsection
 
 @section('toolbar')
@@ -13,7 +13,7 @@
 
             @foreach($languages as $__language)
                 <v-dropdown-item label="{{ $__language->native }}"
-                                 route="{{ route('admin.translations.content.show', [$__language, $content]) }}">
+                                 route="{{ route('admin.translations.show', [$__language, $content]) }}">
                 </v-dropdown-item>
             @endforeach
         </v-dropdown>
@@ -31,10 +31,10 @@
 
             <v-dropdown-group header="{{ __('admin.dev.lessons.trans.toolbar.more.export.title') }}">
                 <v-dropdown-item label="{{ $content->language->native . ' + ' . $language->native }}"
-                                 route="{{ route('admin.translations.content.export', [$language, $content]) }}?target=1">
+                                 route="{{ route('admin.translations.export', [$language, $content]) }}?target=1">
                 </v-dropdown-item>
                 <v-dropdown-item label="{{ $language->native }}"
-                                 route="{{ route('admin.translations.content.export', [$language, $content]) }}">
+                                 route="{{ route('admin.translations.export', [$language, $content]) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
 

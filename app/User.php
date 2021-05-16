@@ -109,7 +109,7 @@ class User extends Authenticatable implements Identifiable
      */
     public function repository()
     {
-        return isset($this->repository) ? $this->repository : $this->repository = new UserRepository($this);
+        return $this->repository ?? $this->repository = new UserRepository($this);
     }
 
     /**

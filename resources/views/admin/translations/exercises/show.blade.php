@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('admin.translations.exercise.show', $language, $exercise) }}
+    {{ Breadcrumbs::render('admin.translations.exercises.show', $language, $exercise) }}
 @endsection
 
 @section('toolbar')
     <v-button-group>
         @isset($previous)
-            <v-button id="previous" route="{{ route('admin.translations.exercise.show', [$language, $previous]) }}">
+            <v-button id="previous" route="{{ route('admin.translations.exercises.show', [$language, $previous]) }}">
                 <icon-chevron-left></icon-chevron-left>
             </v-button>
         @endisset
         @isset($next)
-            <v-button id="next" route="{{ route('admin.translations.exercise.show', [$language, $next]) }}">
+            <v-button id="next" route="{{ route('admin.translations.exercises.show', [$language, $next]) }}">
                 <icon-chevron-right></icon-chevron-right>
             </v-button>
         @endisset
@@ -26,7 +26,7 @@
 
             @foreach($languages as $__language)
                 <v-dropdown-item label="{{ $__language->native }}"
-                                 route="{{ route('admin.translations.exercise.show', [$__language, $exercise]) }}">
+                                 route="{{ route('admin.translations.exercises.show', [$__language, $exercise]) }}">
                 </v-dropdown-item>
             @endforeach
         </v-dropdown>
@@ -43,7 +43,7 @@
                     @push('forms')
                         <form class="d-none"
                               id="exercise-{{ $exercise->id }}-{{ $exercise->isDisabled($language) ? 'enable' : 'disable' }}"
-                              action="{{ route('admin.translations.exercise.' . ($exercise->isDisabled($language) ? 'enable' : 'disable'), [$language, $exercise]) }}"
+                              action="{{ route('admin.translations.exercises.' . ($exercise->isDisabled($language) ? 'enable' : 'disable'), [$language, $exercise]) }}"
                               method="post">
                             @method('patch')
                             @csrf

@@ -43,7 +43,7 @@ class LocaleGroup extends Model
      */
     public function repository()
     {
-        return isset($this->repository) ? $this->repository : $this->repository = new LocaleGroupRepository($this);
+        return $this->repository ?? $this->repository = new LocaleGroupRepository($this);
     }
 
     /**

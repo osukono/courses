@@ -124,33 +124,33 @@ Breadcrumbs::for('admin.dev.exercise.data.trash', function ($trail, Exercise $ex
  */
 
 // [Content] > [Language]
-Breadcrumbs::for('admin.translations.content.show', function ($trail, Language $language, Content $content) {
+Breadcrumbs::for('admin.translations.show', function ($trail, Language $language, Content $content) {
     $trail->parent('admin.dev.courses.show', $content);
-    $trail->push($language, route('admin.translations.content.show', [$language, $content]));
+    $trail->push($language, route('admin.translations.show', [$language, $content]));
 });
 
 // [Content] > [Language] > Translation Editors
 Breadcrumbs::for('admin.translations.editors', function ($trail, Language $language, Content $content) {
-    $trail->parent('admin.translations.content.show', $language, $content);
+    $trail->parent('admin.translations.show', $language, $content);
     $trail->push('Translation Editors');
 });
 
 // [Content] > [Language] > Speech Settings
 Breadcrumbs::for('admin.translations.speech.settings', function ($trail, Language $language, Content $content) {
-    $trail->parent('admin.translations.content.show', $language, $content);
+    $trail->parent('admin.translations.show', $language, $content);
     $trail->push('Speech Settings');
 });
 
 // [Content] > [Language] > [Lesson]
-Breadcrumbs::for('admin.translations.lesson.show', function ($trail, Language $language,  Lesson $lesson) {
-    $trail->parent('admin.translations.content.show', $language, $lesson->content);
-    $trail->push($lesson->index . '. ' . $lesson->title, route('admin.translations.lesson.show', [$language, $lesson]));
+Breadcrumbs::for('admin.translations.lessons.show', function ($trail, Language $language,  Lesson $lesson) {
+    $trail->parent('admin.translations.show', $language, $lesson->content);
+    $trail->push($lesson->index . '. ' . $lesson->title, route('admin.translations.lessons.show', [$language, $lesson]));
 });
 
 // [Content] > [Language] > [Lesson] > [Exercise]
-Breadcrumbs::for('admin.translations.exercise.show', function ($trail, Language $language, Exercise $exercise) {
-    $trail->parent('admin.translations.lesson.show', $language, $exercise->lesson);
-    $trail->push($exercise->index, route('admin.translations.exercise.show', [$language, $exercise]));
+Breadcrumbs::for('admin.translations.exercises.show', function ($trail, Language $language, Exercise $exercise) {
+    $trail->parent('admin.translations.lessons.show', $language, $exercise->lesson);
+    $trail->push($exercise->index, route('admin.translations.exercises.show', [$language, $exercise]));
 });
 
 /**

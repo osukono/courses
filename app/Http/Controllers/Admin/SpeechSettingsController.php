@@ -83,6 +83,6 @@ class SpeechSettingsController extends Controller
 
         SpeechSettingsRepository::createOrUpdate($content, $language, $request->all());
 
-        return redirect()->route('admin.translations.content.show', [$language, $content])->with('message', 'Speech Settings has successfully been updated.');
+        return redirect()->route('admin.translations.show', [$language, $content])->with('message', 'Speech Settings has successfully been updated.');
     }
 }

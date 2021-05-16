@@ -126,7 +126,7 @@ class Course extends Model
      */
     public function repository()
     {
-        return isset($this->repository) ? $this->repository : $this->repository = new CourseRepository($this);
+        return $this->repository ?? $this->repository = new CourseRepository($this);
     }
 
     /**

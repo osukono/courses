@@ -9,7 +9,7 @@
     </thead>
     <tbody>
     @foreach($lessons as $lesson)
-        <tr class="clickable-row" data-href="{{ route('admin.translations.lesson.show', [$language, $lesson]) }}">
+        <tr class="clickable-row" data-href="{{ route('admin.translations.lessons.show', [$language, $lesson]) }}">
             <td>{{ $lesson->index }}</td>
             <td>
                 @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')

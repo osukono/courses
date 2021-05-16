@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('admin.translations.lesson.show', $language, $lesson) }}
+    {{ Breadcrumbs::render('admin.translations.lessons.show', $language, $lesson) }}
 @endsection
 
 @section('toolbar')
     <v-button-group>
         @isset($previous)
-            <v-button id="previous" route="{{ route('admin.translations.lesson.show', [$language, $previous]) }}">
+            <v-button id="previous" route="{{ route('admin.translations.lessons.show', [$language, $previous]) }}">
                 <icon-chevron-left></icon-chevron-left>
             </v-button>
         @endisset
         @isset($next)
-            <v-button id="next" route="{{ route('admin.translations.lesson.show', [$language, $next]) }}">
+            <v-button id="next" route="{{ route('admin.translations.lessons.show', [$language, $next]) }}">
                 <icon-chevron-right></icon-chevron-right>
             </v-button>
         @endisset
@@ -26,7 +26,7 @@
 
             @foreach($languages as $__language)
                 <v-dropdown-item label="{{ $__language->native }}"
-                                 route="{{ route('admin.translations.lesson.show', [$__language, $lesson]) }}">
+                                 route="{{ route('admin.translations.lessons.show', [$__language, $lesson]) }}">
                 </v-dropdown-item>
             @endforeach
         </v-dropdown>
@@ -43,7 +43,7 @@
                     @push('forms')
                         <form class="d-none"
                               id="lesson-{{ $lesson->id }}-{{ $lesson->isDisabled($language) ? 'enable' : 'disable' }}"
-                              action="{{ route('admin.translations.lesson.' . ($lesson->isDisabled($language) ? 'enable' : 'disable'), [$language, $lesson]) }}"
+                              action="{{ route('admin.translations.lessons.' . ($lesson->isDisabled($language) ? 'enable' : 'disable'), [$language, $lesson]) }}"
                               method="post">
                             @method('patch')
                             @csrf

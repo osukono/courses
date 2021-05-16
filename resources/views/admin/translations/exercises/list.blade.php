@@ -8,7 +8,7 @@
     </thead>
     <tbody>
     @foreach($exercises as $exercise)
-        <tr class="clickable-row" data-href="{{ route('admin.translations.exercise.show', [$language, $exercise]) }}">
+        <tr class="clickable-row" data-href="{{ route('admin.translations.exercises.show', [$language, $exercise]) }}">
             <td>{{ $exercise->index }}</td>
             <td class="last-child-mb-0">
                 @includeWhen($exercise->isDisabled($content->language), 'admin.components.disabled.content')

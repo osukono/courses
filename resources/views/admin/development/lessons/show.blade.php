@@ -39,7 +39,7 @@
 
             @foreach($languages as $__language)
                 <v-dropdown-item label="{{ $__language->native }}"
-                                 route="{{ route('admin.translations.lesson.show', [$__language, $lesson]) }}"
+                                 route="{{ route('admin.translations.lessons.show', [$__language, $lesson]) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
                 </v-dropdown-item>
             @endforeach

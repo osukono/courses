@@ -106,7 +106,7 @@ class Exercise extends Model implements Recordable
      */
     public function repository()
     {
-        return isset($this->repository) ? $this->repository : $this->repository = new ExerciseRepository($this);
+        return $this->repository ?? $this->repository = new ExerciseRepository($this);
     }
 
     /**

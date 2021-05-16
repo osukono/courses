@@ -3,7 +3,10 @@
 use App\Library\Permissions;
 use App\Library\Roles;
 
-Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+], function () {
 
     Route::middleware(['auth', 'permission:' . Permissions::view_admin_panel])
         ->namespace('Admin')->prefix('console')->group(function () {
@@ -189,17 +192,17 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
              * TranslationController
              */
             Route::middleware('permission:' . Permissions::view_translations)->group(function () {
-                Route::get('trans/{language}/content/{content}', 'TranslationController@showContent')
-                    ->name('admin.translations.content.show');
+                Route::get('trans/{language}/{content}', 'TranslationController@showContent')
+                    ->name('admin.translations.show');
 
                 Route::get('trans/{language}/lessons/{lesson}', 'TranslationController@showLesson')
-                    ->name('admin.translations.lesson.show');
+                    ->name('admin.translations.lessons.show');
 
                 Route::get('trans/{language}/exercises/{exercise}', 'TranslationController@showExercise')
-                    ->name('admin.translations.exercise.show');
+                    ->name('admin.translations.exercises.show');
 
                 Route::get('trans/{language}/content/{content}/export', 'TranslationController@export')
-                    ->name('admin.translations.content.export');
+                    ->name('admin.translations.export');
             });
             Route::middleware('permission:' . Permissions::update_translations)->group(function () {
                 Route::patch('trans/{translation}', 'TranslationController@update')
@@ -212,16 +215,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
                     ->name('admin.translations.audio.delete');
 
                 Route::patch('trans/{language}/lessons/{lesson}/disable', 'TranslationController@disableLesson')
-                    ->name('admin.translations.lesson.disable');
+                    ->name('admin.translations.lessons.disable');
 
                 Route::patch('trans/{language}/lessons/{lesson}/enable', 'TranslationController@enableLesson')
-                    ->name('admin.translations.lesson.enable');
+                    ->name('admin.translations.lessons.enable');
 
                 Route::patch('trans/{language}/exercises/{exercise}/disable', 'TranslationController@disableExercise')
-                    ->name('admin.translations.exercise.disable');
+                    ->name('admin.translations.exercises.disable');
 
                 Route::patch('trans/{language}/exercises/{exercise}/enable', 'TranslationController@enableExercise')
-                    ->name('admin.translations.exercise.enable');
+                    ->name('admin.translations.exercises.enable');
             });
             Route::middleware('permission:' . Permissions::assign_editors)->group(function () {
                 Route::get('trans/{language}/content/{content}/editors', 'TranslationController@editors')
