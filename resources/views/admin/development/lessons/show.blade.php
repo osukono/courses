@@ -145,7 +145,7 @@
                         </h6>
                     </div>
                 </div>
-                @include('admin.content.exercises.list')
+                @include('admin.development.exercises.list')
             </div>
         </div>
     @endif

@@ -9,7 +9,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <h5 class="card-title mb-4">Courses</h5>
-                @include('admin.courses.list')
+                @include('admin.production.list')
             </div>
         </div>
     @endif

@@ -15,7 +15,7 @@
             <td class="last-child-mb-0">
                 @includeWhen($exercise->isDisabled($content->language), 'admin.components.disabled.content')
                 @foreach($exercise->exerciseData as $data)
-                    @include('admin.content.exercises.data.show')
+                    @include('admin.development.exercises.data.show')
                 @endforeach
             </td>
             <td class="text-nowrap text-right d-none d-md-table-cell">{{ $exercise->updated_at->diffForHumans() }}</td>

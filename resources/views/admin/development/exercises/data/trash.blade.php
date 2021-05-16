@@ -1,16 +1,16 @@
 @extends('layouts.admin')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('admin.exercises.trash', $lesson) }}
+    {{ Breadcrumbs::render('admin.exercise.data.trash', $exercise) }}
 @endsection
 
 @section('toolbar')
-    {{ $exercises->links() }}
+    {{ $exerciseData->links() }}
 @endsection
 
 @section('content')
-    @if($exercises->count() > 0)
-        <div class="card shadow-sm">
+    @if($exerciseData->count() > 0)
+        <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-striped table-borderless">
@@ -23,19 +23,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($exercises as $exercise)
+                        @foreach($exerciseData as $data)
                             <tr>
-                                <td>
-                                    @foreach($exercise->exerciseData as $data)
-                                        @include('admin.content.exercises.data.show')
-                                    @endforeach
+                                <td class="last-child-mb-0">
+                                    @include('admin.development.exercises.data.show')
                                 </td>
-                                <td class="text-nowrap text-right">{{ $exercise->deleted_at->diffForHumans() }}</td>
-                                <td class="text-nowrap">{{ $exercise->ledgers->first()->user }}</td>
+                                <td class="text-nowrap text-right">{{ $data->deleted_at->diffForHumans() }}</td>
+                                <td class="text-nowrap">{{ $data->ledgers->first()->user }}</td>
                                 <td class="text-right">
-                                    <form class="mr-1" action="{{ route('admin.exercises.restore') }}" method="post">
+                                    <form class="mr-1" action="{{ route('admin.exercise.data.restore') }}" method="post">
                                         @csrf
-                                        <input type="hidden" id="id" name="id" value="{{ $exercise->id }}">
+                                        <input type="hidden" id="id" name="id" value="{{ $data->id }}">
                                         <button type="submit" class="btn btn-link btn-sm p-0">{{ __('admin.form.restore') }}</button>
                                     </form>
                                 </td>

@@ -33,7 +33,7 @@ class ContentController extends Controller
 {
     public function __construct()
     {
-        View::share('current', Sidebar::content);
+        View::share('current', Sidebar::development);
     }
 
     /**
@@ -47,7 +47,7 @@ class ContentController extends Controller
             ->ordered()->withCount('lessons')->get();
         $data['trashed'] = ContentRepository::trashed()->count();
 
-        return view('admin.content.index')->with($data);
+        return view('admin.development.index')->with($data);
     }
 
     /**
@@ -59,7 +59,7 @@ class ContentController extends Controller
         $data['levels'] = LevelRepository::all()->ordered()->get();
         $data['topics'] = TopicRepository::all()->ordered()->get();
 
-        return view('admin.content.create')->with($data);
+        return view('admin.development.courses.create')->with($data);
     }
 
     /**
@@ -94,7 +94,7 @@ class ContentController extends Controller
             ->withCount('exercises')
             ->ordered()->get();
 
-        return view('admin.content.show')->with($data);
+        return view('admin.development.courses.show')->with($data);
     }
 
     /**
@@ -109,7 +109,7 @@ class ContentController extends Controller
         $data['levels'] = LevelRepository::all()->ordered()->get();
         $data['content'] = $content;
 
-        return view('admin.content.edit')->with($data);
+        return view('admin.development.courses.edit')->with($data);
     }
 
     /**
@@ -177,7 +177,7 @@ class ContentController extends Controller
                 $query->where('event', 'deleted')->latest();
             }, 'ledgers.user'])->orderBy('deleted_at', 'desc')->paginate(20);
 
-        return view('admin.content.trash')->with($data);
+        return view('admin.development.trash')->with($data);
     }
 
     /**
@@ -194,7 +194,7 @@ class ContentController extends Controller
         $data['users'] = User::role(Permission::findByName(Permissions::view_content)->roles()->get())
             ->whereNotIn('id', $data['editors']->pluck('id'))->ordered()->get();
 
-        return view('admin.content.editors')->with($data);
+        return view('admin.development.courses.editors')->with($data);
     }
 
     /**
@@ -243,7 +243,7 @@ class ContentController extends Controller
         $data['content'] = $content;
         $data['ledgers'] = $content->ledgers()->with('user')->latest()->paginate(20);
 
-        return view('admin.content.log', $data);
+        return view('admin.development.courses.log', $data);
     }
 
     /**

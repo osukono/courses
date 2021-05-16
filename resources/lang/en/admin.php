@@ -67,11 +67,11 @@ return [
                     'editors' => 'Course Editors',
                     'export' => [
                         'title' => 'Export',
-                        'backup' => 'Backup'
+                        'backup' => 'Backup (JSON)'
                     ],
                     'import' => [
                         'title' => 'Import',
-                        'backup' => 'Backup'
+                        'backup' => 'Backup (JSON)'
                     ],
                     'properties' => [
                         'title' => 'Properties',

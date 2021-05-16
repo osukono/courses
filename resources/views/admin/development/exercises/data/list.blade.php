@@ -18,7 +18,7 @@
         @if(isset($editData) && $data->id == $editData->id)
             <tr>
                 <td colspan="3">
-                    @include('admin.content.exercises.data.edit')
+                    @include('admin.development.exercises.data.edit')
                 </td>
             </tr>
         @else
@@ -29,7 +29,7 @@
                     data-href="{{ route('admin.exercises.show', [$exercise, 'data' => $data->id]) }}"
                     @endcan
                 >
-                    @include('admin.content.exercises.data.show')
+                    @include('admin.development.exercises.data.show')
                 </td>
                 @empty($editData)
                     <td class="text-nowrap text-right">{{ $data->updated_at->diffForHumans() }}</td>

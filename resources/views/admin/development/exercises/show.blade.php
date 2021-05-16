@@ -96,7 +96,7 @@
                 <h6 class="card-subtitle">
                     @includeWhen($exercise->isDisabled($content->language), 'admin.components.disabled.content')
                 </h6>
-                @include('admin.content.exercises.data.list')
+                @include('admin.development.exercises.data.list')
             </div>
         </div>
     @endif

@@ -27,7 +27,7 @@ class CourseController extends Controller
 {
     public function __construct()
     {
-        View::share('current', Sidebar::courses);
+        View::share('current', Sidebar::production);
     }
 
     /**
@@ -43,7 +43,7 @@ class CourseController extends Controller
             ])->withCount('courseLessons')
             ->ordered()->get();
 
-        return view('admin.courses.index')->with($data);
+        return view('admin.production.index')->with($data);
     }
 
     /**
@@ -55,7 +55,7 @@ class CourseController extends Controller
         $data['course'] = $course;
         $data['lessons'] = $course->courseLessons;
 
-        return view('admin.courses.show')->with($data);
+        return view('admin.production.show')->with($data);
     }
 
     /**
@@ -66,7 +66,7 @@ class CourseController extends Controller
     {
         $data['course'] = $course;
 
-        return view('admin.courses.edit')->with($data);
+        return view('admin.production.edit')->with($data);
     }
 
     /**
@@ -154,15 +154,15 @@ class CourseController extends Controller
     public static function validateFields($course)
     {
         if (empty($course->title))
-            throw new Exception($course . "Title is not set.");
+            throw new Exception($course . " Title is not set.");
         if (empty($course->description))
-            throw new Exception($course . "Description is not set.");
+            throw new Exception($course . " Description is not set.");
         if (empty($course->image))
-            throw new Exception($course . "Doesn't have an image.");
+            throw new Exception($course . " Doesn't have an image.");
         if (empty($course->player_version))
-            throw new Exception($course . "Player version is not set.");
+            throw new Exception($course . " Player version is not set.");
         if (empty($course->review_exercises))
-            throw new Exception($course . "Review exercises is not set.");
+            throw new Exception($course . " Review exercises is not set.");
     }
 
     /**
@@ -208,7 +208,7 @@ class CourseController extends Controller
             'speed.faster' => __('web.player.speed.faster')
         ];
 
-        return view('admin.courses.practice')->with($data);
+        return view('admin.production.practice')->with($data);
     }
 
     /**

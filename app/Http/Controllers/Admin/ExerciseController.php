@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Content\ExerciseMoveRequest;
 use App\Http\Requests\Admin\Content\ExerciseRestoreRequest;
 use App\Lesson;
 use App\Library\Permissions;
+use App\Library\Sidebar;
 use App\Repositories\ExerciseDataRepository;
 use App\Repositories\ExerciseRepository;
 use App\Repositories\LanguageRepository;
@@ -24,7 +25,7 @@ class ExerciseController extends Controller
 {
     public function __construct()
     {
-        View::share('current', 'content');
+        View::share('current', Sidebar::development);
     }
 
     /**
@@ -56,7 +57,7 @@ class ExerciseController extends Controller
             ->whereNotIn('id', [$exercise->lesson->content->language->id])->ordered()->get();
         $data['exerciseData'] = $exercise->exerciseData()->ordered()->get();
 
-        return view('admin.content.exercises.show')->with($data);
+        return view('admin.development.exercises.show')->with($data);
     }
 
     /**
@@ -183,7 +184,7 @@ class ExerciseController extends Controller
             }, 'ledgers.user'])->orderBy('deleted_at', 'desc')->paginate(20);
         $data['lesson'] = $lesson;
 
-        return view('admin.content.exercises.trash')->with($data);
+        return view('admin.development.exercises.trash')->with($data);
     }
 
     /**
@@ -198,6 +199,6 @@ class ExerciseController extends Controller
         $data['exercise'] = $exercise;
         $data['ledgers'] = $exercise->ledgers()->with('user')->latest()->paginate(20);
 
-        return view('admin.content.exercises.log', $data);
+        return view('admin.development.exercises.log', $data);
     }
 }

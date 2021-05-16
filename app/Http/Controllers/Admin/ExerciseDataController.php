@@ -22,7 +22,7 @@ class ExerciseDataController extends Controller
 {
     public function __construct()
     {
-        View::share('current', Sidebar::content);
+        View::share('current', Sidebar::development);
     }
 
     /**
@@ -158,7 +158,7 @@ class ExerciseDataController extends Controller
             }, 'ledgers.user'])->orderBy('deleted_at', 'desc')->paginate(20);
         $data['exercise'] = $exercise;
 
-        return view('admin.content.exercises.data.trash')->with($data);
+        return view('admin.development.exercises.data.trash')->with($data);
     }
 
     /**

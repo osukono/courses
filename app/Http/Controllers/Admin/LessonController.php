@@ -31,7 +31,7 @@ class LessonController extends Controller
 {
     public function __construct()
     {
-        View::share('current', Sidebar::content);
+        View::share('current', Sidebar::development);
     }
 
     /**
@@ -69,7 +69,7 @@ class LessonController extends Controller
             ->where('language_id', $lesson->content->language->id)
             ->first();
 
-        return view('admin.content.lessons.show')->with($data);
+        return view('admin.development.lessons.show')->with($data);
     }
 
     /**
@@ -83,7 +83,7 @@ class LessonController extends Controller
 
         $data['content'] = $content;
 
-        return view('admin.content.lessons.create')->with($data);
+        return view('admin.development.lessons.create')->with($data);
     }
 
     /**
@@ -112,7 +112,7 @@ class LessonController extends Controller
 
         $data['lesson'] = $lesson;
 
-        return view('admin.content.lessons.edit')->with($data);
+        return view('admin.development.lessons.edit')->with($data);
     }
 
     /**
@@ -268,7 +268,7 @@ class LessonController extends Controller
             }, 'ledgers.user'])->orderBy('deleted_at', 'desc')->paginate(20);
         $data['content'] = $content;
 
-        return view('admin.content.lessons.trash')->with($data);
+        return view('admin.development.lessons.trash')->with($data);
     }
 
     /**
@@ -283,6 +283,6 @@ class LessonController extends Controller
         $data['lesson'] = $lesson;
         $data['ledgers'] = $lesson->ledgers()->with('user')->latest()->paginate(20);
 
-        return view('admin.target.lessons.log', $data);
+        return view('admin.development.lessons.log', $data);
     }
 }

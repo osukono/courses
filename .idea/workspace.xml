@@ -2,7 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseDataController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Library/Sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/Sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/courses/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/courses/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/editors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/courses/editors.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/data/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/data/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/data/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/data/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/trash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/log.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/log.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/exercises/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/trash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/lessons/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/lessons/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/lessons/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/lessons/log.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/log.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/lessons/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/trash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/courses/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/log.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/courses/log.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/courses/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/speech/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/speech/settings.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/trash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/production/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/production/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/lessons.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/production/lessons.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/production/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/practice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/production/practice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/production/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +97,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
@@ -202,6 +240,7 @@
       <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
       <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
     </include_path>
   </component>
   <component name="ProjectId" id="1SmXnrlxWgMWYX7CuC72XGd0KzX" />
@@ -220,7 +259,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -233,11 +272,11 @@
       <recent name="$PROJECT_DIR$/app/Library" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/development" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/development/courses" />
       <recent name="$PROJECT_DIR$/app/Schemas" />
       <recent name="$PROJECT_DIR$/resources/views/admin/users/assigned" />
       <recent name="$PROJECT_DIR$/resources/views/admin/components/modals" />
-      <recent name="$PROJECT_DIR$/resources/js/components/icons" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/app/locales/groups" />
     </key>
   </component>
   <component name="RunManager">
@@ -399,7 +438,11 @@
       <workItem from="1617709340424" duration="208000" />
       <workItem from="1618840573548" duration="42000" />
       <workItem from="1618840685768" duration="2886000" />
-      <workItem from="1618934641653" duration="613000" />
+      <workItem from="1618934641653" duration="988000" />
+      <workItem from="1619524337097" duration="451000" />
+      <workItem from="1619851406789" duration="65000" />
+      <workItem from="1621145833344" duration="44000" />
+      <workItem from="1621145942720" duration="2702000" />
     </task>
     <servers />
   </component>

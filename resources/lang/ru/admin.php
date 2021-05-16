@@ -86,11 +86,11 @@ return [
                     'editors' => 'Редакторы курса',
                     'export' => [
                         'title' => 'Экспорт',
-                        'backup' => 'Резервная копия'
+                        'backup' => 'Резервная копия (JSON)'
                     ],
                     'import' => [
                         'title' => 'Импорт',
-                        'backup' => 'Резервная копия'
+                        'backup' => 'Резервная копия (JSON)'
                     ],
                     'properties' => [
                         'title' => 'Свойства',

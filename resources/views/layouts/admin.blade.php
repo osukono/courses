@@ -44,7 +44,7 @@
             <p>{{ __('admin.menu.courses.header') }}</p>
             @can(\App\Library\Permissions::view_content)
                 <li>
-                    <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::content) }}"
+                    <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::development) }}"
                        href="{{ route('admin.content.index') }}">
                         <icon-book-open></icon-book-open>
                         <div class="link">{{ __('admin.menu.courses.development') }}</div>
@@ -53,7 +53,7 @@
             @endcan
             @can(\App\Library\Permissions::view_courses)
                 <li>
-                    <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::courses) }}"
+                    <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::production) }}"
                        href="{{ route('admin.courses.index') }}">
                         <icon-book></icon-book>
                         <div class="link">{{ __('admin.menu.courses.production') }}</div>

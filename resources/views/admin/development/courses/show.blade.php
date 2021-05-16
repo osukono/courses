@@ -38,7 +38,7 @@
             </v-dropdown-group>
 
             <v-dropdown-group header="{{ __('admin.dev.lessons.toolbar.more.export.title') }}">
-                <v-dropdown-item label="{{ $content->language . ' TXT' }}"
+                <v-dropdown-item label="{{ $content->language->native}}"
                                  route="{{ route('admin.content.export', $content) }}">
                 </v-dropdown-item>
                 <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.export.backup') }}"
@@ -103,7 +103,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <h5 class="card-title mb-4">{{ $content->language->native . ' › ' . $content->level->name }}</h5>
-                @include('admin.content.lessons.list')
+                @include('admin.development.lessons.list')
             </div>
         </div>
     @endif
