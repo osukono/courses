@@ -38,7 +38,7 @@
                             </td>
                             <td>
                                 <form class="mr-1"
-                                      action="{{ route('admin.content.editors.remove', $content) }}"
+                                      action="{{ route('admin.dev.courses.editors.remove', $content) }}"
                                       method="post">
                                     @csrf
                                     @method('patch')
@@ -57,7 +57,7 @@
     @include('admin.components.modals.select',[
     'id' => 'assign-editor',
     'title' => 'Assign Editor',
-    'route' => route('admin.content.editors.assign', $content),
+    'route' => route('admin.dev.courses.editors.assign', $content),
     'field' => 'user_id',
     'options' => $users,
     'submitLabel' => 'Assign'])

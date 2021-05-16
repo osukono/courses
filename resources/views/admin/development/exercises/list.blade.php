@@ -7,10 +7,10 @@
     </tr>
     </thead>
     <tbody id="{{ can(\App\Library\Permissions::update_content, 'sortable') }}"
-           data-route="{{ route('admin.exercises.move') }}">
+           data-route="{{ route('admin.dev.exercises.move') }}">
     @foreach($exercises as $exercise)
         <tr data-sortable="{{ $exercise->id }}" class="clickable-row"
-            data-href="{{ route('admin.exercises.show', $exercise) }}">
+            data-href="{{ route('admin.dev.exercises.show', $exercise) }}">
             <td>{{ $exercise->index }}</td>
             <td class="last-child-mb-0">
                 @includeWhen($exercise->isDisabled($content->language), 'admin.components.disabled.content')

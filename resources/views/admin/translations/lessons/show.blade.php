@@ -57,7 +57,7 @@
                         @push('forms')
                             <form class="d-none"
                                   id="lesson-{{ $lesson->id }}-image-delete"
-                                  action="{{ route('admin.lessons.image.delete', [$lesson, $language]) }}"
+                                  action="{{ route('admin.dev.lessons.image.delete', [$lesson, $language]) }}"
                                   method="post">
                                 @method('delete')
                                 @csrf
@@ -68,7 +68,7 @@
             </v-dropdown-group>
         </v-dropdown>
 
-        <v-button route="{{ route('admin.lessons.show', $lesson) }}"
+        <v-button route="{{ route('admin.dev.lessons.show', $lesson) }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_content) }}">
             {{ $content->language->native }}
             <icon-chevron-right></icon-chevron-right>
@@ -97,7 +97,7 @@
                                 </div>
                             @endisset
                             <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
-                                  action="{{ route('admin.lessons.image.upload', [$lesson, $language]) }}"
+                                  action="{{ route('admin.dev.lessons.image.upload', [$lesson, $language]) }}"
                                   method="post" autocomplete="off" enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')

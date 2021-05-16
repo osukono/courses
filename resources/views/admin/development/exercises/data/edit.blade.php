@@ -1,4 +1,4 @@
-<form class="mb-3" action="{{ route('admin.exercise.data.update', $data) }}" method="post" autocomplete="off"
+<form class="mb-3" action="{{ route('admin.dev.exercise.data.update', $data) }}" method="post" autocomplete="off"
       enctype="multipart/form-data">
     @method('patch')
     @csrf
@@ -22,7 +22,7 @@
         </span>
         @push('forms')
             <form class="d-none" id="delete-audio-{{ $data->id }}"
-                  action="{{ route('admin.exercise.data.audio.delete', $data) }}"
+                  action="{{ route('admin.dev.exercise.data.audio.delete', $data) }}"
                   method="post">
                 @method('patch')
                 @csrf
@@ -35,7 +35,7 @@
     @checkbox(['name' => 'translatable', 'label' => 'Translatable', 'default' => $data->translatable])
 
     @submit(['text' => 'Save'])
-    @cancel(['route' => route('admin.exercises.show', $exercise)])
+    @cancel(['route' => route('admin.dev.exercises.show', $exercise)])
 </form>
 
 @push('scripts')

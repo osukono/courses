@@ -6,7 +6,7 @@
     Note that you can change it later at Yummy Lingo Console.
 </p>
 
-<p>To log in, follow this <a href="{{ route('admin.content.index') }}">link</a>.</p>
+<p>To log in, follow this <a href="{{ route('admin.dev.courses.index') }}">link</a>.</p>
 
 <p>Best regards,</p>
 

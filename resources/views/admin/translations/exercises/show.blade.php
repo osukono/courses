@@ -53,7 +53,7 @@
             </v-dropdown-group>
         </v-dropdown>
 
-        <v-button route="{{ route('admin.exercises.show', $exercise) }}"
+        <v-button route="{{ route('admin.dev.exercises.show', $exercise) }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_content) }}">
             {{ $content->language->native }}
             <icon-chevron-right></icon-chevron-right>

@@ -71,7 +71,7 @@ class ContentController extends Controller
         $content = ContentRepository::create($request->all());
         $content->repository()->assignEditor(Auth::getUser());
 
-        return redirect()->route('admin.content.show', $content)
+        return redirect()->route('admin.dev.courses.show', $content)
             ->with('message', __('admin.messages.created', ['object' => $content]));
     }
 
@@ -124,7 +124,7 @@ class ContentController extends Controller
 
         $content->repository()->update($request->all());
 
-        return redirect()->route('admin.content.show', $content);
+        return redirect()->route('admin.dev.courses.show', $content);
     }
 
     /**
@@ -142,7 +142,7 @@ class ContentController extends Controller
             return back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.content.index')
+        return redirect()->route('admin.dev.courses.index')
             ->with('message', __('admin.messages.trashed.success', ['object' => $content]));
     }
 
@@ -162,7 +162,7 @@ class ContentController extends Controller
             return back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.content.index')
+        return redirect()->route('admin.dev.courses.index')
             ->with('message', __('admin.messages.restored.success', ['object' => $content]));
     }
 
@@ -287,8 +287,8 @@ class ContentController extends Controller
         $this->authorize('access', $content);
 
         $json = $request->file('json')->store('tmp');
-        $this->dispatchJob(new ImportContent($content, $json), route('admin.content.show', $content));
+        $this->dispatchJob(new ImportContent($content, $json), route('admin.dev.courses.show', $content));
 
-        return redirect()->route('admin.content.show', $content);
+        return redirect()->route('admin.dev.courses.show', $content);
     }
 }

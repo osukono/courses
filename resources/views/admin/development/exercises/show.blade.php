@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('admin.exercises.show', $exercise) }}
+    {{ Breadcrumbs::render('admin.dev.exercises.show', $exercise) }}
 @endsection
 
 @section('toolbar')
     <v-button-group>
         @isset($previous)
-            <v-button id="previous" route="{{ route('admin.exercises.show', $previous) }}">
+            <v-button id="previous" route="{{ route('admin.dev.exercises.show', $previous) }}">
                 <icon-chevron-left></icon-chevron-left>
             </v-button>
         @endisset
         @isset($next)
-            <v-button id="next" route="{{ route('admin.exercises.show', $next) }}">
+            <v-button id="next" route="{{ route('admin.dev.exercises.show', $next) }}">
                 <icon-chevron-right></icon-chevron-right>
             </v-button>
         @endisset
@@ -25,7 +25,7 @@
             <icon-plus></icon-plus>
             Sentence
             @push('forms')
-                <form id="create-sentence" class="d-none" action="{{ route('admin.exercise.data.create', $exercise) }}"
+                <form id="create-sentence" class="d-none" action="{{ route('admin.dev.exercise.data.create', $exercise) }}"
                       method="post" autocomplete="off">
                     @csrf
                 </form>
@@ -57,7 +57,7 @@
                 >
                     @push('forms')
                         <form class="d-none"
-                              action="{{ route('admin.exercises.' . ($exercise->isDisabled($content->language) ? 'enable' : 'disable'), $exercise) }}"
+                              action="{{ route('admin.dev.exercises.' . ($exercise->isDisabled($content->language) ? 'enable' : 'disable'), $exercise) }}"
                               method="post"
                               id="exercise-{{ $exercise->id }}-{{ $exercise->isDisabled($content->language) ? 'enable' : 'disable' }}">
                             @csrf
@@ -72,7 +72,7 @@
                                   modal="exercise-{{ $exercise->id }}-modal-delete"
                                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                     @push('forms')
-                        <form class="d-none" id="exercise-{{ $exercise->id }}-delete" action="{{ route('admin.exercises.destroy', $exercise) }}"
+                        <form class="d-none" id="exercise-{{ $exercise->id }}-delete" action="{{ route('admin.dev.exercises.destroy', $exercise) }}"
                               method="post">
                             @method('delete')
                             @csrf
@@ -80,7 +80,7 @@
                     @endpush
                 </v-dropdown-modal>
                 <v-dropdown-item label="Trash"
-                                 route="{{ route('admin.exercise.data.trash', $exercise) }}"
+                                 route="{{ route('admin.dev.exercise.data.trash', $exercise) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
             </v-dropdown-group>

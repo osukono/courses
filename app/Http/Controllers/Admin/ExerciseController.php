@@ -72,7 +72,7 @@ class ExerciseController extends Controller
         $exercise = ExerciseRepository::create($lesson);
         $exerciseData = ExerciseDataRepository::create($exercise);
 
-        return redirect()->route('admin.exercises.show', [$exercise, 'data' => $exerciseData->id]);
+        return redirect()->route('admin.dev.exercises.show', [$exercise, 'data' => $exerciseData->id]);
     }
 
     /**
@@ -103,7 +103,7 @@ class ExerciseController extends Controller
             return back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.lessons.show', $exercise->lesson)
+        return redirect()->route('admin.dev.lessons.show', $exercise->lesson)
             ->with('message', __('admin.messages.trashed.success', ['object' => $exercise]));
     }
 
@@ -124,7 +124,7 @@ class ExerciseController extends Controller
             return back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.lessons.show', $exercise->lesson)
+        return redirect()->route('admin.dev.lessons.show', $exercise->lesson)
             ->with('message', __('admin.messages.restored.success', ['object' => $exercise]));
     }
 

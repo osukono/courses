@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('admin.exercises.trash', $lesson) }}
+    {{ Breadcrumbs::render('admin.dev.exercises.trash', $lesson) }}
 @endsection
 
 @section('toolbar')
@@ -33,7 +33,7 @@
                                 <td class="text-nowrap text-right">{{ $exercise->deleted_at->diffForHumans() }}</td>
                                 <td class="text-nowrap">{{ $exercise->ledgers->first()->user }}</td>
                                 <td class="text-right">
-                                    <form class="mr-1" action="{{ route('admin.exercises.restore') }}" method="post">
+                                    <form class="mr-1" action="{{ route('admin.dev.exercises.restore') }}" method="post">
                                         @csrf
                                         <input type="hidden" id="id" name="id" value="{{ $exercise->id }}">
                                         <button type="submit" class="btn btn-link btn-sm p-0">{{ __('admin.form.restore') }}</button>

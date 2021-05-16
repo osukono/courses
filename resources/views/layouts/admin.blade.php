@@ -45,7 +45,7 @@
             @can(\App\Library\Permissions::view_content)
                 <li>
                     <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::development) }}"
-                       href="{{ route('admin.content.index') }}">
+                       href="{{ route('admin.dev.courses.index') }}">
                         <icon-book-open></icon-book-open>
                         <div class="link">{{ __('admin.menu.courses.development') }}</div>
                     </a>

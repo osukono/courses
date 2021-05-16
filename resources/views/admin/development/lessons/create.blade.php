@@ -1,20 +1,20 @@
 @extends('layouts.admin')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('admin.lessons.create', $content) }}
+    {{ Breadcrumbs::render('admin.dev.lessons.create', $content) }}
 @endsection
 
 @section('content')
     <div class="card">
         <div class="card-body">
             <h5 class="card-title mb-4">Add a Lesson</h5>
-            <form action="{{ route('admin.lessons.store', $content) }}" method="post" autocomplete="off">
+            <form action="{{ route('admin.dev.lessons.store', $content) }}" method="post" autocomplete="off">
                 @csrf
 
                 @input(['name' => 'title', 'label' => 'Title', 'autofocus' => true])
 
                 @submit(['text' => 'Create'])
-                @cancel(['route' => route('admin.content.show', $content)])
+                @cancel(['route' => route('admin.dev.courses.show', $content)])
             </form>
         </div>
     </div>

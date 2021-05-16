@@ -49,7 +49,7 @@
 {{--                        {{ __('web.header.teachers') }}--}}
 {{--                    </a>--}}
 {{--                    @can(\App\Library\Permissions::view_admin_panel)--}}
-                        <a class="btn btn-lg btn-link" href="{{ route('admin.content.index') }}">
+                        <a class="btn btn-lg btn-link" href="{{ route('admin.dev.courses.index') }}">
                             {{ __('web.header.console') }}
                         </a>
 {{--                    @endcan--}}

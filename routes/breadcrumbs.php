@@ -24,42 +24,42 @@ Breadcrumbs::for('admin.dashboard', function ($trail) {
  */
 
 // Development
-Breadcrumbs::for('admin.content.index', function ($trail) {
-    $trail->push(__('admin.dev.title'), route('admin.content.index'));
+Breadcrumbs::for('admin.dev.courses.index', function ($trail) {
+    $trail->push(__('admin.dev.title'), route('admin.dev.courses.index'));
 });
 
 // Development > Create Course
-Breadcrumbs::for('admin.content.create', function ($trail) {
-    $trail->parent('admin.content.index');
+Breadcrumbs::for('admin.dev.courses.create', function ($trail) {
+    $trail->parent('admin.dev.courses.index');
     $trail->push(__('admin.dev.courses.create.title'));
 });
 
 // Development > Trash
-Breadcrumbs::for('admin.content.trash', function ($trail) {
-    $trail->parent('admin.content.index');
+Breadcrumbs::for('admin.dev.courses.trash', function ($trail) {
+    $trail->parent('admin.dev.courses.index');
     $trail->push(__('admin.dev.courses.trash.title'));
 });
 
 // [Content]
-Breadcrumbs::for('admin.content.show', function ($trail, Content $content) {
-    $trail->push($content, route('admin.content.show', $content));
+Breadcrumbs::for('admin.dev.courses.show', function ($trail, Content $content) {
+    $trail->push($content, route('admin.dev.courses.show', $content));
 });
 
 // [Content] > Properties
-Breadcrumbs::for('admin.content.edit', function ($trail, Content $content) {
-    $trail->parent('admin.content.show', $content);
+Breadcrumbs::for('admin.dev.courses.edit', function ($trail, Content $content) {
+    $trail->parent('admin.dev.courses.show', $content);
     $trail->push('Properties');
 });
 
 // [Content] > Content Editors
 Breadcrumbs::for('admin.content.editors', function ($trail, Content $content) {
-    $trail->parent('admin.content.show', $content);
+    $trail->parent('admin.dev.courses.show', $content);
     $trail->push('Content Editors');
 });
 
 // [Content] > Speech Settings
 Breadcrumbs::for('admin.content.speech.settings', function ($trail, Content $content) {
-    $trail->parent('admin.content.show', $content);
+    $trail->parent('admin.dev.courses.show', $content);
     $trail->push('Speech Settings');
 });
 
@@ -70,26 +70,26 @@ Breadcrumbs::for('admin.content.speech.settings', function ($trail, Content $con
  */
 
 // [Content] > Create Lesson
-Breadcrumbs::for('admin.lessons.create', function ($trail, Content $content) {
-    $trail->parent('admin.content.show', $content);
+Breadcrumbs::for('admin.dev.lessons.create', function ($trail, Content $content) {
+    $trail->parent('admin.dev.courses.show', $content);
     $trail->push('Create Lesson');
 });
 
 // [Content] > [Lesson]
-Breadcrumbs::for('admin.lessons.show', function ($trail, Lesson $lesson) {
-    $trail->parent('admin.content.show', $lesson->content);
-    $trail->push($lesson->index . '. ' . $lesson->title, route('admin.lessons.show', $lesson));
+Breadcrumbs::for('admin.dev.lessons.show', function ($trail, Lesson $lesson) {
+    $trail->parent('admin.dev.courses.show', $lesson->content);
+    $trail->push($lesson->index . '. ' . $lesson->title, route('admin.dev.lessons.show', $lesson));
 });
 
 // [Content] > [Lesson] > Properties
-Breadcrumbs::for('admin.lessons.edit', function ($trail, Lesson $lesson) {
-    $trail->parent('admin.lessons.show', $lesson);
+Breadcrumbs::for('admin.dev.lessons.edit', function ($trail, Lesson $lesson) {
+    $trail->parent('admin.dev.lessons.show', $lesson);
     $trail->push('Properties');
 });
 
 // [Content] > Trash
-Breadcrumbs::for('admin.lessons.trash', function ($trail, Content $content) {
-    $trail->parent('admin.content.show', $content);
+Breadcrumbs::for('admin.dev.lessons.trash', function ($trail, Content $content) {
+    $trail->parent('admin.dev.courses.show', $content);
     $trail->push('Trash');
 });
 
@@ -100,20 +100,20 @@ Breadcrumbs::for('admin.lessons.trash', function ($trail, Content $content) {
  */
 
 // [Content] > [Lesson] > [Exercise]
-Breadcrumbs::for('admin.exercises.show', function ($trail, Exercise $exercise) {
-    $trail->parent('admin.lessons.show', $exercise->lesson);
-    $trail->push($exercise->index, route('admin.exercises.show', $exercise));
+Breadcrumbs::for('admin.dev.exercises.show', function ($trail, Exercise $exercise) {
+    $trail->parent('admin.dev.lessons.show', $exercise->lesson);
+    $trail->push($exercise->index, route('admin.dev.exercises.show', $exercise));
 });
 
 // [Content] > [Lesson] > Trash
-Breadcrumbs::for('admin.exercises.trash', function ($trail, Lesson $lesson) {
-    $trail->parent('admin.lessons.show', $lesson);
+Breadcrumbs::for('admin.dev.exercises.trash', function ($trail, Lesson $lesson) {
+    $trail->parent('admin.dev.lessons.show', $lesson);
     $trail->push('Trash');
 });
 
 // [Content] > [Lesson] > [Exercise] > Trash
-Breadcrumbs::for('admin.exercise.data.trash', function ($trail, Exercise $exercise) {
-    $trail->parent('admin.exercises.show', $exercise);
+Breadcrumbs::for('admin.dev.exercise.data.trash', function ($trail, Exercise $exercise) {
+    $trail->parent('admin.dev.exercises.show', $exercise);
     $trail->push('Trash');
 });
 
@@ -125,7 +125,7 @@ Breadcrumbs::for('admin.exercise.data.trash', function ($trail, Exercise $exerci
 
 // [Content] > [Language]
 Breadcrumbs::for('admin.translations.content.show', function ($trail, Language $language, Content $content) {
-    $trail->parent('admin.content.show', $content);
+    $trail->parent('admin.dev.courses.show', $content);
     $trail->push($language, route('admin.translations.content.show', [$language, $content]));
 });
 

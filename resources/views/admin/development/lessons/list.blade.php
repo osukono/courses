@@ -11,10 +11,10 @@
     </tr>
     </thead>
     <tbody id="{{ can(\App\Library\Permissions::update_content, 'sortable') }}"
-           data-route="{{ route('admin.lessons.move') }}">
+           data-route="{{ route('admin.dev.lessons.move') }}">
     @foreach($lessons as $lesson)
         <tr data-sortable="{{ $lesson->id }}" class="clickable-row"
-            data-href="{{ route('admin.lessons.show', $lesson) }}">
+            data-href="{{ route('admin.dev.lessons.show', $lesson) }}">
             <td>{{ $lesson->index }}</td>
             <td>
                 @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
@@ -24,7 +24,7 @@
             <td class="text-nowrap text-right d-none d-md-table-cell">{{ $lesson->updated_at->diffForHumans() }}</td>
             @can(\App\Library\Permissions::update_content)
                 <td class="text-right">
-                    <a href="{{ route('admin.lessons.edit', $lesson) }}">
+                    <a href="{{ route('admin.dev.lessons.edit', $lesson) }}">
                         <icon-edit></icon-edit>
                     </a>
                 </td>

@@ -58,7 +58,7 @@
             </v-dropdown-group>
         </v-dropdown>
 
-        <v-button route="{{ route('admin.content.show', $content) }}">
+        <v-button route="{{ route('admin.dev.courses.show', $content) }}">
             {{ $content->language->native }}
             <icon-chevron-right></icon-chevron-right>
         </v-button>

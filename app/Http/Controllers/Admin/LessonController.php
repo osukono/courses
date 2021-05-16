@@ -98,7 +98,7 @@ class LessonController extends Controller
 
         $lesson = LessonRepository::create($content, $request->all());
 
-        return redirect()->route('admin.lessons.show', $lesson);
+        return redirect()->route('admin.dev.lessons.show', $lesson);
     }
 
     /**
@@ -127,7 +127,7 @@ class LessonController extends Controller
 
         $lesson->repository()->update($request->all());
 
-        return redirect()->route('admin.lessons.show', $lesson);
+        return redirect()->route('admin.dev.lessons.show', $lesson);
     }
 
     /**
@@ -189,7 +189,7 @@ class LessonController extends Controller
             return back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.content.show', $lesson->content)
+        return redirect()->route('admin.dev.courses.show', $lesson->content)
             ->with('message', __('admin.messages.trashed.success', ['object' => $lesson]));
     }
 
@@ -210,7 +210,7 @@ class LessonController extends Controller
             return back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.content.show', $lesson->content)
+        return redirect()->route('admin.dev.courses.show', $lesson->content)
             ->with('message', __('admin.messages.restored.success', ['object' => $lesson]));
     }
 

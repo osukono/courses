@@ -36,7 +36,7 @@ class ExerciseDataController extends Controller
 
         $exerciseData = ExerciseDataRepository::create($exercise);
 
-        return redirect()->route('admin.exercises.show', [$exercise, 'data' => $exerciseData->id]);
+        return redirect()->route('admin.dev.exercises.show', [$exercise, 'data' => $exerciseData->id]);
     }
 
     /**
@@ -52,7 +52,7 @@ class ExerciseDataController extends Controller
         $exerciseData->repository()->update($request->all());
         $exerciseData->repository()->updateAudio($request);
 
-        return redirect()->route('admin.exercises.show', $exerciseData->exercise);
+        return redirect()->route('admin.dev.exercises.show', $exerciseData->exercise);
     }
 
     /**
@@ -66,7 +66,7 @@ class ExerciseDataController extends Controller
 
         $exerciseData->repository()->deleteAudio();
 
-        return redirect()->route('admin.exercises.show', [$exerciseData->exercise, 'field' => $exerciseData->id])
+        return redirect()->route('admin.dev.exercises.show', [$exerciseData->exercise, 'field' => $exerciseData->id])
             ->with('message', __('admin.messages.deleted.success', ['object' => 'Audio']));
     }
 
@@ -85,7 +85,7 @@ class ExerciseDataController extends Controller
             return back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.exercises.show', $exerciseData->exercise)
+        return redirect()->route('admin.dev.exercises.show', $exerciseData->exercise)
             ->with('message', __('admin.messages.trashed.success', ['object' => $exerciseData]));
     }
 
@@ -106,7 +106,7 @@ class ExerciseDataController extends Controller
             return back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.exercises.show', $exerciseData->exercise)
+        return redirect()->route('admin.dev.exercises.show', $exerciseData->exercise)
             ->with('message', __('admin.messages.restored.success', ['object' => $exerciseData]));
     }
 

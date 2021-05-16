@@ -13,7 +13,7 @@
     </tr>
     </thead>
     <tbody id="{{ can(\App\Library\Permissions::update_content, 'sortable') }}"
-           data-route="{{ route('admin.exercise.data.move') }}">
+           data-route="{{ route('admin.dev.exercise.data.move') }}">
     @foreach($exerciseData as $data)
         @if(isset($editData) && $data->id == $editData->id)
             <tr>
@@ -26,7 +26,7 @@
                 <td
                     @can(\App\Library\Permissions::update_content)
                     class="clickable-row"
-                    data-href="{{ route('admin.exercises.show', [$exercise, 'data' => $data->id]) }}"
+                    data-href="{{ route('admin.dev.exercises.show', [$exercise, 'data' => $data->id]) }}"
                     @endcan
                 >
                     @include('admin.development.exercises.data.show')
@@ -41,7 +41,7 @@
                                     Text to Speech
                                 </a>
                                 <form id="data-{{ $data->id }}-synthesize" class="d-none"
-                                      action="{{ route('admin.exercise.data.audio.synthesize', $data) }}" method="post">
+                                      action="{{ route('admin.dev.exercise.data.audio.synthesize', $data) }}" method="post">
                                     @method('patch')
                                     @csrf
                                 </form>
@@ -51,7 +51,7 @@
                                 </a>
                                 @include('admin.components.modals.confirmation', ['id' => 'data-' . $data->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $data]), 'form' =>  'data-' . $data->id . '-delete', 'action' => 'Delete'])
                                 <form id="data-{{ $data->id }}-delete" class="d-none"
-                                      action="{{ route('admin.exercise.data.destroy', $data) }}" method="post">
+                                      action="{{ route('admin.dev.exercise.data.destroy', $data) }}" method="post">
                                     @method('delete')
                                     @csrf
                                 </form>

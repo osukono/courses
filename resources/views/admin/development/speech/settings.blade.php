@@ -17,7 +17,7 @@
                 @input(['name' => 'volume_gain_db', 'label' => 'Volume Gain dB', 'default' => optional($speechSettings)->volume_gain_db, 'helper' => 'In the range [-96.0, 16.0]'])
 
                 @submit(['text' => 'Save'])
-                @cancel(['route' => route('admin.content.show', $content)])
+                @cancel(['route' => route('admin.dev.courses.show', $content)])
             </form>
         </div>
     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('admin.exercises.log', $exercise) }}
+    {{ Breadcrumbs::render('admin.dev.exercises.log', $exercise) }}
 @endsection
 
 @section('toolbar')

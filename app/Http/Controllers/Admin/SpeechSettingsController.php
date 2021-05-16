@@ -18,7 +18,7 @@ class SpeechSettingsController extends Controller
 {
     public function __construct()
     {
-        \Illuminate\Support\Facades\View::share('current', Sidebar::content);
+        \Illuminate\Support\Facades\View::share('current', Sidebar::development);
     }
 
     /**
@@ -33,7 +33,7 @@ class SpeechSettingsController extends Controller
         $data['content'] = $content;
         $data['speechSettings'] = SpeechSettingsRepository::find($content, $content->language);
 
-        return view('admin.content.speech.settings')->with($data);
+        return view('admin.development.speech.settings')->with($data);
     }
 
     /**
@@ -48,7 +48,7 @@ class SpeechSettingsController extends Controller
 
         SpeechSettingsRepository::createOrUpdate($content, $content->language, $request->all());
 
-        return redirect()->route('admin.content.show', $content)->with('message', 'Speech Settings has successfully been updated.');
+        return redirect()->route('admin.dev.courses.show', $content)->with('message', 'Speech Settings has successfully been updated.');
     }
 
     /**

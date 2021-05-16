@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('admin.content.index') }}
+    {{ Breadcrumbs::render('admin.dev.courses.index') }}
 @endsection
 
 @section('toolbar')
     <v-button-group>
         <v-button tooltip="{{ __('admin.dev.courses.toolbar.create') }}"
-                  route="{{ route('admin.content.create') }}"
+                  route="{{ route('admin.dev.courses.create') }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::create_content) }}">
             {{ __('admin.dev.courses.toolbar.create') }}
         </v-button>
         <v-button tooltip="{{ __('admin.dev.courses.toolbar.trash') }}"
-                  route="{{ route('admin.content.trash') }}"
+                  route="{{ route('admin.dev.courses.trash') }}"
                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
             <icon-trash trashed="{{ $trashed }}"></icon-trash>
         </v-button>

@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('admin.lessons.show', $lesson) }}
+    {{ Breadcrumbs::render('admin.dev.lessons.show', $lesson) }}
 @endsection
 
 @section('toolbar')
     <v-button-group>
         @isset($previous)
-            <v-button id="previous" route="{{ route('admin.lessons.show', $previous) }}">
+            <v-button id="previous" route="{{ route('admin.dev.lessons.show', $previous) }}">
                 <icon-chevron-left></icon-chevron-left>
             </v-button>
         @endisset
         @isset($next)
-            <v-button id="next" route="{{ route('admin.lessons.show', $next) }}">
+            <v-button id="next" route="{{ route('admin.dev.lessons.show', $next) }}">
                 <icon-chevron-right></icon-chevron-right>
             </v-button>
         @endisset
@@ -25,7 +25,7 @@
             <icon-plus></icon-plus>
             Exercise
             @push('forms')
-                <form id="create-exercise" class="d-none" action="{{ route('admin.exercises.store', $lesson) }}"
+                <form id="create-exercise" class="d-none" action="{{ route('admin.dev.exercises.store', $lesson) }}"
                       method="post">
                     @csrf
                 </form>
@@ -57,7 +57,7 @@
                     @push('forms')
                         <form class="d-none"
                               id="lesson-{{ $lesson->id }}-{{ ($lesson->isDisabled($content->language) ? 'enable' : 'disable') }}"
-                              action="{{ route('admin.lessons.' . ($lesson->isDisabled($content->language) ? 'enable' : 'disable'), $lesson) }}"
+                              action="{{ route('admin.dev.lessons.' . ($lesson->isDisabled($content->language) ? 'enable' : 'disable'), $lesson) }}"
                               method="post">
                             @method('patch')
                             @csrf
@@ -65,7 +65,7 @@
                     @endpush
                 </v-dropdown-item>
                 <v-dropdown-item label="Properties"
-                                 route="{{ route('admin.lessons.edit', $lesson) }}"
+                                 route="{{ route('admin.dev.lessons.edit', $lesson) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
                 @isset($image)
@@ -75,7 +75,7 @@
                         @push('forms')
                             <form class="d-none"
                                   id="lesson-{{ $lesson->id }}-image-delete"
-                                  action="{{ route('admin.lessons.image.delete', [$lesson, $content->language]) }}"
+                                  action="{{ route('admin.dev.lessons.image.delete', [$lesson, $content->language]) }}"
                                   method="post">
                                 @method('delete')
                                 @csrf
@@ -91,7 +91,7 @@
                                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                     @push('forms')
                         <form class="d-none" id="lesson-{{ $lesson->id }}-delete"
-                              action="{{ route('admin.lessons.destroy', $lesson) }}"
+                              action="{{ route('admin.dev.lessons.destroy', $lesson) }}"
                               method="post">
                             @method('delete')
                             @csrf
@@ -99,7 +99,7 @@
                     @endpush
                 </v-dropdown-modal>
                 <v-dropdown-item label="Trash"
-                                 route="{{ route('admin.exercises.trash', $lesson) }}"
+                                 route="{{ route('admin.dev.exercises.trash', $lesson) }}"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
@@ -128,7 +128,7 @@
                                 </div>
                             @endisset
                             <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
-                                  action="{{ route('admin.lessons.image.upload', [$lesson, $content->language]) }}"
+                                  action="{{ route('admin.dev.lessons.image.upload', [$lesson, $content->language]) }}"
                                   method="post" autocomplete="off" enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')
