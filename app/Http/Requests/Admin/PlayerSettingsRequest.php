@@ -30,30 +30,18 @@ class PlayerSettingsRequest extends FormRequest
                 'numeric',
                 'min:0',
             ],
-            'pause_between' => [
+            'listening_rate' => [
                 'bail',
                 'required',
                 'numeric',
                 'min:0',
             ],
-            'pause_practice_1' => [
+            'practice_rate' => [
                 'bail',
                 'required',
                 'numeric',
                 'min:0',
             ],
-            'pause_practice_2' => [
-                'bail',
-                'required',
-                'numeric',
-                'min:0',
-            ],
-            'pause_practice_3' => [
-                'bail',
-                'required',
-                'numeric',
-                'min:0'
-            ]
         ];
     }
 }
