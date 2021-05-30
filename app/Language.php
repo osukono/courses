@@ -43,6 +43,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property string|null $locale
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereLocale($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language hasAccess(\App\User $user)
+ * @method static Builder|Language withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  */
 class Language extends Model
 {

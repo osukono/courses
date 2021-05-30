@@ -13,10 +13,8 @@
                 @method('patch')
 
                 @input(['name' => 'pause_after_exercise', 'label' => 'Pause after exercise', 'default' => $language->playerSettings->pause_after_exercise])
-                @input(['name' => 'pause_between', 'label' => 'Listening rate', 'default' => $language->playerSettings->pause_between])
-                @input(['name' => 'pause_practice_1', 'label' => 'Practice rate 1', 'default' => $language->playerSettings->pause_practice_1])
-                @input(['name' => 'pause_practice_2', 'label' => 'Practice rate 2', 'default' => $language->playerSettings->pause_practice_2])
-                @input(['name' => 'pause_practice_3', 'label' => 'Practice rate 3', 'default' => $language->playerSettings->pause_practice_3])
+                @input(['name' => 'listening_rate', 'label' => 'Listening rate', 'default' => $language->playerSettings->listening_rate])
+                @input(['name' => 'practice_rate', 'label' => 'Practice rate', 'default' => $language->playerSettings->practice_rate])
 
                 @submit(['text' => 'Save'])
                 @cancel(['route' => route('admin.languages.index')])

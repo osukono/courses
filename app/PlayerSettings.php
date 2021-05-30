@@ -32,6 +32,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PlayerSettings wherePausePractice3($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PlayerSettings whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $listening_rate
+ * @property string $practice_rate
+ * @method static \Illuminate\Database\Eloquent\Builder|PlayerSettings whereListeningRate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PlayerSettings wherePracticeRate($value)
  */
 class PlayerSettings extends Model
 {

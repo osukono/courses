@@ -27,10 +27,8 @@ class PlayerSettingsRepository
         $playerSettings->language()->associate($language);
 
         $playerSettings->pause_after_exercise = $attributes['pause_after_exercise'];
-        $playerSettings->pause_between = $attributes['pause_between'];
-        $playerSettings->pause_practice_1 = $attributes['pause_practice_1'];
-        $playerSettings->pause_practice_2 = $attributes['pause_practice_2'];
-        $playerSettings->pause_practice_3 = $attributes['pause_practice_3'];
+        $playerSettings->listening_rate = $attributes['listening_rate'];
+        $playerSettings->practice_rate = $attributes['practice_rate'];
 
         $playerSettings->save();
 
@@ -43,10 +41,8 @@ class PlayerSettingsRepository
     public function update(array $attributes)
     {
         $this->model->pause_after_exercise = $attributes['pause_after_exercise'];
-        $this->model->pause_between = $attributes['pause_between'];
-        $this->model->pause_practice_1 = $attributes['pause_practice_1'];
-        $this->model->pause_practice_2 = $attributes['pause_practice_2'];
-        $this->model->pause_practice_3 = $attributes['pause_practice_3'];
+        $this->model->listening_rate = $attributes['listening_rate'];
+        $this->model->practice_rate = $attributes['practice_rate'];
 
         $this->model->save();
     }
