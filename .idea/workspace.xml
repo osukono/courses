@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/uk/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/uk/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -410,7 +406,12 @@
       <workItem from="1621145942720" duration="9564000" />
       <workItem from="1621182202371" duration="697000" />
       <workItem from="1621613113829" duration="394000" />
-      <workItem from="1621620745315" duration="78000" />
+      <workItem from="1621620745315" duration="158000" />
+      <workItem from="1621866071702" duration="1101000" />
+      <workItem from="1621868297735" duration="1127000" />
+      <workItem from="1621946944545" duration="1043000" />
+      <workItem from="1621949268731" duration="838000" />
+      <workItem from="1621954730821" duration="850000" />
     </task>
     <servers />
   </component>

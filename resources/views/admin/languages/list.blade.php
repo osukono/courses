@@ -40,10 +40,10 @@
     'route' => route("admin.player.settings.edit", $language),
     'properties' => [
         ['name' => 'Pause after exercise', 'value' => $language->playerSettings->pause_after_exercise],
-        ['name' => 'Pause between fields', 'value' => $language->playerSettings->pause_between],
-        ['name' => 'Pause in practice 1', 'value' => $language->playerSettings->pause_practice_1],
-        ['name' => 'Pause in practice 2', 'value' => $language->playerSettings->pause_practice_2],
-        ['name' => 'Pause in practice 3', 'value' => $language->playerSettings->pause_practice_3]
+        ['name' => 'Listening coefficient', 'value' => $language->playerSettings->pause_between],
+        ['name' => 'Practice coefficient 1', 'value' => $language->playerSettings->pause_practice_1],
+        ['name' => 'Practice coefficient 2', 'value' => $language->playerSettings->pause_practice_2],
+        ['name' => 'Practice coefficient 3', 'value' => $language->playerSettings->pause_practice_3]
 ]
 ])
                 @else
