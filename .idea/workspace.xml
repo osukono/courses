@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/PlayerSettingsRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/PlayerSettingsRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/PlayerSettings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PlayerSettings.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -413,7 +413,7 @@
       <workItem from="1621949268731" duration="838000" />
       <workItem from="1621954730821" duration="850000" />
       <workItem from="1622388251822" duration="1373000" />
-      <workItem from="1622390292742" duration="1208000" />
+      <workItem from="1622390292742" duration="1361000" />
     </task>
     <servers />
   </component>

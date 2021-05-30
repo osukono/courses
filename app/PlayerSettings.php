@@ -41,10 +41,8 @@ class PlayerSettings extends Model
 {
     protected $casts = [
         'pause_after_exercise' => 'float',
-        'pause_between' => 'float',
-        'pause_practice_1' => 'float',
-        'pause_practice_2' => 'float',
-        'pause_practice_3' => 'float'
+        'listening_rate' => 'float',
+        'practice_rate' => 'float',
     ];
 
     /**
