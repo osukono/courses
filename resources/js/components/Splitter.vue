@@ -26,7 +26,7 @@ export default {
 
         // this.parts = this.value.split(/ /gi);
 
-        this.parts = this.value.split(/(?<!-|(^| )(in|at|on|of|to)|(^| )(my|our|his|her|its|our|their)|^the| the|^a| a) /gi);
+        this.parts = this.value.split(/(?<!-|(^| )(in|at|on|of|to)|(^| )(my|our|his|her|its|our|their)|^the| the|^a| a|^an | an) /gi);
     },
 }
 </script>
