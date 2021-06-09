@@ -61,6 +61,11 @@ import IconLogOut from "./components/icons/IconLogOut";
 import IconDownloadCloud from "./components/icons/IconDownloadCloud";
 import IconUploadCloud from "./components/icons/IconUploadCloud";
 
+/**
+ * Development
+ */
+import Splitter from "./components/Splitter";
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -109,6 +114,7 @@ new Vue({
         'icon-list': IconList,
         'icon-log-out': IconLogOut,
         'icon-download-cloud': IconDownloadCloud,
-        'icon-upload-cloud': IconUploadCloud
+        'icon-upload-cloud': IconUploadCloud,
+        'splitter': Splitter,
     }
 });

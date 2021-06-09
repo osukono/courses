@@ -6,4 +6,5 @@
         @include('admin.components.audio.play', ['audio' => $data->content['audio']])
     @endisset
     {!! \App\Library\StrUtils::normalize(Arr::get($data->content, 'value')) !!}
+    <splitter value="{{ Arr::get($data->content, 'value') }}"></splitter>
 </div>
