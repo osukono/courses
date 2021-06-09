@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Splitter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Splitter.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,7 +422,7 @@
       <workItem from="1623243106767" duration="1645000" />
       <workItem from="1623244955675" duration="1490000" />
       <workItem from="1623246765671" duration="880000" />
-      <workItem from="1623248791709" duration="18000" />
+      <workItem from="1623248791709" duration="476000" />
     </task>
     <servers />
   </component>
