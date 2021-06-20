@@ -28,7 +28,7 @@ export default {
         this.value = this.value.replaceAll('\[', '');
         this.value = this.value.replaceAll(']', '');
 
-        this.parts = this.value.split(/(?<!-|(^| )(in|at|on(?! the | a | an )|of|to)|(^| )(my|our|his|her|its|their)|^the| the|^a| a|^an| an|\d+) /gi);
+        this.parts = this.value.split(/(?<!-|(^| )(in|at|on(?! the | a | an )|of|to)|(^| )(my|our|his|its|their)|^the| the|^a| a|^an| an|\d+) /gi);
 
         this.parts = this.parts.filter(function (el) {
             return el != null;
