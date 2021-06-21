@@ -30,7 +30,7 @@ class StrUtils
         $typewriter = "'";
         $typesetter = "’";
 
-        return preg_replace("/(^$typesetter", "$typewriter", $str);
+        return preg_replace("/(^$typesetter)/", "$typewriter", $str);
     }
 
     /**
