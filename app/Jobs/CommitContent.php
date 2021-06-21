@@ -268,7 +268,7 @@ class CommitContent implements ShouldQueue
 
     private function commitExerciseData(ExerciseData $exerciseData)
     {
-        $data['value'] = StrUtils::normalize($exerciseData->content['value'], false);
+        $data['value'] = StrUtils::apostrophe($exerciseData->content['value']);
         $data['audio'] = $exerciseData->content['audio'];
         $data['duration'] = (int) $exerciseData->content['duration'];
 
@@ -276,7 +276,7 @@ class CommitContent implements ShouldQueue
             /** @var Translation $translation */
             $translation = $exerciseData->translations->where('language_id', $this->translation->id)->first();
 
-            $data['translation']['value'] = StrUtils::normalize($translation->content['value'], false);
+            $data['translation']['value'] = StrUtils::apostrophe($translation->content['value']);
             $data['translation']['audio'] = $translation->content['audio'];
             $data['translation']['duration'] = (int) $translation->content['duration'];
         }
