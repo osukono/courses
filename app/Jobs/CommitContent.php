@@ -10,6 +10,7 @@ use App\ExerciseData;
 use App\Language;
 use App\Lesson;
 use App\LessonImage;
+use App\Library\StrUtils;
 use App\Repositories\CourseRepository;
 use App\Translation;
 use Illuminate\Bus\Queueable;
@@ -267,7 +268,7 @@ class CommitContent implements ShouldQueue
 
     private function commitExerciseData(ExerciseData $exerciseData)
     {
-        $data['value'] = $exerciseData->content['value'];
+        $data['value'] = StrUtils::normalize($exerciseData->content['value'], false);
         $data['audio'] = $exerciseData->content['audio'];
         $data['duration'] = (int) $exerciseData->content['duration'];
 
@@ -275,7 +276,7 @@ class CommitContent implements ShouldQueue
             /** @var Translation $translation */
             $translation = $exerciseData->translations->where('language_id', $this->translation->id)->first();
 
-            $data['translation']['value'] = $translation->content['value'];
+            $data['translation']['value'] = StrUtils::normalize($translation->content['value'], false);
             $data['translation']['audio'] = $translation->content['audio'];
             $data['translation']['duration'] = (int) $translation->content['duration'];
         }

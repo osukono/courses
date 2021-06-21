@@ -8,15 +8,29 @@ class StrUtils
 {
     /**
      * @param string $str
+     * @param bool $grammar
      * @return string
      */
-    public static function normalize($str)
+    public static function normalize($str, $grammar = true)
     {
         $str = StrUtils::em_dashes($str);
         $str = StrUtils::en_dashes($str);
-        $str = StrUtils::grammar($str);
+        $str = StrUtils::apostrophe($str);
+        if ($grammar)
+            $str = StrUtils::grammar($str);
 
         return $str;
+    }
+
+    /**
+     * @param $str
+     * @return array|string|string[]|null
+     */
+    public static function apostrophe($str) {
+        $typewriter = "'";
+        $typesetter = "’";
+
+        return preg_replace("/(^$typesetter", "$typewriter", $str);
     }
 
     /**
