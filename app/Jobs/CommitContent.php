@@ -232,7 +232,12 @@ class CommitContent implements ShouldQueue
 
             $content = $this->commitLesson($lesson);
 
-            $courseLesson->exercises_count = $lesson->exercises_count;
+            //ToDo: count exercises without disabled
+            $courseLesson->exercises_count = $lesson->exercises->reject(function (Exercise $exercise) {
+                return $exercise->isDisabled($this->content->language);
+            })->reject(function (Exercise $exercise) {
+                return $exercise->isDisabled($this->translation);
+            })->count();
             $courseLesson->content = $content;
             $courseLesson->save();
 
