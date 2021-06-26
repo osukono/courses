@@ -4,6 +4,7 @@
     @csrf
 
     @input(['name' => 'value', 'label' => '', 'default' => Arr::get($data->content, 'value'), 'autofocus' => true, 'lg' => true])
+    <splitter value="{{ Arr::get($data->content, 'value') }}"></splitter>
     @input(['name' => 'extra_chunks', 'label' => '', 'default' => Arr::get($data->content, 'extra_chunks'), 'lg' => false, 'helper' => 'List of extra chunks (separated with commas) e.g. on, at, the'])
 
     @isset($data->content['audio'])
