@@ -55,6 +55,12 @@ class LanguageUpdateRequest extends FormRequest
                 'min:2',
                 'max:12'
             ],
+            'capitalized_words' => [
+                'bail',
+                'nullable',
+                'string',
+                'max:4096',
+            ],
             'firebase_id' => [
                 'bail',
                 'nullable',

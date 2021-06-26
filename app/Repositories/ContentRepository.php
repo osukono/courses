@@ -93,6 +93,7 @@ class ContentRepository
         $this->model->title = $attributes['title'];
         $this->model->player_version = $attributes['player_version'];
         $this->model->review_exercises = $attributes['review_exercises'];
+        $this->model->capitalized_words = $attributes['capitalized_words'];
         $this->model->save();
     }
 

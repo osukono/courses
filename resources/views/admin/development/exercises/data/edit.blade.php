@@ -4,6 +4,7 @@
     @csrf
 
     @input(['name' => 'value', 'label' => '', 'default' => Arr::get($data->content, 'value'), 'autofocus' => true, 'lg' => true])
+    @input(['name' => 'extra_chunks', 'label' => 'Extra Chunks', 'default' => Arr::get($data->content, 'extra_chunks'), 'lg' => false, 'helper' => 'List extra chunks separating them by comma'])
 
     @isset($data->content['audio'])
         <span class="mr-3">

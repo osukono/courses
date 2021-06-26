@@ -41,7 +41,13 @@ class ContentUpdateRequest extends FormRequest
                 'required',
                 'integer',
                 'min:3',
-            ]
+            ],
+            'capitalized_words' => [
+                'bail',
+                'nullable',
+                'string',
+                'max:4096',
+            ],
         ];
     }
 }

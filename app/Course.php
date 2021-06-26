@@ -70,6 +70,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static Builder|Course whereAndroidProductId($value)
  * @method static Builder|Course whereDemoLessons($value)
  * @method static Builder|Course whereIosProductId($value)
+ * @property string|null $capitalized_words
+ * @method static Builder|Course whereCapitalizedWords($value)
  */
 class Course extends Model
 {

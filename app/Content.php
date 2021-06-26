@@ -58,6 +58,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Content withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Content withoutTrashed()
  * @mixin \Eloquent
+ * @property string|null $capitalized_words
+ * @method static Builder|Content whereCapitalizedWords($value)
  */
 class Content extends Model implements Recordable
 {

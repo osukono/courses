@@ -90,6 +90,12 @@ class CommitContent implements ShouldQueue
 
         $course->player_version = $this->content->player_version;
         $course->review_exercises = $this->content->review_exercises;
+
+        if ($this->content->language->capitalized_words == null && $this->content->capitalized_words == null)
+            $course->capitalized_words = null;
+        else
+            $course->capitalized_words = $this->content->language->capitalized_words . ', ' . $this->content->capitalized_words;
+
         $course->minor_version += 1;
         $course->committed_at = Carbon::now();
         $course->save();
@@ -232,12 +238,12 @@ class CommitContent implements ShouldQueue
 
             $content = $this->commitLesson($lesson);
 
-            //ToDo: count exercises without disabled
             $courseLesson->exercises_count = $lesson->exercises->reject(function (Exercise $exercise) {
                 return $exercise->isDisabled($this->content->language);
             })->reject(function (Exercise $exercise) {
                 return $exercise->isDisabled($this->translation);
             })->count();
+
             $courseLesson->content = $content;
             $courseLesson->save();
 

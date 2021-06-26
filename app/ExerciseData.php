@@ -73,7 +73,8 @@ class ExerciseData extends Model implements Recordable
     protected $fillable = [
         'content->value',
         'content->audio',
-        'content->duration'
+        'content->duration',
+        'content->extra_chunks',
     ];
 
     /**

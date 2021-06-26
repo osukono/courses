@@ -54,6 +54,7 @@ class LanguageRepository
         $language->native = $attributes['native'];
         $language->code = $attributes['code'];
         $language->locale = $attributes['locale'];
+        $language->capitalized_words = $attributes['capitalized_words'];
         $language->save();
 
         return $language;
@@ -69,6 +70,7 @@ class LanguageRepository
         $this->model->code = $attributes['code'];
         $this->model->locale = $attributes['locale'];
         $this->model->firebase_id = $attributes['firebase_id'];
+        $this->model->capitalized_words = $attributes['capitalized_words'];
         $this->model->slug = null;
         $this->model->save();
     }

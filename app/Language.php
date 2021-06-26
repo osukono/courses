@@ -44,6 +44,8 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereLocale($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Language hasAccess(\App\User $user)
  * @method static Builder|Language withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
+ * @property string|null $capitalized_words
+ * @method static Builder|Language whereCapitalizedWords($value)
  */
 class Language extends Model
 {

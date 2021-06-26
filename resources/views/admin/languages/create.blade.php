@@ -14,6 +14,7 @@
                 @input(['name' => 'native', 'label' => 'Native name'])
                 @input(['name' => 'code', 'label' => 'Regional Code'])
                 @input(['name' => 'locale', 'label' => 'Locale Code'])
+                @textarea(['name' => 'capitalized_words', 'label' => 'Capitalized Words', 'rows' => 5, 'helper' => 'List capitalized words separating them by comma'])
 
                 @submit(['text' => 'Create'])
                 @cancel(['route' => route('admin.languages.index')])

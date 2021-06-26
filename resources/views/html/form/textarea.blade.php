@@ -5,6 +5,9 @@
               id="{{ $name }}"
               name="{{ $name }}"
               placeholder="{{ $label }}">{{ isset($default) ? old($name, $default) : old($name) }}</textarea>
+    @isset($helper)
+        <small class="form-text text-muted">{{ $helper }}</small>
+    @endisset
     @error($name)
     <div class="invalid-feedback">
         {{ $errors->first($name) }}

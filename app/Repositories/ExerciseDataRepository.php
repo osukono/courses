@@ -73,6 +73,11 @@ class ExerciseDataRepository
         else
             $content['value'] = $attributes['value'];
 
+        if (empty($attributes['extra_chunks']))
+            unset($content['extra_chunks']);
+        else
+            $content['extra_chunks'] = $attributes['extra_chunks'];
+
         $this->model->translatable = isset($attributes['translatable']);
 
         $this->model->content = $content;
