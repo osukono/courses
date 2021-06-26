@@ -78,7 +78,7 @@ class ExerciseDataRepository
         else
             $content['extra_chunks'] = $attributes['extra_chunks'];
 
-        $this->model->translatable = isset($attributes['translatable']);
+        $this->model->translatable = !isset($attributes['context']);
 
         $this->model->content = $content;
         $this->model->save();

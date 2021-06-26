@@ -33,7 +33,7 @@
     <span id="audio-duration" class="ml-3 text-secondary"></span>
     @file(['name' => 'audio', 'label' => 'Audio'])
     <input type="hidden" name="duration" id="duration">
-    @checkbox(['name' => 'translatable', 'label' => 'Translatable', 'default' => $data->translatable])
+    @checkbox(['name' => 'context', 'label' => 'Context', 'default' => !$data->translatable])
 
     @submit(['text' => 'Save'])
     @cancel(['route' => route('admin.dev.exercises.show', $exercise)])
