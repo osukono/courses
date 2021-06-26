@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_26_022133_capitalized_words.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Content.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Content.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ExerciseData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ExerciseData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/Content/ContentUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/Content/ContentUpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/LanguageCreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/LanguageCreateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/LanguageUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/LanguageUpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/CommitContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/CommitContent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Language.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ExerciseDataRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ExerciseDataRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/LanguageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/LanguageRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/courses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/courses/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/form/textarea.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/html/form/textarea.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -459,7 +441,8 @@
       <workItem from="1624552992534" duration="890000" />
       <workItem from="1624674020768" duration="1529000" />
       <workItem from="1624676270671" duration="1674000" />
-      <workItem from="1624678143192" duration="1297000" />
+      <workItem from="1624678143192" duration="1582000" />
+      <workItem from="1624683784286" duration="485000" />
     </task>
     <servers />
   </component>
