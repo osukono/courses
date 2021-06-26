@@ -11,7 +11,4 @@
         @include('admin.card', ['title' => __('admin.dashboard.cards.statistics.lessons.title'), 'body' => $lessons_learned])
         @include('admin.card', ['title' => __('admin.dashboard.cards.statistics.development.title'), 'body' => __('admin.dashboard.cards.statistics.development.value', ['num' => $devActivity])])
     </div>
-    <div>
-        {!! phpinfo() !!}
-    </div>
 @endsection
