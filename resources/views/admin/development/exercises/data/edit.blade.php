@@ -4,7 +4,7 @@
     @csrf
 
     @input(['name' => 'value', 'label' => '', 'default' => Arr::get($data->content, 'value'), 'autofocus' => true, 'lg' => true])
-    @input(['name' => 'extra_chunks', 'label' => '', 'default' => Arr::get($data->content, 'extra_chunks'), 'lg' => false, 'helper' => 'List of extra chunks (separated with commas)'])
+    @input(['name' => 'extra_chunks', 'label' => '', 'default' => Arr::get($data->content, 'extra_chunks'), 'lg' => false, 'helper' => 'List of extra chunks (separated with commas) e.g. on, at, the'])
 
     @isset($data->content['audio'])
         <span class="mr-3">
