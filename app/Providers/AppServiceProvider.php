@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::include('html.form.file', 'file');
         Blade::include('html.form.submit', 'submit');
         Blade::include('html.form.cancel', 'cancel');
-//        Blade::include('html.form.froala', 'froala');
+        Blade::include('html.form.froala', 'froala');
 
         Paginator::useBootstrap();
     }

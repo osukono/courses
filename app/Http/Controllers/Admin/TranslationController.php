@@ -8,21 +8,24 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Content\AssignEditorRequest;
 use App\Http\Requests\Admin\Content\RemoveEditorRequest;
 use App\Http\Requests\Admin\Content\TranslationUpdateRequest;
+use App\Http\Requests\Admin\LessonUpdateGrammarPointRequest;
 use App\Jobs\CommitContent;
 use App\Language;
 use App\Lesson;
-use App\LessonImage;
+use App\LessonProperty;
 use App\Library\Permissions;
 use App\Library\Sidebar;
 use App\Repositories\ExerciseDataRepository;
 use App\Repositories\ExerciseRepository;
 use App\Repositories\LanguageRepository;
+use App\Repositories\LessonPropertyRepository;
 use App\Repositories\LessonRepository;
 use App\Repositories\TranslationRepository;
 use App\Translation;
 use App\User;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -106,11 +109,44 @@ class TranslationController extends Controller
         $data['previous'] = $lesson->repository()->previous();
         $data['next'] = $lesson->repository()->next();
         $data['trashed'] = ExerciseRepository::trashed()->where('lesson_id', $lesson->id)->count();
-        $data['image'] = LessonImage::where('lesson_id', $lesson->id)
-            ->where('language_id', $language->id)
-            ->first();
+        $data['image'] = LessonPropertyRepository::getImage($lesson, $language);
+        $data['grammar_point'] = LessonPropertyRepository::getGrammarPoint($lesson, $language);
 
         return view('admin.translations.lessons.show')->with($data);
+    }
+
+    /**
+     * @param Language $language
+     * @param Lesson $lesson
+     * @return Application|Factory|\Illuminate\Contracts\View\View
+     * @throws AuthorizationException
+     */
+    public function editGrammarPoint(Language $language, Lesson $lesson) {
+        $this->authorize('access', $lesson->content);
+        $this->authorize('access', $language);
+
+        $data['lesson'] = $lesson;
+        $data['language'] = $language;
+        $data['grammar_point'] = LessonPropertyRepository::getGrammarPoint($lesson, $language);
+
+        return view('admin.translations.lessons.grammar')->with($data);
+    }
+
+    /**
+     * @param LessonUpdateGrammarPointRequest $request
+     * @param Language $language
+     * @param Lesson $lesson
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function updateGrammarPoint(LessonUpdateGrammarPointRequest $request, Language $language, Lesson $lesson) {
+        $this->authorize('access', $lesson->content);
+        $this->authorize('access', $language);
+
+        LessonPropertyRepository::updateGrammarPoint($lesson, $language, $request);
+
+        return redirect()->route('admin.translations.lessons.show', [$language, $lesson])
+            ->with('message', 'Grammar point has successfully been updated.');
     }
 
     /**

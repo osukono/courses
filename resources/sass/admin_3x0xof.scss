@@ -19,8 +19,9 @@ $custom-range-thumb-active-bg: $cyan !default;
 //@import '~malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
 
 //Froala
-//@import '~froala-editor/css/froala_editor.pkgd.css';
-//@import "~froala-editor/css/froala_style.min.css";
+//@import '~froala-editor/css/f'
+@import '~froala-editor/css/froala_editor.pkgd.min.css';
+@import "~froala-editor/css/froala_style.min.css";
 
 @import "sidebar.scss";
 

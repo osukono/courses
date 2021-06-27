@@ -95,6 +95,12 @@ Route::group([
                 Route::patch('dev/lessons/{lesson}', 'LessonController@update')
                     ->name('admin.dev.lessons.update');
 
+                Route::get('dev/lessons/{lesson}/grammar/edit', 'LessonController@editGrammarPoint')
+                    ->name('admin.dev.lessons.grammar.edit');
+
+                Route::patch('dev/lessons/{lesson}/grammar', 'LessonController@updateGrammarPoint')
+                    ->name('admin.dev.lessons.grammar.update');
+
                 Route::patch('dev/lessons/move', 'LessonController@move')
                     ->name('admin.dev.lessons.move');
 
@@ -205,6 +211,12 @@ Route::group([
                     ->name('admin.translations.export');
             });
             Route::middleware('permission:' . Permissions::update_translations)->group(function () {
+                Route::get('trans/{language}/lessons/{lesson}/grammar/edit', 'TranslationController@editGrammarPoint')
+                    ->name('admin.translations.lesson.grammar.edit');
+
+                Route::patch('trans/{language}/lessons/{lesson}/grammar', 'TranslationController@updateGrammarPoint')
+                    ->name('admin.translations.lesson.grammar.update');
+
                 Route::patch('trans/{translation}', 'TranslationController@update')
                     ->name('admin.translations.exercise.data.update');
 

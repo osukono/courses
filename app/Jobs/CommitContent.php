@@ -9,7 +9,7 @@ use App\Exercise;
 use App\ExerciseData;
 use App\Language;
 use App\Lesson;
-use App\LessonImage;
+use App\LessonProperty;
 use App\Library\StrUtils;
 use App\Repositories\CourseRepository;
 use App\Translation;
@@ -225,10 +225,10 @@ class CommitContent implements ShouldQueue
             $courseLesson->course()->associate($course);
             $courseLesson->title = $lesson->title;
 
-            $lessonImage = LessonImage::where('lesson_id', $lesson->id)
+            $lessonImage = LessonProperty::where('lesson_id', $lesson->id)
                 ->where('language_id', $this->content->language->id)
                 ->first();
-            $lessonTranslationImage = LessonImage::where('lesson_id', $lesson->id)
+            $lessonTranslationImage = LessonProperty::where('lesson_id', $lesson->id)
                 ->where('language_id', $this->translation->id)
                 ->first();
             if ($lessonTranslationImage !== null)

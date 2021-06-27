@@ -16,6 +16,7 @@
                 @input(['name' => 'player_version', 'label' => 'Player Version', 'default' => $content->player_version])
                 @input(['name' => 'review_exercises', 'label' => 'Review Exercises', 'default' => $content->review_exercises])
                 @textarea(['name' => 'capitalized_words', 'label' => 'Capitalized Words', 'default' => $content->capitalized_words, 'helper' => 'List capitalized words separating them with commas'])
+{{--                @froala(['name' => 'capitalized_words', 'label' => 'Capitalized Words', 'default' => $content->capitalized_words, 'helper' => 'List capitalized words separating them with commas'])--}}
 
                 @submit(['text' => 'Save'])
                 @cancel(['route' => route('admin.dev.courses.show', $content)])
@@ -23,3 +24,13 @@
         </div>
     </div>
 @endsection
+{{--@push('scripts')--}}
+{{--    <script>--}}
+{{--        $(document).ready(function () {--}}
+{{--            new FroalaEditor('#capitalized_words_FroalaEditor', {--}}
+{{--                placeholderText: 'Capitalized Words',--}}
+{{--                pastePlain: true,--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
+{{--@endpush--}}

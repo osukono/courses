@@ -8,17 +8,19 @@ use App\Http\Requests\Admin\Content\LessonCreateRequest;
 use App\Http\Requests\Admin\Content\LessonMoveRequest;
 use App\Http\Requests\Admin\Content\LessonRestoreRequest;
 use App\Http\Requests\Admin\Content\LessonUpdateRequest;
+use App\Http\Requests\Admin\LessonUpdateGrammarPointRequest;
 use App\Http\Requests\Admin\LessonUploadImageRequest;
 use App\Language;
 use App\Lesson;
-use App\LessonImage;
+use App\LessonProperty;
 use App\Library\Sidebar;
 use App\Repositories\LanguageRepository;
-use App\Repositories\LessonImageRepository;
+use App\Repositories\LessonPropertyRepository;
 use App\Repositories\LessonRepository;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -65,9 +67,8 @@ class LessonController extends Controller
                 'disabled'
             ])
             ->ordered()->get();
-        $data['image'] = LessonImage::where('lesson_id', $lesson->id)
-            ->where('language_id', $lesson->content->language->id)
-            ->first();
+        $data['image'] = LessonPropertyRepository::getImage($lesson, $lesson->content->language);
+        $data['grammar_point'] = LessonPropertyRepository::getGrammarPoint($lesson, $lesson->content->language);
 
         return view('admin.development.lessons.show')->with($data);
     }
@@ -140,10 +141,41 @@ class LessonController extends Controller
     public function uploadImage(LessonUploadImageRequest $request, Lesson $lesson, Language $language)
     {
         $this->authorize('access', $lesson->content);
+        $this->authorize('access', $language);
 
-        LessonImageRepository::upload($lesson, $language, $request);
+        LessonPropertyRepository::uploadImage($lesson, $language, $request);
 
         return back();
+    }
+
+    /**
+     * @param Lesson $lesson
+     * @return Application|Factory|\Illuminate\Contracts\View\View
+     * @throws AuthorizationException
+     */
+    public function editGrammarPoint(Lesson $lesson) {
+        $this->authorize('access', $lesson->content);
+
+        $data['lesson'] = $lesson;
+        $data['grammar_point'] = LessonPropertyRepository::getGrammarPoint($lesson, $lesson->content->language);
+
+        return view('admin.development.lessons.grammar')->with($data);
+    }
+
+    /**
+     * @param LessonUpdateGrammarPointRequest $request
+     * @param Lesson $lesson
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function updateGrammarPoint(LessonUpdateGrammarPointRequest $request, Lesson $lesson)
+    {
+        $this->authorize('access', $lesson->content);
+
+        LessonPropertyRepository::updateGrammarPoint($lesson, $lesson->content->language, $request);
+
+        return redirect()->route('admin.dev.lessons.show', $lesson)
+            ->with('message', 'Grammar point has successfully been updated.');
     }
 
     /**
@@ -156,7 +188,7 @@ class LessonController extends Controller
     {
         $this->authorize('access', $lesson->content);
 
-        LessonImageRepository::delete($lesson, $language);
+        LessonPropertyRepository::deleteImage($lesson, $language);
 
         return back();
     }

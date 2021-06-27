@@ -115,7 +115,7 @@
                     @can(\App\Library\Permissions::update_content)
                         <div class="col-auto">
                             @isset($image)
-                                <img width="208" height="117" class="rounded" src="{{ $image->image }}"
+                                <img width="208" height="117" class="rounded" src="{{ $image }}"
                                      alt="Course Image"
                                      onclick="$('#lesson-{{ $lesson->id }}-image').click();" style="cursor: pointer;">
                             @else
@@ -143,6 +143,13 @@
                         <h6 class="card-subtitle">
                             @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
                         </h6>
+                        <div class="card-body p-3 border rounded bg-white" style="cursor: pointer" onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null">
+                            @isset($grammar_point)
+                                {!! $grammar_point !!}
+                            @else
+                                Grammar Point
+                            @endisset
+                        </div>
                     </div>
                 </div>
                 @include('admin.development.exercises.list')

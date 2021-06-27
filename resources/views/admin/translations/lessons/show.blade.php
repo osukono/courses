@@ -84,7 +84,7 @@
                     @can(\App\Library\Permissions::update_translations)
                         <div class="col-auto">
                             @isset($image)
-                                <img width="208" height="117" class="rounded" src="{{ $image->image }}"
+                                <img width="208" height="117" class="rounded" src="{{ $image }}"
                                      alt="Course Image"
                                      onclick="$('#lesson-{{ $lesson->id }}-image').click();" style="cursor: pointer;">
                             @else
@@ -113,6 +113,13 @@
                             @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
                             @includeWhen($lesson->isDisabled($language), 'admin.components.disabled.translation')
                         </h6>
+                        <div class="card-body p-3 border rounded bg-white" style="cursor: pointer" onclick="window.location='{{ route('admin.translations.lesson.grammar.edit', [$language, $lesson]) }}'; return null">
+                            @isset($grammar_point)
+                                {!! $grammar_point !!}
+                            @else
+                                Grammar Point
+                            @endisset
+                        </div>
                     </div>
                 </div>
 

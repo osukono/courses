@@ -1,19 +1,17 @@
 <div class="form-group">
-    <label for="{{ $name }}Editor">{{ $label }}</label>
-    <textarea class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }} d-none"
-              id="{{ $name }}Editor"
+    @isset($label)
+    <label for="{{ $name }}_FroalaEditor">{{ $label }}</label>
+    @endisset
+    <textarea class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }} fr-view"
+              id="{{ $name }}_FroalaEditor"
               name="{{ $name }}"
               placeholder="{{ $label }}">{!! isset($default) ? old($name, $default) : old($name) !!}</textarea>
+    @isset($helper)
+        <small class="form-text text-muted">{{ $helper }}</small>
+    @endisset
     @error($name)
     <div class="invalid-feedback">
         {{ $errors->first($name) }}
     </div>
     @enderror
 </div>
-
-<script>
-    new FroalaEditor('#{{ $name }}Editor', {
-        placeholderText: '{{ $label }}',
-        pastePlain: true,
-    });
-</script>
