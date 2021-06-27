@@ -24,32 +24,32 @@ $(document).ready(function () {
 
     // feather.replace();
 
-    $(document).keydown(function (e) {
-        let focused = document.activeElement;
-        if (focused.tagName.toLowerCase() === 'input')
-            return;
-
-        switch (e.key) {
-            case 'Left':
-            case 'ArrowLeft':
-                let previous = $('#previous');
-                if (previous) {
-                    previous.click();
-                    e.preventDefault();
-                }
-                break;
-            case 'Right':
-            case 'ArrowRight':
-                let next = $('#next');
-                if (next) {
-                    next.click();
-                    e.preventDefault();
-                }
-                break;
-            default :
-                return;
-        }
-    });
+    // $(document).keydown(function (e) {
+    //     let focused = document.activeElement;
+    //     if (focused.tagName.toLowerCase() === 'input' || focused.tagName.toLowerCase() === 'textarea')
+    //         return;
+    //
+    //     switch (e.key) {
+    //         case 'Left':
+    //         case 'ArrowLeft':
+    //             let previous = $('#previous');
+    //             if (previous) {
+    //                 previous.click();
+    //                 e.preventDefault();
+    //             }
+    //             break;
+    //         case 'Right':
+    //         case 'ArrowRight':
+    //             let next = $('#next');
+    //             if (next) {
+    //                 next.click();
+    //                 e.preventDefault();
+    //             }
+    //             break;
+    //         default :
+    //             return;
+    //     }
+    // });
 
     $("#sortable").sortable({
         delay: 100,
