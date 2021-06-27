@@ -78,6 +78,11 @@ class ExerciseDataRepository
         else
             $content['extra_chunks'] = $attributes['extra_chunks'];
 
+        if (empty($attributes['capitalized_words']))
+            unset($content['capitalized_words']);
+        else
+            $content['capitalized_words'] = $attributes['capitalized_words'];
+
         $this->model->translatable = !isset($attributes['context']);
 
         $this->model->content = $content;

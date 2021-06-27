@@ -75,6 +75,7 @@ class ExerciseData extends Model implements Recordable
         'content->audio',
         'content->duration',
         'content->extra_chunks',
+        'context->capitalized_words',
     ];
 
     /**
