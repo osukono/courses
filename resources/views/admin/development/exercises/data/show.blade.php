@@ -18,4 +18,9 @@
             @endforeach
         @endisset
         </div>
+        @isset($data->content['capitalized_words'])
+            <div>
+                Capitalized: {{ Arr::get($data->content, 'capitalized_words') }}
+            </div>
+        @endisset
 </div>
