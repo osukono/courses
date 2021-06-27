@@ -33,19 +33,22 @@ $(document).ready(function () {
             case 'Left':
             case 'ArrowLeft':
                 let previous = $('#previous');
-                if (previous)
+                if (previous) {
                     previous.click();
+                    e.preventDefault();
+                }
                 break;
             case 'Right':
             case 'ArrowRight':
                 let next = $('#next');
-                if (next)
+                if (next) {
                     next.click();
+                    e.preventDefault();
+                }
                 break;
             default :
                 return;
         }
-        e.preventDefault();
     });
 
     $("#sortable").sortable({
