@@ -20,7 +20,7 @@
         </div>
         @isset($data->content['capitalized_words'])
             <div>
-                Capitalized: {{ Arr::get($data->content, 'capitalized_words') }}
+                <span class="text-secondary">Capitalized:</span> {{ Arr::get($data->content, 'capitalized_words') }}
             </div>
         @endisset
 </div>
