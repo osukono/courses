@@ -7,6 +7,8 @@
     @endisset
     {!! \App\Library\StrUtils::normalize(Arr::get($data->content, 'value')) !!}
 
+        @can(\App\Library\Permissions::update_content)
+
     <splitter value="{{ Arr::get($data->content, 'value') }}"></splitter>
 
     @isset($data->content['extra_chunks'])
@@ -20,7 +22,9 @@
         </div>
         @isset($data->content['capitalized_words'])
             <div>
-                <span class="text-secondary">Capitalized:</span> {{ Arr::get($data->content, 'capitalized_words') }}
+                <span class="text-secondary">Capitalized words:</span> {{ Arr::get($data->content, 'capitalized_words') }}
             </div>
         @endisset
+
+            @endcan
 </div>
