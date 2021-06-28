@@ -113,11 +113,11 @@
                             @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
                             @includeWhen($lesson->isDisabled($language), 'admin.components.disabled.translation')
                         </h6>
-                        <div class="card-body p-3 border rounded bg-white" style="cursor: pointer" onclick="window.location='{{ route('admin.translations.lesson.grammar.edit', [$language, $lesson]) }}'; return null">
+                        <div class="p-3 my-3" style="cursor: pointer" onclick="window.location='{{ route('admin.translations.lesson.grammar.edit', [$language, $lesson]) }}'; return null">
                             @isset($grammar_point)
                                 {!! $grammar_point !!}
                             @else
-                                Grammar Point
+                                <div class="btn btn-sm btn-info">Grammar Point</div>
                             @endisset
                         </div>
                     </div>

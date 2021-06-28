@@ -143,7 +143,7 @@
                         <h6 class="card-subtitle">
                             @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
                         </h6>
-                        <div class="p-3 bg-white my-3" style="cursor: pointer" onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null">
+                        <div class="p-3 my-3" style="cursor: pointer" onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null">
                             @isset($grammar_point)
                                 {!! $grammar_point !!}
                             @else
