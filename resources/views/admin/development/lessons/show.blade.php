@@ -144,10 +144,10 @@
                             @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
                         </h6>
                         <div class="p-3 my-3" style="cursor: pointer" onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null">
-                            @empty($grammar_point)
-                                <div class="btn btn-sm btn-info">Grammar Point</div>
-                            @else
+                            @isset($grammar_point)
                                 {!! $grammar_point !!}
+                            @else
+                                <div class="btn btn-sm btn-info">Grammar Point</div>
                             @endempty
                         </div>
                     </div>
