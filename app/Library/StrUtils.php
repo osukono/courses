@@ -6,6 +6,18 @@ namespace App\Library;
 
 class StrUtils
 {
+    public static function deleteBetween($from, $to, $source) {
+        $fromPos = strpos($source, $from);
+        if ($fromPos === false)
+            return $source;
+
+        $toPos = strpos($source, $to, $fromPos);
+        if ($toPos === false)
+            return $source;
+
+        return substr($source, 0, $fromPos) . substr($source, $toPos + strlen($to));
+    }
+
     /**
      * @param string $str
      * @param bool $grammar

@@ -8,6 +8,7 @@ use App\Language;
 use App\Lesson;
 use App\LessonProperty;
 use App\Library\Firebase;
+use App\Library\StrUtils;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -47,7 +48,8 @@ class LessonPropertyRepository
 
     public static function updateGrammarPoint(Lesson $lesson, Language $language, Request $request) {
         $lessonProperty = self::getOrCreate($lesson, $language);
-        $lessonProperty->grammar_point = $request['grammar_point'];
+
+        $lessonProperty->grammar_point = StrUtils::deleteBetween('<p data-f-id="pbf"', '</p>', $request['grammar_point']);
         $lessonProperty->save();
     }
 
