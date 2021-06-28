@@ -49,7 +49,9 @@ class LessonPropertyRepository
     public static function updateGrammarPoint(Lesson $lesson, Language $language, Request $request) {
         $lessonProperty = self::getOrCreate($lesson, $language);
 
-        $lessonProperty->grammar_point = StrUtils::deleteBetween('<p data-f-id="pbf"', '</p>', $request['grammar_point']);
+        $grammar_point = StrUtils::deleteBetween('<p data-f-id="pbf"', '</p>', $request['grammar_point']);
+
+        $lessonProperty->grammar_point = $grammar_point == '' ? null : $grammar_point;
         $lessonProperty->save();
     }
 
