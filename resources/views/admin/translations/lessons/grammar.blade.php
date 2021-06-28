@@ -26,6 +26,7 @@
         $(document).ready(function () {
             new FroalaEditor('#grammar_point_FroalaEditor', {
                 placeholderText: 'Grammar Point',
+                listAdvancedTypes: true,
                 pastePlain: true,
             });
         });
