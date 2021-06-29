@@ -8,9 +8,9 @@ import {Howl, Howler} from 'howler';
 window.FroalaEditor = require('froala-editor')
 require('froala-editor/js/plugins/align.min')
 require('froala-editor/js/plugins/table.min')
-// require('froala-editor/js/plugins/emoticons.min')
 require('froala-editor/js/plugins/colors.min')
 require('froala-editor/js/plugins/lists.min')
+require('froala-editor/js/plugins/code_view.min')
 
 $(document).ready(function () {
     $('.clickable-row').click(function () {

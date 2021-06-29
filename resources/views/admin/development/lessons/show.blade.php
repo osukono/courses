@@ -164,7 +164,7 @@
             </div>
         </div>
     </div>
-    
+
     @if($exercises->count())
         <div class="card shadow-sm mt-4">
             <div class="card-body">
