@@ -117,7 +117,7 @@
                         @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
                         @includeWhen($lesson->isDisabled($language), 'admin.components.disabled.translation')
                     </h6>
-                    <div class="p-3 my-3"
+                    <div class="p-3 mt-3"
                          @can(\App\Library\Permissions::update_translations)
                          style="cursor: pointer" onclick="window.location='{{ route('admin.translations.lesson.grammar.edit', [$language, $lesson]) }}'; return null"
                          @endcan
@@ -134,6 +134,7 @@
             </div>
         </div>
     </div>
+
     @if($exercises->count())
         <div class="card shadow-sm mt-4">
             <div class="card-body">

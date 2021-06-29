@@ -147,7 +147,7 @@
                     <h6 class="card-subtitle">
                         @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
                     </h6>
-                    <div class="p-3 my-3"
+                    <div class="p-3 mt-3"
                          @can(\App\Library\Permissions::update_content)
                          style="cursor: pointer" onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null"
                          @endcan
@@ -164,6 +164,7 @@
             </div>
         </div>
     </div>
+    
     @if($exercises->count())
         <div class="card shadow-sm mt-4">
             <div class="card-body">
