@@ -108,25 +108,29 @@
 @endsection
 
 @section('content')
-    @if($exercises->count())
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <div class="row">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-auto">
+                    @isset($image)
+                        <img width="208" height="117" class="rounded" src="{{ $image }}"
+                             alt="Course Image"
+                             @can(\App\Library\Permissions::update_content)
+                             onclick="$('#lesson-{{ $lesson->id }}-image').click();" style="cursor: pointer;"
+                            @endcan
+                        >
+                    @else
+                        <div class="text-center border rounded bg-white align-middle d-table-cell"
+                             style="width: 208px; height: 117px;">
+                            @can(\App\Library\Permissions::update_content)
+                                <button type="button" class="btn btn-info btn-sm"
+                                        onclick="$('#lesson-{{ $lesson->id }}-image').click();">
+                                    Upload Image
+                                </button>
+                            @endcan
+                        </div>
+                    @endisset
                     @can(\App\Library\Permissions::update_content)
-                        <div class="col-auto">
-                            @isset($image)
-                                <img width="208" height="117" class="rounded" src="{{ $image }}"
-                                     alt="Course Image"
-                                     onclick="$('#lesson-{{ $lesson->id }}-image').click();" style="cursor: pointer;">
-                            @else
-                                <div class="text-center border rounded bg-white align-middle d-table-cell"
-                                     style="width: 208px; height: 117px;">
-                                    <button type="button" class="btn btn-info btn-sm"
-                                            onclick="$('#lesson-{{ $lesson->id }}-image').click();">
-                                        Upload Image
-                                    </button>
-                                </div>
-                            @endisset
                             <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
                                   action="{{ route('admin.dev.lessons.image.upload', [$lesson, $content->language]) }}"
                                   method="post" autocomplete="off" enctype="multipart/form-data">
@@ -136,22 +140,33 @@
                                        accept="image/svg+xml"
                                        onchange="$('#lesson-{{ $lesson->id }}-upload-image').submit();">
                             </form>
-                        </div>
-                    @endcan
-                    <div class="col">
-                        <h5 class="card-title">{{ $lesson->title }}</h5>
-                        <h6 class="card-subtitle">
-                            @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
-                        </h6>
-                        <div class="p-3 my-3" style="cursor: pointer" onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null">
-                            @isset($grammar_point)
-                                {!! $grammar_point !!}
-                            @else
-                                <div class="btn btn-sm btn-info">Grammar Point</div>
-                            @endempty
-                        </div>
+                        @endcan
+                </div>
+                <div class="col">
+                    <h5 class="card-title">{{ $lesson->title }}</h5>
+                    <h6 class="card-subtitle">
+                        @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
+                    </h6>
+                    <div class="p-3 my-3"
+                         @can(\App\Library\Permissions::update_content)
+                         style="cursor: pointer" onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null"
+                         @endcan
+                    >
+                        @isset($grammar_point)
+                            {!! $grammar_point !!}
+                        @else
+                            @can(\App\Library\Permissions::update_content)
+                            <div class="btn btn-sm btn-info">Grammar Point</div>
+                            @endcan
+                        @endempty
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    @if($exercises->count())
+        <div class="card shadow-sm mt-4">
+            <div class="card-body">
                 @include('admin.development.exercises.list')
             </div>
         </div>

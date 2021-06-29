@@ -15,3 +15,15 @@
     </div>
     @enderror
 </div>
+
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            new FroalaEditor('#{{ $name }}_FroalaEditor', {
+                placeholderText: '{{ $label }}',
+                listAdvancedTypes: true,
+                pastePlain: true,
+            });
+        });
+    </script>
+@endpush

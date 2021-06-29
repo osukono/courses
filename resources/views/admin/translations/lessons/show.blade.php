@@ -77,50 +77,68 @@
 @endsection
 
 @section('content')
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-auto">
+                    @isset($image)
+                        <img width="208" height="117" class="rounded" src="{{ $image }}"
+                             alt="Course Image"
+                             @can(\App\Library\Permissions::update_translations)
+                             onclick="$('#lesson-{{ $lesson->id }}-image').click();" style="cursor: pointer;"
+                             @endcan
+                        >
+                    @else
+                        <div class="text-center border rounded bg-white align-middle d-table-cell"
+                             style="width: 208px; height: 117px;">
+                            @can(\App\Library\Permissions::update_translations)
+                            <button type="button" class="btn btn-info btn-sm"
+                                    onclick="$('#lesson-{{ $lesson->id }}-image').click();">
+                                Upload Image
+                            </button>
+                            @endcan
+                        </div>
+                    @endisset
+                    @can(\App\Library\Permissions::update_translations)
+                    <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
+                          action="{{ route('admin.dev.lessons.image.upload', [$lesson, $language]) }}"
+                          method="post" autocomplete="off" enctype="multipart/form-data">
+                        @csrf
+                        @method('patch')
+                        <input type="file" id="lesson-{{ $lesson->id }}-image" name="image"
+                               accept="image/svg+xml"
+                               onchange="$('#lesson-{{ $lesson->id }}-upload-image').submit();">
+                    </form>
+                        @endcan
+                </div>
+                <div class="col">
+                    <h5 class="card-title">{{ $lesson->title . ' › ' . $language->native }}</h5>
+                    <h6 class="card-subtitle">
+                        @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
+                        @includeWhen($lesson->isDisabled($language), 'admin.components.disabled.translation')
+                    </h6>
+                    <div class="p-3 my-3"
+                         @can(\App\Library\Permissions::update_translations)
+                         style="cursor: pointer" onclick="window.location='{{ route('admin.translations.lesson.grammar.edit', [$language, $lesson]) }}'; return null"
+                         @endcan
+                    >
+                        @isset($grammar_point)
+                            {!! $grammar_point !!}
+                        @else
+                            @can(\App\Library\Permissions::update_translations)
+                            <div class="btn btn-sm btn-info">Grammar Point</div>
+                            @endcan
+                        @endisset
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @if($exercises->count())
-        <div class="card shadow-sm">
+        <div class="card shadow-sm mt-4">
             <div class="card-body">
                 <div class="row">
-                    @can(\App\Library\Permissions::update_translations)
-                        <div class="col-auto">
-                            @isset($image)
-                                <img width="208" height="117" class="rounded" src="{{ $image }}"
-                                     alt="Course Image"
-                                     onclick="$('#lesson-{{ $lesson->id }}-image').click();" style="cursor: pointer;">
-                            @else
-                                <div class="text-center border rounded bg-white align-middle d-table-cell"
-                                     style="width: 208px; height: 117px;">
-                                    <button type="button" class="btn btn-info btn-sm"
-                                            onclick="$('#lesson-{{ $lesson->id }}-image').click();">
-                                        Upload Image
-                                    </button>
-                                </div>
-                            @endisset
-                            <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
-                                  action="{{ route('admin.dev.lessons.image.upload', [$lesson, $language]) }}"
-                                  method="post" autocomplete="off" enctype="multipart/form-data">
-                                @csrf
-                                @method('patch')
-                                <input type="file" id="lesson-{{ $lesson->id }}-image" name="image"
-                                       accept="image/svg+xml"
-                                       onchange="$('#lesson-{{ $lesson->id }}-upload-image').submit();">
-                            </form>
-                        </div>
-                    @endcan
-                    <div class="col">
-                        <h5 class="card-title">{{ $lesson->title . ' › ' . $language->native }}</h5>
-                        <h6 class="card-subtitle">
-                            @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
-                            @includeWhen($lesson->isDisabled($language), 'admin.components.disabled.translation')
-                        </h6>
-                        <div class="p-3 my-3" style="cursor: pointer" onclick="window.location='{{ route('admin.translations.lesson.grammar.edit', [$language, $lesson]) }}'; return null">
-                            @isset($grammar_point)
-                                {!! $grammar_point !!}
-                            @else
-                                <div class="btn btn-sm btn-info">Grammar Point</div>
-                            @endisset
-                        </div>
-                    </div>
+
                 </div>
 
                 @include('admin.translations.exercises.list')
