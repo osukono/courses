@@ -1,8 +1,8 @@
 <div id="apps" class="container-fluid pt-4 mb-5">
     <div class="row">
         <div class="d-none pr-4 d-lg-table-cell col-lg-3 offset-1">
-            <div id="screens" class="carousel slide carousel-fade float-right border rounded-lg"
-                 data-ride="carousel" style="max-width: 278px">
+            <div id="screens" class="carousel slide carousel-fade float-right rounded-lg"
+                 data-ride="carousel" style="max-width: 278px; border: 1px solid rgba(128, 128, 128, 0.15)">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen.library')) . '?v=3' }}"
@@ -22,8 +22,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-10 offset-1 col-lg-7 offset-lg-0 rounded-lg border-light py-4 px-lg-4 py-3"
-             style="background-color: #fafafb">
+        <div class="col-10 offset-1 col-lg-7 offset-lg-0 rounded-lg py-4 px-lg-4 py-3"
+             style="background-color: #fafafb; border: 1px solid rgba(128, 128, 128, 0.15)">
             <h2 class="text-primary">{{ __('web.index.section.app.header') }}</h2>
             <div class="mt-4">{!! __('web.index.section.app.description') !!}</div>
             <div class="mt-4 text-center text-md-left">
