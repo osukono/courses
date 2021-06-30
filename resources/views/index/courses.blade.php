@@ -47,7 +47,15 @@
                                                 <tbody>
                                                 @foreach($chunk as $courseLesson)
                                                     <tr>
-                                                        <td>{{ ($courseLesson->index < 10 ? '0' . $courseLesson->index : $courseLesson->index) . '. ' . $courseLesson->title }}</td>
+                                                        <td>
+                                                            @if($courseLesson->grammar != null)
+                                                                <a href="{{ route('grammar', $courseLesson) }}">
+                                                                    {{ ($courseLesson->index < 10 ? '0' . $courseLesson->index : $courseLesson->index) . '. ' . $courseLesson->title }}
+                                                                </a>
+                                                            @else
+                                                                {{ ($courseLesson->index < 10 ? '0' . $courseLesson->index : $courseLesson->index) . '. ' . $courseLesson->title }}
+                                                            @endif
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>

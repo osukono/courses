@@ -30,7 +30,8 @@ class RouteServiceProvider extends ServiceProvider
         'user',
         'role',
         'appLocale',
-        'localeGroup'
+        'localeGroup',
+        'courseLesson',
     ];
 
     private $slug = [

@@ -6,7 +6,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
 
     Auth::routes();
 
-    Route::get('teachers', 'WebController@teachers')->name('teachers');
+//    Route::get('teachers', 'WebController@teachers')->name('teachers');
+
+    Route::get('grammar/{courseLesson}', 'GrammarController@show')->name('grammar');
 
     Route::get('download', 'DownloadController@index')->name('download');
 
