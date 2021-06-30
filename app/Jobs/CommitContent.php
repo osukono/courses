@@ -230,9 +230,9 @@ class CommitContent implements ShouldQueue
             $lessonTranslationImage = LessonPropertyRepository::getImage($lesson, $this->translation);
 
             if ($lessonTranslationImage !== null)
-                $courseLesson->image = $lessonTranslationImage->image;
+                $courseLesson->image = $lessonTranslationImage;
             else if ($lessonImage !== null)
-                $courseLesson->image = $lessonImage->image;
+                $courseLesson->image = $lessonImage;
 
             $lessonGrammar = LessonPropertyRepository::getGrammarPoint($lesson, $this->content->language);
             $lessonTranslatedGrammar = LessonPropertyRepository::getGrammarPoint($lesson, $this->translation);
