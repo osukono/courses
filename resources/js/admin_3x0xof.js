@@ -5,6 +5,7 @@ window.feather = require('feather-icons');
 require('bootstrap-confirmation2');
 require('./sidebar');
 import {Howl, Howler} from 'howler';
+
 window.FroalaEditor = require('froala-editor')
 require('froala-editor/js/plugins/align.min')
 require('froala-editor/js/plugins/table.min')

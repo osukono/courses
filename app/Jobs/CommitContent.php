@@ -12,6 +12,7 @@ use App\Lesson;
 use App\LessonProperty;
 use App\Library\StrUtils;
 use App\Repositories\CourseRepository;
+use App\Repositories\LessonPropertyRepository;
 use App\Translation;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -225,16 +226,21 @@ class CommitContent implements ShouldQueue
             $courseLesson->course()->associate($course);
             $courseLesson->title = $lesson->title;
 
-            $lessonImage = LessonProperty::where('lesson_id', $lesson->id)
-                ->where('language_id', $this->content->language->id)
-                ->first();
-            $lessonTranslationImage = LessonProperty::where('lesson_id', $lesson->id)
-                ->where('language_id', $this->translation->id)
-                ->first();
+            $lessonImage = LessonPropertyRepository::getImage($lesson, $this->content->language);
+            $lessonTranslationImage = LessonPropertyRepository::getImage($lesson, $this->translation);
+
             if ($lessonTranslationImage !== null)
                 $courseLesson->image = $lessonTranslationImage->image;
             else if ($lessonImage !== null)
                 $courseLesson->image = $lessonImage->image;
+
+            $lessonGrammar = LessonPropertyRepository::getGrammarPoint($lesson, $this->content->language);
+            $lessonTranslatedGrammar = LessonPropertyRepository::getGrammarPoint($lesson, $this->translation);
+
+            if ($lessonTranslatedGrammar !== null)
+                $courseLesson->grammar = $lessonTranslatedGrammar;
+            else if ($lessonGrammar !== null)
+                $courseLesson->grammar = $lessonGrammar;
 
             $content = $this->commitLesson($lesson);
 
