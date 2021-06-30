@@ -14,8 +14,8 @@
                 @endisset
             </div>
         </div>
-        <h2 class="text-center mt-4">{{ $course }}</h2>
-        <h3 class="text-center mt-2">{{ $title }}</h3>
+        <h3 class="text-center mt-4">{{ $course }}</h3>
+        <h4 class="text-center mt-2">{{ $title }}</h4>
         <div class="my-5 mx-0 mx-md-3 mx-lg-5">
             {!! $grammar !!}
         </div>
