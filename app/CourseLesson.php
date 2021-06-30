@@ -35,6 +35,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereUpdatedAt($value)
  * @property string|null $image
  * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereImage($value)
+ * @property string|null $grammar
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereGrammar($value)
  */
 class CourseLesson extends Model
 {

@@ -35,7 +35,7 @@ return [
         'section' => [
             'top' => [
                 'header' => "English lessons in your pocket",
-                'text' => "Listen to the audio courses, memorize vocabulary and grammar, learn how to speak English.",
+                'text' => "Listen to the audio courses, memorize grammar and vocabulary, learn how to speak English.",
                 'button' => 'Learn more'
             ],
             'app' => [

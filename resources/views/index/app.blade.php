@@ -5,18 +5,18 @@
                  data-ride="carousel" style="max-width: 278px">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen.library')) }}"
-                             style="max-height: 600px" class="rounded-lg"
+                        <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen.library')) . '?v=3' }}"
+                             style="max-height: 554px" class="rounded-lg"
                              alt="Library">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen.course')) }}"
-                             style="max-height: 600px" class="rounded-lg"
+                        <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen.course')) . '?v=3' }}"
+                             style="max-height: 554px" class="rounded-lg"
                              alt="Course">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen.player')) }}"
-                             style="max-height: 600px" class="rounded-lg"
+                        <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen.player')) . '?v=23' }}"
+                             style="max-height: 554px" class="rounded-lg"
                              alt="Player">
                     </div>
                 </div>
