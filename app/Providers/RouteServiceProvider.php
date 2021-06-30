@@ -25,17 +25,17 @@ class RouteServiceProvider extends ServiceProvider
         'exerciseData',
         'translation',
         'course',
-        'courseLesson',
+//        'courseLesson',
         'jobStatus',
         'user',
         'role',
         'appLocale',
         'localeGroup',
-        'courseLesson',
     ];
 
     private $slug = [
         'language',
+        'courseLesson'
     ];
 
     private $uuid = [

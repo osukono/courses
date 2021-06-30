@@ -4,6 +4,7 @@ namespace App;
 
 use App\Library\Eloquent\MaxSequence;
 use App\Repositories\CourseLessonRepository;
+use Cviebrock\EloquentSluggable\Sluggable;
 use HighSolutions\EloquentSequence\Sequence;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -42,6 +43,7 @@ class CourseLesson extends Model
 {
     use Sequence;
     use MaxSequence;
+    use Sluggable;
 
     protected $casts = [
         'content' => 'array'
@@ -67,6 +69,26 @@ class CourseLesson extends Model
             'fieldName' => 'index',
             'orderFrom1' => true
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => ['course_id', 'title']
+            ]
+        ];
+    }
+
+    /**
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 
     private CourseLessonRepository $repository;
