@@ -11,6 +11,7 @@ class GrammarController extends Controller
         if ($courseLesson->grammar == null)
             abort(404);
 
+        $data['course'] = $courseLesson->course->language->native;
         $data['title'] = $courseLesson->title;
         $data['previous'] = CourseLesson::where('course_id', '=', $courseLesson->course_id)
             ->whereNotNull('grammar')
