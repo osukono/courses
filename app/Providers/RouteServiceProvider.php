@@ -25,7 +25,6 @@ class RouteServiceProvider extends ServiceProvider
         'exerciseData',
         'translation',
         'course',
-//        'courseLesson',
         'jobStatus',
         'user',
         'role',

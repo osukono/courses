@@ -5,12 +5,12 @@
         <div class="row mt-4">
             <div class="col text-left">
                 @isset($previous)
-                    <a href="{{ route('grammar', $previous) }}">&lsaquo; {{ $previous->title }}</a>
+                    <a href="{{ route('grammar', $previous) }}">&lsaquo;&nbsp;{{ $previous->title }}</a>
                 @endisset
             </div>
             <div class="col text-right">
                 @isset($next)
-                    <a href="{{ route('grammar', $next) }}">{{ $next->title }} &rsaquo;</a>
+                    <a href="{{ route('grammar', $next) }}">{{ $next->title }}&nbsp;&rsaquo;</a>
                 @endisset
             </div>
         </div>
