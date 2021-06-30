@@ -105,7 +105,7 @@
 {{--            </div>--}}
 {{--        </ul>--}}
     </nav>
-Ò
+
     <div class="container-fluid pb-3">
         <div id="content" class="pt-0">
             <main role="main" class="">
