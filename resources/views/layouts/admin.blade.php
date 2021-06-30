@@ -87,8 +87,25 @@
             </li>
         </ul>
         @endrole
+{{--        <ul class="list-unstyled">--}}
+{{--            <p>Language</p>--}}
+{{--            <div class="dropdown">--}}
+{{--                <button class="btn btn-secondary dropdown-toggle" type="button" id="localizations" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                    {{ LaravelLocalization::getCurrentLocaleNative() }}--}}
+{{--                </button>--}}
+{{--                <div class="dropdown-menu" aria-labelledby="localizations">--}}
+{{--                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
+{{--                        <a rel="alternate"--}}
+{{--                           class="@if(LaravelLocalization::getCurrentLocale() == $localeCode) active @endif"--}}
+{{--                           href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
+{{--                            {{ $properties['native'] }}--}}
+{{--                        </a>--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </ul>--}}
     </nav>
-
+Ò
     <div class="container-fluid pb-3">
         <div id="content" class="pt-0">
             <main role="main" class="">
