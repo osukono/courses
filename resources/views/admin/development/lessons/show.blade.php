@@ -153,7 +153,7 @@
                         @endcan
                     >
                         @isset($description)
-                            {{ $description }}
+                            {!! nl2br($description) !!}
                         @else
                             @can(\App\Library\Permissions::update_content)
                                 <div class="btn btn-sm btn-info">Add Description</div>
