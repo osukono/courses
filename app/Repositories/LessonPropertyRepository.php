@@ -55,6 +55,18 @@ class LessonPropertyRepository
         $lessonProperty->save();
     }
 
+    public static function getDescription(Lesson $lesson, Language $language) {
+        $lessonProperty = self::getOrCreate($lesson, $language);
+        return $lessonProperty->description;
+    }
+
+    public static function updateDescription(Lesson $lesson, Language $language, Request $request) {
+        $lessonProperty = self::getOrCreate($lesson, $language);
+
+        $lessonProperty->description = $request['description'];
+        $lessonProperty->save();
+    }
+
     public static function getOrCreate(Lesson $lesson, Language $language) {
         $lessonProperty = LessonProperty::whereLessonId($lesson->id)->whereLanguageId($language->id)->first();
         if ($lessonProperty == null) {

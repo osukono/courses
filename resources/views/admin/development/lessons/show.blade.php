@@ -149,6 +149,20 @@
                     </h6>
                     <div class="p-3 mt-3"
                          @can(\App\Library\Permissions::update_content)
+                         style="cursor: pointer" onclick="window.location='{{ route('admin.dev.lessons.description.edit', $lesson) }}'; return null"
+                        @endcan
+                    >
+                        @isset($description)
+                            {{ $description }}
+                        @else
+                            @can(\App\Library\Permissions::update_content)
+                                <div class="btn btn-sm btn-info">Add Description</div>
+                            @endcan
+                        @endempty
+                    </div>
+                    <hr />
+                    <div class="p-3 mt-3"
+                         @can(\App\Library\Permissions::update_content)
                          style="cursor: pointer" onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null"
                          @endcan
                     >
@@ -156,7 +170,7 @@
                             {!! $grammar_point !!}
                         @else
                             @can(\App\Library\Permissions::update_content)
-                            <div class="btn btn-sm btn-info">Grammar Point</div>
+                            <div class="btn btn-sm btn-info">Add Grammar Point</div>
                             @endcan
                         @endempty
                     </div>

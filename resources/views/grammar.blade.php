@@ -15,7 +15,7 @@
             </div>
         </div>
         <h4 class="text-center mt-4 text-dark">{{ $course }}</h4>
-        <h5 class="text-center mt-2 text-dark">{{ $title }}</h5>
+        <h5 class="text-center mt-2 text-dark   ">{{ $title }}</h5>
         <div class="my-5 mx-0 mx-md-3 mx-lg-5">
             {!! $grammar !!}
         </div>

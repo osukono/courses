@@ -6,6 +6,7 @@ use App\Content;
 use App\Exercise;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Content\AssignEditorRequest;
+use App\Http\Requests\Admin\Content\LessonUpdateDescriptionRequest;
 use App\Http\Requests\Admin\Content\RemoveEditorRequest;
 use App\Http\Requests\Admin\Content\TranslationUpdateRequest;
 use App\Http\Requests\Admin\LessonUpdateGrammarPointRequest;
@@ -111,6 +112,7 @@ class TranslationController extends Controller
         $data['trashed'] = ExerciseRepository::trashed()->where('lesson_id', $lesson->id)->count();
         $data['image'] = LessonPropertyRepository::getImage($lesson, $language);
         $data['grammar_point'] = LessonPropertyRepository::getGrammarPoint($lesson, $language);
+        $data['description'] = LessonPropertyRepository::getDescription($lesson, $language);
 
         return view('admin.translations.lessons.show')->with($data);
     }
@@ -147,6 +149,40 @@ class TranslationController extends Controller
 
         return redirect()->route('admin.translations.lessons.show', [$language, $lesson])
             ->with('message', 'Grammar point has successfully been updated.');
+    }
+
+    /**
+     * @param Language $language
+     * @param Lesson $lesson
+     * @return Application|Factory|\Illuminate\Contracts\View\View
+     * @throws AuthorizationException
+     */
+    public function editDescription(Language $language, Lesson $lesson) {
+        $this->authorize('access', $lesson->content);
+        $this->authorize('access', $language);
+
+        $data['lesson'] = $lesson;
+        $data['language'] = $language;
+        $data['description'] = LessonPropertyRepository::getDescription($lesson, $language);
+
+        return view('admin.translations.lessons.description')->with($data);
+    }
+
+    /**
+     * @param LessonUpdateDescriptionRequest $request
+     * @param Language $language
+     * @param Lesson $lesson
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function updateDescription(LessonUpdateDescriptionRequest $request, Language $language, Lesson $lesson) {
+        $this->authorize('access', $lesson->content);
+        $this->authorize('access', $language);
+
+        LessonPropertyRepository::updateDescription($lesson, $language, $request);
+
+        return redirect()->route('admin.translations.lessons.show', [$language, $lesson])
+            ->with('message', 'Description has successfully been updated.');
     }
 
     /**

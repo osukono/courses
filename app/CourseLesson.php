@@ -38,6 +38,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereImage($value)
  * @property string|null $grammar
  * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereGrammar($value)
+ * @property string $slug
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson findSimilarSlugs(string $attribute, array $config, string $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  */
 class CourseLesson extends Model
 {

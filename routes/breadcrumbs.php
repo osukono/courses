@@ -93,6 +93,12 @@ Breadcrumbs::for('admin.dev.lessons.grammar', function ($trail, Lesson $lesson) 
     $trail->push('Grammar Point');
 });
 
+// [Content] > [Lesson] > Description
+Breadcrumbs::for('admin.dev.lessons.description', function ($trail, Lesson $lesson) {
+    $trail->parent('admin.dev.lessons.show', $lesson);
+    $trail->push('Description');
+});
+
 // [Content] > Trash
 Breadcrumbs::for('admin.dev.lessons.trash', function ($trail, Content $content) {
     $trail->parent('admin.dev.courses.show', $content);
@@ -153,10 +159,16 @@ Breadcrumbs::for('admin.translations.lessons.show', function ($trail, Language $
     $trail->push($lesson->index . '. ' . $lesson->title, route('admin.translations.lessons.show', [$language, $lesson]));
 });
 
-// [Content] > [Language] > [Lesson]
+// [Content] > [Language] > [Lesson] > Grammar Point
 Breadcrumbs::for('admin.translations.lessons.grammar.edit', function($trail, Language $language, Lesson $lesson) {
     $trail->parent('admin.translations.lessons.show', $language, $lesson);
     $trail->push('Grammar Point');
+});
+
+// [Content] > [Language] > [Lesson] > Description
+Breadcrumbs::for('admin.translations.lessons.description.edit', function($trail, Language $language, Lesson $lesson) {
+    $trail->parent('admin.translations.lessons.show', $language, $lesson);
+    $trail->push('Description');
 });
 
 // [Content] > [Language] > [Lesson] > [Exercise]

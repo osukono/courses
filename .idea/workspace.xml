@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/Content/LessonUpdateDescriptionRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_07_17_161219_lesson_properties_description.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/description.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/translations/lessons/description.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/CourseLesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CourseLesson.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/LessonUpdateGrammarPointRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/Content/LessonUpdateGrammarPointRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/LessonProperty.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LessonProperty.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/LessonPropertyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/LessonPropertyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/grammar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/grammar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/breadcrumbs.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/breadcrumbs.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,11 +251,11 @@
       <recent name="$PROJECT_DIR$/app/Library" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Requests/Admin/Content" />
       <recent name="$PROJECT_DIR$/resources/views/admin/development" />
       <recent name="$PROJECT_DIR$/resources/views/admin/development/courses" />
       <recent name="$PROJECT_DIR$/app/Schemas" />
       <recent name="$PROJECT_DIR$/resources/views/admin/users/assigned" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/components/modals" />
     </key>
   </component>
   <component name="RunManager">
@@ -482,7 +497,16 @@
       <workItem from="1625040059519" duration="214000" />
       <workItem from="1625043125037" duration="291000" />
       <workItem from="1625071443473" duration="935000" />
-      <workItem from="1625073301095" duration="1585000" />
+      <workItem from="1625073301095" duration="1698000" />
+      <workItem from="1625075345095" duration="425000" />
+      <workItem from="1625149599288" duration="197000" />
+      <workItem from="1625222178728" duration="21000" />
+      <workItem from="1625222245418" duration="415000" />
+      <workItem from="1625244109823" duration="49000" />
+      <workItem from="1625562965260" duration="481000" />
+      <workItem from="1626537974877" duration="14000" />
+      <workItem from="1626538005921" duration="1786000" />
+      <workItem from="1626540329396" duration="1089000" />
     </task>
     <servers />
   </component>

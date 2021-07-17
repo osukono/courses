@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Content\LessonCreateRequest;
 use App\Http\Requests\Admin\Content\LessonMoveRequest;
 use App\Http\Requests\Admin\Content\LessonRestoreRequest;
+use App\Http\Requests\Admin\Content\LessonUpdateDescriptionRequest;
 use App\Http\Requests\Admin\Content\LessonUpdateRequest;
 use App\Http\Requests\Admin\LessonUpdateGrammarPointRequest;
 use App\Http\Requests\Admin\LessonUploadImageRequest;
@@ -69,6 +70,7 @@ class LessonController extends Controller
             ->ordered()->get();
         $data['image'] = LessonPropertyRepository::getImage($lesson, $lesson->content->language);
         $data['grammar_point'] = LessonPropertyRepository::getGrammarPoint($lesson, $lesson->content->language);
+        $data['description'] = LessonPropertyRepository::getDescription($lesson, $lesson->content->language);
 
         return view('admin.development.lessons.show')->with($data);
     }
@@ -176,6 +178,36 @@ class LessonController extends Controller
 
         return redirect()->route('admin.dev.lessons.show', $lesson)
             ->with('message', 'Grammar point has successfully been updated.');
+    }
+
+    /**
+     * @param Lesson $lesson
+     * @return Application|Factory|\Illuminate\Contracts\View\View
+     * @throws AuthorizationException
+     */
+    public function editDescription(Lesson $lesson) {
+        $this->authorize('access', $lesson->content);
+
+        $data['lesson'] = $lesson;
+        $data['description'] = LessonPropertyRepository::getDescription($lesson, $lesson->content->language);
+
+        return view('admin.development.lessons.description')->with($data);
+    }
+
+    /**
+     * @param LessonUpdateDescriptionRequest $request
+     * @param Lesson $lesson
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function updateDescription(LessonUpdateDescriptionRequest $request, Lesson $lesson)
+    {
+        $this->authorize('access', $lesson->content);
+
+        LessonPropertyRepository::updateDescription($lesson, $lesson->content->language, $request);
+
+        return redirect()->route('admin.dev.lessons.show', $lesson)
+            ->with('message', 'Description has successfully been updated.');
     }
 
     /**

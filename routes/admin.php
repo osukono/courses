@@ -101,6 +101,12 @@ Route::group([
                 Route::patch('dev/lessons/{lesson}/grammar', 'LessonController@updateGrammarPoint')
                     ->name('admin.dev.lessons.grammar.update');
 
+                Route::get('dev/lessons/{lesson}/description/edit', 'LessonController@editDescription')
+                    ->name('admin.dev.lessons.description.edit');
+
+                Route::patch('dev/lessons/{lesson}/description', 'LessonController@updateDescription')
+                    ->name('admin.dev.lessons.description.update');
+
                 Route::patch('dev/lessons/move', 'LessonController@move')
                     ->name('admin.dev.lessons.move');
 
@@ -216,6 +222,12 @@ Route::group([
 
                 Route::patch('trans/{language}/lessons/{lesson}/grammar', 'TranslationController@updateGrammarPoint')
                     ->name('admin.translations.lesson.grammar.update');
+
+                Route::get('trans/{language}/lessons/{lesson}/description/edit', 'TranslationController@editDescription')
+                    ->name('admin.translations.lesson.description.edit');
+
+                Route::patch('trans/{language}/lessons/{lesson}/description', 'translationController@updateDescription')
+                    ->name('admin.translations.lesson.description.update');
 
                 Route::patch('trans/{translation}', 'TranslationController@update')
                     ->name('admin.translations.exercise.data.update');

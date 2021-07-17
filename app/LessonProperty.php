@@ -30,6 +30,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|LessonProperty whereLessonId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LessonProperty whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $description
+ * @method static \Illuminate\Database\Eloquent\Builder|LessonProperty whereDescription($value)
  */
 class LessonProperty extends Model
 {
