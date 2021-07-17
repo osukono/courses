@@ -226,7 +226,7 @@ Route::group([
                 Route::get('trans/{language}/lessons/{lesson}/description/edit', 'TranslationController@editDescription')
                     ->name('admin.translations.lesson.description.edit');
 
-                Route::patch('trans/{language}/lessons/{lesson}/description', 'translationController@updateDescription')
+                Route::patch('trans/{language}/lessons/{lesson}/description', 'TranslationController@updateDescription')
                     ->name('admin.translations.lesson.description.update');
 
                 Route::patch('trans/{translation}', 'TranslationController@update')
