@@ -3,7 +3,7 @@
     <tr>
         <th></th>
         <th class="col-11 col-md-10"></th>
-        <th class="d-none d-md-table-cell">Exercises</th>
+        <th class="d-none d-md-table-cell text-center">Exercises</th>
     </tr>
     </thead>
     <tbody>
