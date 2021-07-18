@@ -234,6 +234,14 @@ class CommitContent implements ShouldQueue
             else if ($lessonImage !== null)
                 $courseLesson->image = $lessonImage;
 
+            $lessonDescription = LessonPropertyRepository::getDescription($lesson, $this->content->language);
+            $lessonTranslatedDescription = LessonPropertyRepository::getDescription($lesson, $this->translation);
+
+            if ($lessonTranslatedDescription !== null)
+                $courseLesson->description = $lessonTranslatedDescription;
+            else if ($lessonDescription !== null)
+                $courseLesson->description = $lessonDescription;
+
             $lessonGrammar = LessonPropertyRepository::getGrammarPoint($lesson, $this->content->language);
             $lessonTranslatedGrammar = LessonPropertyRepository::getGrammarPoint($lesson, $this->translation);
 

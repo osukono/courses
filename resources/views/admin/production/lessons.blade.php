@@ -9,7 +9,7 @@
     <tbody>
     @foreach($lessons as $lesson)
         <tr class="clickable-row" data-href="{{ route('admin.courses.practice', [$course, $lesson]) }}">
-            <td>{{ $lesson->index }}</td>
+            <td><div class="lead">{{ $lesson->index }}</div></td>
             <td>
                 <div class="row">
                     @isset($lesson->image)
@@ -18,7 +18,8 @@
                                  alt="{{ $lesson->title }}"/>
                         </div>
                     @endisset
-                    <div class="col">{{ $lesson->title }}</div>
+                    <div class="col h6">{{ $lesson->title }}</div>
+                    <div>{!! nl2br($lesson->description) !!}</div>
                 </div>
 
             </td>
