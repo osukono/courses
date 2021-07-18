@@ -153,7 +153,7 @@
                         @endcan
                     >
                         @isset($description)
-                            {!! nl2br($description) !!}
+                            {!! \App\Library\StrUtils::normalize(nl2br($description)) !!}
                         @else
                             @can(\App\Library\Permissions::update_content)
                                 <div class="btn btn-sm btn-info">Add Description</div>
