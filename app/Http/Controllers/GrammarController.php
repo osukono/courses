@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CourseLesson;
+use App\Library\StrUtils;
 use Illuminate\Http\Request;
 
 class GrammarController extends Controller
@@ -24,6 +25,9 @@ class GrammarController extends Controller
             ->where('index', '>', $courseLesson->index)
             ->orderBy('index')
             ->first();
+
+        $data['seo']['title'] = $courseLesson->course->language->native . ' - ' . $courseLesson->title;
+        $data['seo']['description'] = StrUtils::toPlainText($courseLesson->description);
 
         return view('grammar')->with($data);
     }
