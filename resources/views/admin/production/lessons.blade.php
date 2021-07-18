@@ -18,12 +18,16 @@
                                  alt="{{ $lesson->title }}"/>
                         </div>
                     @endisset
-                    <div class="col h6">{{ $lesson->title }}</div>
-                    <div>{!! nl2br($lesson->description) !!}</div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col h6">{{ $lesson->title }}</div>
+                            <div class="col">{!! nl2br($lesson->description) !!}</div>
+                        </div>
+                    </div>
                 </div>
 
             </td>
-            <td class="d-none d-md-table-cell">{{ $lesson->exercises_count }}</td>
+            <td class="d-none d-md-table-cell text-center">{{ $lesson->exercises_count }}</td>
         </tr>
     @endforeach
     </tbody>
