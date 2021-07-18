@@ -21,6 +21,8 @@
                     <div class="col">
                         <div class="row">
                             <div class="col h6">{{ $lesson->title }}</div>
+                        </div>
+                        <div class="row">
                             <div class="col">{!! nl2br($lesson->description) !!}</div>
                         </div>
                     </div>
