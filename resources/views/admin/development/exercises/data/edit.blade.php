@@ -5,8 +5,8 @@
 
     @input(['name' => 'value', 'label' => '', 'default' => Arr::get($data->content, 'value'), 'autofocus' => true, 'lg' => true])
     <splitter value="{{ Arr::get($data->content, 'value') }}"></splitter>
-    @input(['name' => 'extra_chunks', 'label' => '', 'default' => Arr::get($data->content, 'extra_chunks'), 'lg' => false, 'helper' => 'List of extra chunks (separated with commas) e.g. on, at, the'])
-    @input(['name' => 'capitalized_words', 'label' => '', 'default' => Arr::get($data->content, 'capitalized_words'), 'lg' => false, 'helper' => 'List capitalized words (separated with commas)'])
+    @input(['name' => 'extra_chunks', 'label' => '', 'default' => Arr::get($data->content, 'extra_chunks'), 'lg' => false, 'helper' => 'List of extra chunks (separated with comma) e.g. on, at, the'])
+    @input(['name' => 'capitalized_words', 'label' => '', 'default' => Arr::get($data->content, 'capitalized_words'), 'lg' => false, 'helper' => 'List capitalized words (separated with comma)'])
 
     @isset($data->content['audio'])
         <span class="mr-3">
