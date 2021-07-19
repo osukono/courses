@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GrammarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GrammarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/production/lessons.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/production/lessons.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -497,7 +493,7 @@
       <workItem from="1626542534660" duration="454000" />
       <workItem from="1626589771859" duration="3234000" />
       <workItem from="1626612183328" duration="506000" />
-      <workItem from="1626614728297" duration="343000" />
+      <workItem from="1626614728297" duration="458000" />
     </task>
     <servers />
   </component>
