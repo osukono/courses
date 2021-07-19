@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="" />
+    <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/edit.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -494,6 +498,7 @@
       <workItem from="1626589771859" duration="3234000" />
       <workItem from="1626612183328" duration="506000" />
       <workItem from="1626614728297" duration="458000" />
+      <workItem from="1626675947689" duration="245000" />
     </task>
     <servers />
   </component>
