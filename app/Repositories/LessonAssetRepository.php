@@ -6,14 +6,13 @@ namespace App\Repositories;
 
 use App\Language;
 use App\Lesson;
-use App\LessonProperty;
+use App\LessonAsset;
 use App\Library\Firebase;
 use App\Library\StrUtils;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class LessonPropertyRepository
+class LessonAssetRepository
 {
     /**
      * @param Lesson $lesson
@@ -68,9 +67,9 @@ class LessonPropertyRepository
     }
 
     public static function getOrCreate(Lesson $lesson, Language $language) {
-        $lessonProperty = LessonProperty::whereLessonId($lesson->id)->whereLanguageId($language->id)->first();
+        $lessonProperty = LessonAsset::whereLessonId($lesson->id)->whereLanguageId($language->id)->first();
         if ($lessonProperty == null) {
-            $lessonProperty = new LessonProperty();
+            $lessonProperty = new LessonAsset();
             $lessonProperty->lesson()->associate($lesson);
             $lessonProperty->language()->associate($language);
         }

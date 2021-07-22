@@ -9,10 +9,10 @@ use App\Exercise;
 use App\ExerciseData;
 use App\Language;
 use App\Lesson;
-use App\LessonProperty;
+use App\LessonAsset;
 use App\Library\StrUtils;
 use App\Repositories\CourseRepository;
-use App\Repositories\LessonPropertyRepository;
+use App\Repositories\LessonAssetRepository;
 use App\Translation;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -226,24 +226,24 @@ class CommitContent implements ShouldQueue
             $courseLesson->course()->associate($course);
             $courseLesson->title = $lesson->title;
 
-            $lessonImage = LessonPropertyRepository::getImage($lesson, $this->content->language);
-            $lessonTranslationImage = LessonPropertyRepository::getImage($lesson, $this->translation);
+            $lessonImage = LessonAssetRepository::getImage($lesson, $this->content->language);
+            $lessonTranslationImage = LessonAssetRepository::getImage($lesson, $this->translation);
 
             if ($lessonTranslationImage !== null)
                 $courseLesson->image = $lessonTranslationImage;
             else if ($lessonImage !== null)
                 $courseLesson->image = $lessonImage;
 
-            $lessonDescription = LessonPropertyRepository::getDescription($lesson, $this->content->language);
-            $lessonTranslatedDescription = LessonPropertyRepository::getDescription($lesson, $this->translation);
+            $lessonDescription = LessonAssetRepository::getDescription($lesson, $this->content->language);
+            $lessonTranslatedDescription = LessonAssetRepository::getDescription($lesson, $this->translation);
 
             if ($lessonTranslatedDescription !== null)
                 $courseLesson->description = $lessonTranslatedDescription;
             else if ($lessonDescription !== null)
                 $courseLesson->description = $lessonDescription;
 
-            $lessonGrammar = LessonPropertyRepository::getGrammarPoint($lesson, $this->content->language);
-            $lessonTranslatedGrammar = LessonPropertyRepository::getGrammarPoint($lesson, $this->translation);
+            $lessonGrammar = LessonAssetRepository::getGrammarPoint($lesson, $this->content->language);
+            $lessonTranslatedGrammar = LessonAssetRepository::getGrammarPoint($lesson, $this->translation);
 
             if ($lessonTranslatedGrammar !== null)
                 $courseLesson->grammar = $lessonTranslatedGrammar;

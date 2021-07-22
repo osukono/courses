@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/languages/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/languages/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_07_22_071404_rename_lesson_properties.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/LessonUploadImageRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/Content/LessonUploadImageRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/CommitContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/CommitContent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/LessonProperty.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LessonAsset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/LessonPropertyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/LessonAssetRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -498,7 +503,8 @@
       <workItem from="1626589771859" duration="3234000" />
       <workItem from="1626612183328" duration="506000" />
       <workItem from="1626614728297" duration="458000" />
-      <workItem from="1626675947689" duration="245000" />
+      <workItem from="1626675947689" duration="361000" />
+      <workItem from="1626938009807" duration="641000" />
     </task>
     <servers />
   </component>

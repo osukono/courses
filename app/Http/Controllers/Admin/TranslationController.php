@@ -13,13 +13,13 @@ use App\Http\Requests\Admin\Content\TranslationUpdateRequest;
 use App\Jobs\CommitContent;
 use App\Language;
 use App\Lesson;
-use App\LessonProperty;
+use App\LessonAsset;
 use App\Library\Permissions;
 use App\Library\Sidebar;
 use App\Repositories\ExerciseDataRepository;
 use App\Repositories\ExerciseRepository;
 use App\Repositories\LanguageRepository;
-use App\Repositories\LessonPropertyRepository;
+use App\Repositories\LessonAssetRepository;
 use App\Repositories\LessonRepository;
 use App\Repositories\TranslationRepository;
 use App\Translation;
@@ -110,9 +110,9 @@ class TranslationController extends Controller
         $data['previous'] = $lesson->repository()->previous();
         $data['next'] = $lesson->repository()->next();
         $data['trashed'] = ExerciseRepository::trashed()->where('lesson_id', $lesson->id)->count();
-        $data['image'] = LessonPropertyRepository::getImage($lesson, $language);
-        $data['grammar_point'] = LessonPropertyRepository::getGrammarPoint($lesson, $language);
-        $data['description'] = LessonPropertyRepository::getDescription($lesson, $language);
+        $data['image'] = LessonAssetRepository::getImage($lesson, $language);
+        $data['grammar_point'] = LessonAssetRepository::getGrammarPoint($lesson, $language);
+        $data['description'] = LessonAssetRepository::getDescription($lesson, $language);
 
         return view('admin.translations.lessons.show')->with($data);
     }
@@ -129,7 +129,7 @@ class TranslationController extends Controller
 
         $data['lesson'] = $lesson;
         $data['language'] = $language;
-        $data['grammar_point'] = LessonPropertyRepository::getGrammarPoint($lesson, $language);
+        $data['grammar_point'] = LessonAssetRepository::getGrammarPoint($lesson, $language);
 
         return view('admin.translations.lessons.grammar')->with($data);
     }
@@ -145,7 +145,7 @@ class TranslationController extends Controller
         $this->authorize('access', $lesson->content);
         $this->authorize('access', $language);
 
-        LessonPropertyRepository::updateGrammarPoint($lesson, $language, $request);
+        LessonAssetRepository::updateGrammarPoint($lesson, $language, $request);
 
         return redirect()->route('admin.translations.lessons.show', [$language, $lesson])
             ->with('message', 'Grammar point has successfully been updated.');
@@ -163,7 +163,7 @@ class TranslationController extends Controller
 
         $data['lesson'] = $lesson;
         $data['language'] = $language;
-        $data['description'] = LessonPropertyRepository::getDescription($lesson, $language);
+        $data['description'] = LessonAssetRepository::getDescription($lesson, $language);
 
         return view('admin.translations.lessons.description')->with($data);
     }
@@ -179,7 +179,7 @@ class TranslationController extends Controller
         $this->authorize('access', $lesson->content);
         $this->authorize('access', $language);
 
-        LessonPropertyRepository::updateDescription($lesson, $language, $request);
+        LessonAssetRepository::updateDescription($lesson, $language, $request);
 
         return redirect()->route('admin.translations.lessons.show', [$language, $lesson])
             ->with('message', 'Description has successfully been updated.');

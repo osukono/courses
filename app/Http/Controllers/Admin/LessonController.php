@@ -8,15 +8,14 @@ use App\Http\Requests\Admin\Content\LessonCreateRequest;
 use App\Http\Requests\Admin\Content\LessonMoveRequest;
 use App\Http\Requests\Admin\Content\LessonRestoreRequest;
 use App\Http\Requests\Admin\Content\LessonUpdateDescriptionRequest;
+use App\Http\Requests\Admin\Content\LessonUpdateGrammarPointRequest;
 use App\Http\Requests\Admin\Content\LessonUpdateRequest;
-use App\Http\Requests\Admin\LessonUpdateGrammarPointRequest;
-use App\Http\Requests\Admin\LessonUploadImageRequest;
+use App\Http\Requests\Admin\Content\LessonUploadImageRequest;
 use App\Language;
 use App\Lesson;
-use App\LessonProperty;
 use App\Library\Sidebar;
 use App\Repositories\LanguageRepository;
-use App\Repositories\LessonPropertyRepository;
+use App\Repositories\LessonAssetRepository;
 use App\Repositories\LessonRepository;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -68,9 +67,9 @@ class LessonController extends Controller
                 'disabled'
             ])
             ->ordered()->get();
-        $data['image'] = LessonPropertyRepository::getImage($lesson, $lesson->content->language);
-        $data['grammar_point'] = LessonPropertyRepository::getGrammarPoint($lesson, $lesson->content->language);
-        $data['description'] = LessonPropertyRepository::getDescription($lesson, $lesson->content->language);
+        $data['image'] = LessonAssetRepository::getImage($lesson, $lesson->content->language);
+        $data['grammar_point'] = LessonAssetRepository::getGrammarPoint($lesson, $lesson->content->language);
+        $data['description'] = LessonAssetRepository::getDescription($lesson, $lesson->content->language);
 
         return view('admin.development.lessons.show')->with($data);
     }
@@ -145,7 +144,7 @@ class LessonController extends Controller
         $this->authorize('access', $lesson->content);
         $this->authorize('access', $language);
 
-        LessonPropertyRepository::uploadImage($lesson, $language, $request);
+        LessonAssetRepository::uploadImage($lesson, $language, $request);
 
         return back();
     }
@@ -159,7 +158,7 @@ class LessonController extends Controller
         $this->authorize('access', $lesson->content);
 
         $data['lesson'] = $lesson;
-        $data['grammar_point'] = LessonPropertyRepository::getGrammarPoint($lesson, $lesson->content->language);
+        $data['grammar_point'] = LessonAssetRepository::getGrammarPoint($lesson, $lesson->content->language);
 
         return view('admin.development.lessons.grammar')->with($data);
     }
@@ -174,7 +173,7 @@ class LessonController extends Controller
     {
         $this->authorize('access', $lesson->content);
 
-        LessonPropertyRepository::updateGrammarPoint($lesson, $lesson->content->language, $request);
+        LessonAssetRepository::updateGrammarPoint($lesson, $lesson->content->language, $request);
 
         return redirect()->route('admin.dev.lessons.show', $lesson)
             ->with('message', 'Grammar point has successfully been updated.');
@@ -189,7 +188,7 @@ class LessonController extends Controller
         $this->authorize('access', $lesson->content);
 
         $data['lesson'] = $lesson;
-        $data['description'] = LessonPropertyRepository::getDescription($lesson, $lesson->content->language);
+        $data['description'] = LessonAssetRepository::getDescription($lesson, $lesson->content->language);
 
         return view('admin.development.lessons.description')->with($data);
     }
@@ -204,7 +203,7 @@ class LessonController extends Controller
     {
         $this->authorize('access', $lesson->content);
 
-        LessonPropertyRepository::updateDescription($lesson, $lesson->content->language, $request);
+        LessonAssetRepository::updateDescription($lesson, $lesson->content->language, $request);
 
         return redirect()->route('admin.dev.lessons.show', $lesson)
             ->with('message', 'Description has successfully been updated.');
@@ -220,7 +219,7 @@ class LessonController extends Controller
     {
         $this->authorize('access', $lesson->content);
 
-        LessonPropertyRepository::deleteImage($lesson, $language);
+        LessonAssetRepository::deleteImage($lesson, $language);
 
         return back();
     }
