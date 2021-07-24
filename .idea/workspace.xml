@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_07_22_071404_rename_lesson_properties.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/LessonUploadImageRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/Content/LessonUploadImageRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/CommitContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/CommitContent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/LessonProperty.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LessonAsset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/LessonPropertyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/LessonAssetRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/LessonAssetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/LessonAssetRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +221,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
@@ -236,8 +230,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/resources/js/components" />
       <recent name="$PROJECT_DIR$/app/Library" />
@@ -504,7 +498,10 @@
       <workItem from="1626612183328" duration="506000" />
       <workItem from="1626614728297" duration="458000" />
       <workItem from="1626675947689" duration="361000" />
-      <workItem from="1626938009807" duration="641000" />
+      <workItem from="1626938009807" duration="859000" />
+      <workItem from="1626942777352" duration="628000" />
+      <workItem from="1626948880777" duration="351000" />
+      <workItem from="1627102410500" duration="1000000" />
     </task>
     <servers />
   </component>

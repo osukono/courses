@@ -10,6 +10,7 @@ use App\LessonAsset;
 use App\Library\Firebase;
 use App\Library\StrUtils;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class LessonAssetRepository
@@ -24,55 +25,86 @@ class LessonAssetRepository
     {
         $image = Firebase::getInstance()->uploadFile($request->file('image'), 'courses');
 
-        $lessonProperty = self::getOrCreate($lesson, $language);
-        $lessonProperty->image = $image;
-        $lessonProperty->save();
+        $asset = self::getOrCreate($lesson, $language);
+        $asset->image = $image;
+        $asset->save();
     }
 
+    /**
+     * @param Lesson $lesson
+     * @param Language $language
+     * @return mixed|string|null
+     */
     public static function getImage(Lesson $lesson, Language $language) {
-        $lessonProperty = self::getOrCreate($lesson, $language);
-        return $lessonProperty->image;
+        $asset = self::getOrCreate($lesson, $language);
+        return $asset->image;
     }
 
+    /**
+     * @param Lesson $lesson
+     * @param Language $language
+     */
     public static function deleteImage(Lesson $lesson, Language  $language) {
-        $lessonProperty = self::getOrCreate($lesson, $language);
-        $lessonProperty->image = null;
-        $lessonProperty->save();
+        $asset = self::getOrCreate($lesson, $language);
+        $asset->image = null;
+        $asset->save();
     }
 
+    /**
+     * @param Lesson $lesson
+     * @param Language $language
+     * @return mixed|string|null
+     */
     public static function getGrammarPoint(Lesson $lesson, Language $language) {
-        $lessonProperty = self::getOrCreate($lesson, $language);
-        return $lessonProperty->grammar_point;
+        $asset = self::getOrCreate($lesson, $language);
+        return $asset->grammar_point;
     }
 
+    /**
+     * @param Lesson $lesson
+     * @param Language $language
+     * @param Request $request
+     */
     public static function updateGrammarPoint(Lesson $lesson, Language $language, Request $request) {
-        $lessonProperty = self::getOrCreate($lesson, $language);
+        $asset = self::getOrCreate($lesson, $language);
 
         $grammar_point = StrUtils::deleteBetween('<p data-f-id="pbf"', '</p>', $request['grammar_point']);
 
-        $lessonProperty->grammar_point = $grammar_point == '' ? null : $grammar_point;
-        $lessonProperty->save();
+        $asset->grammar_point = $grammar_point == '' ? null : $grammar_point;
+        $asset->save();
     }
 
+    /**
+     * @param Lesson $lesson
+     * @param Language $language
+     * @return mixed|string|null
+     */
     public static function getDescription(Lesson $lesson, Language $language) {
-        $lessonProperty = self::getOrCreate($lesson, $language);
-        return $lessonProperty->description;
+        $asset = self::getOrCreate($lesson, $language);
+        return $asset->description;
     }
 
+    /**
+     * @param Lesson $lesson
+     * @param Language $language
+     * @param Request $request
+     */
     public static function updateDescription(Lesson $lesson, Language $language, Request $request) {
-        $lessonProperty = self::getOrCreate($lesson, $language);
+        $asset = self::getOrCreate($lesson, $language);
 
-        $lessonProperty->description = $request['description'];
-        $lessonProperty->save();
+        $asset->description = $request['description'];
+        $asset->save();
     }
 
+    /**
+     * @param Lesson $lesson
+     * @param Language $language
+     * @return LessonAsset|Model
+     */
     public static function getOrCreate(Lesson $lesson, Language $language) {
-        $lessonProperty = LessonAsset::whereLessonId($lesson->id)->whereLanguageId($language->id)->first();
-        if ($lessonProperty == null) {
-            $lessonProperty = new LessonAsset();
-            $lessonProperty->lesson()->associate($lesson);
-            $lessonProperty->language()->associate($language);
-        }
-        return $lessonProperty;
+        return LessonAsset::firstOrCreate([
+            'lesson_id' => $lesson->id,
+            'language_id' => $language->id,
+        ]);
     }
 }
