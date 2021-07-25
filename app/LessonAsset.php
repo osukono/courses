@@ -36,6 +36,11 @@ class LessonAsset extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'language_id',
+        'lesson_id',
+    ];
+
     /**
      * @return BelongsTo
      */
