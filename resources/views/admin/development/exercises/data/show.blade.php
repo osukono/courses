@@ -12,9 +12,10 @@
     <splitter value="{{ Arr::get($data->content, 'value') }}"></splitter>
 
     @isset($data->content['extra_chunks'])
-        <div class="h5">
+                <span class="text-secondary mr-3">Extra chunks:</span>
+        <div class="h5 d-inline">
         @foreach(preg_split('/,/', Arr::get($data->content, 'extra_chunks')) as $chunk)
-                <span class="badge rounded-pill bg-secondary text-light mr-2 px-2">
+                <span class="badge rounded-pill bg-light text-secondary mr-2 px-2">
             {{ trim($chunk) }}
         </span>
             @endforeach
@@ -22,7 +23,7 @@
         </div>
         @isset($data->content['capitalized_words'])
             <div>
-                <span class="text-secondary">Capitalized words:</span> {{ Arr::get($data->content, 'capitalized_words') }}
+                <span class="text-secondary mr-3">Capitalized words:</span>{{ Arr::get($data->content, 'capitalized_words') }}
             </div>
         @endisset
 

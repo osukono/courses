@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Imtigger\LaravelJobStatus\Trackable;
 
@@ -296,6 +297,12 @@ class CommitContent implements ShouldQueue
         $data['value'] = StrUtils::apostrophe($exerciseData->content['value']);
         $data['audio'] = $exerciseData->content['audio'];
         $data['duration'] = (int) $exerciseData->content['duration'];
+        if (isset($exerciseData['extra_chunks'])) {
+            $data['extra_chunks'] = $exerciseData['extra_chunks'];
+        }
+        if (isset($exerciseData['capitalized_words'])) {
+            $data['capitalized_words'] = $exerciseData['capitalized_words'];
+        }
 
         if ($exerciseData->translatable) {
             /** @var Translation $translation */

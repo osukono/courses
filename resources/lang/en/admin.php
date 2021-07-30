@@ -131,9 +131,10 @@ return [
             'dashboard' => 'Dashboard',
             'users' => 'Users'
         ],
-        'courses' => [
-            'header' => 'Courses',
-            'development' => 'Development',
+        'development' => [
+            'header' => 'Development',
+            'courses' => 'Courses',
+            'podcasts' => 'Podcasts',
             'production' => 'Production',
         ],
         'app' => [

@@ -1,4 +1,4 @@
-<div>
+<div class="mt-2">
     @isset($translation->content['audio'])
         @include('admin.components.audio.play', ['audio' => $translation->content['audio']])
     @endisset

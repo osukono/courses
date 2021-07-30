@@ -1,6 +1,7 @@
 <template>
 <div>
-    <h5>
+    <span class="text-secondary mr-3">Chunks:</span>
+    <h5 class="d-inline">
         <span class="badge rounded-pill bg-light text-secondary mr-2 px-2"
               v-for="part in parts">
             {{ part }}

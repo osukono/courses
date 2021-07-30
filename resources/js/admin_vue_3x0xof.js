@@ -60,6 +60,7 @@ import IconList from "./components/icons/IconList";
 import IconLogOut from "./components/icons/IconLogOut";
 import IconDownloadCloud from "./components/icons/IconDownloadCloud";
 import IconUploadCloud from "./components/icons/IconUploadCloud";
+import IconRadio from "./components/icons/IconRadio";
 
 /**
  * Development
@@ -115,6 +116,7 @@ new Vue({
         'icon-log-out': IconLogOut,
         'icon-download-cloud': IconDownloadCloud,
         'icon-upload-cloud': IconUploadCloud,
+        'icon-radio': IconRadio,
         'splitter': Splitter,
     }
 });

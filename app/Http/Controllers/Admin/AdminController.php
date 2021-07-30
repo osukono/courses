@@ -39,6 +39,7 @@ class AdminController extends Controller
 
         $data['courses_count'] = CourseRepository::all()->where('uploaded_at', '!=', null)->count();
 
+        //ToDo: created_at == updated_at?
         $data['devActivity'] =
             ExerciseData::whereRaw('(updated_at >= DATE(NOW()) - INTERVAL 1 MONTH) OR (created_at >= DATE(NOW()) - INTERVAL 1 MONTH)')->count() +
             Translation::whereRaw('(updated_at >= DATE(NOW()) - INTERVAL 1 MONTH) OR (created_at >= DATE(NOW()) - INTERVAL 1 MONTH)')->count();

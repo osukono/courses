@@ -25,7 +25,7 @@ class ExerciseController extends Controller
 {
     public function __construct()
     {
-        View::share('current', Sidebar::development);
+        View::share('current', Sidebar::courses);
     }
 
     /**

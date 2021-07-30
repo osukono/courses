@@ -41,13 +41,22 @@
         </ul>
 
         <ul class="list-unstyled">
-            <p>{{ __('admin.menu.courses.header') }}</p>
+            <p>{{ __('admin.menu.development.header') }}</p>
             @can(\App\Library\Permissions::view_content)
                 <li>
-                    <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::development) }}"
+                    <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::courses) }}"
                        href="{{ route('admin.dev.courses.index') }}">
                         <icon-book-open></icon-book-open>
-                        <div class="link">{{ __('admin.menu.courses.development') }}</div>
+                        <div class="link">{{ __('admin.menu.development.courses') }}</div>
+                    </a>
+                </li>
+            @endcan
+            @can(\App\Library\Permissions::view_podcasts)
+                <li>
+                    <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::podcasts) }}"
+                       href="{{ route('admin.dev.podcasts.index') }}">
+                        <icon-radio></icon-radio>
+                        <div class="link">{{ __('admin.menu.development.podcasts') }}</div>
                     </a>
                 </li>
             @endcan
@@ -56,7 +65,7 @@
                     <a class="{{ active_menu($current ?? null, \App\Library\Sidebar::production) }}"
                        href="{{ route('admin.courses.index') }}">
                         <icon-book></icon-book>
-                        <div class="link">{{ __('admin.menu.courses.production') }}</div>
+                        <div class="link">{{ __('admin.menu.development.production') }}</div>
                     </a>
                 </li>
             @endcan

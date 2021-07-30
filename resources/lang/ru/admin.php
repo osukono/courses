@@ -17,9 +17,10 @@ return [
             'dashboard' => 'Статистика',
             'users' => 'Пользователи'
         ],
-        'courses' => [
-            'header' => 'Курсы',
-            'development' => 'Разработка',
+        'development' => [
+            'header' => 'Разработка',
+            'courses' => 'Курсы',
+            'podcasts' => 'Подкасты',
             'production' => 'Опубликованные',
         ],
         'app' => [

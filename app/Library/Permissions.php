@@ -17,6 +17,10 @@ class Permissions
     public const delete_content = 'delete content';
     public const restore_content = 'restore content';
 
+    public const view_podcasts = 'view podcasts';
+    public const create_podcasts = 'create podcasts';
+    public const update_podcasts = 'update podcasts';
+
     public const view_translations = 'view translations';
     public const create_translations = 'create translations'; //redundant
     public const update_translations = 'update translations';
