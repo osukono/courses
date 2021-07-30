@@ -5,34 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PodcastController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/icons/IconRadio.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/courses.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/courses.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExerciseDataController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LessonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TranslationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Jobs/CommitContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/CommitContent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Library/Permissions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/Permissions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Library/Sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/Sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/FirebaseCourseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/FirebaseCourseRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin_3x0xof.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin_3x0xof.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_3x0xof.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin_vue_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_vue_3x0xof.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin_vue_3x0xof.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin_vue_3x0xof.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Splitter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Splitter.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/exercises/data/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/exercises/data/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,6 +209,10 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
       <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
       <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/league/config" />
+      <path value="$PROJECT_DIR$/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
     </include_path>
   </component>
   <component name="ProjectId" id="1SmXnrlxWgMWYX7CuC72XGd0KzX" />
@@ -537,7 +518,8 @@
       <workItem from="1627454965709" duration="1079000" />
       <workItem from="1627457173129" duration="202000" />
       <workItem from="1627637569860" duration="1356000" />
-      <workItem from="1627640819677" duration="753000" />
+      <workItem from="1627640819677" duration="1073000" />
+      <workItem from="1627646734683" duration="354000" />
     </task>
     <servers />
   </component>
