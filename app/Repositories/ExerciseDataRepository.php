@@ -107,7 +107,7 @@ class ExerciseDataRepository
     public function updateAudioDuration()
     {
         if (isset($this->model->content['audio'])) {
-            $duration = Audio::length(Storage::url($this->model->content['audio']));
+            $duration = Audio::duration(Storage::url($this->model->content['audio']));
             $this->model->update(['content->duration' => $duration]);
         }
     }

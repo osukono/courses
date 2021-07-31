@@ -68,7 +68,7 @@ class FirebaseCourseRepository
      * @param bool $is_updating
      * @throws Exception
      */
-    public static function setIsUpdating(Course $course, $is_updating = true)
+    public static function setIsUpdating(Course $course, bool $is_updating = true)
     {
         FirebaseCourseRepository::validateFirestoreID($course);
 
