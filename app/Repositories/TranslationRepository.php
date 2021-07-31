@@ -94,7 +94,7 @@ class TranslationRepository
             $speechSettings, StrUtils::toPlainText($this->model->content['value']));
 
         // It is important file names do not contain dashes.
-        $path = \Illuminate\Support\Str::random(42) . '.wav'; //wav, opus
+        $path = \Illuminate\Support\Str::random(42) . '.opus'; //wav, opus
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->audio' => $path]);
             $this->updateAudioDuration();
