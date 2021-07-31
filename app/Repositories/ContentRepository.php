@@ -176,7 +176,7 @@ class ContentRepository
             'lessons.exercises.exerciseData.translations.language'
         ]);
 
-        $content['title'] = isset($this->model->title) ? $this->model->title : (string)$this->model;
+        $content['title'] = $this->model->title ?? (string)$this->model;
         $content['language'] = $this->model->language->code;
         $content['level'] = $this->model->level->scale;
         $content['topic'] = $this->model->topic->identifier;

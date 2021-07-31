@@ -126,9 +126,10 @@ class ExerciseDataRepository
         $audioContent = TextToSpeech::synthesizeSpeech(
             $speechSettings, StrUtils::toPlainText($this->model->content['value']));
 
-        // It is important file names do not contain dashes.
+        // It is important that file names do not contain dashes.
         $path = \Illuminate\Support\Str::random(42) . '.opus';
         if (Storage::put($path, $audioContent)) {
+            sleep(1);
             $this->model->update(['content->audio' => $path]);
             $this->updateAudioDuration();
         }
