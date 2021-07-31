@@ -18,7 +18,7 @@ class SpeechSettingsController extends Controller
 {
     public function __construct()
     {
-        \Illuminate\Support\Facades\View::share('current', Sidebar::development);
+        \Illuminate\Support\Facades\View::share('current', Sidebar::courses);
     }
 
     /**
