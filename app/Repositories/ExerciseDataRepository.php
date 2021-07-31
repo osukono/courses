@@ -129,7 +129,6 @@ class ExerciseDataRepository
         // It is important that file names do not contain dashes.
         $path = \Illuminate\Support\Str::random(42) . '.opus';
         if (Storage::put($path, $audioContent)) {
-            sleep(1);
             $this->model->update(['content->audio' => $path]);
             $this->updateAudioDuration();
         }
