@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Log;
 class Audio
 {
     public static function duration($audio) {
+        Log::debug(exec("sox " . $audio . " -n stat 2>&1"));
         $output = exec("sox " . $audio . " -n stat 2>&1 | sed -n 's#^Length (seconds):[^0-9]*\([0-9.]*\).*$#\\1#p'");
         Log::debug($output);
 
