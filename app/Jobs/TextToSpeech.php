@@ -22,6 +22,11 @@ class TextToSpeech implements ShouldQueue
     private Language $language;
 
     /**
+     * @var int
+     */
+    public $timeout = 600;
+
+    /**
      * Create a new job instance.
      *
      * @return void
