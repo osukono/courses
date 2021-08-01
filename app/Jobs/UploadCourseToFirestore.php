@@ -22,6 +22,8 @@ class UploadCourseToFirestore implements ShouldQueue
 
     private Course $course;
 
+    public int $timeout = 600;
+
     /**
      * Create a new job instance.
      *

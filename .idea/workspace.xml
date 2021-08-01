@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Jobs/TextToSpeech.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/TextToSpeech.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/queue.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/queue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/UploadCourseToFirestore.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/UploadCourseToFirestore.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -520,7 +519,7 @@
       <workItem from="1627646734683" duration="597000" />
       <workItem from="1627727842054" duration="65000" />
       <workItem from="1627728057489" duration="11171000" />
-      <workItem from="1627809718123" duration="426000" />
+      <workItem from="1627809718123" duration="694000" />
     </task>
     <servers />
   </component>
