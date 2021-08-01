@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\Content\LessonUpdateGrammarPointRequest;
 use App\Http\Requests\Admin\Content\RemoveEditorRequest;
 use App\Http\Requests\Admin\Content\TranslationUpdateRequest;
 use App\Jobs\CommitContent;
+use App\Jobs\TextToSpeech;
 use App\Language;
 use App\Lesson;
 use App\LessonAsset;
@@ -338,7 +339,7 @@ class TranslationController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function synthesizeAudio(Translation $translation)
+    public function synthesizeDataAudio(Translation $translation)
     {
         $this->authorize('access', $translation->exerciseData->exercise->lesson->content);
         $this->authorize('access', $translation->language);
@@ -350,6 +351,22 @@ class TranslationController extends Controller
         }
 
         return back()->with('message', __('admin.messages.audio.synthesized'));
+    }
+
+    /**
+     * @param Content $content
+     * @param Language $language
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function synthesizeCourseAudio(Content $content, Language $language)
+    {
+        $this->authorize('access', $content);
+        $this->authorize('access', $language);
+
+        $this->dispatchJob(new TextToSpeech($content, $language), route('admin.translations.show', [$language, $content]));
+
+        return redirect()->route('admin.translations.show', [$language, $content]);
     }
 
     /**

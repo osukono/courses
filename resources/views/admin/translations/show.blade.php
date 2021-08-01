@@ -46,6 +46,17 @@
             </v-dropdown-group>
 
             <v-dropdown-group>
+                <v-dropdown-modal label="Synthesize Audio"
+                                  modal="content-{{ $content->id }}-language-{{ $language->id }}-modal-synthesize"
+                                  visiable="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
+                    @push('forms')
+                        <form class="d-none" id="content-{{ $content->id }}-language-{{ $language->id }}-synthesize"
+                              action="{{ route('admin.translations.course.audio.synthesize', [$content, $language]) }}"
+                              method="post">
+                            @csrf
+                        </form>
+                    @endpush
+                </v-dropdown-modal>
                 <v-dropdown-item label="{{ __('admin.dev.lessons.trans.toolbar.more.commit') }}" submit="#commit"
                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
                     @push('forms')
@@ -74,4 +85,6 @@
             </div>
         </div>
     @endif
+
+    @include('admin.components.modals.confirmation', ['id' => 'content-' . $content->id . '-language-' . $language->id . '-modal-synthesize', 'title' => 'Do you want to synthesize the audio for ' . $content . ' - ' . $language . ' translation?', 'form' =>  'content-' . $content->id . '-language-' . $language->id . '-synthesize', 'action' => 'Synthesize'])
 @endsection

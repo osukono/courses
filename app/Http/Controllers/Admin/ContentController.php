@@ -9,7 +9,9 @@ use App\Http\Requests\Admin\Content\ContentCreateRequest;
 use App\Http\Requests\Admin\Content\ContentRestoreRequest;
 use App\Http\Requests\Admin\Content\ContentUpdateRequest;
 use App\Http\Requests\Admin\Content\RemoveEditorRequest;
+use App\Jobs\CommitContent;
 use App\Jobs\ImportContent;
+use App\Jobs\TextToSpeech;
 use App\Library\Permissions;
 use App\Library\Sidebar;
 use App\Repositories\ContentRepository;
@@ -123,6 +125,20 @@ class ContentController extends Controller
         $this->authorize('access', $content);
 
         $content->repository()->update($request->all());
+
+        return redirect()->route('admin.dev.courses.show', $content);
+    }
+
+    /**
+     * @param Content $content
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
+    public function synthesizeAudio(Content $content)
+    {
+        $this->authorize('access', $content);
+
+        $this->dispatchJob(new TextToSpeech($content, $content->language), route('admin.dev.courses.show', $content));
 
         return redirect()->route('admin.dev.courses.show', $content);
     }

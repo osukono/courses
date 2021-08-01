@@ -39,7 +39,7 @@
                                 Text to Speech
                             </a>
                             <form id="translation-{{ $data->translations->first()->id }}-synthesize" class="d-none"
-                                  action="{{ route('admin.translations.audio.synthesize', $data->translations->first()) }}"
+                                  action="{{ route('admin.translations.data.audio.synthesize', $data->translations->first()) }}"
                                   method="post">
                                 @method('patch')
                                 @csrf

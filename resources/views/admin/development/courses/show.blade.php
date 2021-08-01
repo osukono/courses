@@ -39,7 +39,7 @@
 
             <v-dropdown-group header="{{ __('admin.dev.lessons.toolbar.more.export.title') }}">
                 <v-dropdown-item label="{{ $content->language->native}}"
-                                 route="{{ route('admin.dev.courses..export', $content) }}">
+                                 route="{{ route('admin.dev.courses.export', $content) }}">
                 </v-dropdown-item>
                 <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.export.backup') }}"
                                  route="{{ route('admin.dev.courses.export.json', $content) }}"
@@ -77,6 +77,17 @@
             </v-dropdown-group>
 
             <v-dropdown-group>
+                <v-dropdown-modal label="Synthesize Audio"
+                                  modal="content-{{ $content->id }}-modal-synthesize"
+                                  visiable="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                    @push('forms')
+                        <form class="d-none" id="content-{{ $content->id }}-synthesize"
+                              action="{{ route('admin.dev.courses.audio.synthesize', $content) }}"
+                              method="post">
+                            @csrf
+                        </form>
+                    @endpush
+                </v-dropdown-modal>
                 <v-dropdown-modal label="{{ __('admin.dev.lessons.toolbar.more.delete') }}"
                                   modal="content-{{ $content->id }}-modal-delete"
                                   visible="{{ Auth::getUser()->can(\App\Library\Permissions::delete_content) }}">
@@ -109,4 +120,5 @@
     @endif
 
     @include('admin.components.modals.confirmation', ['id' => 'content-' . $content->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $content]), 'form' =>  'content-' . $content->id . '-delete', 'action' => 'Delete'])
+    @include('admin.components.modals.confirmation', ['id' => 'content-' . $content->id . '-modal-synthesize', 'title' => 'Do you want to synthesize the audio for ' . $content . '?', 'form' =>  'content-' . $content->id . '-synthesize', 'action' => 'Synthesize'])
 @endsection

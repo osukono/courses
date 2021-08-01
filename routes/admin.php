@@ -41,6 +41,9 @@ Route::group([
 
                 Route::patch('dev/courses/{content}', 'ContentController@update')
                     ->name('admin.dev.courses.update');
+
+                Route::post('dev/courses/{content}/audio/synthesize', 'ContentController@synthesizeAudio')
+                    ->name('admin.dev.courses.audio.synthesize');
             });
             Route::middleware('permission:' . Permissions::restore_content)->group(function () {
                 Route::get('dev/courses/trash', 'ContentController@trash')
@@ -60,7 +63,7 @@ Route::group([
                     ->name('admin.dev.courses.log');
 
                 Route::get('dev/courses/{content}/export', 'ContentController@exportText')
-                    ->name('admin.dev.courses..export');
+                    ->name('admin.dev.courses.export');
 
                 Route::get('dev/courses/{content}/export/json', 'ContentController@exportJson')
                     ->name('admin.dev.courses.export.json');
@@ -243,8 +246,11 @@ Route::group([
                 Route::patch('dev/courses/trans/{translation}', 'TranslationController@update')
                     ->name('admin.translations.exercise.data.update');
 
-                Route::patch('dev/courses/trans/{translation}/audio/synthesize', 'TranslationController@synthesizeAudio')
-                    ->name('admin.translations.audio.synthesize');
+                Route::patch('dev/courses/trans/{translation}/audio/synthesize', 'TranslationController@synthesizeDataAudio')
+                    ->name('admin.translations.data.audio.synthesize');
+
+                Route::post('dev/courses/{content}/trans/{language}/audio/synthesize', 'TranslationController@synthesizeCourseAudio')
+                    ->name('admin.translations.course.audio.synthesize');
 
                 Route::patch('dev/courses/trans/{translation}/audio/delete', 'TranslationController@deleteAudio')
                     ->name('admin.translations.audio.delete');

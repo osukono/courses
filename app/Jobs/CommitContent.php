@@ -50,7 +50,7 @@ class CommitContent implements ShouldQueue
 
     public function getDisplayName()
     {
-        return "Committing content to courses.";
+        return "Committing...";
     }
 
     /**
@@ -77,8 +77,7 @@ class CommitContent implements ShouldQueue
             },
             'lessons.exercises.exerciseData.translations' => function (HasMany $query) {
                 $query->where('language_id', $this->translation->id);
-            }
-
+            },
         ]);
 
         $this->setProgressMax($this->content->lessons->count() * 2);
