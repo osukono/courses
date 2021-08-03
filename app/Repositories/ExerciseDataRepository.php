@@ -73,6 +73,11 @@ class ExerciseDataRepository
         else
             $content['value'] = $attributes['value'];
 
+        if (empty($attributes['chunks']))
+            unset($content['chunks']);
+        else
+            $content['chunks'] = $attributes['chunks'];
+
         if (empty($attributes['extra_chunks']))
             unset($content['extra_chunks']);
         else

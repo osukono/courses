@@ -7,25 +7,37 @@
     @endisset
     {!! \App\Library\StrUtils::normalize(Arr::get($data->content, 'value')) !!}
 
-        @can(\App\Library\Permissions::update_content)
+    @can(\App\Library\Permissions::update_content)
 
-    <splitter value="{{ Arr::get($data->content, 'value') }}"></splitter>
+        @if(Arr::has($data->content, 'chunks'))
+            <div>
+                <span class="text-secondary mr-3">Chunks:</span>
+                <h5 class="d-inline">
+                    @foreach(\App\Library\StrUtils::splitChunks(Arr::get($data->content, 'chunks')) as $chunk)
+                        <span class="badge rounded-pill bg-light text-secondary mr-2 px-2">{{ $chunk }}</span>
+                    @endforeach
+                </h5>
+            </div>
+        @endif
 
-    @isset($data->content['extra_chunks'])
+        {{--    <splitter value="{{ Arr::get($data->content, 'value') }}"></splitter>--}}
+
+        @isset($data->content['extra_chunks'])
+            <div>
                 <span class="text-secondary mr-3">Extra chunks:</span>
-        <div class="h5 d-inline">
-        @foreach(preg_split('/,/', Arr::get($data->content, 'extra_chunks')) as $chunk)
-                <span class="badge rounded-pill bg-light text-secondary mr-2 px-2">
-            {{ trim($chunk) }}
-        </span>
-            @endforeach
+                <div class="h5 d-inline">
+                    @foreach(\App\Library\StrUtils::splitExtraChunks(Arr::get($data->content, 'extra_chunks')) as $chunk)
+                        <span class="badge rounded-pill bg-light text-secondary mr-2 px-2">{{ $chunk }}</span>
+                    @endforeach
+                </div>
+            </div>
         @endisset
-        </div>
         @isset($data->content['capitalized_words'])
             <div>
-                <span class="text-secondary mr-3">Capitalized words:</span>{{ Arr::get($data->content, 'capitalized_words') }}
+                    <span
+                        class="text-secondary mr-3">Capitalized words:</span>{{ Arr::get($data->content, 'capitalized_words') }}
             </div>
         @endisset
 
-            @endcan
+    @endcan
 </div>

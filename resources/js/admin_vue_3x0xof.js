@@ -65,7 +65,7 @@ import IconRadio from "./components/icons/IconRadio";
 /**
  * Development
  */
-import Splitter from "./components/Splitter";
+// import Splitter from "./components/Splitter";
 
 
 /**
@@ -117,6 +117,6 @@ new Vue({
         'icon-download-cloud': IconDownloadCloud,
         'icon-upload-cloud': IconUploadCloud,
         'icon-radio': IconRadio,
-        'splitter': Splitter,
+        // 'splitter': Splitter,
     }
 });
