@@ -4,7 +4,7 @@
     @csrf
 
     @input(['name' => 'value', 'label' => '', 'default' => Arr::get($data->content, 'value'), 'autofocus' => true, 'lg' => true])
-    @input(['name' => 'chunks', 'label' => '', 'default' => Arr::get($data->content, 'chunks'), 'lg' => false, 'helper' => 'Chunks (separated with square brackets) e.g. [I] [am] [American.]', 'lg' => true])
+    @input(['name' => 'chunks', 'label' => '', 'default' => Arr::get($data->content, 'chunks'), 'lg' => false, 'helper' => 'Chunks (separated with vertical bar) e.g. I | am | American.', 'lg' => true])
     @input(['name' => 'extra_chunks', 'label' => '', 'default' => Arr::get($data->content, 'extra_chunks'), 'lg' => false, 'helper' => 'Extra chunks (separated with comma) e.g. on, at, the'])
     @input(['name' => 'capitalized_words', 'label' => '', 'default' => Arr::get($data->content, 'capitalized_words'), 'lg' => false, 'helper' => 'List of capitalized words (separated with comma)'])
 
