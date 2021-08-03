@@ -9,7 +9,8 @@ use function Aws\map;
 class StrUtils
 {
     public static function splitChunks(string $str) {
-        return preg_split('/\[(.*?)\] ?/', $str, -1,  PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+//        return preg_split('/\[(.*?)\] ?/', $str, -1,  PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+        return array_map('trim', preg_split('/\|/', $str));
     }
 
     public static function splitExtraChunks(string $str) : array {
