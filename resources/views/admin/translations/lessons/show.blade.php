@@ -126,7 +126,7 @@
                             {!! \App\Library\StrUtils::normalize(nl2br($description)) !!}
                         @else
                             @can(\App\Library\Permissions::update_translations)
-                                <div class="btn btn-sm btn-info">Add Description</div>
+                                <div class="btn btn-sm btn-info">Description</div>
                             @endcan
                         @endisset
                     </div>
@@ -140,7 +140,7 @@
                             {!! $grammar_point !!}
                         @else
                             @can(\App\Library\Permissions::update_translations)
-                            <div class="btn btn-sm btn-info">Add Grammar Point</div>
+                            <div class="btn btn-sm btn-info">Grammar Point</div>
                             @endcan
                         @endisset
                     </div>

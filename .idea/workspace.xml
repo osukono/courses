@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Library/StrUtils.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Library/StrUtils.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -518,7 +519,7 @@
       <workItem from="1627646734683" duration="597000" />
       <workItem from="1627727842054" duration="65000" />
       <workItem from="1627728057489" duration="11171000" />
-      <workItem from="1627809718123" duration="5140000" />
+      <workItem from="1627809718123" duration="5614000" />
     </task>
     <servers />
   </component>
