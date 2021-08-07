@@ -12,8 +12,12 @@
         @endempty
     </tr>
     </thead>
-    <tbody id="{{ can(\App\Library\Permissions::update_content, 'sortable') }}"
-           data-route="{{ route('admin.dev.exercise.data.move') }}">
+    <tbody
+        @if(isset($editData) == false)
+        id="{{ can(\App\Library\Permissions::update_content, 'sortable') }}"
+        data-route="{{ route('admin.dev.exercise.data.move') }}"
+        @endif
+    >
     @foreach($exerciseData as $data)
         @if(isset($editData) && $data->id == $editData->id)
             <tr>
@@ -22,7 +26,11 @@
                 </td>
             </tr>
         @else
-            <tr data-sortable="{{ $data->id }}">
+            <tr
+                @if(isset($editData) == false)
+                data-sortable="{{ $data->id }}"
+                @endif
+            >
                 <td
                     @can(\App\Library\Permissions::update_content)
                     class="clickable-row"
@@ -41,7 +49,8 @@
                                     Text to Speech
                                 </a>
                                 <form id="data-{{ $data->id }}-synthesize" class="d-none"
-                                      action="{{ route('admin.dev.exercise.data.audio.synthesize', $data) }}" method="post">
+                                      action="{{ route('admin.dev.exercise.data.audio.synthesize', $data) }}"
+                                      method="post">
                                     @method('patch')
                                     @csrf
                                 </form>

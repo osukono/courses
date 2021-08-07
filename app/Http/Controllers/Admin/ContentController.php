@@ -43,6 +43,7 @@ class ContentController extends Controller
      */
     public function index()
     {
+        //ToDo: do not count disabled lessons
         $data['contents'] = ContentRepository::all()
             ->with(['language', 'level', 'topic'])
             ->hasAccess(Auth::user())
@@ -91,10 +92,16 @@ class ContentController extends Controller
             ->hasAccess(Auth::getUser())
             ->whereNotIn('id', [$content->language->id])
             ->ordered()->get();
+        //ToDo: do not count disabled exercises
         $data['lessons'] = $content->lessons()
             ->with('disabled')
             ->withCount('exercises')
             ->ordered()->get();
+//        $data['contents'] = ContentRepository::all()
+//            ->hasAccess(Auth::getUser())
+//            ->whereNotIn('id', [$content->id])
+//            ->where('language_id', '=', $content->language->id)
+//            ->ordered()->get();
 
         return view('admin.development.courses.show')->with($data);
     }
