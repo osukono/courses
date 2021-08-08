@@ -101,7 +101,7 @@ class ExerciseDataRepository
      */
     public function updateAudio(Request $request)
     {
-        //ToDo: does not set ios audio
+        //ToDo: separate ios and android audio
         if ($request->has('audio')) {
             $audio = $request->file('audio')->store('');
             $this->model->update(['content->audio' => $audio]);
