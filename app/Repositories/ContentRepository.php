@@ -124,16 +124,21 @@ class ContentRepository
 
         $data = "";
 
-        foreach ($content['lessons'] as $lessonKey => $lesson) {
-            $data .= $lesson['title'] . PHP_EOL . PHP_EOL;
+        foreach ($content['lessons'] as $lessonIndex => $lesson) {
+            $data .= str_pad(($lessonIndex + 1), 2, '0', STR_PAD_LEFT) .
+                '. ' . strtoupper($lesson['title']) . PHP_EOL . PHP_EOL;
 
-            foreach ($lesson['exercises'] as $exerciseKey => $exercise) {
+            foreach ($lesson['exercises'] as $exerciseIndex => $exercise) {
                 if (!isset($exercise['data']))
                     continue;
 
-                foreach ($exercise['data'] as $fieldKey => $field) {
-                    if ($withTarget && isset($field['content']['value']))
+                foreach ($exercise['data'] as $dataIndex => $field) {
+                    if ($withTarget && isset($field['content']['value'])) {
                         $data .= StrUtils::toPlainText($field['content']['value']) . PHP_EOL;
+                        if (isset($field['content']['chunks'])) {
+                            $data .= $field['content']['chunks'] . PHP_EOL;
+                        }
+                    }
 
                     if ($language != null && isset($field['translations'])) {
                         foreach ($field['translations'] as $translation)
