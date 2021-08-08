@@ -22,7 +22,7 @@ class TextToSpeech
      * @throws ApiException
      * @throws ValidationException
      */
-    public static function synthesizeSpeech(SpeechSettings $speechSettings, $text)
+    public static function synthesizeSpeech(SpeechSettings $speechSettings, $text, $encoding)
     {
         // instantiates a client
         $client = new TextToSpeechClient([
@@ -53,7 +53,7 @@ class TextToSpeech
         // select the type of audio file you want returned
         $audioConfig = (new AudioConfig())
             ->setAudioEncoding(AudioEncoding::OGG_OPUS)
-            //->setSampleRateHertz($speechSettings->sample_rate)
+            ->setSampleRateHertz($speechSettings->sample_rate)
             ->setSpeakingRate($speechSettings->speaking_rate)
             ->setPitch($speechSettings->pitch)
             //https://cloud.google.com/text-to-speech/docs/audio-profiles

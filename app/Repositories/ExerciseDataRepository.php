@@ -13,6 +13,7 @@ use App\Library\TextToSpeech;
 use Exception;
 use Google\ApiCore\ApiException;
 use Google\ApiCore\ValidationException;
+use Google\Cloud\TextToSpeech\V1\AudioEncoding;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
@@ -100,20 +101,19 @@ class ExerciseDataRepository
      */
     public function updateAudio(Request $request)
     {
+        //ToDo: does not set ios audio
         if ($request->has('audio')) {
             $audio = $request->file('audio')->store('');
             $this->model->update(['content->audio' => $audio]);
             $this->model->update(['content->duration' => (int) $request->get('duration')]);
-
-//            $this->updateAudioDuration();
         }
     }
 
-    public function updateAudioDuration()
+    private function updateAudioDuration($audioKey, $durationKey)
     {
-        if (isset($this->model->content['audio'])) {
-            $duration = Audio::duration(Storage::url($this->model->content['audio']));
-            $this->model->update(['content->duration' => $duration]);
+        if (isset($this->model->content[$audioKey])) {
+            $duration = Audio::duration(Storage::url($this->model->content[$audioKey]));
+            $this->model->update(['content->' . $durationKey => $duration]);
         }
     }
 
@@ -128,14 +128,26 @@ class ExerciseDataRepository
         if ($speechSettings == null)
             throw new Exception('Speech Settings are not set.');
 
+        $this->synthesizeAudioFor($speechSettings, 'audio', 'duration',
+            AudioEncoding::OGG_OPUS, '.opus');
+
+        $this->synthesizeAudioFor($speechSettings, 'audio_ios', 'duration_ios',
+            AudioEncoding::LINEAR16, '.wav');
+    }
+
+    /**
+     * @throws ApiException
+     * @throws ValidationException
+     */
+    private function synthesizeAudioFor($speechSettings, $audioKey, $durationKey, $encoding, $extension) {
         $audioContent = TextToSpeech::synthesizeSpeech(
-            $speechSettings, StrUtils::toPlainText($this->model->content['value']));
+            $speechSettings, StrUtils::toPlainText($this->model->content['value']), $encoding);
 
         // It is important that file names do not contain dashes.
-        $path = \Illuminate\Support\Str::random(42) . '.opus';
+        $path = \Illuminate\Support\Str::random(42) . $extension;
         if (Storage::put($path, $audioContent)) {
-            $this->model->update(['content->audio' => $path]);
-            $this->updateAudioDuration();
+            $this->model->update(['content->' . $audioKey => $path]);
+            $this->updateAudioDuration($audioKey, $durationKey);
         }
     }
 
