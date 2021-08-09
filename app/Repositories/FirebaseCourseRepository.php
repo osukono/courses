@@ -163,6 +163,8 @@ class FirebaseCourseRepository
                     $data['c_value'] = $exerciseData['value'];
                     $data['c_audio'] = $exerciseData['audio'];
                     $data['c_duration'] = (int) $exerciseData['duration'];
+                    $data['c_linear_audio'] = $exerciseData['linear_audio'];
+                    $data['c_linear_duration'] = $exerciseData['linear_duration'];
                     if (isset($exerciseData['extra_chunks']))
                         $data['c_extra_chunks'] = $exerciseData['extra_chunks'];
                     if (isset($exerciseData['capitalized_words']))
@@ -171,6 +173,8 @@ class FirebaseCourseRepository
                         $data['t_value'] = $exerciseData['translation']['value'];
                         $data['t_audio'] = $exerciseData['translation']['audio'];
                         $data['t_duration'] = (int) $exerciseData['translation']['duration'];
+                        $data['t_linear_audio'] = $exerciseData['translation']['linear_audio'];
+                        $data['t_linear_duration'] = $exerciseData['translation']['linear_duration'];
                     }
                     $dataArray[] = $data;
                 }

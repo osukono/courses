@@ -212,6 +212,16 @@ class CommitContent implements ShouldQueue
             $valid = false;
         }
 
+        if (!isset($content['linear_audio'])) {
+            $this->messages[] = $current . " doesn't have a linear audio.";
+            $valid = false;
+        }
+
+        if (!isset($content['linear_duration']) or $content['linear_duration'] == 0) {
+            $this->messages[] = $current . " doesn't have a linear audio duration.";
+            $valid = false;
+        }
+
         return $valid;
     }
 
@@ -296,6 +306,8 @@ class CommitContent implements ShouldQueue
         $data['value'] = StrUtils::apostrophe($exerciseData->content['value']);
         $data['audio'] = $exerciseData->content['audio'];
         $data['duration'] = (int) $exerciseData->content['duration'];
+        $data['linear_audio'] = $exerciseData->content['linear_audio'];
+        $data['linear_duration'] = $exerciseData->content['linear_duration'];
         if (isset($exerciseData->content['extra_chunks'])) {
             $data['extra_chunks'] = $exerciseData->content['extra_chunks'];
         }
@@ -310,6 +322,8 @@ class CommitContent implements ShouldQueue
             $data['translation']['value'] = StrUtils::apostrophe($translation->content['value']);
             $data['translation']['audio'] = $translation->content['audio'];
             $data['translation']['duration'] = (int) $translation->content['duration'];
+            $data['translation']['linear_audio'] = $translation->content['linear_audio'];
+            $data['translation']['linear_duration'] = $translation->content['linear_duration'];
         }
 
         return $data;
