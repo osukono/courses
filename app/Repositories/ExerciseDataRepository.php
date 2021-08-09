@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ExerciseDataRepository
 {
@@ -124,14 +125,15 @@ class ExerciseDataRepository
      */
     public function synthesizeAudio()
     {
-        $speechSettings  = SpeechSettingsRepository::find($this->model->exercise->lesson->content, $this->model->exercise->lesson->content->language);
+        $speechSettings  = SpeechSettingsRepository::find($this->model->exercise->lesson->content,
+            $this->model->exercise->lesson->content->language);
         if ($speechSettings == null)
             throw new Exception('Speech Settings are not set.');
 
         $this->synthesizeAudioFor($speechSettings, 'audio', 'duration',
             AudioEncoding::OGG_OPUS, '.opus');
 
-        $this->synthesizeAudioFor($speechSettings, 'audio_ios', 'duration_ios',
+        $this->synthesizeAudioFor($speechSettings, 'linear_audio', 'linear_duration',
             AudioEncoding::LINEAR16, '.wav');
     }
 
@@ -143,8 +145,7 @@ class ExerciseDataRepository
         $audioContent = TextToSpeech::synthesizeSpeech(
             $speechSettings, StrUtils::toPlainText($this->model->content['value']), $encoding);
 
-        // It is important that file names do not contain dashes.
-        $path = \Illuminate\Support\Str::random(42) . $extension;
+        $path = Str::random(42) . $extension;
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->' . $audioKey => $path]);
             $this->updateAudioDuration($audioKey, $durationKey);

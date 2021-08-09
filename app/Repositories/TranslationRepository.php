@@ -16,6 +16,7 @@ use Google\ApiCore\ValidationException;
 use Google\Cloud\TextToSpeech\V1\AudioEncoding;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class TranslationRepository
 {
@@ -71,7 +72,7 @@ class TranslationRepository
         }
     }
 
-    public function updateAudioDuration($audioKey, $durationKey)
+    private function updateAudioDuration($audioKey, $durationKey)
     {
         if (isset($this->model->content[$audioKey])) {
             $duration = Audio::duration(Storage::url($this->model->content[$audioKey]));
@@ -82,18 +83,19 @@ class TranslationRepository
     /**
      * @throws ApiException
      * @throws ValidationException
+     * @throws Exception
      */
     public function synthesizeAudio()
     {
         $speechSettings = SpeechSettingsRepository::find($this->model->exerciseData->exercise->lesson->content,
             $this->model->language);
-
         if ($speechSettings == null)
             throw new Exception('Speech Settings are not set.');
 
         $this->synthesizeAudioFor($speechSettings, 'audio', 'duration',
         AudioEncoding::OGG_OPUS, '.opus');
-        $this->synthesizeAudioFor($speechSettings, 'audio_ios', 'duration_ios',
+
+        $this->synthesizeAudioFor($speechSettings, 'linear_audio', 'linear_duration',
         AudioEncoding::LINEAR16, '.wav');
     }
 
@@ -101,12 +103,11 @@ class TranslationRepository
      * @throws ValidationException
      * @throws ApiException
      */
-    public function synthesizeAudioFor($speechSettings, $audioKey, $durationKey, $encoding, $extension) {
+    private function synthesizeAudioFor($speechSettings, $audioKey, $durationKey, $encoding, $extension) {
         $audioContent = TextToSpeech::synthesizeSpeech(
             $speechSettings, StrUtils::toPlainText($this->model->content['value']), $encoding);
 
-        // It is important file names do not contain dashes.
-        $path = \Illuminate\Support\Str::random(42) . $extension;
+        $path = Str::random(42) . $extension;
         if (Storage::put($path, $audioContent)) {
             $this->model->update(['content->' . $audioKey => $path]);
             $this->updateAudioDuration($audioKey, $durationKey);
