@@ -40,7 +40,7 @@ class SpeechSettingsRepository
         }
 
         $speechSettings->voice_name = $attributes['voice_name'];
-        $speechSettings->sample_rate = $attributes['sample_rate'];
+//        $speechSettings->sample_rate = $attributes['sample_rate'];
         $speechSettings->speaking_rate = $attributes['speaking_rate'];
         $speechSettings->pitch = $attributes['pitch'];
         $speechSettings->volume_gain_db = $attributes['volume_gain_db'];

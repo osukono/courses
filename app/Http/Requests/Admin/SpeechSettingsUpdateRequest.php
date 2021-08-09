@@ -31,12 +31,12 @@ class SpeechSettingsUpdateRequest extends FormRequest
                 'string',
                 'max:50'
             ],
-            'sample_rate' => [
-                'bail',
-                'required',
-                'integer',
-                Rule::in([22050, 32000, 44100, 48000])
-            ],
+//            'sample_rate' => [
+//                'bail',
+//                'required',
+//                'integer',
+//                Rule::in([22050, 32000, 44100, 48000])
+//            ],
             'speaking_rate' => [
                 'bail',
                 'required',
