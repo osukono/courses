@@ -165,6 +165,8 @@ class FirebaseCourseRepository
                     $data['c_duration'] = (int) $exerciseData['duration'];
                     $data['c_linear_audio'] = $exerciseData['linear_audio'];
                     $data['c_linear_duration'] = $exerciseData['linear_duration'];
+                    if (isset($exerciseData['chunks']))
+                        $data['c_chunks'] = $exerciseData['chunks'];
                     if (isset($exerciseData['extra_chunks']))
                         $data['c_extra_chunks'] = $exerciseData['extra_chunks'];
                     if (isset($exerciseData['capitalized_words']))

@@ -308,6 +308,9 @@ class CommitContent implements ShouldQueue
         $data['duration'] = (int) $exerciseData->content['duration'];
         $data['linear_audio'] = $exerciseData->content['linear_audio'];
         $data['linear_duration'] = $exerciseData->content['linear_duration'];
+        if (isset($exerciseData->content['chunks'])) {
+            $data['chunks'] = $exerciseData->content['chunks'];
+        }
         if (isset($exerciseData->content['extra_chunks'])) {
             $data['extra_chunks'] = $exerciseData->content['extra_chunks'];
         }
