@@ -135,9 +135,9 @@ class ContentRepository
                 foreach ($exercise['data'] as $dataIndex => $field) {
                     if ($withTarget && isset($field['content']['value'])) {
                         $data .= StrUtils::toPlainText($field['content']['value']) . PHP_EOL;
-                        if (isset($field['content']['chunks'])) {
-                            $data .= $field['content']['chunks'] . PHP_EOL;
-                        }
+//                        if (isset($field['content']['chunks'])) {
+//                            $data .= $field['content']['chunks'] . PHP_EOL;
+//                        }
                     }
 
                     if ($language != null && isset($field['translations'])) {
