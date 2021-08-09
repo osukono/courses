@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_09_095644_speech_settings_drop_sample_rate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/SpeechSettingsUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/SpeechSettingsUpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/SpeechSettingsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/SpeechSettingsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/speech/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/speech/settings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/speech/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/speech/settings.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/CommitContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/CommitContent.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -524,7 +519,7 @@
       <workItem from="1627727842054" duration="65000" />
       <workItem from="1627728057489" duration="11171000" />
       <workItem from="1627809718123" duration="9233000" />
-      <workItem from="1628415756478" duration="7343000" />
+      <workItem from="1628415756478" duration="8047000" />
     </task>
     <servers />
   </component>
