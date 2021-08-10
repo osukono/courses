@@ -3,12 +3,12 @@
 @section('content')
     <div class="container">
         <div class="row mt-4">
-            <div class="col text-left">
+            <div class="col text-start">
                 @isset($previous)
                     <a href="{{ route('grammar', $previous) }}">&lsaquo;&nbsp;{{ $previous->title }}</a>
                 @endisset
             </div>
-            <div class="col text-right">
+            <div class="col text-end">
                 @isset($next)
                     <a href="{{ route('grammar', $next) }}">{{ $next->title }}&nbsp;&rsaquo;</a>
                 @endisset

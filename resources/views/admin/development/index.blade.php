@@ -8,12 +8,12 @@
     <v-button-group>
         <v-button tooltip="{{ __('admin.dev.courses.toolbar.create') }}"
                   route="{{ route('admin.dev.courses.create') }}"
-                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::create_content) }}">
+                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::create_content) }}">
             {{ __('admin.dev.courses.toolbar.create') }}
         </v-button>
         <v-button tooltip="{{ __('admin.dev.courses.toolbar.trash') }}"
                   route="{{ route('admin.dev.courses.trash') }}"
-                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
+                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
             <icon-trash trashed="{{ $trashed }}"></icon-trash>
         </v-button>
     </v-button-group>

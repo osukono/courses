@@ -7,7 +7,7 @@
                 </div>
                 <div class="col text-right">
                     <div class="btn-group">
-                        <button role="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown"
+                        <button role="button" class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                             {{ exercisesSet.title }}
                         </button>

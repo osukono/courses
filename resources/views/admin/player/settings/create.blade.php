@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="card">
-        <div class="card-body">
+        <div class="card-body mb-2">
             <h5 class="card-title mb-4">{{ $language->native }}</h5>
             <form action="{{ route('admin.player.settings.store', $language) }}" method="post" autocomplete="off">
                 @csrf

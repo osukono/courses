@@ -21,7 +21,7 @@
     <v-button-group>
         <v-button tooltip="Add Sentence"
                   submit="#create-sentence"
-                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
             <icon-plus></icon-plus>
             Sentence
             @push('forms')
@@ -40,7 +40,7 @@
             @foreach($languages as $__language)
                 <v-dropdown-item label="{{ $__language->native }}"
                                  route="{{ route('admin.translations.exercises.show', [$__language, $exercise]) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
                 </v-dropdown-item>
             @endforeach
         </v-dropdown>
@@ -53,7 +53,7 @@
             <v-dropdown-group>
                 <v-dropdown-item label="{{ $exercise->isDisabled($content->language) ? 'Enable' : 'Disable' }}"
                                  submit="#exercise-{{ $exercise->id }}-{{ $exercise->isDisabled($content->language) ? 'enable' : 'disable' }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}"
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}"
                 >
                     @push('forms')
                         <form class="d-none"
@@ -70,7 +70,7 @@
             <v-dropdown-group>
                 <v-dropdown-modal label="Delete Exercise"
                                   modal="exercise-{{ $exercise->id }}-modal-delete"
-                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                     @push('forms')
                         <form class="d-none" id="exercise-{{ $exercise->id }}-delete" action="{{ route('admin.dev.exercises.destroy', $exercise) }}"
                               method="post">
@@ -81,7 +81,7 @@
                 </v-dropdown-modal>
                 <v-dropdown-item label="Trash"
                                  route="{{ route('admin.dev.exercise.data.trash', $exercise) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
         </v-dropdown>

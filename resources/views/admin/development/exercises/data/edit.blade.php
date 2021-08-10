@@ -3,26 +3,23 @@
     @method('patch')
     @csrf
 
-    @input(['name' => 'value', 'label' => '', 'default' => Arr::get($data->content, 'value'), 'autofocus' => true, 'lg' => true])
-    @input(['name' => 'chunks', 'label' => '', 'default' => Arr::get($data->content, 'chunks'), 'lg' => false, 'helper' => 'Chunks (separated with vertical bar) e.g. I | am | American.', 'lg' => true])
-    @input(['name' => 'extra_chunks', 'label' => '', 'default' => Arr::get($data->content, 'extra_chunks'), 'lg' => false, 'helper' => 'Extra chunks (separated with comma) e.g. on, at, the'])
-    @input(['name' => 'capitalized_words', 'label' => '', 'default' => Arr::get($data->content, 'capitalized_words'), 'lg' => false, 'helper' => 'List of capitalized words (separated with comma)'])
+    @input(['name' => 'value', 'label' => 'Text', 'default' => Arr::get($data->content, 'value'), 'autofocus' => true, 'lg' => true])
+    @input(['name' => 'chunks', 'label' => 'Chunks', 'default' => Arr::get($data->content, 'chunks'), 'lg' => false, 'helper' => 'Chunks (separated with vertical bar) e.g. I | am | American.', 'lg' => true])
+    @input(['name' => 'extra_chunks', 'label' => 'Extra Chunks', 'default' => Arr::get($data->content, 'extra_chunks'), 'lg' => false, 'helper' => 'Extra chunks (separated with comma) e.g. on, at, the'])
+    @input(['name' => 'capitalized_words', 'label' => 'Capitalized Words', 'default' => Arr::get($data->content, 'capitalized_words'), 'lg' => false, 'helper' => 'List of capitalized words (separated with comma)'])
 
     @isset($data->content['audio'])
-        <span class="mr-3">
+        <span class="me-3">
             @include('admin.components.audio.play', ['audio' => $data->content['audio']])
             @include('admin.components.audio.download', ['audio' => $data->content['audio']])
         </span>
 
         <span>
-            <a href="#"
-               data-toggle="confirmation"
-               data-btn-ok-label="{{ __('admin.form.delete') }}"
-               data-title="{{ __('admin.form.delete_confirmation', ['object' => 'Audio']) }}"
-               data-form="delete-audio-{{ $data->id }}">
+            <a href="#audio-{{ $data->id }}-modal-delete" data-bs-toggle="modal">
                 <icon-delete></icon-delete>
             </a>
         </span>
+        @include('admin.components.modals.confirmation', ['id' => 'audio-' . $data->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => 'Audio']), 'form' =>  'delete-audio-' . $data->id, 'action' => 'Delete'])
         @push('forms')
             <form class="d-none" id="delete-audio-{{ $data->id }}"
                   action="{{ route('admin.dev.exercise.data.audio.delete', $data) }}"
@@ -32,7 +29,7 @@
             </form>
         @endpush
     @endisset
-    <span id="audio-duration" class="ml-3 text-secondary"></span>
+    <span id="audio-duration" class="ms-3 text-secondary"></span>
     @file(['name' => 'audio', 'label' => 'Audio'])
     <input type="hidden" name="duration" id="duration">
     @checkbox(['name' => 'context', 'label' => 'Context (without translation)', 'default' => !$data->translatable])

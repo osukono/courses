@@ -21,7 +21,7 @@
     <v-button-group>
         <v-button tooltip="{{ __('admin.menu.create.exercise') }}"
                   submit="#create-exercise"
-                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
             <icon-plus></icon-plus>
             Exercise
             @push('forms')
@@ -40,7 +40,7 @@
             @foreach($languages as $__language)
                 <v-dropdown-item label="{{ $__language->native }}"
                                  route="{{ route('admin.translations.lessons.show', [$__language, $lesson]) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
                 </v-dropdown-item>
             @endforeach
         </v-dropdown>
@@ -53,7 +53,7 @@
             <v-dropdown-group>
                 <v-dropdown-item label="{{ ($lesson->isDisabled($content->language)) ? 'Enable' : 'Disable' }}"
                                  submit="#lesson-{{ $lesson->id }}-{{ ($lesson->isDisabled($content->language) ? 'enable' : 'disable') }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                     @push('forms')
                         <form class="d-none"
                               id="lesson-{{ $lesson->id }}-{{ ($lesson->isDisabled($content->language) ? 'enable' : 'disable') }}"
@@ -66,12 +66,12 @@
                 </v-dropdown-item>
                 <v-dropdown-item label="Properties"
                                  route="{{ route('admin.dev.lessons.edit', $lesson) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
                 @isset($image)
                     <v-dropdown-modal label="Delete Image"
                                       modal="lesson-{{ $lesson->id }}-image-modal-delete"
-                                      visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                                      enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                         @push('forms')
                             <form class="d-none"
                                   id="lesson-{{ $lesson->id }}-image-delete"
@@ -88,7 +88,7 @@
             <v-dropdown-group>
                 <v-dropdown-modal label="Delete Lesson"
                                   modal="lesson-{{ $lesson->id }}-modal-delete"
-                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                     @push('forms')
                         <form class="d-none" id="lesson-{{ $lesson->id }}-delete"
                               action="{{ route('admin.dev.lessons.destroy', $lesson) }}"
@@ -100,7 +100,7 @@
                 </v-dropdown-modal>
                 <v-dropdown-item label="Trash"
                                  route="{{ route('admin.dev.exercises.trash', $lesson) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
         </v-dropdown>

@@ -8,7 +8,7 @@
     <v-button-group>
         <v-button tooltip="Create User"
                   route="{{ route('admin.users.create') }}"
-                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::create_users) }}">
+                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::create_users) }}">
             <icon-plus></icon-plus>
         </v-button>
         <v-button route="{{ route('admin.firebase.users.index') }}">

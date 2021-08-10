@@ -8,7 +8,7 @@
     <v-button-group>
         <v-button tooltip="{{ __('admin.dev.lessons.toolbar.create') }}"
                   route="{{ route('admin.dev.lessons.create', $content) }}"
-                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
             {{ __('admin.dev.lessons.toolbar.create') }}
         </v-button>
 
@@ -20,7 +20,7 @@
             @foreach($languages as $__language)
                 <v-dropdown-item label="{{ $__language->native }}"
                                  route="{{ route('admin.translations.show', [$__language, $content]) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::view_translations) }}">
                 </v-dropdown-item>
             @endforeach
         </v-dropdown>
@@ -33,7 +33,7 @@
             <v-dropdown-group>
                 <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.editors') }}"
                                  route="{{ route('admin.dev.courses.editors.index', $content) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::assign_editors) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::assign_editors) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
 
@@ -43,7 +43,7 @@
                 </v-dropdown-item>
                 <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.export.backup') }}"
                                  route="{{ route('admin.dev.courses.export.json', $content) }}"
-                                 visible="{{ Auth::getUser()->hasRole(\App\Library\Roles::admin) }}">
+                                 enabled="{{ Auth::getUser()->hasRole(\App\Library\Roles::admin) }}">
 
                 </v-dropdown-item>
             </v-dropdown-group>
@@ -51,7 +51,7 @@
             <v-dropdown-group header="{{ __('admin.dev.lessons.toolbar.more.import.title') }}">
                 <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.import.backup') }}"
                                  click="#content-{{ $content->id }}-import-json"
-                                 visible="{{ Auth::getUser()->hasRole(\App\Library\Roles::admin) }}">
+                                 enabled="{{ Auth::getUser()->hasRole(\App\Library\Roles::admin) }}">
                     @push('forms')
                         <form class="d-none" id="content-{{ $content->id }}-import-form"
                               action="{{ route('admin.dev.courses.import.json', $content) }}"
@@ -68,11 +68,11 @@
             <v-dropdown-group header="{{ __('admin.dev.lessons.toolbar.more.properties.title') }}">
                 <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.properties.course') }}"
                                  route="{{ route('admin.dev.courses.edit', $content) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
                 <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.properties.speech') }}"
                                  route="{{ route('admin.content.speech.settings.edit', $content) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
 
@@ -90,7 +90,7 @@
                 </v-dropdown-modal>
                 <v-dropdown-modal label="{{ __('admin.dev.lessons.toolbar.more.delete') }}"
                                   modal="content-{{ $content->id }}-modal-delete"
-                                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::delete_content) }}">
+                                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::delete_content) }}">
                     @push('forms')
                         <form class="d-none" id="content-{{ $content->id }}-delete"
                               action="{{ route('admin.dev.courses.destroy', $content) }}"
@@ -102,7 +102,7 @@
                 </v-dropdown-modal>
                 <v-dropdown-item label="{{ __('admin.dev.lessons.toolbar.more.trash') }}"
                                  route="{{ route('admin.dev.lessons.trash', $content) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::restore_content) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
         </v-dropdown>

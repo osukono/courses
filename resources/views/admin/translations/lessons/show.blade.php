@@ -19,7 +19,7 @@
     </v-button-group>
 
     <v-button-group>
-        <v-dropdown visible="{{ $languages->isNotEmpty() }}">
+        <v-dropdown enabled="{{ $languages->isNotEmpty() }}">
             <template v-slot:label>
                 {{ $language->native }}
             </template>
@@ -39,7 +39,7 @@
             <v-dropdown-group>
                 <v-dropdown-item label="{{ $lesson->isDisabled($language) ? 'Enable' : 'Disable' }}"
                                  submit="#lesson-{{ $lesson->id }}-{{ $lesson->isDisabled($language) ? 'enable' : 'disable' }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
                     @push('forms')
                         <form class="d-none"
                               id="lesson-{{ $lesson->id }}-{{ $lesson->isDisabled($language) ? 'enable' : 'disable' }}"
@@ -53,7 +53,7 @@
                 @isset($image)
                     <v-dropdown-modal label="Delete Image"
                                       modal="lesson-{{ $lesson->id }}-image-modal-delete"
-                                      visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
+                                      enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
                         @push('forms')
                             <form class="d-none"
                                   id="lesson-{{ $lesson->id }}-image-delete"
@@ -69,7 +69,7 @@
         </v-dropdown>
 
         <v-button route="{{ route('admin.dev.lessons.show', $lesson) }}"
-                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_content) }}">
+                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::view_content) }}">
             {{ $content->language->native }}
             <icon-chevron-right></icon-chevron-right>
         </v-button>

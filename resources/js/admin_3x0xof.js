@@ -2,7 +2,6 @@ require('./bootstrap');
 
 import bsCustomFileInput from "bs-custom-file-input";
 window.feather = require('feather-icons');
-require('bootstrap-confirmation2');
 require('./sidebar');
 import {Howl, Howler} from 'howler';
 
@@ -20,38 +19,11 @@ $(document).ready(function () {
 
     bsCustomFileInput.init();
 
-    $('[data-toggle="tooltip"]').tooltip({
+    $('[data-bs-toggle="tooltip"]').tooltip({
         delay: {"show": 500, "hide": 100}
     });
 
     // feather.replace();
-
-    // $(document).keydown(function (e) {
-    //     let focused = document.activeElement;
-    //     if (focused.tagName.toLowerCase() === 'input' || focused.tagName.toLowerCase() === 'textarea')
-    //         return;
-    //
-    //     switch (e.key) {
-    //         case 'Left':
-    //         case 'ArrowLeft':
-    //             let previous = $('#previous');
-    //             if (previous) {
-    //                 previous.click();
-    //                 e.preventDefault();
-    //             }
-    //             break;
-    //         case 'Right':
-    //         case 'ArrowRight':
-    //             let next = $('#next');
-    //             if (next) {
-    //                 next.click();
-    //                 e.preventDefault();
-    //             }
-    //             break;
-    //         default :
-    //             return;
-    //     }
-    // });
 
     $("#sortable").sortable({
         delay: 100,
@@ -69,19 +41,6 @@ $(document).ready(function () {
                 $(this).width($(this).width());
             });
             return ui;
-        }
-    });
-
-    $('[data-toggle=confirmation]').confirmation({
-        rootSelector: '[data-toggle^=confirmation]',
-        singleton: true,
-        popout: true,
-        btnOkClass: 'btn btn-info btn-sm',
-        btnCancelLabel: 'Cancel',
-        btnCancelClass: 'btn btn-outline-info btn-sm',
-        onConfirm: function () {
-            let form = $(this)[0].getAttribute('data-form');
-            document.getElementById(form).submit();
         }
     });
 });

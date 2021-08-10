@@ -16,16 +16,20 @@
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 
-                        <div class="form-group row">
+                        <div class="row">
                             <div class="col-md-8 offset-md-2">
-                                <label class="sr-only" for="email">{{ __('Email') }}</label>
-                                <input id="email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="{{ __('Email') }}">
-
-                                @error('email')
+                                <div class="form-floating mb-3">
+                                    <input id="email" type="email" name="email"
+                                           class="form-control @error('email') is-invalid @enderror"
+                                           value="{{ old('email') }}" autocomplete="email" autofocus
+                                           placeholder="{{ __('Email') }}">
+                                    <label for="email">{{ __('Email') }}</label>
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        {{ $message }}
                                     </span>
-                                @enderror
+                                    @enderror
+                                </div>
                             </div>
                         </div>
 

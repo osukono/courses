@@ -1,13 +1,13 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col"></th>
-        <th class="col-auto">Native</th>
-        <th class="col-auto">Code</th>
-        <th class="col-auto">Locale</th>
-        <th class="text-nowrap col-auto">Firestore ID</th>
-        <th class="text-nowrap col-auto">Player Settings</th>
-        <th class="text-nowrap col-auto">Icon</th>
+        <th class="col-12"></th>
+        <th>Native</th>
+        <th>Code</th>
+        <th>Locale</th>
+        <th class="text-nowrap">Firestore ID</th>
+        <th class="text-nowrap">Player Settings</th>
+        <th class="text-nowrap">Icon</th>
         <th></th>
     </tr>
     </thead>
@@ -69,7 +69,7 @@
                            onchange="$('#icon-form-{{ $language->id }}').submit()">
                 </form>
             </td>
-            <td class="text-right">
+            <td class="text-end">
                 <a href="{{ route('admin.languages.edit', $language) }}">
                     <icon-edit></icon-edit>
                 </a>

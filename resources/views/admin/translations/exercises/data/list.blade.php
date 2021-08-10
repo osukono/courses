@@ -2,11 +2,11 @@
     <thead>
     <tr>
         @empty($editData)
-            <th class="col"></th>
-            <th class="text-right text-nowrap d-none d-md-table-cell col-auto">Last Modified</th>
-            <th class="d-none d-md-table-cell col-auto"></th>
+            <th class="col-12"></th>
+            <th class="text-end text-nowrap d-none d-md-table-cell">Last Modified</th>
+            <th class="d-none d-md-table-cell border-bottom-0"></th>
         @else
-            <th class="col"></th>
+            <th></th>
         @endempty
     </tr>
     </thead>
@@ -31,10 +31,10 @@
                     @includeWhen(($translation = $data->translations->first()) != null, 'admin.translations.exercises.data.show')
                 </td>
                 @empty($editData)
-                    <td class="text-nowrap text-right d-none d-md-table-cell">{{ $data->updated_at->diffForHumans() }}</td>
+                    <td class="text-nowrap text-end d-none d-md-table-cell">{{ $data->updated_at->diffForHumans() }}</td>
                     <td class="text-nowrap d-none d-md-table-cell">
                         @if($data->translations->first() != null)
-                            <a class="mr-2 btn btn-sm btn-info" href="#"
+                            <a class="me-2 btn btn-sm btn-info" href="#"
                                onclick="event.preventDefault(); document.getElementById('translation-{{ $data->translations->first()->id }}-synthesize').submit();">
                                 Text to Speech
                             </a>

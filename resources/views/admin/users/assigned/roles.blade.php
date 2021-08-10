@@ -1,9 +1,9 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col"></th>
-        <th class="col-auto">Permissions</th>
-        <th class="col-auto"></th>
+        <th class="col-12"></th>
+        <th>Permissions</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -12,10 +12,10 @@
             <td class="text-nowrap">{{ $role->name }}</td>
             <td>
                 @foreach($role->permissions as $permission)
-                    <span class="mr-3 text-nowrap">{{ $permission->name }}</span>
+                    <div class="text-nowrap">{{ $permission->name }}</div>
                 @endforeach
             </td>
-            <td class="text-right">
+            <td class="text-end">
                 <form id="role-{{ $role->id }}-remove" action="{{ route('admin.users.roles.remove', [$user, $role]) }}" method="post" autocomplete="off">
                     @csrf
                     @method('patch')

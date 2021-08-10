@@ -1,7 +1,7 @@
 <div id="apps" class="container-fluid pt-4 mb-5">
     <div class="row">
-        <div class="d-none pr-4 d-lg-table-cell col-lg-3 offset-1">
-            <div id="screens" class="carousel slide carousel-fade float-right rounded-lg"
+        <div class="d-none pe-4 d-lg-table-cell col-lg-3 offset-1">
+            <div id="screens" class="carousel slide carousel-fade float-end rounded-lg"
                  data-ride="carousel" style="max-width: 278px; border: 1px solid rgba(128, 128, 128, 0.15)">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -26,17 +26,17 @@
              style="background-color: #fafafb; border: 1px solid rgba(128, 128, 128, 0.15)">
             <h2 class="text-primary">{{ __('web.index.section.app.header') }}</h2>
             <div class="mt-4">{!! __('web.index.section.app.description') !!}</div>
-            <div class="mt-4 text-center text-md-left">
+            <div class="mt-4 text-center text-md-start">
                 <a href="{{ __('web.index.section.app.links.android') }}" target="_blank" rel="noopener">
                     <img src="{{ URL::asset('images/' . __('web.index.section.app.badges.google_play.image')) }}"
                          alt="{{ __('web.index.section.app.badges.google_play.alt') }}"
-                         width="148" height="44" class="mr-2 mb-2"
+                         width="148" height="44" class="me-2 mb-2"
                     >
                 </a>
                 <a href="{{ __('web.index.section.app.links.ios') }}" target="_blank" rel="noopener">
                     <img src="{{ URL::asset('images/' . __('web.index.section.app.badges.app_store.image')) }}"
                          alt="{{ __('web.index.section.app.badges.app_store.alt') }}"
-                         width="131.630477" height="44" class="mr-2 mb-2"
+                         width="131.630477" height="44" class="me-2 mb-2"
                     >
                 </a>
             </div>

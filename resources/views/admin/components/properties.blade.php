@@ -8,8 +8,8 @@
             <tbody>
             @foreach($properties as $property)
                 <tr>
-                    <td class="text-nowrap p-0 pr-2 border-right">{{ $property['name'] }}</td>
-                    <td class="text-nowrap text-right p-0 pl-2"><strong>{{ $property['value'] }}</strong></td>
+                    <td class="text-nowrap p-0 pe-2 border-end">{{ $property['name'] }}</td>
+                    <td class="text-nowrap text-end p-0 ps-2"><strong>{{ $property['value'] }}</strong></td>
                 </tr>
             @endforeach
             </tbody>

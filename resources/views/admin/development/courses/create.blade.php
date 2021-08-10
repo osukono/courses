@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="card shadow-sm">
-        <div class="card-body">
+        <div class="card-body mb-2">
             <h5 class="card-title mb-4">{{ __('admin.dev.courses.create.title') }}</h5>
             <form action="{{ route('admin.dev.courses.store') }}" method="post" autocomplete="off">
                 @csrf

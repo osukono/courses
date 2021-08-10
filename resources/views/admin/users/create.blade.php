@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="card shadow-sm">
-        <div class="card-body">
-            <h5 class="card-title mb-4">Create a User</h5>
+        <div class="card-body mb-2">
+            <h5 class="card-title mb-4">User</h5>
 
             <form action="{{ route('admin.users.store') }}" method="post" autocomplete="off">
                 @csrf

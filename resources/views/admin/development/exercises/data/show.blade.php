@@ -11,10 +11,10 @@
 
         @if(Arr::has($data->content, 'chunks'))
             <div>
-                <span class="text-secondary mr-3">Chunks:</span>
+                <span class="text-secondary me-3">Chunks:</span>
                 <h5 class="d-inline">
                     @foreach(\App\Library\StrUtils::splitChunks(Arr::get($data->content, 'chunks')) as $chunk)
-                        <span class="badge rounded-pill bg-light text-secondary mr-2 px-2">{{ $chunk }}</span>
+                        <span class="badge rounded-pill bg-light text-secondary me-2 px-2">{{ $chunk }}</span>
                     @endforeach
                 </h5>
             </div>
@@ -24,10 +24,10 @@
 
         @isset($data->content['extra_chunks'])
             <div>
-                <span class="text-secondary mr-3">Extra chunks:</span>
+                <span class="text-secondary me-3">Extra chunks:</span>
                 <div class="h5 d-inline">
                     @foreach(\App\Library\StrUtils::splitExtraChunks(Arr::get($data->content, 'extra_chunks')) as $chunk)
-                        <span class="badge rounded-pill bg-light text-secondary mr-2 px-2">{{ $chunk }}</span>
+                        <span class="badge rounded-pill bg-light text-secondary me-2 px-2">{{ $chunk }}</span>
                     @endforeach
                 </div>
             </div>
@@ -35,7 +35,7 @@
         @isset($data->content['capitalized_words'])
             <div>
                     <span
-                        class="text-secondary mr-3">Capitalized words:</span>{{ Arr::get($data->content, 'capitalized_words') }}
+                        class="text-secondary me-3">Capitalized words:</span>{{ Arr::get($data->content, 'capitalized_words') }}
             </div>
         @endisset
 

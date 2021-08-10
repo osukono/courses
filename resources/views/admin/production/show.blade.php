@@ -9,7 +9,7 @@
         @isset($course->firebase_id)
             <v-button tooltip="{{ $course->is_updating ? 'Switch to published' : 'Switch to updating' }}"
                       submit="#course-{{ $course->id }}-updating"
-                      visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
+                      enabled="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
                 {{ $course->is_updating ? 'Updating' : 'Published' }}
                 @push('forms')
                     <form id="course-{{ $course->id }}-updating"
@@ -28,7 +28,7 @@
             <v-dropdown-group>
                 <v-dropdown-item label="Upload to Firestore"
                                  submit="#course-{{ $course->id }}-upload"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
                     @push('forms')
                         <form class="d-none" id="course-{{ $course->id }}-upload"
                               action="{{ route('admin.courses.firestore.upload', $course) }}"
@@ -39,7 +39,7 @@
                 </v-dropdown-item>
                 <v-dropdown-item label="Update Firestore"
                                  submit="#course-{{ $course->id }}-firestore-update"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
                     @push('forms')
                         <form class="d-none" id="course-{{ $course->id }}-firestore-update"
                               action="{{ route('admin.courses.firestore.update', $course) }}"
@@ -53,7 +53,7 @@
             <v-dropdown-group>
                 <v-dropdown-item label="Properties"
                                  route="{{ route('admin.courses.edit', $course) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_courses) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_courses) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
 

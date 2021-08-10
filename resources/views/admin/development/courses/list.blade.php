@@ -1,10 +1,10 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col"></th>
-        <th class="col-auto d-none d-md-table-cell">{{ __('admin.dev.courses.list.columns.title') }}</th>
-        <th class="col-auto d-none d-md-table-cell">{{ __('admin.dev.courses.list.columns.lessons') }}</th>
-        <th class="col-auto text-nowrap text-right d-none d-md-table-cell">{{ __('admin.dev.courses.list.columns.modified') }}</th>
+        <th class="col-12"></th>
+        <th class="d-none d-md-table-cell">{{ __('admin.dev.courses.list.columns.title') }}</th>
+        <th class="d-none d-md-table-cell">{{ __('admin.dev.courses.list.columns.lessons') }}</th>
+        <th class="text-nowrap text-end d-none d-md-table-cell">{{ __('admin.dev.courses.list.columns.modified') }}</th>
     </tr>
     </thead>
     <tbody>
@@ -13,7 +13,7 @@
             <td>{{ $content }}</td>
             <td class="text-nowrap d-none d-md-table-cell">{{ $content->title }}</td>
             <td class="d-none d-md-table-cell">{{ $content->lessons_count }}</td>
-            <td class="text-nowrap text-right d-none d-md-table-cell">{{ $content->updated_at->diffForHumans() }}</td>
+            <td class="text-nowrap text-end d-none d-md-table-cell">{{ $content->updated_at->diffForHumans() }}</td>
         </tr>
     @endforeach
     </tbody>

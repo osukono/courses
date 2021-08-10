@@ -1,6 +1,6 @@
 <template>
-    <div class="btn-group" role="group" v-if="visible">
-        <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown"
+    <div class="btn-group" role="group">
+        <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
             <slot name="icon"></slot>
             <slot name="label"></slot>
@@ -12,23 +12,9 @@
 </template>
 
 <script>
-    export default {
-        name: "VDropdown",
-
-        data: function() {
-            return {
-                visible: true
-            }
-        },
-
-        mounted() {
-            this.visible = this.$children.some(function (child) {
-                // console.log(child);
-                if (child.visible !== undefined && child.visible)
-                    return true;
-            });
-        }
-    }
+export default {
+    name: "VDropdown",
+}
 </script>
 
 <style scoped>

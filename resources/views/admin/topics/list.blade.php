@@ -1,10 +1,10 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col"></th>
-        <th class="col-auto">Identifier</th>
-        <th class="text-nowrap col-auto">Firestore ID</th>
-        <th class="col-auto"></th>
+        <th class="col-12"></th>
+        <th>Identifier</th>
+        <th class="text-nowrap">Firestore ID</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>

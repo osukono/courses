@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="card shadow-sm">
-        <div class="card-body">
-            <h5 class="card-title mb-4">Add a Language</h5>
+        <div class="card-body mb-2">
+            <h5 class="card-title mb-4">Language</h5>
             <form action="{{ route('admin.languages.store') }}" method="post" autocomplete="off">
                 @csrf
                 @input(['name' => 'name', 'label' => 'Name', 'autofocus' => true])

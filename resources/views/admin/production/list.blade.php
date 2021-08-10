@@ -4,8 +4,8 @@
         <th class="col-12 col-md-8"></th>
         <th class="d-none d-md-table-cell">Lessons</th>
         <th class="d-none d-md-table-cell">Player</th>
-        <th class="text-right d-none d-md-table-cell">Committed</th>
-        <th class="text-right d-none d-md-table-cell">State</th>
+        <th class="text-end d-none d-md-table-cell">Committed</th>
+        <th class="text-end d-none d-md-table-cell">State</th>
 {{--        <th class="text-nowrap d-none d-md-table-cell">Firebase ID</th>--}}
     </tr>
     </thead>
@@ -31,12 +31,12 @@
             </td>
             <td class="d-none d-md-table-cell">{{ $course->demo_lessons . ' | ' . $course->course_lessons_count }}</td>
             <td class="d-none d-md-table-cell">{{ $course->player_version }}</td>
-            <td class="text-nowrap text-right d-none d-md-table-cell">
+            <td class="text-nowrap text-end d-none d-md-table-cell">
                 @isset($course->committed_at)
                     {{ $course->committed_at->diffForHumans() }}
                 @endisset
             </td>
-            <td class="text-nowrap text-right d-none d-md-table-cell">
+            <td class="text-nowrap text-end d-none d-md-table-cell">
                 @isset($course->firebase_id)
                     @if($course->is_updating)
                         Updating

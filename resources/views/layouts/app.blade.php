@@ -35,8 +35,8 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-light">
         <div class="container mt-2 mb-2" style="z-index: 100;">
-            <button class="navbar-toggler float-left" type="button" data-toggle="collapse"
-                    data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            <button class="navbar-toggler float-start" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,7 +44,7 @@
                 <img src="{{ URL::asset('images/brand_header.svg?v=2') }}" alt="Yummy Lingo">
             </a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ml-auto mr-md-2 mr-0">
+                <div class="navbar-nav ms-auto me-md-2 me-0">
 {{--                    <a href="{{ route('teachers') }}" class="btn btn-lg btn-link">--}}
 {{--                        {{ __('web.header.teachers') }}--}}
 {{--                    </a>--}}
@@ -75,7 +75,7 @@
 <footer class="footer mt-auto py-3 small">
     <div class="container">
         <div class="row mt-4">
-            <div class="col-12 text-center col-md-6 text-md-left">
+            <div class="col-12 text-center col-md-6 text-md-start">
                 <div class="row">
                     <div class="col-12 col-lg-auto">
                         <div class="row mb-4">
@@ -112,7 +112,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 text-center pt-5 col-md-3 text-md-left pt-md-0">
+            <div class="col-12 text-center pt-5 col-md-3 text-md-start pt-md-0">
                 <div class="row">
                     <div class="col">
                         <h6 class="text-white mb-3">{{ __('web.footer.contact_us') }}</h6>
@@ -120,18 +120,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 text-center pt-5 col-md-3 text-md-right pt-md-0">
+            <div class="col-12 text-center pt-5 col-md-3 text-md-end pt-md-0">
                 <div class="row">
                     <div class="col">
                         <h6 class="text-white mb-3">{{ __('web.footer.social.title') }}</h6>
                         <div>
                             <a target="_blank" rel="noopener" href="https://www.instagram.com/yummy_lingo/">
-                                <img src="{{ URL::asset('images/instagram.svg') }}" data-toggle="tooltip"
+                                <img src="{{ URL::asset('images/instagram.svg') }}" data-bs-toggle="tooltip"
                                      title="{{ __('web.footer.social.instagram') }}" alt="Instagram"
                                      width="24" height="24"/>
                             </a>
-                            <a class="pl-2" target="_blank" rel="noopener" href="https://t.me/yummy_lingo">
-                                <img src="{{ URL::asset('images/telegram.svg') }}" data-toggle="tooltip"
+                            <a class="ps-2" target="_blank" rel="noopener" href="https://t.me/yummy_lingo">
+                                <img src="{{ URL::asset('images/telegram.svg') }}" data-bs-toggle="tooltip"
                                      title="{{ __('web.footer.social.telegram') }}" alt="Telegram"
                                      width="24" height="24"/>
                             </a>
@@ -143,19 +143,19 @@
         <div class="row mt-5">
             <div class="col-12 order-2 col-md-8 order-md-1">
                 <div class="row">
-                    <div class="col-12 text-center order-2 mt-3 col-md-auto text-md-left order-md-1 mt-md-0">
+                    <div class="col-12 text-center order-2 mt-3 col-md-auto text-md-start order-md-1 mt-md-0">
                         <span class="text-nowrap">
                             {{ __('web.footer.copyright', ['year' => now()->year]) }}
                         </span>
                     </div>
-                    <div class="col-12 text-center order-1 mt-3 col-md text-md-left order-md-2 mt-md-0">
+                    <div class="col-12 text-center order-1 mt-3 col-md text-md-start order-md-2 mt-md-0">
                         <a href="{{ route('privacy') }}"
                            class="font-weight-bold text-white text-nowrap">{{ __('web.footer.privacy') }}</a>
                     </div>
                 </div>
             </div>
-            <div class="col-12 text-center order-1 mt-3 col-md-4 text-md-right order-md-2 mt-md-0">
-                <img class="mr-2" src="{{ URL::asset('images/globe.svg') }}" alt="Languages" width="20" height="20">
+            <div class="col-12 text-center order-1 mt-3 col-md-4 text-md-end order-md-2 mt-md-0">
+                <img class="me-2" src="{{ URL::asset('images/globe.svg') }}" alt="Languages" width="20" height="20">
                 <span class="align-middle text-nowrap">
                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                         <a rel="alternate"

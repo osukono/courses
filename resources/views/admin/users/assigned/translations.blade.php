@@ -1,8 +1,8 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col"></th>
-        <th class="col-auto"></th>
+        <th class="col-12"></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>

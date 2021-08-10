@@ -19,7 +19,7 @@
     </v-button-group>
 
     <v-button-group>
-        <v-dropdown visible="{{ $languages->isNotEmpty() }}">
+        <v-dropdown enabled="{{ $languages->isNotEmpty() }}">
             <template v-slot:label>
                 {{ $language->native }}
             </template>
@@ -39,7 +39,7 @@
             <v-dropdown-group>
                 <v-dropdown-item label="{{ $exercise->isDisabled($language) ? 'Enable' : 'Disable' }}"
                                  submit="#exercise-{{ $exercise->id }}-{{ $exercise->isDisabled($language) ? 'enable' : 'disable' }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
                     @push('forms')
                         <form class="d-none"
                               id="exercise-{{ $exercise->id }}-{{ $exercise->isDisabled($language) ? 'enable' : 'disable' }}"
@@ -54,7 +54,7 @@
         </v-dropdown>
 
         <v-button route="{{ route('admin.dev.exercises.show', $exercise) }}"
-                  visible="{{ Auth::getUser()->can(\App\Library\Permissions::view_content) }}">
+                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::view_content) }}">
             {{ $content->language->native }}
             <icon-chevron-right></icon-chevron-right>
         </v-button>

@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="mb-3 mt-1">
     <div class="custom-control custom-switch">
         <input type="checkbox"
                class="custom-control-input"

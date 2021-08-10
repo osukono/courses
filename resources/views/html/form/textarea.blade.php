@@ -1,10 +1,10 @@
-<div class="form-group">
-    <label for="{{ $name }}">{{ $label }}</label>
+<div class="form-floating mb-3 mt-1">
     <textarea class="form-control @error($name) is-invalid @enderror"
-              rows="{{ isset($rows) ? $rows : 8 }}"
+              style="height: 200px"
               id="{{ $name }}"
               name="{{ $name }}"
               placeholder="{{ $label }}">{{ isset($default) ? old($name, $default) : old($name) }}</textarea>
+    <label for="{{ $name }}">{{ $label }}</label>
     @isset($helper)
         <small class="form-text text-muted">{{ $helper }}</small>
     @endisset

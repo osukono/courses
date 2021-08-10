@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="card shadow-sm">
-        <div class="card-body">
+        <div class="card-body mb-4">
             <h5 class="card-title mb-4">{{ $content->language->native }}</h5>
             <form action="{{ route('admin.content.speech.settings.update', $content) }}" method="post" autocomplete="off">
                 @csrf

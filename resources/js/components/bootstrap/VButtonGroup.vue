@@ -1,32 +1,13 @@
 <template>
-    <div class="btn-group ml-2" role="group" v-show="visible">
+    <div class="btn-group me-2" role="group">
         <slot></slot>
     </div>
 </template>
 
 <script>
-    export default {
-        name: "ButtonGroup",
-
-        data: function () {
-            return {
-                visible: true
-            }
-        },
-
-        computed: {
-            isVisible: function () {
-                return this.visible;
-            }
-        },
-
-        mounted() {
-            this.visible = this.$children.some(function (child) {
-                if (child.visible !== undefined && child.visible)
-                    return true;
-            });
-        }
-    }
+export default {
+    name: "ButtonGroup",
+}
 </script>
 
 <style scoped>

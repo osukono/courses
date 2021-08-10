@@ -1,10 +1,10 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col"></th>
-        <th class="col-auto">Email</th>
-        <th class="col-auto">Roles</th>
-        <th class="text-right col-auto">Registered</th>
+        <th class="col-12"></th>
+        <th>Email</th>
+        <th>Roles</th>
+        <th class="text-end">Registered</th>
     </tr>
     </thead>
     <tbody>
@@ -14,10 +14,10 @@
             <td>{{ $user->email }}</td>
             <td class="text-nowrap">
                 @foreach($user->roles as $role)
-                    <span class="mr-3 text-nowrap">{{ $role->name }}</span>
+                    <span class="me-3 text-nowrap">{{ $role->name }}</span>
                 @endforeach
             </td>
-            <td class="text-nowrap text-right">{{ $user->created_at->diffForHumans() }}</td>
+            <td class="text-nowrap text-end">{{ $user->created_at->diffForHumans() }}</td>
         </tr>
     @endforeach
     </tbody>

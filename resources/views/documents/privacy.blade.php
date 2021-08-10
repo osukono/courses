@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mb-5">
-        <h2 class="my-5 text-center text-md-left">Privacy Policy</h2>
+        <h2 class="my-5 text-center text-md-start">Privacy Policy</h2>
 
         <p>
             Yummy Lingo built the Yummy Lingo app as a Commercial app. This SERVICE is provided by Yummy Lingo and is intended for use as is.

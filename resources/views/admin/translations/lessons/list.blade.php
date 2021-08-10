@@ -1,10 +1,10 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col-auto"></th>
-        <th class="col"></th>
-        <th class="col-auto d-none d-md-table-cell">Exercises</th>
-        <th class="col-auto text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
+        <th></th>
+        <th class="col-12"></th>
+        <th class="d-none d-md-table-cell">Exercises</th>
+        <th class="text-end text-nowrap d-none d-md-table-cell">Last Modified</th>
     </tr>
     </thead>
     <tbody>
@@ -17,7 +17,7 @@
                 {{ $lesson }}
             </td>
             <td class="d-none d-md-table-cell">{{ $lesson->exercises_count }}</td>
-            <td class="text-nowrap text-right d-none d-md-table-cell">{{ $lesson->updated_at->diffForHumans() }}</td>
+            <td class="text-nowrap text-end d-none d-md-table-cell">{{ $lesson->updated_at->diffForHumans() }}</td>
         </tr>
     @endforeach
     </tbody>

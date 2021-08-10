@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="card shadow-sm">
-        <div class="card-body">
+        <div class="card-body mb-2">
             <h5 class="card-title mb-4">{{ $topic }}</h5>
             <form action="{{ route('admin.topics.update', $topic) }}" method="post" autocomplete="off">
                 @csrf

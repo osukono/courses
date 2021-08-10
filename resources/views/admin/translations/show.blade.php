@@ -6,7 +6,7 @@
 
 @section('toolbar')
     <v-button-group>
-        <v-dropdown visible="{{ $languages->isNotEmpty() }}">
+        <v-dropdown enabled="{{ $languages->isNotEmpty() }}">
             <template v-slot:label>
                 {{ $language->native }}
             </template>
@@ -25,7 +25,7 @@
             <v-dropdown-group>
                 <v-dropdown-item label="{{ __('admin.dev.lessons.trans.toolbar.more.editors') }}"
                                  route="{{ route('admin.translations.editors.index', [$language, $content]) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::assign_editors) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::assign_editors) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
 
@@ -41,7 +41,7 @@
             <v-dropdown-group header="{{ __('admin.dev.lessons.trans.toolbar.more.properties.title') }}">
                 <v-dropdown-item label="{{ __('admin.dev.lessons.trans.toolbar.more.properties.speech') }}"
                                  route="{{ route('admin.translations.speech.settings.edit', [$language, $content]) }}"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_translations) }}">
                 </v-dropdown-item>
             </v-dropdown-group>
 
@@ -58,7 +58,7 @@
                     @endpush
                 </v-dropdown-modal>
                 <v-dropdown-item label="{{ __('admin.dev.lessons.trans.toolbar.more.commit') }}" submit="#commit"
-                                 visible="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
+                                 enabled="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
                     @push('forms')
                         <form class="d-none" id="commit"
                               action="{{ route('admin.translations.commit', [$language, $content]) }}" method="post">

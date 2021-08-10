@@ -29,14 +29,11 @@
                 <a href="{{ route('admin.app.locales.edit', $appLocale) }}">
                     <icon-edit></icon-edit>
                 </a>
-                <a href="#"
-                        data-toggle="confirmation"
-                        data-btn-ok-label="{{ __('admin.form.delete') }}"
-                        data-title="{{ __('admin.form.delete_confirmation', ['object' => $appLocale]) }}"
-                        data-form="appLocale-{{ $appLocale }}-delete">
+                <a href="#appLocale-{{ $appLocale->id }}-modal-delete" data-bs-toggle="modal">
                     <icon-delete></icon-delete>
                 </a>
-                <form class="d-none" id="appLocale-{{ $appLocale }}-delete"
+                @include('admin.components.modals.confirmation', ['id' => 'appLocale-' . $appLocale->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $appLocale]), 'form' =>  'appLocale-' . $appLocale->id . '-delete', 'action' => 'Delete'])
+                <form class="d-none" id="appLocale-{{ $appLocale->id }}-delete"
                       action="{{ route('admin.app.locales.delete', $appLocale) }}" method="post">
                     @csrf
                     @method('delete')

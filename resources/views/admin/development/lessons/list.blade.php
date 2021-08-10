@@ -1,12 +1,12 @@
 <table class="table">
     <thead>
     <tr>
-        <th class="col-auto"></th>
-        <th class="col"></th>
-        <th class="col-auto d-none d-md-table-cell">Exercises</th>
-        <th class="col-auto text-right text-nowrap d-none d-md-table-cell">Last Modified</th>
+        <th></th>
+        <th class="col-12"></th>
+        <th class="d-none d-md-table-cell">Exercises</th>
+        <th class="text-end text-nowrap d-none d-md-table-cell">Last Modified</th>
         @can(\App\Library\Permissions::update_content)
-            <th class="col-auto"></th>
+            <th></th>
         @endcan
     </tr>
     </thead>
@@ -21,9 +21,9 @@
                 {{ $lesson }}
             </td>
             <td class="d-none d-md-table-cell">{{ $lesson->exercises_count }}</td>
-            <td class="text-nowrap text-right d-none d-md-table-cell">{{ $lesson->updated_at->diffForHumans() }}</td>
+            <td class="text-nowrap text-end d-none d-md-table-cell">{{ $lesson->updated_at->diffForHumans() }}</td>
             @can(\App\Library\Permissions::update_content)
-                <td class="text-right">
+                <td class="text-end">
                     <a href="{{ route('admin.dev.lessons.edit', $lesson) }}">
                         <icon-edit></icon-edit>
                     </a>

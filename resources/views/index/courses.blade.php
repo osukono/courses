@@ -3,7 +3,7 @@
         <div class="d-none d-lg-table-cell col-lg-5">
             <img src="{{ URL::asset('/images/courses_en_' . LaravelLocalization::getCurrentLocale() . '.svg?v=11') }}" class="w-100">
         </div>
-        <div class="col-12 pr-lg-5 col-lg-7 offset-lg-0">
+        <div class="col-12 pe-lg-5 col-lg-7 offset-lg-0">
             <div class="row mb-4">
                 <div class="col"><h2 class="text-primary">{{ __('web.index.section.courses.header') }}</h2></div>
             </div>
@@ -19,9 +19,9 @@
                                 <img width="100%" src="{{ $course->image }}" class="border rounded" alt="{{ $course->level }}">
                                 </div>
                             </div>
-                            <div class="col-12 col-md text-right">
+                            <div class="col-12 col-md text-end">
                                 <a id="course-{{ $course->id }}-collapse"
-                                   class="font-weight-bold mr-0 mr-md-5 text-nowrap align-middle small" data-toggle="collapse"
+                                   class="font-weight-bold me-0 me-md-5 text-nowrap align-middle small" data-bs-toggle="collapse"
                                    href="#course-more-{{ $course->id }}" role="button" aria-expanded="false"
                                    aria-controls="course-more-{{ $course->id }}">
                                     {{ __('web.index.section.courses.more') }}

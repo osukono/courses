@@ -17,7 +17,7 @@
                         <thead>
                         <tr>
                             <th class="col"></th>
-                            <th class="text-right col-auto">Deleted</th>
+                            <th class="text-end col-auto">Deleted</th>
                             <th class="col-auto">By</th>
                             <th class="col-auto"></th>
                         </tr>
@@ -30,10 +30,10 @@
                                         @include('admin.development.exercises.data.show')
                                     @endforeach
                                 </td>
-                                <td class="text-nowrap text-right">{{ $exercise->deleted_at->diffForHumans() }}</td>
+                                <td class="text-nowrap text-end">{{ $exercise->deleted_at->diffForHumans() }}</td>
                                 <td class="text-nowrap">{{ $exercise->ledgers->first()->user }}</td>
-                                <td class="text-right">
-                                    <form class="mr-1" action="{{ route('admin.dev.exercises.restore') }}" method="post">
+                                <td class="text-end">
+                                    <form class="me-1" action="{{ route('admin.dev.exercises.restore') }}" method="post">
                                         @csrf
                                         <input type="hidden" id="id" name="id" value="{{ $exercise->id }}">
                                         <button type="submit" class="btn btn-link btn-sm p-0">{{ __('admin.form.restore') }}</button>

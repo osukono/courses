@@ -6,7 +6,7 @@
 
 @section('toolbar')
     <v-button-group>
-        <v-button-modal modal="#assign-editor" visible="{{ $users->isNotEmpty() }}">
+        <v-button-modal modal="#assign-editor" enabled="{{ $users->isNotEmpty() }}">
             <template v-slot:icon>
                 <icon-plus></icon-plus>
             </template>
@@ -33,11 +33,11 @@
                             <td>{{ $editor->name }}</td>
                             <td class="text-nowrap">
                                 @foreach($editor->roles as $role)
-                                    <span class="mr-3">{{ $role->name }}</span>
+                                    <span class="me-3">{{ $role->name }}</span>
                                 @endforeach
                             </td>
                             <td>
-                                <form class="mr-1"
+                                <form class="me-1"
                                       action="{{ route('admin.dev.courses.editors.remove', $content) }}"
                                       method="post">
                                     @csrf

@@ -1,5 +1,5 @@
-// window.Vue = require('vue');
-import Vue from 'vue'
+window.Vue = require('vue');
+// import Vue from 'vue'
 
 /**
  * The following block of code may be used to automatically register your
@@ -74,8 +74,7 @@ import IconRadio from "./components/icons/IconRadio";
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-new Vue({
-    el: '#app',
+const app = Vue.createApp({
     mounted() {
         let input = document.querySelector('[autofocus]');
         if (input) {
@@ -120,3 +119,5 @@ new Vue({
         // 'splitter': Splitter,
     }
 });
+
+app.mount("#app");

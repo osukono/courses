@@ -12,36 +12,47 @@
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        <div class="form-group row">
+                        <div class="row">
                             <div class="col-md-8 offset-md-2">
-                                <label class="sr-only" for="email">{{ __('Email') }}</label>
-                                <input id="email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" placeholder="{{ __('Email') }}">
-
-                                @error('email')
+                                <div class="form-floating mb-3">
+                                    <input id="email" type="email" name="email"
+                                           class="form-control @error('email') is-invalid @enderror"
+                                           value="{{ $email ?? old('email') }}" autocomplete="email"
+                                           placeholder="{{ __('Email') }}">
+                                    <label for="email">{{ __('Email') }}</label>
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        {{ $message }}
                                     </span>
-                                @enderror
+                                    @enderror
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="row">
                             <div class="col-md-8 offset-md-2">
-                                <label class="sr-only" for="password">{{ __('Password') }}</label>
-                                <input id="password" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" autofocus placeholder="{{ __('Password') }}">
-
-                                @error('password')
+                                <div class="form-floating mb-3">
+                                    <input id="password" type="password" name="password"
+                                           class="form-control @error('password') is-invalid @enderror"
+                                           autocomplete="new-password" autofocus placeholder="{{ __('Password') }}">
+                                    <label for="password">{{ __('Password') }}</label>
+                                    @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        {{ $message }}
                                     </span>
-                                @enderror
+                                    @enderror
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="row">
                             <div class="col-md-8 offset-md-2">
-                                <label class="sr-only" for="password-confirm">{{ __('Confirm Password') }}</label>
-                                <input id="password-confirm" type="password" class="form-control form-control-lg" name="password_confirmation" required autocomplete="new-password" placeholder="{{ __('Confirm Password') }}">
+                                <div class="form-floating mb-3">
+                                    <input id="password-confirm" type="password" class="form-control"
+                                           name="password_confirmation" autocomplete="new-password"
+                                           placeholder="{{ __('Confirm Password') }}">
+                                    <label class="sr-only" for="password-confirm">{{ __('Confirm Password') }}</label>
+                                </div>
                             </div>
                         </div>
 

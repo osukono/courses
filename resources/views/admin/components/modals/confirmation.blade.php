@@ -13,7 +13,7 @@
                 </div>
             @endisset
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-danger"
                         onclick="$('#{{ $form }}').submit();">{{ $action }}</button>
             </div>

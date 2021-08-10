@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="mb-3 mt-1">
     @isset($label)
     <label for="{{ $name }}_FroalaEditor">{{ $label }}</label>
     @endisset

@@ -2,8 +2,8 @@
     <thead>
     <tr>
         @empty($editData)
-            <th class="col"></th>
-            <th class="text-right text-nowrap col-auto">Last Modified</th>
+            <th class="col-12"></th>
+            <th class="text-end text-nowrap">Last Modified</th>
             @can(\App\Library\Permissions::update_content)
                 <th></th>
             @endcan
@@ -40,11 +40,11 @@
                     @include('admin.development.exercises.data.show')
                 </td>
                 @empty($editData)
-                    <td class="text-nowrap text-right">{{ $data->updated_at->diffForHumans() }}</td>
+                    <td class="text-nowrap text-end">{{ $data->updated_at->diffForHumans() }}</td>
                     @can(\App\Library\Permissions::update_content)
-                        <td class="text-right">
+                        <td class="text-end">
                             <div class="text-nowrap">
-                                <a class="mr-2 btn btn-sm btn-info" href="#"
+                                <a class="me-2 btn btn-sm btn-info" href="#"
                                    onclick="event.preventDefault(); document.getElementById('data-{{ $data->id }}-synthesize').submit();">
                                     Text to Speech
                                 </a>
@@ -55,7 +55,7 @@
                                     @csrf
                                 </form>
                                 <a href="#"
-                                   data-toggle="modal" data-target="{{ '#data-' . $data->id . '-modal-delete' }}">
+                                   data-bs-toggle="modal" data-bs-target="{{ '#data-' . $data->id . '-modal-delete' }}">
                                     <icon-delete></icon-delete>
                                 </a>
                                 @include('admin.components.modals.confirmation', ['id' => 'data-' . $data->id . '-modal-delete', 'title' => __('admin.form.delete_confirmation', ['object' => $data]), 'form' =>  'data-' . $data->id . '-delete', 'action' => 'Delete'])
