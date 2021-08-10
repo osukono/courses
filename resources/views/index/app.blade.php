@@ -2,7 +2,7 @@
     <div class="row">
         <div class="d-none pe-4 d-lg-table-cell col-lg-3 offset-1">
             <div id="screens" class="carousel slide carousel-fade float-end rounded-lg"
-                 data-ride="carousel" style="max-width: 278px; border: 1px solid rgba(128, 128, 128, 0.15)">
+                 data-bs-ride="carousel" style="max-width: 278px; border: 1px solid rgba(128, 128, 128, 0.15)">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="{{ URL::asset('/images/' . __('web.index.section.app.screen.library')) . '?v=4' }}"
