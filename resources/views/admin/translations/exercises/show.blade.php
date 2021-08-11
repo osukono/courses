@@ -6,16 +6,20 @@
 
 @section('toolbar')
     <v-button-group>
-        @isset($previous)
-            <v-button id="previous" route="{{ route('admin.translations.exercises.show', [$language, $previous]) }}">
-                <icon-chevron-left></icon-chevron-left>
-            </v-button>
-        @endisset
-        @isset($next)
-            <v-button id="next" route="{{ route('admin.translations.exercises.show', [$language, $next]) }}">
-                <icon-chevron-right></icon-chevron-right>
-            </v-button>
-        @endisset
+        <v-button id="previous"
+                  @isset($previous)
+                  route="{{ route('admin.translations.exercises.show', [$language, $previous]) }}"
+                  @endisset
+                  enabled="{{ isset($previous) }}">
+            <icon-chevron-left></icon-chevron-left>
+        </v-button>
+        <v-button id="next"
+                  @isset($next)
+                  route="{{ route('admin.translations.exercises.show', [$language, $next]) }}"
+                  @endisset
+                  enabled="{{ isset($next) }}">
+            <icon-chevron-right></icon-chevron-right>
+        </v-button>
     </v-button-group>
 
     <v-button-group>
