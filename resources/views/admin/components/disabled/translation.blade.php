@@ -1,1 +1,1 @@
-<span class="badge badge-light text-uppercase">Disabled</span>
+<span class="badge bg-light text-dark text-uppercase">Disabled</span>

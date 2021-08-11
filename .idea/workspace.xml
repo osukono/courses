@@ -4,40 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/app/locales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/app/locales/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/components/audio/download.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/components/audio/download.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/components/audio/play.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/components/audio/play.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/courses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/courses/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/data/trash.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/exercises/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/exercises/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/exercises/trash.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/lessons/description.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/description.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/lessons/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/lessons/trash.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/speech/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/speech/settings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/trash.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/production/lessons.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/production/lessons.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/production/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/production/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/profile/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/profile/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/lessons/description.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/lessons/description.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/lessons/grammar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/lessons/grammar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/lessons/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/translations/speech/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/translations/speech/settings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/assigned/roles.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/assigned/roles.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/audio/play.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/audio/play.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/lesson.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/lesson.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/practice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/practice.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/review.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/review.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documents/privacy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documents/privacy.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/form/file.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/html/form/file.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/form/froala.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/html/form/froala.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index/courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index/courses.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -551,7 +518,7 @@
       <workItem from="1627727842054" duration="65000" />
       <workItem from="1627728057489" duration="11171000" />
       <workItem from="1627809718123" duration="9233000" />
-      <workItem from="1628415756478" duration="39753000" />
+      <workItem from="1628415756478" duration="39794000" />
     </task>
     <servers />
   </component>

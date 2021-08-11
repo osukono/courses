@@ -1,6 +1,6 @@
 <div>
     @if($data->translatable == false)
-        <span class="badge badge-pill badge-light">CXT</span>
+        <span class="badge rounded-pill bg-light text-dark">CXT</span>
     @endif
     @isset($data->content['audio'])
         @include('admin.components.audio.play', ['audio' => $data->content['audio']])

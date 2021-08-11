@@ -4,7 +4,7 @@
             <h4 class="d-inline">
                 <span>{{ $course->language . ' ' . $course->level }}</span>
                 @if($course->free)
-                    <span class="badge badge-pill badge-success ms-2 d-inline">{{ __('Free') }}</span>
+                    <span class="badge rounded-pill bg-success ms-2 d-inline">{{ __('Free') }}</span>
                 @endif
             </h4>
             <a rel="nofollow" href="{{ route('courses.practice', $course) }}"
