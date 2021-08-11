@@ -150,36 +150,42 @@
                     <h5 class="card-title">{{ $lesson->title }}</h5>
                     <h6 class="card-subtitle">
                         @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
+                        @can(\App\Library\Permissions::update_content)
+                            @empty($description)
+                                <div class="btn btn-sm btn-link"
+                                     onclick="window.location='{{ route('admin.dev.lessons.description.edit', $lesson) }}'; return null">
+                                    Description
+                                </div>
+                            @endempty
+                            @empty($grammar_point)
+                                <div class="btn btn-sm btn-link"
+                                     onclick="window.location='{{ route('admin.dev.lessons.description.edit', $lesson) }}'; return null">
+                                    Grammar Point
+                                </div>
+                            @endempty
+                        @endcan
                     </h6>
-                    <div class="p-3 mt-3"
-                         @can(\App\Library\Permissions::update_content)
-                         style="cursor: pointer"
-                         onclick="window.location='{{ route('admin.dev.lessons.description.edit', $lesson) }}'; return null"
-                        @endcan
-                    >
-                        @isset($description)
+                    @isset($description)
+                        <div class="p-3 mt-3"
+                             @can(\App\Library\Permissions::update_content)
+                             style="cursor: pointer"
+                             onclick="window.location='{{ route('admin.dev.lessons.description.edit', $lesson) }}'; return null"
+                            @endcan
+                        >
                             {!! \App\Library\StrUtils::normalize(nl2br($description)) !!}
-                        @else
-                            @can(\App\Library\Permissions::update_content)
-                                <div class="btn btn-sm btn-info">Description</div>
+                        </div>
+                    @endisset
+                    @isset($grammar_point)
+                        <hr/>
+                        <div class="p-3 mt-3"
+                             @can(\App\Library\Permissions::update_content)
+                             style="cursor: pointer"
+                             onclick="window.location='{{ route('admin.dev.lessons.description.edit', $lesson) }}'; return null"
                             @endcan
-                        @endempty
-                    </div>
-                    <hr/>
-                    <div class="p-3 mt-3"
-                         @can(\App\Library\Permissions::update_content)
-                         style="cursor: pointer"
-                         onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null"
-                        @endcan
-                    >
-                        @isset($grammar_point)
+                        >
                             {!! $grammar_point !!}
-                        @else
-                            @can(\App\Library\Permissions::update_content)
-                                <div class="btn btn-sm btn-info">Grammar Point</div>
-                            @endcan
-                        @endempty
-                    </div>
+                        </div>
+                    @endisset
                 </div>
             </div>
         </div>
