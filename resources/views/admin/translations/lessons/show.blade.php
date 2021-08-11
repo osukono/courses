@@ -120,36 +120,42 @@
                     <h6 class="card-subtitle">
                         @includeWhen($lesson->isDisabled($content->language), 'admin.components.disabled.content')
                         @includeWhen($lesson->isDisabled($language), 'admin.components.disabled.translation')
+                        @can(\App\Library\Permissions::update_translations)
+                            @empty($description)
+                                <div class="btn btn-sm btn-link"
+                                     onclick="window.location='{{ route('admin.translations.lesson.description.edit', [$language, $lesson]) }}'; return null">
+                                    Description
+                                </div>
+                            @endempty
+                            @empty($grammar_point)
+                                <div class="btn btn-sm btn-link"
+                                     onclick="window.location='{{ route('admin.translations.lesson.grammar.edit', [$language, $lesson]) }}'; return null">
+                                    Grammar Point
+                                </div>
+                            @endempty
+                        @endcan
                     </h6>
-                    <div class="p-3 mt-3"
-                         @can(\App\Library\Permissions::update_translations)
-                         style="cursor: pointer"
-                         onclick="window.location='{{ route('admin.translations.lesson.description.edit', [$language, $lesson]) }}'; return null"
-                        @endcan
-                    >
-                        @isset($description)
+                    @isset($description)
+                        <div class="p-3 mt-3"
+                             @can(\App\Library\Permissions::update_translations)
+                             style="cursor: pointer"
+                             onclick="window.location='{{ route('admin.translations.lesson.description.edit', [$language, $lesson]) }}'; return null"
+                            @endcan
+                        >
                             {!! \App\Library\StrUtils::normalize(nl2br($description)) !!}
-                        @else
-                            @can(\App\Library\Permissions::update_translations)
-                                <div class="btn btn-sm btn-info">Description</div>
+                        </div>
+                    @endisset
+                    @isset($grammar_point)
+                        <hr/>
+                        <div class="p-3 mt-3"
+                             @can(\App\Library\Permissions::update_translations)
+                             style="cursor: pointer"
+                             onclick="window.location='{{ route('admin.translations.lesson.grammar.edit', [$language, $lesson]) }}'; return null"
                             @endcan
-                        @endisset
-                    </div>
-                    <hr/>
-                    <div class="p-3 mt-3"
-                         @can(\App\Library\Permissions::update_translations)
-                         style="cursor: pointer"
-                         onclick="window.location='{{ route('admin.translations.lesson.grammar.edit', [$language, $lesson]) }}'; return null"
-                        @endcan
-                    >
-                        @isset($grammar_point)
+                        >
                             {!! $grammar_point !!}
-                        @else
-                            @can(\App\Library\Permissions::update_translations)
-                                <div class="btn btn-sm btn-info">Grammar Point</div>
-                            @endcan
-                        @endisset
-                    </div>
+                        </div>
+                    @endisset
                 </div>
             </div>
         </div>
