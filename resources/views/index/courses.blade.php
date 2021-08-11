@@ -1,7 +1,8 @@
 <div class="container-fluid">
     <div class="row pt-5 pb-4">
         <div class="d-none d-lg-table-cell col-lg-5">
-            <img src="{{ URL::asset('/images/courses_en_' . LaravelLocalization::getCurrentLocale() . '.svg?v=11') }}" class="w-100">
+            <img src="{{ URL::asset('/images/courses_en_' . LaravelLocalization::getCurrentLocale() . '.svg?v=11') }}"
+                 class="w-100">
         </div>
         <div class="col-12 pe-lg-5 col-lg-7 offset-lg-0">
             <div class="row mb-4">
@@ -16,12 +17,14 @@
                             </div>
                             <div class="col-12 d-flex d-md-none my-2">
                                 <div>
-                                <img width="100%" src="{{ $course->image }}" class="border rounded" alt="{{ $course->level }}">
+                                    <img width="100%" src="{{ $course->image }}" class="border rounded"
+                                         alt="{{ $course->level }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md text-end">
                                 <a id="course-{{ $course->id }}-collapse"
-                                   class="font-weight-bold me-0 me-md-5 text-nowrap align-middle small" data-bs-toggle="collapse"
+                                   class="font-weight-bold me-0 me-md-5 text-nowrap align-middle small"
+                                   data-bs-toggle="collapse"
                                    href="#course-more-{{ $course->id }}" role="button" aria-expanded="false"
                                    aria-controls="course-more-{{ $course->id }}">
                                     {{ __('web.index.section.courses.more') }}
@@ -89,17 +92,17 @@
         $(function () {
             let more = `
                 {{ __('web.index.section.courses.more') }}
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.99987 4.97656L10.1249 0.851562L11.3032 2.0299L5.99987 7.33323L0.696533 2.0299L1.87487 0.851562L5.99987 4.97656Z" fill="currentColor"/>
-                </svg>
-            `;
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.99987 4.97656L10.1249 0.851562L11.3032 2.0299L5.99987 7.33323L0.696533 2.0299L1.87487 0.851562L5.99987 4.97656Z" fill="currentColor"/>
+            </svg>
+`;
 
             let less = `
                 {{ __('web.index.section.courses.less') }}
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.00013 3.02344L1.87513 7.14844L0.696798 5.9701L6.00013 0.666771L11.3035 5.9701L10.1251 7.14844L6.00013 3.02344Z" fill="currentColor"/>
-                </svg>
-            `;
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.00013 3.02344L1.87513 7.14844L0.696798 5.9701L6.00013 0.666771L11.3035 5.9701L10.1251 7.14844L6.00013 3.02344Z" fill="currentColor"/>
+            </svg>
+`;
 
             $('[id^=course-more]').on('hidden.bs.collapse', function (event) {
                 let parent = $(event.target).data('parent');

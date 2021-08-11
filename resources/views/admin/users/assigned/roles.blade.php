@@ -16,7 +16,8 @@
                 @endforeach
             </td>
             <td class="text-end">
-                <form id="role-{{ $role->id }}-remove" action="{{ route('admin.users.roles.remove', [$user, $role]) }}" method="post" autocomplete="off">
+                <form id="role-{{ $role->id }}-remove" action="{{ route('admin.users.roles.remove', [$user, $role]) }}"
+                      method="post" autocomplete="off">
                     @csrf
                     @method('patch')
                     <input type="submit" value="Remove" class="btn btn-sm btn-link">

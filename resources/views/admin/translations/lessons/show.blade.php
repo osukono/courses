@@ -86,30 +86,30 @@
                              alt="Course Image"
                              @can(\App\Library\Permissions::update_translations)
                              onclick="$('#lesson-{{ $lesson->id }}-image').click();" style="cursor: pointer;"
-                             @endcan
+                            @endcan
                         >
                     @else
                         <div class="text-center border rounded bg-white align-middle d-table-cell"
                              style="width: 208px; height: 117px;">
                             @can(\App\Library\Permissions::update_translations)
-                            <button type="button" class="btn btn-info btn-sm"
-                                    onclick="$('#lesson-{{ $lesson->id }}-image').click();">
-                                Upload Image
-                            </button>
+                                <button type="button" class="btn btn-info btn-sm"
+                                        onclick="$('#lesson-{{ $lesson->id }}-image').click();">
+                                    Upload Image
+                                </button>
                             @endcan
                         </div>
                     @endisset
                     @can(\App\Library\Permissions::update_translations)
-                    <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
-                          action="{{ route('admin.dev.lessons.image.upload', [$lesson, $language]) }}"
-                          method="post" autocomplete="off" enctype="multipart/form-data">
-                        @csrf
-                        @method('patch')
-                        <input type="file" id="lesson-{{ $lesson->id }}-image" name="image"
-                               accept="image/svg+xml"
-                               onchange="$('#lesson-{{ $lesson->id }}-upload-image').submit();">
-                    </form>
-                        @endcan
+                        <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
+                              action="{{ route('admin.dev.lessons.image.upload', [$lesson, $language]) }}"
+                              method="post" autocomplete="off" enctype="multipart/form-data">
+                            @csrf
+                            @method('patch')
+                            <input type="file" id="lesson-{{ $lesson->id }}-image" name="image"
+                                   accept="image/svg+xml"
+                                   onchange="$('#lesson-{{ $lesson->id }}-upload-image').submit();">
+                        </form>
+                    @endcan
                 </div>
                 <div class="col">
                     <h5 class="card-title">{{ $lesson->title . ' › ' . $language->native }}</h5>
@@ -119,7 +119,8 @@
                     </h6>
                     <div class="p-3 mt-3"
                          @can(\App\Library\Permissions::update_translations)
-                         style="cursor: pointer" onclick="window.location='{{ route('admin.translations.lesson.description.edit', [$language, $lesson]) }}'; return null"
+                         style="cursor: pointer"
+                         onclick="window.location='{{ route('admin.translations.lesson.description.edit', [$language, $lesson]) }}'; return null"
                         @endcan
                     >
                         @isset($description)
@@ -130,17 +131,18 @@
                             @endcan
                         @endisset
                     </div>
-                    <hr />
+                    <hr/>
                     <div class="p-3 mt-3"
                          @can(\App\Library\Permissions::update_translations)
-                         style="cursor: pointer" onclick="window.location='{{ route('admin.translations.lesson.grammar.edit', [$language, $lesson]) }}'; return null"
-                         @endcan
+                         style="cursor: pointer"
+                         onclick="window.location='{{ route('admin.translations.lesson.grammar.edit', [$language, $lesson]) }}'; return null"
+                        @endcan
                     >
                         @isset($grammar_point)
                             {!! $grammar_point !!}
                         @else
                             @can(\App\Library\Permissions::update_translations)
-                            <div class="btn btn-sm btn-info">Grammar Point</div>
+                                <div class="btn btn-sm btn-info">Grammar Point</div>
                             @endcan
                         @endisset
                     </div>

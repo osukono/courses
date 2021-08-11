@@ -51,6 +51,7 @@
 @endsection
 <script>
     import IconLogOut from "../../../js/components/icons/IconLogOut";
+
     export default {
         components: {IconLogOut}
     }

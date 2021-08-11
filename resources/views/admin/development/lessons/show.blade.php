@@ -131,16 +131,16 @@
                         </div>
                     @endisset
                     @can(\App\Library\Permissions::update_content)
-                            <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
-                                  action="{{ route('admin.dev.lessons.image.upload', [$lesson, $content->language]) }}"
-                                  method="post" autocomplete="off" enctype="multipart/form-data">
-                                @csrf
-                                @method('patch')
-                                <input type="file" id="lesson-{{ $lesson->id }}-image" name="image"
-                                       accept="image/svg+xml"
-                                       onchange="$('#lesson-{{ $lesson->id }}-upload-image').submit();">
-                            </form>
-                        @endcan
+                        <form class="d-none" id="lesson-{{ $lesson->id }}-upload-image"
+                              action="{{ route('admin.dev.lessons.image.upload', [$lesson, $content->language]) }}"
+                              method="post" autocomplete="off" enctype="multipart/form-data">
+                            @csrf
+                            @method('patch')
+                            <input type="file" id="lesson-{{ $lesson->id }}-image" name="image"
+                                   accept="image/svg+xml"
+                                   onchange="$('#lesson-{{ $lesson->id }}-upload-image').submit();">
+                        </form>
+                    @endcan
                 </div>
                 <div class="col">
                     <h5 class="card-title">{{ $lesson->title }}</h5>
@@ -149,7 +149,8 @@
                     </h6>
                     <div class="p-3 mt-3"
                          @can(\App\Library\Permissions::update_content)
-                         style="cursor: pointer" onclick="window.location='{{ route('admin.dev.lessons.description.edit', $lesson) }}'; return null"
+                         style="cursor: pointer"
+                         onclick="window.location='{{ route('admin.dev.lessons.description.edit', $lesson) }}'; return null"
                         @endcan
                     >
                         @isset($description)
@@ -160,17 +161,18 @@
                             @endcan
                         @endempty
                     </div>
-                    <hr />
+                    <hr/>
                     <div class="p-3 mt-3"
                          @can(\App\Library\Permissions::update_content)
-                         style="cursor: pointer" onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null"
-                         @endcan
+                         style="cursor: pointer"
+                         onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null"
+                        @endcan
                     >
                         @isset($grammar_point)
                             {!! $grammar_point !!}
                         @else
                             @can(\App\Library\Permissions::update_content)
-                            <div class="btn btn-sm btn-info">Grammar Point</div>
+                                <div class="btn btn-sm btn-info">Grammar Point</div>
                             @endcan
                         @endempty
                     </div>

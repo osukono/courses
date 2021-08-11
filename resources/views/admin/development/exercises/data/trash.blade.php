@@ -31,10 +31,12 @@
                                 <td class="text-nowrap text-end">{{ $data->deleted_at->diffForHumans() }}</td>
                                 <td class="text-nowrap">{{ $data->ledgers->first()->user }}</td>
                                 <td class="text-end">
-                                    <form class="me-1" action="{{ route('admin.dev.exercise.data.restore') }}" method="post">
+                                    <form class="me-1" action="{{ route('admin.dev.exercise.data.restore') }}"
+                                          method="post">
                                         @csrf
                                         <input type="hidden" id="id" name="id" value="{{ $data->id }}">
-                                        <button type="submit" class="btn btn-link btn-sm p-0">{{ __('admin.form.restore') }}</button>
+                                        <button type="submit"
+                                                class="btn btn-link btn-sm p-0">{{ __('admin.form.restore') }}</button>
                                     </form>
                                 </td>
                             </tr>

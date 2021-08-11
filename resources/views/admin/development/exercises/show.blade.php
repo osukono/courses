@@ -25,7 +25,8 @@
             <icon-plus></icon-plus>
             Sentence
             @push('forms')
-                <form id="create-sentence" class="d-none" action="{{ route('admin.dev.exercise.data.create', $exercise) }}"
+                <form id="create-sentence" class="d-none"
+                      action="{{ route('admin.dev.exercise.data.create', $exercise) }}"
                       method="post" autocomplete="off">
                     @csrf
                 </form>
@@ -72,7 +73,8 @@
                                   modal="exercise-{{ $exercise->id }}-modal-delete"
                                   enabled="{{ Auth::getUser()->can(\App\Library\Permissions::update_content) }}">
                     @push('forms')
-                        <form class="d-none" id="exercise-{{ $exercise->id }}-delete" action="{{ route('admin.dev.exercises.destroy', $exercise) }}"
+                        <form class="d-none" id="exercise-{{ $exercise->id }}-delete"
+                              action="{{ route('admin.dev.exercises.destroy', $exercise) }}"
                               method="post">
                             @method('delete')
                             @csrf

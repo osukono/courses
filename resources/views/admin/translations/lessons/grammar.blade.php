@@ -8,7 +8,8 @@
     <div class="card shadow-sm">
         <div class="card-body mb-2">
             <h5 class="card-title mb-4">{{ $lesson->title }}</h5>
-            <form action="{{ route('admin.translations.lesson.grammar.update', [$language, $lesson]) }}" method="post" autocomplete="off">
+            <form action="{{ route('admin.translations.lesson.grammar.update', [$language, $lesson]) }}" method="post"
+                  autocomplete="off">
                 @method('patch')
                 @csrf
 

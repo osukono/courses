@@ -9,7 +9,9 @@
     <tbody>
     @foreach($lessons as $lesson)
         <tr class="clickable-row" data-href="{{ route('admin.courses.practice', [$course, $lesson]) }}">
-            <td><div class="">{{ $lesson->index }}</div></td>
+            <td>
+                <div class="">{{ $lesson->index }}</div>
+            </td>
             <td>
                 <div class="row">
                     @isset($lesson->image)

@@ -1,1 +1,3 @@
-<a href="{{ Storage::url($audio) }}"><icon-download></icon-download></a>
+<a href="{{ Storage::url($audio) }}">
+    <icon-download></icon-download>
+</a>

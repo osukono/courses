@@ -45,14 +45,14 @@
             </a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto me-md-2 me-0">
-{{--                    <a href="{{ route('teachers') }}" class="btn btn-lg btn-link">--}}
-{{--                        {{ __('web.header.teachers') }}--}}
-{{--                    </a>--}}
-{{--                    @can(\App\Library\Permissions::view_admin_panel)--}}
-                        <a class="btn btn-lg btn-link" href="{{ route('admin.dev.courses.index') }}">
-                            {{ __('web.header.console') }}
-                        </a>
-{{--                    @endcan--}}
+                    {{--                    <a href="{{ route('teachers') }}" class="btn btn-lg btn-link">--}}
+                    {{--                        {{ __('web.header.teachers') }}--}}
+                    {{--                    </a>--}}
+                    {{--                    @can(\App\Library\Permissions::view_admin_panel)--}}
+                    <a class="btn btn-lg btn-link" href="{{ route('admin.dev.courses.index') }}">
+                        {{ __('web.header.console') }}
+                    </a>
+                    {{--                    @endcan--}}
                     @auth()
                         <a class="btn btn-lg btn-link" href="#"
                            onclick="document.getElementById('logout').submit()">{{ __('web.header.logout') }}</a>

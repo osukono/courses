@@ -48,6 +48,7 @@
 <script>
     import IconDownloadCloud from "../../../../js/components/icons/IconDownloadCloud";
     import IconUploadCloud from "../../../../js/components/icons/IconUploadCloud";
+
     export default {
         components: {IconUploadCloud, IconDownloadCloud}
     }

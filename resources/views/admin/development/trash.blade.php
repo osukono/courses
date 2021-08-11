@@ -32,7 +32,8 @@
                                     <form class="me-1" action="{{ route('admin.dev.courses.restore') }}" method="post">
                                         @csrf
                                         <input type="hidden" id="id" name="id" value="{{ $content->id }}">
-                                        <button type="submit" class="btn btn-link btn-sm p-0">{{ __('admin.form.restore') }}</button>
+                                        <button type="submit"
+                                                class="btn btn-link btn-sm p-0">{{ __('admin.form.restore') }}</button>
                                     </form>
                                 </td>
                             </tr>

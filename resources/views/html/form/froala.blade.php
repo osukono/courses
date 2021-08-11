@@ -1,6 +1,6 @@
 <div class="mb-3 mt-1">
     @isset($label)
-    <label for="{{ $name }}_FroalaEditor">{{ $label }}</label>
+        <label for="{{ $name }}_FroalaEditor">{{ $label }}</label>
     @endisset
     <textarea class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }} fr-view"
               id="{{ $name }}_FroalaEditor"

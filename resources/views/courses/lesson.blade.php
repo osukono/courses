@@ -5,8 +5,8 @@
 
     <h5 class="mb-4 ms-3">
         {{ $course->language . ' ' . $course->level . ' › ' . $courseLesson->title }}
-{{--        <a rel="nofollow" href="{{ route('courses.practice', $course) }}"--}}
-{{--           class="btn btn-outline-primary ms-2">{{ __('Practice') }}</a>--}}
+        {{--        <a rel="nofollow" href="{{ route('courses.practice', $course) }}"--}}
+        {{--           class="btn btn-outline-primary ms-2">{{ __('Practice') }}</a>--}}
     </h5>
 
     <div class="ms-md-5">
@@ -15,7 +15,7 @@
                 @foreach($exercise['fields'] as $field)
                     <div>
                         @include('admin.components.audio.play', ['audio' => $field['audio']])
-{{--                        @include('components.audio.play', ['audio' => $field['audio'], 'sentence' => \App\Library\Str::normalize($field['value']), 'lang' => $course->language->code])--}}
+                        {{--                        @include('components.audio.play', ['audio' => $field['audio'], 'sentence' => \App\Library\Str::normalize($field['value']), 'lang' => $course->language->code])--}}
                         <span lang="{{ $course->language->code }}">
                         {!! \App\Library\StrUtils::normalize($field['value']) !!}
                         </span>
