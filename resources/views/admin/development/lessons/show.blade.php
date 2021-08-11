@@ -159,7 +159,7 @@
                             @endempty
                             @empty($grammar_point)
                                 <div class="btn btn-sm btn-link"
-                                     onclick="window.location='{{ route('admin.dev.lessons.description.edit', $lesson) }}'; return null">
+                                     onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null">
                                     Grammar Point
                                 </div>
                             @endempty
@@ -180,7 +180,7 @@
                         <div class="p-3 mt-3"
                              @can(\App\Library\Permissions::update_content)
                              style="cursor: pointer"
-                             onclick="window.location='{{ route('admin.dev.lessons.description.edit', $lesson) }}'; return null"
+                             onclick="window.location='{{ route('admin.dev.lessons.grammar.edit', $lesson) }}'; return null"
                             @endcan
                         >
                             {!! $grammar_point !!}
