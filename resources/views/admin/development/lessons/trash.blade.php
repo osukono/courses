@@ -16,10 +16,10 @@
                     <table class="table table-striped table-borderless">
                         <thead>
                         <tr>
-                            <th class="col"></th>
-                            <th class="text-end col-auto">Deleted</th>
-                            <th class="col-auto">By</th>
-                            <th class="col-auto"></th>
+                            <th class="col-12"></th>
+                            <th class="text-end">Deleted</th>
+                            <th>By</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
