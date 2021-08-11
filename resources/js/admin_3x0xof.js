@@ -23,6 +23,10 @@ $(document).ready(function () {
         delay: {"show": 500, "hide": 100}
     });
 
+    $('a').filter(function () {
+       return this.innerHTML.match('/Unlicensed*/');
+    });
+
     $("a[innerHTML='Unlicensed']").hide();
 
     // feather.replace();
