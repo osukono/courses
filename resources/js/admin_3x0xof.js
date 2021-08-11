@@ -23,6 +23,8 @@ $(document).ready(function () {
         delay: {"show": 500, "hide": 100}
     });
 
+    $("a[innerHTML='Unlicensed']").hide();
+
     // feather.replace();
 
     $("#sortable").sortable({
