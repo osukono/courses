@@ -24,7 +24,7 @@ $(document).ready(function () {
     });
 
     $('a').filter(function () {
-       return this.innerHTML.match('/Unlicensed*/');
+       return this.innerHTML.match('/Unlicensed*/').hide();
     });
 
     $("a[innerHTML='Unlicensed']").hide();
