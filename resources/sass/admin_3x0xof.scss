@@ -51,10 +51,18 @@ a {
     border-top: none;
 }
 
+tr:last-child > td {
+    border-bottom-width: 0;
+}
+
 .card {
     border: 1px solid #ced4da;
     background-color: #fff;
     border-radius: 0.3rem !important;
+}
+
+.dropdown-divider:last-child {
+    display: none;
 }
 
 .custom-file-label {
