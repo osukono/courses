@@ -23,10 +23,6 @@ $(document).ready(function () {
         delay: {"show": 500, "hide": 100}
     });
 
-    // $('a').filter(function () {
-    //    return this.innerHTML.match('/Unlicensed copy of the Froala Editor. Use it legally by purchasing a license./');
-    // }).hide();
-
     $("a[innerHTML='Unlicensed']").hide();
 
     // feather.replace();

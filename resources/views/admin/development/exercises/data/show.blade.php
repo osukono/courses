@@ -10,7 +10,7 @@
     @can(\App\Library\Permissions::update_content)
 
         @if(Arr::has($data->content, 'chunks'))
-            <div>
+            <div class="small">
                 <span class="text-secondary me-3">Chunks:</span>
                 <h5 class="d-inline">
                     @foreach(\App\Library\StrUtils::splitChunks(Arr::get($data->content, 'chunks')) as $chunk)
@@ -20,10 +20,8 @@
             </div>
         @endif
 
-        {{--    <splitter value="{{ Arr::get($data->content, 'value') }}"></splitter>--}}
-
         @isset($data->content['extra_chunks'])
-            <div>
+            <div class="small">
                 <span class="text-secondary me-3">Extra chunks:</span>
                 <div class="h5 d-inline">
                     @foreach(\App\Library\StrUtils::splitExtraChunks(Arr::get($data->content, 'extra_chunks')) as $chunk)
@@ -33,9 +31,9 @@
             </div>
         @endisset
         @isset($data->content['capitalized_words'])
-            <div>
-                    <span
-                        class="text-secondary me-3">Capitalized words:</span>{{ Arr::get($data->content, 'capitalized_words') }}
+            <div class="small">
+                <span class="text-secondary me-3">Capitalized words:</span>
+                {{ Arr::get($data->content, 'capitalized_words') }}
             </div>
         @endisset
 
