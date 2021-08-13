@@ -57,6 +57,7 @@
     @include('admin.components.modals.select',[
     'id' => 'assign-editor',
     'title' => 'Assign Editor',
+    'label' => 'User',
     'route' => route('admin.dev.courses.editors.assign', $content),
     'field' => 'user_id',
     'options' => $users,
