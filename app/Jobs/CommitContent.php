@@ -185,7 +185,7 @@ class CommitContent implements ShouldQueue
                     continue;
                 }
 
-                if (!$this->validateContent($translation->content, $_current . " › Translation"))
+                if (!$this->validateContent($translation->content, $_current . " › Translation", false))
                     $valid = false;
             }
         }
