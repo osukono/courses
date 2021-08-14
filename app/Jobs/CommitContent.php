@@ -173,7 +173,7 @@ class CommitContent implements ShouldQueue
 
         foreach ($exercise->exerciseData as $exerciseData) {
             $_current = $current . " › Data " . $exerciseData->index;
-            if (!$this->validateContent($exerciseData->content, $_current))
+            if (!$this->validateContent($exerciseData->content, $_current, $exerciseData->translatable))
                 $valid = false;
 
             if ($exerciseData->translatable) {
@@ -193,7 +193,7 @@ class CommitContent implements ShouldQueue
         return $valid;
     }
 
-    public function validateContent($content, $current)
+    public function validateContent($content, $current, $translatable)
     {
         $valid = true;
 
@@ -202,7 +202,7 @@ class CommitContent implements ShouldQueue
             $valid = false;
         }
 
-        if (!isset($content['chunks'])) {
+        if ($translatable && !isset($content['chunks'])) {
             $this->messages[] = $current . " doesn't have chunks.";
             $valid = false;
         }
