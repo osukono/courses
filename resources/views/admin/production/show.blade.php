@@ -37,7 +37,7 @@
                         </form>
                     @endpush
                 </v-dropdown-item>
-                <v-dropdown-item label="Update Firestore"
+                <v-dropdown-item label="Update Firestore Record"
                                  submit="#course-{{ $course->id }}-firestore-update"
                                  enabled="{{ Auth::getUser()->can(\App\Library\Permissions::publish_courses) }}">
                     @push('forms')
