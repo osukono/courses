@@ -15,16 +15,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $firebase_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Topic newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Topic newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Topic ordered()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Topic query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Topic whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Topic whereFirebaseId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Topic whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Topic whereIdentifier($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Topic whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Topic whereUpdatedAt($value)
+ * @method static Builder|Topic newModelQuery()
+ * @method static Builder|Topic newQuery()
+ * @method static Builder|Topic ordered()
+ * @method static Builder|Topic query()
+ * @method static Builder|Topic whereCreatedAt($value)
+ * @method static Builder|Topic whereFirebaseId($value)
+ * @method static Builder|Topic whereId($value)
+ * @method static Builder|Topic whereIdentifier($value)
+ * @method static Builder|Topic whereName($value)
+ * @method static Builder|Topic whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Topic extends Model

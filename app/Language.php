@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
-
 /**
  * App\Language
  *
@@ -17,35 +16,35 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property string $name
  * @property string $native
  * @property string $code
+ * @property string|null $locale
  * @property string|null $icon
  * @property string $slug
+ * @property string|null $capitalized_words
  * @property string|null $firebase_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $editors
  * @property-read int|null $editors_count
- * @property-read \App\PlayerSettings $playerSettings
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language findSimilarSlugs($attribute, $config, $slug)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language ordered()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereCode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereFirebaseId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereIcon($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereNative($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereUpdatedAt($value)
- * @mixin \Eloquent
- * @property string|null $locale
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language whereLocale($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Language hasAccess(\App\User $user)
- * @method static Builder|Language withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
- * @property string|null $capitalized_words
+ * @property-read \App\PlayerSettings|null $playerSettings
+ * @method static Builder|Language findSimilarSlugs(string $attribute, array $config, string $slug)
+ * @method static Builder|Language hasAccess(\App\User $user)
+ * @method static Builder|Language newModelQuery()
+ * @method static Builder|Language newQuery()
+ * @method static Builder|Language ordered()
+ * @method static Builder|Language query()
  * @method static Builder|Language whereCapitalizedWords($value)
+ * @method static Builder|Language whereCode($value)
+ * @method static Builder|Language whereCreatedAt($value)
+ * @method static Builder|Language whereFirebaseId($value)
+ * @method static Builder|Language whereIcon($value)
+ * @method static Builder|Language whereId($value)
+ * @method static Builder|Language whereLocale($value)
+ * @method static Builder|Language whereName($value)
+ * @method static Builder|Language whereNative($value)
+ * @method static Builder|Language whereSlug($value)
+ * @method static Builder|Language whereUpdatedAt($value)
+ * @method static Builder|Language withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
+ * @mixin \Eloquent
  */
 class Language extends Model
 {

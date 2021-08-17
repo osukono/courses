@@ -71,9 +71,10 @@ class CourseRepository
     {
         $this->model->title = $attributes['title'];
         $this->model->description = $attributes['description'];
-        $this->model->review_exercises = $attributes['review_exercises'];
         $this->model->android_product_id = $attributes['android_product_id'];
         $this->model->ios_product_id = $attributes['ios_product_id'];
+        $this->model->ad_mob_banner_unit_id_android = $attributes['ad_mob_banner_unit_id_android'];
+        $this->model->ad_mob_banner_unit_id_ios = $attributes['ad_mob_banner_unit_id_ios'];
         $this->model->demo_lessons = $attributes['demo_lessons'];
         $this->model->minor_version = $attributes['version'];
         $this->model->firebase_id = $attributes['firebase_id'];

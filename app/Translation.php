@@ -14,24 +14,24 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $exercise_data_id
  * @property int $language_id
  * @property array $content
+ * @property int $disabled
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\ExerciseData $exerciseData
  * @property-read \App\Language $language
  * @property-read \Illuminate\Database\Eloquent\Collection|\Altek\Accountant\Models\Ledger[] $ledgers
  * @property-read int|null $ledgers_count
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation whereContent($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation whereExerciseDataId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation whereLanguageId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Translation newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Translation newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Translation query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Translation whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Translation whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Translation whereDisabled($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Translation whereExerciseDataId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Translation whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Translation whereLanguageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Translation whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property int $disabled
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Translation whereDisabled($value)
  */
 class Translation extends Model implements Recordable
 {

@@ -16,15 +16,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\AppLocale[] $locales
  * @property-read int|null $locales_count
- * @method static \Illuminate\Database\Eloquent\Builder|\App\LocaleGroup newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\LocaleGroup newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\LocaleGroup query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\LocaleGroup whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\LocaleGroup whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\LocaleGroup whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\LocaleGroup whereUpdatedAt($value)
+ * @method static Builder|LocaleGroup newModelQuery()
+ * @method static Builder|LocaleGroup newQuery()
+ * @method static Builder|LocaleGroup ordered()
+ * @method static Builder|LocaleGroup query()
+ * @method static Builder|LocaleGroup whereCreatedAt($value)
+ * @method static Builder|LocaleGroup whereId($value)
+ * @method static Builder|LocaleGroup whereName($value)
+ * @method static Builder|LocaleGroup whereUpdatedAt($value)
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\App\LocaleGroup ordered()
  */
 class LocaleGroup extends Model
 {

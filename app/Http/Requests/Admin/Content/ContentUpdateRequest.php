@@ -36,12 +36,6 @@ class ContentUpdateRequest extends FormRequest
                 'integer',
                 'min:1'
             ],
-            'review_exercises' => [
-                'bail',
-                'required',
-                'integer',
-                'min:3',
-            ],
             'capitalized_words' => [
                 'bail',
                 'nullable',

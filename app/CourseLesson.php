@@ -15,35 +15,35 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $id
  * @property int $course_id
  * @property string $title
+ * @property string|null $image
+ * @property string|null $description
+ * @property string|null $grammar
  * @property int $exercises_count
  * @property array $content
  * @property int $index
- * @property-read \App\Course $course
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson sequenced($direction = 'asc')
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereContent($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereCourseId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereExercisesCount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereIndex($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereTitle($value)
- * @mixin \Eloquent
+ * @property string $slug
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\CourseLesson whereUpdatedAt($value)
- * @property string|null $image
- * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereImage($value)
- * @property string|null $grammar
- * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereGrammar($value)
- * @property string $slug
+ * @property-read \App\Course $course
  * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson findSimilarSlugs(string $attribute, array $config, string $slug)
- * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
- * @property string|null $description
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson query()
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson sequenced($direction = 'asc')
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereCourseId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereExercisesCount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereGrammar($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereIndex($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CourseLesson withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
+ * @mixin \Eloquent
  */
 class CourseLesson extends Model
 {

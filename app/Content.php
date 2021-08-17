@@ -22,7 +22,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string|null $title
  * @property int $version
  * @property int $player_version
- * @property int $review_exercises
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
@@ -35,31 +34,26 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read int|null $lessons_count
  * @property-read \App\Level $level
  * @property-read \App\Topic $topic
- * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content hasAccess(\App\User $user)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content newQuery()
- * @method static \Illuminate\Database\Query\Builder|\App\Content onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content ordered()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content query()
- * @method static bool|null restore()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content sequenced($direction = 'asc')
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereLanguageId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereLevelId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content wherePlayerVersion($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereReviewExercises($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereTopicId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Content whereVersion($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Content withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Content withoutTrashed()
+ * @method static Builder|Content hasAccess(\App\User $user)
+ * @method static Builder|Content newModelQuery()
+ * @method static Builder|Content newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Content onlyTrashed()
+ * @method static Builder|Content ordered()
+ * @method static Builder|Content query()
+ * @method static Builder|Content sequenced($direction = 'asc')
+ * @method static Builder|Content whereCreatedAt($value)
+ * @method static Builder|Content whereDeletedAt($value)
+ * @method static Builder|Content whereId($value)
+ * @method static Builder|Content whereLanguageId($value)
+ * @method static Builder|Content whereLevelId($value)
+ * @method static Builder|Content wherePlayerVersion($value)
+ * @method static Builder|Content whereTitle($value)
+ * @method static Builder|Content whereTopicId($value)
+ * @method static Builder|Content whereUpdatedAt($value)
+ * @method static Builder|Content whereVersion($value)
+ * @method static \Illuminate\Database\Query\Builder|Content withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Content withoutTrashed()
  * @mixin \Eloquent
- * @property string|null $capitalized_words
- * @method static Builder|Content whereCapitalizedWords($value)
  */
 class Content extends Model implements Recordable
 {

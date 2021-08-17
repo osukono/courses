@@ -23,30 +23,28 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Language[] $disabled
+ * @property-read int|null $disabled_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\ExerciseData[] $exerciseData
  * @property-read int|null $exercise_data_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Altek\Accountant\Models\Ledger[] $ledgers
  * @property-read int|null $ledgers_count
  * @property-read \App\Lesson $lesson
- * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise newQuery()
- * @method static \Illuminate\Database\Query\Builder|\App\Exercise onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise ordered()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise query()
- * @method static bool|null restore()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise sequenced($direction = 'asc')
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereIndex($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereLessonId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Exercise whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Exercise withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Exercise withoutTrashed()
+ * @method static Builder|Exercise newModelQuery()
+ * @method static Builder|Exercise newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Exercise onlyTrashed()
+ * @method static Builder|Exercise ordered()
+ * @method static Builder|Exercise query()
+ * @method static Builder|Exercise sequenced($direction = 'asc')
+ * @method static Builder|Exercise whereCreatedAt($value)
+ * @method static Builder|Exercise whereDeletedAt($value)
+ * @method static Builder|Exercise whereId($value)
+ * @method static Builder|Exercise whereIndex($value)
+ * @method static Builder|Exercise whereLessonId($value)
+ * @method static Builder|Exercise whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Exercise withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Exercise withoutTrashed()
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Language[] $disabled
- * @property-read int|null $disabled_count
  */
 class Exercise extends Model implements Recordable
 {

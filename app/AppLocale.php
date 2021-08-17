@@ -18,17 +18,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\LocaleGroup|null $localeGroup
- * @method static \Illuminate\Database\Eloquent\Builder|\App\AppLocale newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\AppLocale newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\AppLocale ordered()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\AppLocale query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\AppLocale whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\AppLocale whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\AppLocale whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\AppLocale whereKey($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\AppLocale whereLocaleGroupId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\AppLocale whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\AppLocale whereValues($value)
+ * @method static Builder|AppLocale newModelQuery()
+ * @method static Builder|AppLocale newQuery()
+ * @method static Builder|AppLocale ordered()
+ * @method static Builder|AppLocale query()
+ * @method static Builder|AppLocale whereCreatedAt($value)
+ * @method static Builder|AppLocale whereDescription($value)
+ * @method static Builder|AppLocale whereId($value)
+ * @method static Builder|AppLocale whereKey($value)
+ * @method static Builder|AppLocale whereLocaleGroupId($value)
+ * @method static Builder|AppLocale whereUpdatedAt($value)
+ * @method static Builder|AppLocale whereValues($value)
  * @mixin \Eloquent
  */
 class AppLocale extends Model

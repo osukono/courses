@@ -21,57 +21,55 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $major_version
  * @property int $minor_version
  * @property int $player_version
- * @property bool $published
  * @property string|null $image
- * @property int $review_exercises
+ * @property string|null $android_product_id
+ * @property string|null $ios_product_id
+ * @property string|null $ad_mob_banner_unit_id_android
+ * @property string|null $ad_mob_banner_unit_id_ios
+ * @property int $demo_lessons
  * @property string|null $audio_storage
+ * @property string|null $capitalized_words
  * @property string|null $firebase_id
+ * @property int $is_updating
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $committed_at
  * @property \Illuminate\Support\Carbon|null $uploaded_at
- * @property \Illuminate\Support\Carbon|null $published_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\CourseLesson[] $courseLessons
  * @property-read int|null $course_lessons_count
  * @property-read \App\Language $language
  * @property-read \App\Level $level
  * @property-read \App\Topic $topic
  * @property-read \App\Language $translation
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course ordered()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereAudioStorage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereCommittedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereFirebaseId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereImage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereLanguageId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereLevelId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereMajorVersion($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereMinorVersion($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course wherePlayerVersion($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course wherePublished($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course wherePublishedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereReviewExercises($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereTopicId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereTranslationId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereUploadedAt($value)
- * @mixin \Eloquent
- * @property int $is_updating
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Course whereIsUpdating($value)
- * @property string|null $android_product_id
- * @property string|null $ios_product_id
- * @property string $demo_lessons
+ * @method static Builder|Course newModelQuery()
+ * @method static Builder|Course newQuery()
+ * @method static Builder|Course ordered()
+ * @method static Builder|Course query()
+ * @method static Builder|Course whereAdMobBannerUnitIdAndroid($value)
+ * @method static Builder|Course whereAdMobBannerUnitIdIos($value)
  * @method static Builder|Course whereAndroidProductId($value)
- * @method static Builder|Course whereDemoLessons($value)
- * @method static Builder|Course whereIosProductId($value)
- * @property string|null $capitalized_words
+ * @method static Builder|Course whereAudioStorage($value)
  * @method static Builder|Course whereCapitalizedWords($value)
+ * @method static Builder|Course whereCommittedAt($value)
+ * @method static Builder|Course whereCreatedAt($value)
+ * @method static Builder|Course whereDemoLessons($value)
+ * @method static Builder|Course whereDescription($value)
+ * @method static Builder|Course whereFirebaseId($value)
+ * @method static Builder|Course whereId($value)
+ * @method static Builder|Course whereImage($value)
+ * @method static Builder|Course whereIosProductId($value)
+ * @method static Builder|Course whereIsUpdating($value)
+ * @method static Builder|Course whereLanguageId($value)
+ * @method static Builder|Course whereLevelId($value)
+ * @method static Builder|Course whereMajorVersion($value)
+ * @method static Builder|Course whereMinorVersion($value)
+ * @method static Builder|Course wherePlayerVersion($value)
+ * @method static Builder|Course whereTitle($value)
+ * @method static Builder|Course whereTopicId($value)
+ * @method static Builder|Course whereTranslationId($value)
+ * @method static Builder|Course whereUpdatedAt($value)
+ * @method static Builder|Course whereUploadedAt($value)
+ * @mixin \Eloquent
  */
 class Course extends Model
 {
