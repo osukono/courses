@@ -5,34 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a785d2cf-d14f-49d2-8732-8112a5ce1c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_17_084923_courses_add_ad_mob_banner.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_17_091508_contents_drop_review_exercises.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_17_091526_courses_drop_review_exercises.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_17_092044_contents_drop_capitalized_words.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppLocale.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppLocale.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Content.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Content.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/CourseLesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CourseLesson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exercise.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exercise.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ExerciseData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ExerciseData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/Content/ContentUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/Content/ContentUpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/CourseUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/CourseUpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Language.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Lesson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Level.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Level.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/LocaleGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LocaleGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PlayerSettings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PlayerSettings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/CourseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CourseRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/FirebaseCourseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/FirebaseCourseRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/SpeechSettings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SpeechSettings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Topic.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Topic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Translation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Translation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/development/courses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/development/courses/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/production/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/production/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -552,7 +525,7 @@
       <workItem from="1628675921732" duration="213000" />
       <workItem from="1628698803626" duration="4502000" />
       <workItem from="1628940377308" duration="462000" />
-      <workItem from="1629010421229" duration="3683000" />
+      <workItem from="1629010421229" duration="4041000" />
     </task>
     <servers />
   </component>

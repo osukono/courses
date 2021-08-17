@@ -161,8 +161,6 @@ class CourseController extends Controller
             throw new Exception($course . " Doesn't have an image.");
         if (empty($course->player_version))
             throw new Exception($course . " Player version is not set.");
-        if (empty($course->review_exercises))
-            throw new Exception($course . " Review exercises is not set.");
     }
 
     /**
