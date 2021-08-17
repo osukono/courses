@@ -130,7 +130,10 @@ class CourseRepository
             'image' => $this->model->image,
             'demo' => $this->model->demo_lessons,
             'player_version' => $this->model->player_version,
-            'review_exercises' => $this->model->review_exercises,
+            'android_product_id' => $this->model->android_product_id,
+            'ios_product_id' => $this->model->ios_product_id,
+            'ad_mob_banner_unit_id_android' => $this->model->ad_mob_banner_unit_id_android,
+            'ad_mob_banner_unit_id_ios' => $this->model->ad_mob_banner_unit_id_ios,
         ], ['merge' => true]);
 
         Firebase::updateOrDeleteField($reference, 'android_product_id', $this->model->android_product_id);
