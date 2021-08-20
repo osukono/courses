@@ -314,13 +314,13 @@ class CommitContent implements ShouldQueue
         $data['linear_audio'] = $exerciseData->content['linear_audio'];
         $data['linear_duration'] = $exerciseData->content['linear_duration'];
         if (isset($exerciseData->content['chunks'])) {
-            $data['chunks'] = $exerciseData->content['chunks'];
+            $data['chunks'] = StrUtils::apostrophe($exerciseData->content['chunks']);
         }
         if (isset($exerciseData->content['extra_chunks'])) {
-            $data['extra_chunks'] = $exerciseData->content['extra_chunks'];
+            $data['extra_chunks'] = StrUtils::apostrophe($exerciseData->content['extra_chunks']);
         }
         if (isset($exerciseData->content['capitalized_words'])) {
-            $data['capitalized_words'] = $exerciseData->content['capitalized_words'];
+            $data['capitalized_words'] = StrUtils::apostrophe($exerciseData->content['capitalized_words']);
         }
 
         if ($exerciseData->translatable) {
