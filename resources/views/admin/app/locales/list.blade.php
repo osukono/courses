@@ -20,8 +20,8 @@
                 @endisset
                 @foreach($appLocale->values as $key => $value)
                     <div>
-                        <span class="font-weight-bold">{{ $key }}:</span>
-                        <span>{!! nl2br(e($value)) !!}</span>
+                        <span>{{ $key }}:</span>
+                        <span class="ms-2">{!! nl2br(e($value)) !!}</span>
                     </div>
                 @endforeach
             </td>
