@@ -37,7 +37,7 @@
                     data-href="{{ route('admin.dev.exercises.show', [$exercise, 'data' => $data->id]) }}"
                     @endcan
                 >
-                    @include('admin.development.exercises.data.show')
+                    @include('admin.development.exercises.data.show', ['show_info' => true])
                 </td>
                 @empty($editData)
                     <td class="text-nowrap text-end">{{ $data->updated_at->diffForHumans() }}</td>
