@@ -116,7 +116,7 @@
                 <div class="row">
                     <div class="col">
                         <h6 class="text-white mb-3">{{ __('web.footer.contact_us') }}</h6>
-                        <div>support@yummylingo.com</div>
+                        <div>osukono@gmail.com</div>
                     </div>
                 </div>
             </div>
